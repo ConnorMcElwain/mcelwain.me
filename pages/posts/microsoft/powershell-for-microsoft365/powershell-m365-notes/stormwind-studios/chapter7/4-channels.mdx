@@ -1,0 +1,17 @@
+# PowerShell for Microsoft 365 Notes
+## Chapter 7.4 - Channels
+
+### Managing Channels
+* New-TeamChannel
+	* Create a Channel inside of a Team
+```
+# New Channels take a few minutes to show in the Admin console
+$teams = Get-Team
+foreach($team in $teams)
+{
+New-TeamChannel -GroupId $team.GroupId -DisplayName "Weather Announcements" -Description "Incoming Weather" -MembershipType Standard
+}
+```
+
+### Conclusions
+* Creating a new Channel

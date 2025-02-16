@@ -1,0 +1,90 @@
+# MS-102 Certification Notes
+## Day 7.4 - Configuring Synchronization
+
+### Configuring Synchronization
+* Entra Connect - umbrella term for the following
+* Azure AD Connect - aka Entra ID Connect
+* Azure AD Cloud Connect - aka Entra ID Cloud Connect
+
+### Comparing Microsoft Entra ID Connect Cloud Sync to Entra ID Connect
+* Connect to a single on-premises AD forest
+	* Connect sync
+	* Cloud sync
+* Connect to multiple on-premises AD forests
+	* Connect sync
+	* Cloud sync
+* Connect to multiple disconnected on-premises AD forests
+	* Cloud sync
+* Lightweight agent installation model
+	* Cloud sync
+* Multiple active agents for high availability
+	* Cloud sync
+* Connect to LDAP directories
+	* Connect sync
+* Support for user objects
+	* Connect sync
+	* Cloud sync
+* Support for group objects
+	* Connect sync
+	* Cloud sync
+* Support for contact objects
+	* Connect sync
+	* Cloud sync
+* Support for device objects
+	* Connect sync
+* Allow basic customization for attribute flows
+	* Connect sync
+	* Cloud sync
+* Synchronize Exchange online attributes
+	* Connect sync
+	* Cloud sync
+* Synchronize extension attributes 1-15
+	* Connect sync
+	* Cloud sync
+* Synchronize customer defined AD attributes (directory extensions)
+	* Connect sync
+	* Cloud sync
+* Support for Password Hash Sync
+	* Connect sync
+	* Cloud sync
+* Support for Pass-Through Authentication
+	* Connect sync
+* Support for federation
+	* Connect sync
+	* Cloud sync
+* Seamless Single Sign-on
+	* Connect sync
+	* Cloud sync
+* Supports installation on a Domain Controller
+	* Connect sync
+	* Cloud sync
+* Support for Windows Server 2016
+	* Connect sync
+	* Cloud sync
+
+### Which One To Use
+* If not sure, use to Check for optimal sync tool questionnaire
+
+### Azure AD Connect - aka Entra ID Connect
+* Installed into your environment
+* Only one instance can run per Entra ID Tenancy
+* May require installation of SQL Server for large directories
+* For High Availability can run a warm server(s) - staging mode
+* Can synchronize a subset of objects filtered by OU's or Attributes
+* Synchronizes attributes
+* Password Hash Synchronization available for Same Sign on
+* Pass-through Authentication Supported
+* Federation integration supported
+* Health Monitoring
+
+### Entra ID Connect Cloud Sync
+* Cloud based architecture
+* A lightweight Agent is installed into your on-premises environment
+* Configuration done in the cloud
+* Microsoft Recommended
+* High Availability (multi agent support)
+* Quick Deployment
+* Support for Multiple Active Directory Disconnected Forests
+* Can be used side by side with Connect Sync (useful for migration)
+	* But only one tool can sync one object
+* Does not **currently** support Pass-Through Authentication

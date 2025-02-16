@@ -1,0 +1,29 @@
+# AZ-104 Certification Notes
+## Chapter 12.3 - Configuring Azure Monitor Logs
+
+### Describing Azure Monitor Logs
+* Log Analytics
+	* A service for aggregating log data in a single pane, where it can be analyzed, visualized, and queried
+	* Internal Data
+		* Azure resources, Azure AD tenant, and subscriptions
+	* External Data
+		* On-premises resources in hybrid environments
+
+### Components of Log Analytics
+* Log Analytics Workspace
+	* Repository
+		* Metrics
+		* Logs
+* Data Stream
+	* Data Sources
+* Actions
+	* Visualize
+	* Alert
+	* Insights
+
+### Key Takeaways
+We have our Log Analytics Workspace as a repository for us to aggregate data to for our logs and metrics, when we configure logs inside of our diagnostic settings to send those logs and metrics to a Log Analytics Workspace. We can do things inside of Log Analytics Workspace such as visualize our data, as well as alert on the data that we're capturing. We also have something known as Insights which is used more for special use cases, focused insights that we get for specific services such as VMs and Application Insights.
+* Data Sources
+	* Azure resources, Azure AD tenant, subscriptions, and on-premises (custom) resources
+* Log Analytics Agent
+	* An extension installed on resources to allow for telemetry to be gathered into the workspace

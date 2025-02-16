@@ -1,0 +1,366 @@
+# AZ-900 Certification Notes
+## Chapter 14.6 - Practice Exam - 4
+
+### Question 1
+* Your company is migrating an internal web application to the cloud. The application requires specific configuration changes within the Operating System. Which of the following cloud deployment solutions would be most suitable?
+	* Software as a Service (SaaS)
+	* Function as a Service (FaaS)
+	* **Infrastructure as a Service (IaaS)**
+	* Platform as a Service (PaaS)
+
+(Infrastructure as a Service (IaaS)) - Only Infrastructure as a Service provides the required level of access to the Operating System. Platform as a Service (PaaS) is a complete development and deployment environment in the cloud, but does not provide the same level of Operating System access as an IaaS solution. Software as a service (SaaS) allows users to connect to and use cloud-based apps over the Internet but provides no access to the Operating System. Function as a Service (FaaS) such as Azure Functions are small single-purpose applications which do not provide Operating System access. Reference: [What is IaaS? Infrastructure as a Service | Microsoft Azure](https://azure.microsoft.com/en-au/overview/what-is-iaas/ "null")
+
+### Question 2
+* Which of the following is a correct statement regarding Azure?
+	* Resource groups are used as a billing container for our Azure resource costs.
+	* **Non-root management groups can have only a single parent management group and many child management groups.**
+	* Azure accounts can only be associated with a single Azure subscription.
+	* Management groups represent the billing entity for our Azure resource costs.
+
+In Azure, any non-root management group can have only a single parent management group and many child management groups. In the case of the root management group, it doesn't have a parent management group since it is the top-level resource.
+
+### Question 3
+* You need to choose a performance option for an Azure storage account. This storage account will contain small blob objects used to train machine learning models, and it requires the fastest possible performance. Which performance option should you choose?
+	* General-purpose v2
+	* Premium file shares
+	* **Premium block blobs**
+	* Premium page blobs
+
+Premium block blobs provide fast performance for block blob storage types (e.g., blob objects).
+
+### Question 4
+* What is the purpose of a resource lock in Azure?
+	* Synchronize an on-premises AD server with Azure AD.
+	* Manage authentication of Azure AD accounts based on conditions of the authentication attempt.
+	* Enforce standards and restrictions in a subscription or resource group.
+	* **Prevent accidental deletion or modification of critical resources.**
+
+Locks can be applied to specific resources, resource groups, or subscriptions. They can either prevent deletion or modification of a resource regardless of user permissions.
+
+### Question 5
+* Llama Financial is our organization, and we are in charge of our cloud spend. At this time, we do not have a way to manage our cloud spend in an automated fashion. Which of the following tools could we use to automate management of our cloud spend on Azure?
+	* TCO calculator
+	* **Cost Management tool**
+	* Pricing calculator
+	* Subscriptions
+
+The Cost Management tool in Azure is our central tool for managing our cloud spend in an automated fashion. Using the Cost Management tool, we can do things like create billing alerts to alarm us when our cloud spend exceeds a specified threshold.
+
+### Question 6
+* Your company, A Llama Guru, is becoming increasingly popular (why wouldn't it be?). You have to add more virtual machines to run your web facing application. What is the best way to ensure that traffic is distributed and that all virtual machines are being used optimally?
+	* **Use Azure Load Balancer to distribute the inbound flow of internet traffic to a backend pool of virtual machines.**
+	* Use a VPN Gateway to route secure and insecure requests to the appropriate virtual machine in your backend pool.
+	* Use an Azure Application Gateway to recognize the application requested and guide the traffic to the appropriate machine.
+	* Create a pool of identical virtual machines that can all take an equal share of the incoming requests.
+
+(Use Azure Load Balancer to distribute the inbound flow of internet traffic to a backend pool of virtual machines.) - An Azure Load Balancer service is used to distribute all incoming requests to a web endpoint, and then guiding it to an instance in a backend pool of servers. Application Gateway is used to route traffic to specific VMs based on traffic properties such as the URL. A VPN Gateway is used to link Azure and your on-premises account securely as if on the same network. [What is Azure Load Balancer? - Azure Load Balancer | Microsoft Docs](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview "null")
+
+### Question 7
+* Which of the following Azure services is typically seen as Platform as a Service (PaaS) solution?
+	* Azure Functions
+	* Azure Virtual Machines
+	* Microsoft 365
+	* **Azure App Service**
+
+Azure App Services provides an on-demand environment for application hosting without needing to manage the underlying operating system, including patching, storage, and configuration.
+
+### Question 8
+* What is the purpose of the Total Cost of Ownership (TCO) calculator on Azure?
+	* **Estimate the cost savings you can realize by migrating your existing workloads to Azure**
+	* Create accurate estimates of hourly or monthly Azure costs across the entire Azure portfolio
+	* Monitors and analyzes the cost of your current Azure resources
+	* Track your Azure environment's adherence to your company's compliance requirements
+
+The Azure Total Cost of Ownership (TCO) Calculator is used to estimate the cost savings you can realize by migrating your existing workloads to Azure, which includes both savings realized from moving to VMs or migrating to other managed services.
+
+### Question 9
+* Our organization is really starting to grow within Azure. We have several subscriptions at this point, and managing access control to these subscriptions for a single Azure AD tenant is becoming cumbersome. Which of the following would allow our organization to manage access control to our Azure subscriptions?
+	* Resource groups
+	* Billing admin role assignment
+	* **Management groups**
+	* Access control cannot be managed between various subscriptions associated with our Azure tenant.
+
+Management groups can be used to organize our subscriptions into an organizational hierarchy, so that we can granularly manage things, such as access control to the various subscriptions associated with our Azure AD tenant.
+
+### Question 10
+* When implementing passwordless authentication with Azure AD, what authentication methods are currently available to use?
+	* Facebook Authenticator
+	* **FIDO2 Security Key**
+	* **Windows Hello**
+	* **Microsoft Authenticator**
+
+FIDO2 security keys are a hardware USB key used with passwordless and other MFA authentication. Windows Hello uses facial recognition on enabled Windows computers for passwordless authentication. To date, Microsoft Authenticator is the only smartphone MFA app that works with Azure AD's passwordless authentication methods.
+
+### Question 11
+* What is the aim of using Azure Functions in a serverless architecture on Azure?
+	* Improve performance and splitting up data processing into many smaller parts.
+	* **To have each function do a single task, which enables high performance and separation of application responsibilities.**
+	* Be into the latest and greatest. All the cool kids are doing serverless.
+	* To get rid of virtual machines, as they are slow and costly.
+
+(To have each function do a single task, which enables high performance and separation of application responsibilities.) - Azure Functions are great at doing a single task over and over again without you having to worry about the infrastructure. [Azure Functions serverless compute | Microsoft Azure](https://azure.microsoft.com/en-au/services/functions/ "null")
+
+### Question 12
+* Which Azure service delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments?
+	* Azure Policy
+	* Azure Blueprints
+	* Azure Sentinel
+	* **Azure Monitor**
+
+Azure Monitor delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. This information helps you understand how your applications are performing and proactively identify issues affecting them and the resources they depend on.
+
+### Question 13
+* You and your team interact with Azure Storage. You want to recommend a locally installed tool that provides a user-friendly drag-and-drop GUI interface to transfer all storage types. Which tool would you recommend?
+	* AzCopy
+	* **Azure Storage Explorer**
+	* Azure Data Box
+	* Azure File Sync
+
+Azure Storage Explorer is a drag-and-drop GUI interface for all storage types.
+
+### Question 14
+* Your company wants to make use of Azure for deployment of various solutions. They want to ensure suspicious attacks and threats using compromised credentials to resources in their Azure account are prevented. Which of the following helps prevent such attacks by using in-built sensors in Azure?
+	* Microsoft Defender for Identity (formerly Azure Advanced Threat Protection)
+	* Azure Privileged Identity Management
+	* **Azure AD Identity Protection**
+	* Azure DDoS Protection
+
+Azure AD Identity Protection is specifically tailored for Azure. It helps organizations in detecting, investigating, and remediating identity-based risks within Azure. With its capability to provide real-time risk detections during sign-ins and various remediation options, it addresses the requirements of the question.
+
+### Question 15
+* You need to prevent the accidental deletion of a critical VM in an Azure resource group. Personnel need to be able to change the configuration of the VM, if needed, such as changing the VM size. What should you use to accomplish this task?
+	* Create a Conditional Access policy to prevent deletion.
+	* **Apply a delete lock on the VM.**
+	* Apply an Azure Policy to the VM to prevent deletion.
+	* Apply a read-only lock on the VM.
+
+A delete lock on a resource prevents the resource from being deleted; however, it can still be modified or updated.
+
+### Question 16
+* Which are considered serverless services on Azure?
+	* Azure Front Door
+	* **App Services**
+	* **Azure Functions**
+	* Azure Virtual Machines
+	* **Azure Logic Apps**
+	* **Event Grid**
+
+Azure App Services can run and scale web, mobile, and API applications on the fully managed environment platform of your choice, including serverless. Reference: [Azure Serverless](https://azure.microsoft.com/en-us/solutions/serverless/#overview "null"). Azure Functions is a serverless service on Azure. Reference: [Azure Functions Serverless Compute](https://azure.microsoft.com/en-au/services/functions/ "null"). Azure Logic Apps is a serverless service on Azure. Reference: [Logic App Service | Microsoft Azure](https://azure.microsoft.com/en-au/services/logic-apps/ "null"). Event Grid is a serverless service on Azure. Reference: [Event Grid](https://azure.microsoft.com/en-us/products/event-grid/ "null").
+
+### Question 17
+* To access the Azure Portal in a web browser, what website URL do you need to visit?
+	* **`portal.azure.com`**
+	* `www.azureportal.com`
+	* `portal.microsoftazure.com`
+	* `console.azure.com`
+
+(portal.azure.com) - The Azure Portal can be accessed from portal.azure.com in a web browser. The other URLs will not provide access to the Azure Portal. Be careful to only log in to the portal from a legitimate address. [Microsoft Azure](https://portal.azure.com/ "null")
+
+### Question 18
+* How does passwordless authentication ease the burden of signing in with multi-factor authentication?
+	* Passwordless authentication requires both a system password and multi-factor authentication from an approved device.
+	* No password is required to log in, only a valid username.
+	* A username is replaced by a secure PIN code.
+	* **Removes the system password and replaces it with device authentication combined with biometrics/PIN.**
+
+With passwordless authentication, the system login does not prompt for a password. Instead, it prompts for authentication from an approved device, usually with biometrics or a PIN code.
+
+### Question 19
+* What is the purpose of Log Analytics?
+	* Lists planned and unplanned service outages of Azure resources
+	* Provides insights to web applications, such as customer behavior, performance bottlenecks, and errors
+	* **Gain insights from stored logs and metrics collected by Azure Monitor via queries**
+	* Security information event management (SIEM) tool to monitor security of Azure resources
+
+Log Analytics is both a storage and query source for Azure logs and metrics.
+
+### Question 20
+* You have a web application on Azure with a number of virtual machines to run various processes. One of these virtual machines is in charge of processing images. Which Azure service could you use to route all requests for the "/image/" URLs to this specific VM?
+	* Implement a content delivery network to route URLs containing the "/image/" path.
+	* Use a VPN Gateway to route URLs containing the "/image/" path.
+	* Use Azure Load Balancer to route URLs containing the "/image/" path.
+	* **Use an Application Gateway to route URLs containing the "/image/" path.**
+
+(Use an Application Gateway to route URLs containing the "/image/" path.) - An Application Gateway is used specifically for routing traffic based on parameters in the traffic itself. This could be all requests to the "/images/" path of the URL being sent to a specific VM. A VPN Gateway is used to securely connect an Azure Virtual Network with an on-premises network. A CDN does not route traffic. A Load Balancer routes all traffic without looking at it. [What is Azure Application Gateway | Microsoft Docs](https://docs.microsoft.com/en-us/azure/application-gateway/overview "null")
+
+### Question 21
+* Your company is beginning the process of migrating their existing applications to Azure. A business-critical accounting application requires authentication with the NTLM protocol. This application will be migrated to a virtual machine in Azure. Any authentication solution must integrate into your existing on-premises Active Directory domain. What options are available for hosting this application in Azure while still authenticating with Active Directory?
+	* Configure the application to authenticate using Azure AD credentials over single sign-on (SSO).
+	* Configure the Azure Active Directory Domain Services (Azure AD DS) service to act as an extension of your existing on-premises Active Directory domain. Configure the application to authenticate with your Azure AD DS managed service.
+	* **Continue using your on-premises AD server, and synchronize the server with Azure AD over Azure AD Connect. Configure the application to authenticate with your on-premises AD server.**
+	* **Configure an Azure VM with Windows Server, and operate as an Active Directory domain controller. Configure the application to authenticate with your VM-hosted AD server.**
+
+One option is to simply continue hosting an on-premises AD server, if you are not removing all existing on-premises infrastructure. This is referred to as self-managed AD, where you are in charge of configuring and maintaining a Windows Server acting as a domain controller.
+
+### Question 22
+* Our organization is planning to use Azure. We have gathered from planning meetings that we will need to segment billing between various departments, such as marketing and human resources. Which of the following would be the best way to implement segmentation of billing for Azure?
+	* **Create a separate subscription for each department under our Azure account.**
+	* Create a separate Azure account for each department to use.
+	* Create separate resource groups for each department to deploy their resources.
+	* Create a management group for each department.
+
+In Azure we can have an unlimited number of subscriptions under the same Azure account, and we can follow common schemes of segmenting the billing by creating subscriptions for each department.
+
+### Question 23
+* Which of the following Azure storage types is most suitable for sharing files using the Server Message Block (SMB) protocol?
+	* Azure Storage Explorer
+	* Disk Storage
+	* **Azure Files**
+	* Blob Storage
+
+(Azure Files) - Azure Files provides highly available network file shares using the SMB protocol. This allows multiple VMs to read and write the files, and files may be accessed remotely using a URL. [Introduction to Azure Storage - Cloud storage on Azure | Microsoft Docs](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction#disk-storage "null")
+
+### Question 24
+* Which of the following represents the billing entity for our Azure resource costs?
+	* Management groups
+	* Resource groups
+	* Azure accounts
+	* **Subscriptions**
+
+A subscription represents the billing entity for our Azure resource costs. All resources we use in Azure are associated with a subscription. Any resources within a subscription accrue a costs that accumulates to our total costs for that specific subscription in Azure.
+
+### Question 25
+* Which of the following is true of the Cost Management feature in Azure?
+	* **View Azure Advisor recommendations for reducing costs**
+	* **Create alerts for unexpectedly high expenses**
+	* **Create budgets to proactively manage and monitor costs**
+	* Create cost estimates for multiple implementation scenarios
+
+The Cost Management portal also includes Advisor recommendations for reducing costs within your current resources. Along with creating budgets, you can also create alerts based on budgets to alert you when spending meets certain percentage thresholds as well as alert for unexpectedly high costs. Budgets help plan for and drive organizational accountability. They help inform others about their spending to proactively manage costs and to monitor how spending progresses over time.
+
+### Question 26
+* In Azure, how many free trial subscriptions can we have per Microsoft account?
+	* Microsoft does not provide a free trial subscription for Azure.
+	* Microsoft accounts can have unlimited free trial subscriptions.
+	* Microsoft accounts can have access to 3 free trial subscriptions.
+	* **Microsoft accounts can have only a single free trial subscription to Azure.**
+
+For Azure, we are allotted 1 free trial subscription per Microsoft account.
+
+### Question 27
+* The Cost Management tool is used to manage Azure costs. Who is able to use the Cost Management tool?
+	* Only EA subscriptions have access to the Cost Management tool.
+	* Microsoft Azure doesn't have a Cost Management tool at this time.
+	* Any Azure account subscribed to the Cost Management tool.
+	* **All Azure subscriptions have access to the Cost Management tool.**
+
+The Cost Management tool in Azure is supported by all subscriptions on Azure.
+
+### Question 28
+* Your Azure application needs to be designed to handle new levels of demand when load is increased. What cloud concept is required in this scenario?
+	* OpEx
+	* Responsive computing
+	* Reliability
+	* **Scalability**
+
+Scalability is the ability of a system to handle increased load.
+
+### Question 29
+* According to the Shared Responsibility Model, what are you responsible for managing in a PaaS product? Select 2 true answers.
+	* **Information and data**
+	* **Application management**
+	* Operating system management
+	* Hardware management
+
+All cloud models, including PaaS, require you to be responsible for the data that is migrated or created by your PaaS service. PaaS services, such as App Services, remove the need to manage hardware and the underlying operating system; however, you are still responsible for managing the application data/code.
+
+### Question 30
+* In Azure, we use roles to ensure separation of responsibilities. We want to control the ability for our teams to manage billing within Azure. We assign the Billing Admin role to the necessary personnel within our organization. Which of the following can these billing administrators now manage within Azure?
+	* **Subscriptions**
+	* Management groups
+	* Azure accounts
+	* Resource groups
+
+The Billing Admin role in Azure is used to control the ability of users to manage billing information and subscriptions.
+
+### Question 31
+* The Cosmos DB instance that your application uses has suddenly stopped responding. You cannot find any misconfigurations in your database; however, it is still unresponsive. You need to rule out an outage before you perform additional troubleshooting. What should you do?
+	* **Check Azure Service Health for any outages.**
+	* Check Synapse Analytics for any outages.
+	* Check Azure Sentinel for any outages.
+	* Check Azure Monitor for any outages.
+
+Azure Service Health notifies you about Azure service incidents and planned maintenance so you can take action to mitigate downtime.
+
+### Question 32
+* Your organization hosts a customer-facing application that is used to generate revenue. Demand fluctuates at different periods of the day: it is most active during daytime hours, but does not have much traffic overnight. The application needs to automatically increase and decrease compute capacity to meet demand, but not run up costs when demand is low. Which cloud attribute describes the ability for public cloud offerings to meet this requirement?
+	* Governance
+	* Customer management
+	* **Scalability**
+	* Reliability
+
+Scalability describes the ability to increase and decrease compute (often automatically) in order to meet customer demand, while also not paying for more compute than is needed at any given moment.
+
+### Question 33
+* What Cloud model allows you to have complete control over the operating system?
+	* Software as a Service (SaaS)
+	* **Infrastructure as a Service**
+	* Platform as a Service
+
+(Infrastructure as a Service) - Infrastructure as a Service (IaaS) allows you to have complete control over the virtual machine operating system and any applications that you install onto the virtual machine. Reference: [What is IaaS? Infrastructure as a Service | Microsoft Azure](https://azure.microsoft.com/en-gb/overview/what-is-iaas/ "null")
+
+### Question 34
+* Which of the following statements is true in regards to Azure billing for our Azure subscriptions?
+	* In Azure, billing cycles are always due upfront.
+	* In Azure, billing cycles are weekly and require payment within 7 days.
+	* **In Azure, billing cycles are monthly and require payment within 30 or 60 days.**
+	* In Azure, billing cycles are quarterly and require payment immediately.
+
+In Azure, we are billed on a monthly basis and required to make payment within 30 or 60 days of the billing statement.
+
+### Question 35
+* According to the Shared Responsibility Model, what are you responsible for managing in a SaaS product? Select 2 true answers.
+	* **Information and data**
+	* **Devices and accounts**
+	* Application management
+	* Operating system management
+
+All cloud models, including SaaS, require you to be responsible for the data that is migrated or created by your PaaS service. All cloud models, including SaaS, require you to manage the devices and accounts that access your application.
+
+### Question 36
+* What are some of the advantages of using a subnet with your Azure Virtual Network?
+	* You can save costs by only using a part of the Virtual Network through a subnet.
+	* Subnets contain security rules that allow or deny network traffic.
+	* Virtual Machines will start faster, as the network provisioning is already done.
+	* **You can secure a subnet individually from the entire virtual network.**
+	* **You can logically group services on the same Virtual Network.**
+	* **IP address allocation on the subnet is more efficient.**
+
+(You can secure a subnet individually from the entire virtual network.) - Subnets enable you to segment the virtual network into one or more sub-networks and allocate a portion of the virtual network's address space to each subnet. This makes address allocation more efficient, you can have a separate network security group for the subnet, and you can logically group services as well. (You can logically group services on the same Virtual Network.) - Subnets enable you to segment the virtual network into one or more sub-networks and allocate a portion of the virtual network's address space to each subnet. This makes address allocation more efficient, you can have a separate network security group for the subnet, and you can logically group services as well. (IP address allocation on the subnet is more efficient.) - Subnets enable you to segment the virtual network into one or more sub-networks and allocate a portion of the virtual network's address space to each subnet. This makes address allocation more efficient, you can have a separate network security group for the subnet, and you can logically group services as well. [Azure Virtual Network | Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview "null").
+
+### Question 37
+* Which of the following Azure Resource Manager tools are able to run a PowerShell script?
+	* Azure CLI
+	* **Azure PowerShell**
+	* Azure CLI via Google Chromebooks
+	* **Azure Cloud Shell via the Azure portal**
+
+PowerShell can, unsurprisingly, run PowerShell scripts. Cloud Shell contains both the Azure CLI and PowerShell environments. You can run Azure PowerShell scripts in Azure Cloud Shell using the PowerShell environment.
+
+### Question 38
+* Management groups are **not** used to do which of the following for our organization?
+	* Manage access control
+	* **Manage resource lifecycle**
+	* Manage policies
+	* Manage compliance
+
+Management groups are not used to manage resource lifecycle. We use resource groups to manage resource lifecycles.
+
+### Question 39
+* Which of the following is a Software as a Service (SaaS) solution?
+	* Azure SQL Databases
+	* **Microsoft Office 365**
+	* Azure Functions
+	* Azure App Service
+
+(Microsoft Office 365) - Software as a service (SaaS) allows users to connect to and use cloud-based apps over the Internet such as email or Microsoft Office 365. SaaS provides a complete software solution that you rent on a pay-as-you-go basis. Reference: [What is SaaS? Software as a Service | Microsoft Azure](https://azure.microsoft.com/en-au/overview/what-is-saas/ "null").
+
+### Question 40
+* Which of the following are Platform-as-a-Service (PaaS) database offerings on Azure?
+	* **Cosmos DB**
+	* **Azure SQL Database**
+	* Azure Disk Storage
+	* SQL Server in Azure VM
+	* SQL Server Private Cloud
+
+(Cosmos DB) - Azure Cosmos DB is a fully managed Platform-as-a-Service database offering. [Azure Cosmos DB - Multi-Model Database Service | Microsoft Azure](https://azure.microsoft.com/en-au/services/cosmos-db/ "null"). (Azure SQL Database) - Azure SQL Database is a fully managed offering that provides the option of either a hosted service (PaaS) or hosted infrastructure (IaaS). [Choose the Right Deployment Option: Azure SQL Database | Microsoft Docs](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-paas-vs-sql-server-iaas "null").

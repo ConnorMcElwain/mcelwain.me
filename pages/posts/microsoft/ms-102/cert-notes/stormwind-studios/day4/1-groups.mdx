@@ -1,0 +1,79 @@
+# MS-102 Certification Notes
+## Day 4.1 - Groups
+
+* Groups Overview
+* Group Management Tools
+	* Microsoft 365 Admin Center
+	* Entra ID Admin Center
+	* SharePoint Groups
+	* PowerShell
+* Group Licensing
+* Group Administrator Role Management
+* Microsoft 365 Group Reports
+
+### Group Membership
+* Group Membership can be:
+	* Assigned - Users directly assigned
+	* Dynamic User - membership determined via KQL Query
+	* Dynamic Device - membership determined via KQL Query
+* Not all Groups Support Dynamic Membership
+* Dynamic Queries Done in Entra ID Admin Center
+* For Example, the KQL Query:
+	* (user.department -eq "Finance")
+* Means that any user whose Department property is Finance will be in this group
+
+### Group Workloads
+* Groups are Objects that contain one or more users
+	* Some Groups Support Roles
+		* Owner
+		* Member
+* Groups are used in several different ways (workloads)
+	* Communication
+	* Access to Resources
+	* Licensing
+	* Administrative Roles
+
+### Cloud Groups
+* Created in the Cloud (Entra ID - Azure AD)
+* Membership Can Be Assigned or Dynamic User
+* Managed via Cloud Tools
+	* Microsoft 365 Admin Center
+	* Entra ID Admin Center
+	* Exchange Online Admin Center
+	* PowerShell
+		* Microsoft Graph PowerShell Module
+		* MSOnline PowerShell Module
+		* Azure AD PowerShell Module
+
+### Managed via Cloud Tools
+* Microsoft 365 Admin Center
+* Entra ID Admin Center
+* Exchange Online Admin Center
+	* Via some software products included with license
+		* Microsoft Teams
+		* Planner
+		* Project Online
+* PowerShell
+	* Microsoft Graph PowerShell Module
+		* Microsoft Graph PowerShell is a wrapper for the Microsoft Graph API's
+		* There is one Main Module Microsoft.Graph with 38 (and counting) sub modules
+		* The sub-Module for Working with Groups is Microsoft.Graph.Groups
+		* Currently there are 339 Commands in this module
+	* MSOnline PowerShell Module
+	* Azure AD PowerShell Module
+
+### Synchronized Groups
+* Created On Premise in Active Directory Domain Services (ADDS)
+* Managed On Premise
+* Synchronized via Azure AD Connect
+	* a copy is made in Entra ID
+	* Membership and attributes are updated on the copy via Azure AD Connect
+
+### Automatically Created Groups
+* When a Microsoft Team is created
+	* If not connecting to an existing Microsoft 365 Group
+* Viva Engage (formerly known as Yammer)
+	* Private and Internal communities
+* Microsoft Planner
+* Microsoft Project Online - Roadmap (not necessarily automatic)
+* And others...

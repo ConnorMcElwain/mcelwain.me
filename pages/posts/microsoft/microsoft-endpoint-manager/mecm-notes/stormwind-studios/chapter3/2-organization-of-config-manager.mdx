@@ -1,0 +1,82 @@
+# Microsoft Endpoint Manager Notes
+## Chapter 3.2 - Organization of Configuration Manager
+
+### Configuration Manager - Hierarchy Topology
+* Size Matters!
+	* Small:
+		* Single Standalone Primary Site
+	* BIG:
+		* CAS - Central Administration Site (Group of connected primary and secondary sites)
+
+### Configuration Manager - Standalone Primary Site
+* Simplified administrative overhead
+* Simplified client site assignment and discovery of available resources and services
+* Elimination of possible delays introduced by database replication between sites
+* Option to expand a standalone primary site into a larger hierarchy with a central administration site
+
+### Configuration Manager - Stand-Alone Primary Site Size Considerations
+* Stand-Alone Primary Site
+	* Supports up to 15 MPs
+	* Supports up to 250 DPs (combined total of 5000 DPs)
+	* Supports up to 175,000 - not to exceed:
+		* 150,000 Windows clients
+		* 25,000 devices that run macOS
+		* 50,000 devices managed by using on-prem MDM
+* Secondary Site
+	* Supports 1 MP
+	* Supports 250 DPs
+	* Supports up to 15,000 Windows clients
+* Management Point
+	* Supports 25,000 total clients and devices - not to exceed:
+		* 25,000 Windows clients
+		* One of the following (not both)
+			* 10,000 devices that are managed by using on-prem MDM
+			* 10,000 devices that run macOS
+
+### Configuration Manager - When to use a CAS?
+* CAS is the top-level site in a hierarchy
+* CAS supports only primary sites as child sites
+* CAS cannot have clients assigned to it
+* CAS doesn't support site system roles that directly support clients
+	* Management Points and Distribution Points
+* Configure discovery operations throughout the hierarchy from the CAS
+* Manage security throughout the hierarchy
+* Configure replication to control communication between sites
+* Size Matters!
+
+### Configuration Manager - Central Administration Site (CAS)
+* Supports more than one primary site
+* Supports up to 25 primary sites
+* Always locked into the central administration site
+	* Cannot detach a child primary site to make it a standalone primary site
+
+### Configuration Manager - CAS Size Considerations
+* CAS
+	* Up to 25 child primary sites
+	* Supports up to 700,000 Windows desktops, 25,000 devices that run macOS and 100,000 devices using Mobile Device Management
+* Primary Site
+	* Up to 250 secondary sites
+	* Supports up to 250 distribution points
+	* Can support up to 2000 pull distribution points
+	* With combining all secondary sites, can support up to 5000 distribution points
+	* Supports up to 15 management points
+	* In a CAS supports 150,000 clients and devices
+* Secondary Site
+	* Can support up to 250 distribution points
+	* Can support up to 2000 pull distribution points
+	* Should be 500 or more clients
+	* Supports a single management point
+	* Supports up to 15,000 Windows clients
+* Management Point
+	* Support 25,000 total clients and devices
+* Distribution Point
+	* Supports up to 4000 clients
+	* Supports a combined total of up to 10,000 packages and applications
+* Fallback Status Point
+	* Supports up to 100,000 clients
+
+### Topic Summary
+* Size Matters when designing
+* CAS - When and how to use it
+* Stand-Alone Primary Site
+* Site System Roles

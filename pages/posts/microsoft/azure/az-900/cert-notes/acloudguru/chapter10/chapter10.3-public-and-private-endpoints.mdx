@@ -1,0 +1,53 @@
+# AZ-900 Certification Notes
+## Chapter 10.3 - Public and Private Endpoints
+
+### Public Endpoints = Publicly Reachable PaaS Services
+Default: Managed (PaaS) services reachable over the public internet
+* Virtual network -> PaaS over public internet
+* Also exposed to the public
+* Problem with sensitive resources
+What if we want to limit or remove public exposure?
+Solution: Two available solutions: "Good" and "Better"
+* "Good" = service endpoints
+* "Better" = private endpoints
+
+### Service Endpoints: "Good" Solution
+Privately connect VNet subnet to Azure PaaS services
+* Direct connection from subnet to Azure PaaS services
+* Connects over Microsoft's private backbone (not over public internet)
+
+Configure service to only allow traffic from service endpoint-enabled subnet
+* Can also restrict access to specific public IP addresses
+
+### Limitations of Service Endpoints
+* Secure access to VNets **only**
+	* No private on-premises access
+	* Must allow on-premises access over public IP
+* PaaS public endpoint still exists
+	* Not truly private
+* Service endpoints provide access to an entire service
+	* For example, provides private access to all of Azure Storage, not just a single storage account
+
+### Private Endpoint: "Better" Solutions
+Managed network interface
+* Private connection to specific instance of a service
+* e.g., single storage account, SQL instance, etc
+
+Available over connected networks
+* Hybrid/on-premises networks
+* Peered virtual networks
+
+Can completely disable public access to a connected service
+* Truly private
+* Public endpoint disabled
+
+### Scenario
+VPN connection from home office to an Azure VNet named 'hub-vnet'
+
+Must privately access sensitive Azure SQL database from home office
+* Disable public internet exposure
+
+Solution: A private endpoint
+* Privately connects **hub-vnet** to Azure SQL database
+* Private access from home office
+* Can also disable public access for truly private connection

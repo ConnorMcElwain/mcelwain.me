@@ -1,0 +1,95 @@
+# Microsoft Endpoint Manager Notes
+## Chapter 4.3 - Co-Management (Device Management)
+
+### Co-Management - Device Management Overview
+* Devices Overview
+	* By Platform
+	* Device Enrollment
+	* Provisioning
+	* Policy
+	* Other
+	* Help and Support
+
+### Co-Management - Available Device Actions
+* Autopilot reset (Windows Only)
+* BitLocker key rotation (Windows only)
+* Collect diagnostics (Windows 10 only)
+* Delete
+* Disable Activation Lock (iOS only)
+* Erase (macOS only)
+* Fresh Start (Windows only)
+* Full Scan (Windows 10 only)
+* Locate device (iOS only)
+* Lost mode (iOS only)
+* Quick Scan (Windows 10 only)
+* Remote control for Android
+* Remote lock
+* Rename device
+* Reset passcode
+* Restart (Windows only)
+* Retire
+* Update Windows Defender Security Intelligence
+* Windows 10 PIN reset
+* Wipe
+* Send custom notification (Android, iOS/iPadOS)
+* Synchronize device
+* Update cellular data plan (iOS/iPadOS)
+
+### Co-Management - Available Device Actions
+* What's the difference between Delete, Retire, Wipe, Fresh Start, and Autopilot Reset?
+	* Delete
+		* Remove unwanted Devices
+			* Intune Removal: ✔️
+			* AAD Removal: ✔️
+	* Retire
+		* Remove unwanted Devices
+			* Intune Removal: ❌
+			* AAD Removal: ❌
+	* Wipe
+		* Returned or Lost Device
+			* Intune Removal: ✔️
+			* AAD Removal: ✔️
+	* Wipe with enrollment retention
+		* Remove Apps. Retain User Data
+			* Intune Removal: ❌
+			* AAD Removal: ❌
+	* Fresh Start
+		* Reset device to latest Windows version
+			* Intune Removal: ✔️
+			* AAD Removal: ❌
+	* Fresh Start with enrollment retention
+		* Update to latest Windows version, Remove Apps, Retain User data & files
+			* Intune Removal: ❌
+			* AAD Removal: ❌
+	* Autopilot Reset
+		* Remove user profile & data for reuse of a device
+			* Intune Removal: ❌
+			* AAD Removal: ❌
+* Collect diagnostics (Windows 10 only)
+	* Collected info:
+		* Specific Registry Keys
+		* Specific Commands
+		* Specific Event Viewers
+		* Specific Files
+	* Not Collected info:
+		* Personal information
+* Update Windows Defender Security Intelligence
+	* Where are antivirus updates downloaded from?
+	* When are antivirus updates downloaded and applied?
+
+### Co-Management - Bulk Device Actions
+* Autopilot reset
+* Collect diagnostics
+* Custom notifications
+* Delete
+* Rename
+* Restart
+* Retire
+* Sync
+* Wipe
+* Open Mobile Alliance Uniform Resource Identifier (OMA-URI) settings
+
+### Topic Summary
+* Device Management Overview
+* Device Management Actions
+* Windows Defender

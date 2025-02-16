@@ -1,0 +1,37 @@
+# AZ-900 Certification Notes
+## Chapter 12.2 - Subscriptions
+
+### Billing & Pricing
+* Subscription
+	* VM
+	* Event Hub
+	* Data Lake
+	* HDInsight
+**All resources belong to a subscription**
+
+### Subscription
+* Multiple Subscriptions
+	* Any Azure account can have multiple subscriptions. Useful for organizing who pays for what
+* Billing Admin
+	* One or more users can be a "billing admin", which manages anything to do with billing and invoicing on Azure. Ensures separation of responsibility
+* Billing Cycle
+	* A billing cycle on Azure is either 30 or 60 days
+
+### Offer Types
+At any given time, Azure has a lot of active offer types. Offer types is the type of subscription. There are many different ones at any one time.
+* Pay-as-you-go
+* Support Plans
+* Free trial
+* Visual Studio Professional subscribers
+* Visual Studio Test Professional subscribers
+* MSDN Platforms subscribers
+* Enterprise Dev/Test
+* Etc
+
+### Management Groups
+* Group Subscriptions
+	* Take action across subscriptions in bulk. Very useful in large organizations with many subscriptions
+* Organize
+	* Manage access, policies and compliance in bulk. E.g. have management group per country or department
+* Billing Logic
+	* You maintain the billing associated with the right budgets. Nest management groups to indicate hierarchy and relationship. Each management group can have a single parent group, but many child groups

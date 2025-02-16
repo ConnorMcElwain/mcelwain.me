@@ -1,0 +1,47 @@
+# AZ-104 Certification Notes
+## Chapter 11 - Introduction to Application Gateway
+
+### Introduction to Application Gateway
+**Azure Application Gateway** is **application-level routing** and **load balancing** service.
+
+Application Gateway operates on **OSI Layer 7** also known as the Application Layer.
+
+**Azure Web Application Firewall (WAF)** policies can be attached to an Application Gateway to provide additional security.
+
+You need to configure a **Frontend**
+* **Private IP** will create an Internal Load Balancer
+* **Public IP** will create a Public/External Load Balancer
+
+You need to configure a **Backend**
+* You'll need to create backend pools
+	* A backend pool is a collection of resources to which your application gateway can send traffic
+	* A backend pool can contain
+		* Virtual machines
+		* Virtual machine scale sets
+		* IP addresses
+		* Domain names
+		* App services
+
+You need to configure **Routing Rules**
+* **Listeners** list to incoming traffic and passes it to rules
+* **Rules** say who should we pass data to
+* **HTTP/S settings** say how we should handle HTTP requests
+
+### Practice Quiz
+* What are the two components you need to configure in Frontends?
+	* Rules
+	* Virtual machines
+	* **Private IP**
+	* **Public IP**
+* In routing rules, which feature manages who should we pass data to?
+	* Listeners
+	* **Rules**
+	* WAF
+	* HTTP/S settings
+
+* What is Azure Application Gateway?
+	* **Azure Application Gateway is an application-level routing and load balancing service**.
+* What are policies that can be attached to an Application Gateway to provide additional security?
+	* **Azure Web Application Firewall (WAF)**
+* What are Backend pools?
+	* **A backend pool is a collection of resources to which your application gateway can send traffic**.

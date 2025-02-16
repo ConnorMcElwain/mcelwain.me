@@ -1,0 +1,11 @@
+{
+  "chapter9-creating-and-managing-virtual-machines-part1": "Chapter 9 - Creating and Managing Virtual Machines (Part 1)",
+  "chapter9.2-creating-and-managing-virtual-machines-part2": "Chapter 9.2 - Creating and Managing Virtual Machines (Part 2)",
+  "chapter9.3-managing-virtual-machine-disks": "Chapter 9.3 - Managing Virtual Machine Disks",
+  "chapter9.4-configuring-virtual-machine-availability-and-scale-sets-part1": "Chapter 9.4 - Configuring Virtual Machine Availability and Scale Sets (Part 1)",
+  "chapter9.5-configuring-virtual-machine-availability-and-scale-sets-part2": "Chapter 9.5 - Configuring Virtual Machine Availability and Scale Sets (Part 2)",
+  "chapter9.6-automating-virtual-machine-deployments": "Chapter 9.6 - Automating Virtual Machine Deployments",
+  "chapter9.7-managing-virtual-machine-updates": "Chapter 9.7 - Managing Virtual Machine Updates",
+  "chapter9.8-automating-virtual-machine-configuration": "Chapter 9.8 - Automating Virtual Machine Configuration",
+  "chapter9.9-using-azure-bastion": "Chapter 9.9 - Using Azure Bastion"
+}

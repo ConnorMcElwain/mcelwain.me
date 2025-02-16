@@ -1,0 +1,32 @@
+# AZ-104 Certification Notes
+## Chapter 10.2 - Using Application Gateway
+
+### Describe Azure Application Gateway
+* Azure Application Gateway (App GW)
+	* Azure Application Gateway is a networking service for load balancing between backend compute
+		* Layer 7 load balancing (HTTP/HTTPS)
+		* URL path-based routing
+		* Backend resources must be redundant
+		* Virtual machines, VMSS, App Services
+
+### Components of an Application Gateway
+* Frontend IP
+	* Private or public endpoint for accessing the load balancing solution
+* Backend Pool
+	* Compute solution underlying the load balancer
+* Listener
+	* Port, protocol, and certificate configurations
+* Rules
+	* Load balancing rules, HTTP settings, and health probe
+
+### Key Takeaways
+* Load Balancing
+	* Balance traffic between backend pools using HTTP/HTTPS
+* SSL Termination
+	* Terminate TLS/SSL at the application gateway
+* URL Routing
+	* URL path-based routing between multiple backend pools
+* Security
+	* Web Application Firewall security for the load balancing solution
+* Autoscaling
+	* Scale up/down the backend pools for the application gateway

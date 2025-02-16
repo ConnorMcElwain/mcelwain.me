@@ -1,0 +1,48 @@
+# AZ-900 Certification Notes
+## Chapter 5 - Virtual Network
+
+A virtual network (VNet) enables many types of Azure resources, such as Azure virtual machines, or VMs, to securely communicate with each other, the internet, and on-premises networks. A virtual network is virtual because, while you get access to it, you don't have any access to the hardware. Just like a virtual machine, it's yours to use, but the physical hardware is hidden away.
+
+### Address Space
+An address space is the range of IP addresses that are available. Every service or resource that is connected to a VNet will get its own unique address on that VNet within the address space. That's how services on the same VNet can find each other and communicate.
+
+### Subnets
+Subnets enable you to segment the virtual network into one or more virtual networks and allocate a portion of the virtual network's address space to each subnet. Doing that, you can have multiple virtual networks on the same VNet.
+* Resource Grouping
+	* Group resources onto the same subnet to make it easier to keep an overview
+* Address Allocation
+	* More efficient to allocate addresses to resources on a smaller subnet
+* Subnet Security
+	* Use network security groups to secure individual subnets
+
+### Subnet Regions & Subscriptions
+* Regions
+	* A VNet belongs to a single region. Every resource on the VNet must be in the same region too
+* Subscriptions
+	* A VNet belongs to just one subscription, but a subscription can have multiple VNets
+
+### Cloud Advantages
+* Scaling
+	* Adding more VNets or more addresses to one is simple
+* High Availability
+	* Peering VNets, using a load balancer, or using VPN gateway all increase availability
+* Isolation
+	* Manage and organize resources with subnets and network security groups
+
+### VNet Peering
+This feature lets you connect 2 or more virtual networks in Azure. Traffic between virtual machines in a peered network uses the private Microsoft backbone network and never passes through the public internet. Just like if the VMs were on the same virtual network.
+
+### Peering Benefits
+* Low Latency, High Bandwidth
+	* Resources in virtual networks are connected with a low-latency, high-bandwidth connection
+* Link Separate Networks
+	* Resources in separate virtual networks can communicate with each other
+* Data Transfer
+	* Transfer data easily between subscriptions and deployment models in separate regions
+
+### Exam Tips
+A virtual network is a fundamental part of your Azure infrastructure.
+* An address space is range of IP addresses you can use for your resources
+* A subnet is a smaller network, which is part of your VNet. Use these for security and logical division of resources
+* A VNet is in a single region and single subscription
+* VNets in the cloud can scale, have high availability and isolation

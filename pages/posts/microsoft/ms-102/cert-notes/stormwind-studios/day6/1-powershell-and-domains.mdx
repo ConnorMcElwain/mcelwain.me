@@ -1,0 +1,42 @@
+# MS-102 Certification Notes
+## Day 6.1 - PowerShell and Domains
+
+### PowerShell and Domains
+* Microsoft.Graph.Identity.DirectoryManagement
+* MSOnine
+* AzureAD
+* MicrosoftTeams
+
+### Managed Domains
+* Entra ID (Azure Active Directory) handles the Authentication
+* From MSOnline:
+	* Get-MsolDomain
+
+### Federated Domains
+* Authentication happens from a trusted source, typically used with ADFS
+* From MSOnline:
+	* Convert-MsolDomainToFederated
+
+### Set-MsolUserPrincipalName
+* The `Set-MsolUserPrincipalName` commandlet in the MSOnline Module, is used to change the User Principal Name (user ID) of a user. This commandlet can be used to move a user between a federated and standard domain, which will result in their authentication type changing to that of the target domain
+
+### Microsoft.Graph.Identity.DirectoryManagement
+* `Get-Command -Module Microsoft.Graph.Identity.DirectoryManagement "*domain*" | sort Source,name`
+
+### AzureAD
+* `Get-Command -Module AzureAD "*domain*" | sort Source,name`
+
+### MicrosoftTeams
+* `Get-Command -Module MicrosoftTeams "*domain*" | sort Source,name`
+
+### Domains and DNS for Microsoft 365 Admins
+* DNS
+* Built in Domains
+* Custom domains and subdomains
+	* DNS for Custom Domains
+* Split Brain DNS
+* .local Domains (on Prem)
+* Managed Domains
+* Federated Domains
+* Microsoft 365 Admin Center and Domains and DNS
+* PowerShell and Domains

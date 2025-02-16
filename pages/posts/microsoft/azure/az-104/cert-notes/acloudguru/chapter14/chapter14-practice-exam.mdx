@@ -1,0 +1,584 @@
+# AZ-104 Certification Notes
+## Chapter 14 - AZ-104 Microsoft Azure Administrator Practice Exam
+
+### Practice Exam Breakdown
+* Manage Azure Active Directory Identity and Governance (17%)
+* Implement and Manage Azure Storage (12%)
+* Deploy and Manage Azure Compute Resources (27%)
+* Configure and Manage Azure Networking Services (32%)
+* Monitor and Backup Azure Resources (12%)
+
+### Question 1
+* You have a subscription named Subscription1. Subscription1 has one Azure virtual machine named VM1 which is an Ubuntu server. You can't seem to login to the server via SSH. What tool should you use to verify if the problem is the network security group?
+	* Azure Traffic Manager traffic view
+	* **IP flow verify tool in Azure Network Watcher**
+	* Azure Virtual Network logs
+	* Azure Monitor VM metrics
+
+The IP flow verify tool checks if a packet is allowed or denied to or from a virtual machine. The information consists of direction, protocol, local IP, remote IP, local port, and a remote port. If the packet is denied by a security group, the name of the rule that denied the packet is returned.
+
+### Question 2
+* You have two virtual networks, VNet1 and VNet2. VNet 1 has an IP CIDR of 10.0.0.0/16, and VNet2 has an IP CIDR of 192.168.0.0/16. You want to be able to communicate between these virtual machines privately over the Microsoft backbone. Which of the following could you use to accomplish this without transitivity to other potentially peered networks?
+	* VPN gateway
+	* Azure WAN
+	* **VNet peering**
+	* ExpressRoute
+
+VNet peering can be configured between these VNets with non-overlapping IP CIDRs. Once the peering connections are created on both sides of the peering, these VNets will be able to communicate privately without transitivity to potentially peered networks.
+
+### Question 3
+* Your company has decided to use virtual machines as the compute resource for hosting the organization's latest application. To do so, you need to have storage on the virtual machine that provides persistent storage. Which of the following options would you use?
+	* Containers
+	* Temporary disk
+	* OS disk
+	* **Data disk**
+
+Data disks are managed disks that can be added to existing VMs and used for persistent storage. The data stored on a data disk survives a VM that has been deallocated and can be moved to other VMs.
+
+### Question 4
+* Which of the following Network Watcher tools could you use to investigate all traffic between VM1 and VM2 for a duration of 3 hours?
+	* IP flow verify
+	* VPN diagnostics
+	* **Packet capture**
+	* Connection troubleshoot
+
+The packet capture tool can be used to investigate all traffic between VM1 and VM2 for a duration of time.
+
+### Question 5
+* You work at the IT help desk for Consilium Corporation. You have been getting an influx of calls into the help desk about resetting users' passwords. They keep reporting that they can't seem to figure out how to reset their password in order to gain access to their Customer Relationship Management (CRM) software. What do you do?
+	* **Issue a document to inform users of password reset procedure.**
+	* **Ensure that the users who are having problems are within the correct AD group.**
+	* **Make sure they have their verification device (mobile app or access to email).**
+	* Make sure you have Azure Active Directory Free.
+	* **Verify that self-service password reset is enabled in Azure Active Directory.**
+
+If the Active Directory users are not authorized to reset their password, or the Active Directory environment is not suited for this functionality (e.g. licensing), the document in of itself may not help in this situation, but it is a good start. Good communication is a good idea, but also make sure the users can use self-service in Azure Active Directory. Self-service password may not apply to those outside of a specific Active Directory group. Only users in the group may reset their own passwords. In order to reset their password, the user will have to verify their identity using a mobile phone, mobile app, office phone or email. Self-service password reset is an optional feature in Azure Active Directory, which may not apply to all users in the organization.
+
+### Question 6
+* You need to create an Azure virtual machine named VM1 that requires a static private IP address configured inside the IP address space for the VNet in which the VM resides. How do you configure a static IP address for this Azure VM?
+	* **After the VM has been created, go to the network interface attached to the VM and change the IP configuration to static assignment.**
+	* After the VM has been created, create a new network interface and configure a static IP address for that network interface.
+	* When creating the VM in the portal, change the setting from **dynamic** to **static** on the _Networking_ tab under _Private IP Address_.
+	* When creating a VM in the portal, select **New** next to _Private IP Address_ and choose **static** after assigning the correct IP address.
+
+Changing the IP configuration on the network interface will achieve this goal.
+
+### Question 7
+* Which of the following is required to implement Azure Disk Encryption on virtual machines data disks and OS disks?
+	* SSH private keys
+	* Access keys
+	* **Azure Key Vault**
+	* Shared access signature (SAS) tokens
+
+Azure Key Vault is a required resource when implementing Azure Disk Encryption. Azure Key Vault stores the encryption key for Azure Disk Encryption.
+
+### Question 8
+* You are the Azure Administrator working for CloudMotive Inc. and you have been tasked with ensuring proper access permissions for all Azure AD users. Adam is the Solutions Architect for the Marketing team. All of the resources for the Marketing team are within the MarketingRG resource group. You need to provide access for Adam to manage all resources at the MarketingRG scope. Which of the following built-in roles would you assign to Adam to provide access to manage all resources in the MarketingRG resource group without providing Adam the ability to create role assignments for MarketingRG?
+	* Resource Group Manager
+	* **Contributor**
+	* User Access Administrator
+	* Owner
+
+The Contributor role would be the best solution for providing Adam with the permissions to manage all resources in the MarketingRG resource group, without giving Adam the permissions to make role assignments.
+
+### Question 9
+* You have just purchased the domain name arseemagroup.com from a third-party registrar. Using your Azure Active Directory domain, you'd like to create new users with the suffix @arseemagroup.com. Which 3 things must you do?
+	* **Verify that you own the domain name**
+	* **Create an MX or TXT record for the arseemagroup.com DNS**
+	* **Access the Custom Domain Names blade from Azure AD**
+	* Access the App registrations blade from Azure AD
+
+When you add your custom domain to Azure AD, you must verify that this domain belongs to you by going through a verification process. Azure AD will provide the verification information. When you add your custom domain to Azure AD, you must create an MX or TXT record with a destination address (provided) in order to verify that the domain does indeed belong to you. In order to add the domain arseemagroup.com to Azure AD, you must add it from the Custom Domain Names blade.
+
+### Question 10
+* In your subscription, there are four different resource groups: RG1, RG2, RG3, and RG4. RG2 has a Read-Only lock at the resource group scope. RG3 has a Delete lock at the resource group scope. RG1 and RG4 do not have locks. You need to determine how to move resources between resource groups during the lifecycle of these resources. Assuming all resources provisioned support moving between resource groups regardless of region, which of the following statements are plausible?
+	* You can move resources from RG2 to RG3.
+	* You can move resources between any of these resource groups.
+	* **You can move resources from RG1 to RG4.**
+	* You can move resources from RG2 to RG4.
+	* **You can move resources from RG4 to RG3.**
+
+You can effectively move resources from RG1 and RG4, because RG1 does not have a lock. You can move resources from RG4 and RG3, because RG4 does not have a lock. Also, while RG3 does have a Delete lock ,this does not stop resources from being moved into this resource group.
+
+### Question 11
+* You have a network security group (NSG) that is associated with a network interface that is attached to an Azure virtual machine named VM1 running Windows Server 2019. VM1 is in subnet named subnet1, in a virtual network named VNet1. A different NSG is attached to subnet1, but you notice that there is an inbound rule to allow port 3389. When you try to connect to VM1, you cannot connect. You reviewed the NSG and the source IP address and the protocol are correct. Which action should you take according to best practices for NSGs in Azure?
+	* **The NSG attached to the network interface needs to be removed**
+	* The protocol on the NSG rule is set to UDP
+	* The source IP address on the NSG rule is incorrect
+	* An inbound rule for the NSG attached to the network interface needs to be added
+
+The optimal action is to remove the network security group (NSG) attached to the network interface of the virtual machine. NSG rules applied to both the subnet and the network interface can cause rule conflicts, with the more restrictive rule overriding the other. By removing the NSG from the network interface, the virtual machine can use the NSG associated with the subnet, which simplifies network management and minimizes complexity. That being said, there are situations where applying an NSG to a network interface might be necessary for more granular control of traffic, especially when specific security requirements for a particular VM within the subnet exist, but such usage should be carefully considered due to the extra management complexity it introduces.
+
+### Question 12
+* You have an Azure subscription named Subscription1. In Subscription1, you have an Azure virtual machine named VM1, which uses the "Standard_A2_v2" size. Attached to VM1 are two network interface cards. You require a third network interface card with a network bandwidth above 1000 Mbps for your storage area network. What should you do?
+	* Create a new subnet with a sufficient number of available IP addresses
+	* Create an additional VM in the same subnet and connect to VM1 over the LAN
+	* Create a new storage account to store data for VM1
+	* **Change the VM SKU to Standard_A4 or larger**
+
+The larger SKUs for Azure virtual machines allow for an increased number of NICs. [Av2-series](https://docs.microsoft.com/en-us/azure/virtual-machines/av2-series).
+
+### Question 13
+* You have an Azure Kubernetes Service (AKS) cluster named AKS1 within the resource group named RG1. You are trying run the command `kubectl get all` from the Azure Cloud Shell to view your cluster resources. You received the error, `Error from server (BadRequest): the server rejected our request for an unknown reason`. You've verified that the resources exist and the command is correct. What do you need to do in order to view your cluster resources from the Azure Cloud Shell?
+	* Log in to the cluster GUI from the Azure portal
+	* Access the Kubernetes Dashboard using the command `az aks browse --name AKS1 --resource-group RG1`
+	* Install the kubectl tool
+	* **Retrieve the access credentials using the command `az aks get-credentials --name AKS1 --resource-group RG1`**
+
+The kubeconfig is required in order to access the Kubernetes API. You can retrieve the kubeconfig using the `az aks get-credentials` command.
+
+### Question 14
+* You are a contracting Solutions Architect for an organization seeking a solution for migrating data into Azure Blob. The organization has very low network bandwidth, which they discovered by attempting to copy files over using AzCopy. They require a better way of moving large amounts of data into Azure. Which of the following provides the best solution for this task?
+	* **Import job using organization supplied drives**
+	* Upload files using the Azure portal from on-premises
+	* Copy files over using Azure Storage Explorer
+	* **Import job with Microsoft supplied drives**
+
+An import job could be used to migrate data via ground transport into Azure Blob storage as long as you supply the drives for the job. Import jobs would meet the organization's data migration needs. Import jobs are also possible with Microsoft supplied drives. If you want to transfer data using disk drives supplied by Microsoft, you can use Azure Data Box Disk.
+
+### Question 15
+* Your company wants to implement a load balancing solution in Azure that provides a 99.99% SLA, but it also wants to minimize costs. Which of the following in combination would provide the most appropriate, cost effective solution?
+	* **Standard Load Balancer**
+	* Basic Load Balancer
+	* **Backend pool of 2 virtual machines**
+	* Standard Application Gateway
+	* Backend pool of 1 virtual machine
+
+Standard Load Balancers provide a 99.99% SLA, whereas Basic Load Balancers do not. A backend pool with 2 virtual machines, when implemented with a Standard Load Balancer, would provide the 99.99% SLA.
+
+### Question 16
+* You have an Azure load balancer that has a backend pool consisting of 2 virtual machines. The load balancer balances traffic over port 80 for the backend pool. You need to be able to make an SSH connection into virtual machines in the backend pool. How can you achieve this?
+	* Create an internal load balancer for the virtual machines
+	* Configure a health probe
+	* **Create an inbound NAT rule for each VM that you want to be able to connect to.**
+	* Create a new load balancing rule
+
+Creating inbound NAT rules on the load balancer will allow you to make a connection to VMs in the backend pool using the public IP of the load balancer.
+
+### Question 17
+* You have a subscription named Subscription1. Subscription1 has two virtual networks named VNet1 and VNet2 in two different resource groups. VNet1 is located in the West US region and VNet2 is located in the East US region. You need to apply a network security group named NSG1 to a subnet in VNet1. NSG1 is located in the East US region. How do you attach NSG1 to the subnet in VNet1?
+	* Move VNet1 into a resource group located in the East US region
+	* **You can not attach NSG1 to the subnet in VNet1. Create a new network security group in the West US region**
+	* Move NSG1 into the VNet1 resource group
+	* Select the subnet and choose NSG1 from the network security group drop-down
+
+In order for you to associate a network security group to a subnet, both the virtual network and the network security group must be in the same region.
+
+### Question 18
+* You have a standard load balancer that directs traffic from port 80 externally to 3 different virtual machines. You need to direct all incoming TCP traffic on port 5000 to port 22 internally for connecting to Linux VMs. What do you need in order to connect to the VM via SSH?
+	* A public IP address for all 3 VMs
+	* **A Network Address Translation (NAT) rule**
+	* A route table with at least one rule
+	* **A network security group (NSG)**
+
+NAT rules work alongside NSG rules to provide a connection to a VM that's behind a load balancer. The NSG rules work alongside the NAT rules to provide a connection to a VM that's behind a load balancer.
+
+### Question 19
+* You are using Azure VMs to host a critical user-facing application. You want to ensure that you have a backup solution prepared for the VM. Which of the following steps would you take first in setting up a backup solution?
+	* Configure a recovery plan
+	* Configure Azure Backup
+	* Create a backup policy
+	* **Create a Recovery Services vault**
+
+The very first step in setting up a backup recovery solution is creating Recovery Services vault.
+
+### Question 20
+* You have a general-purpose v1 storage account named `consiliumstore` that has a private container named `container2`. You need to allow read access to the data inside `container2`, but only within a 14 day window. How do you accomplish this using the Azure portal?
+	* Create a service shared access signature (SAS)
+	* Upgrade the storage account to general-purpose v2
+	* **Create a shared access signature (SAS)**
+	* **Create a stored access policy**
+
+A shared access signature (SAS) allows you to have granular control over your storage account, including access to only certain services (i.e. Azure Blobs) and permitting only read, write, delete, list, add, or create access. A stored access policy allows granular control over a single storage container using a shared access signature (SAS).
+
+### Question 21
+* You have an Azure pay-as-you-go subscription named Subscription1. You have some concerns about cost for Subscription1, and you would like to spend less than $100.00 US per month on all resources in this subscription. If you spend more than $90.00 US, you would like to get an alert in the form of a text message. What should you do?
+	* Create a budget in the Subscriptions blade
+	* Shut down VMs when you are not using them
+	* **Create a budget alert condition tied to an action group**
+	* Create an alert in Azure Monitor
+
+Creating an alert condition is available when setting your budget, but is not required that you create an action group. However, in this case, where you want to be notified via SMS (text message), it is required that you tie an action group to our budget alert.
+
+### Question 22
+* Which of the following Azure services enables you to perform disaster recovery solutions by replicating workloads from a source region to a destination region?
+	* Azure Backup
+	* **Azure Site Recovery**
+	* Log Analytics
+	* Import/Export jobs
+
+Azure Site Recovery is a disaster recovery service used to replicate workloads from a source region to a destination region.
+
+### Question 23
+* Your on-premises network consists of two servers named Serve1 and Serve2, both running Windows Server 2019 Datacenter. On Serve1, a file exists named file1.txt. On Serve2, a file exists also named file1.txt, but its contents are different. You set up a file sync service in Azure to sync the folders that contain both versions of file1.txt to a cloud endpoint. First, you setup Serve1 as a server endpoint, then a few hours later, Serve2. What will happen to file1.txt?
+	* **file1.txt from Serve1 will be renamed file1-Serve1.txt**
+	* file1.txt on Serve1 will be renamed file1-old.txt
+	* file1.txt will be overwritten as soon as the Serve2 endpoint is added
+	* file1.txt on Serve1 will be moved to another folder
+
+When two server endpoints contain the same file name, the contents of both files are kept, the one that's synced first will be renamed to `{file-name}-{server-name}.{file-extension}`.
+
+### Question 24
+* Which of the following tools allows you to determine the traffic that is allowed and/or denied inbound or outbound from a virtual machine?
+	* Packet capture
+	* Connection monitor
+	* Next hop
+	* **IP flow verify**
+
+IP flow verify is the Network Watcher diagnostic tool that you can use to determine the traffic that is allowed and/or denied inbound or outbound from a VM.
+
+### Question 25
+* Your company has recently migrated to Azure Active Directory. You have been told to join all users' devices to the domain, but limit the number of devices to 5 per user. What should you do?
+	* Add a VPN gateway to your network infrastructure
+	* Go to the Licenses blade in Azure Active Directory
+	* Create a point-to-site VPN for all users
+	* **Go to the Device Settings blade in Azure Active Directory**
+
+Within the Device Settings blade, you can set the maximum number of devices per user. If a user reaches this quota, they will not be able to join any more devices unless another one is removed.
+
+### Question 26
+* Your organization has multiple storage services (blobs, files, tables, and queues) in a storage account. You want to provide contractors with access to multiple services but not all of them, ensuring they have a granular level of permissions. Additionally, you want to set an expiration date for these permissions to align with the duration of the contract. Which of the following would you use to provide this specific level of access to these storage services?
+	* Service SAS
+	* **Account SAS**
+	* Access keys
+	* Azure RBAC
+
+An Account SAS provides granular access to resources in one or more of the storage services. When you create an Account SAS, you specify which services and resource types the user is allowed to access. This makes it ideal for scenarios where you need to provide access to multiple but not all services within a storage account. Additionally, SAS tokens can be configured with an expiration date, ensuring access is automatically revoked after the contract duration.
+
+### Question 27
+* You have a small number of servers running a microservice, and you want to make sure that all the servers have connectivity with each other. You also need to calculate network performance metrics like packet loss and link latency. Which 2 Azure resources do you need to meet this requirement?
+	* Azure Traffic Manager
+	* **Network Watcher Agent**
+	* Azure Monitor
+	* **Connection Monitor**
+
+To make Connection Monitor recognize your Azure VMs as monitoring sources, you need to install the Network Watcher Agent virtual machine extension on them. Azure virtual machines require the extension to trigger end-to-end monitoring and other advanced functionality. Connection Monitor provides unified, end-to-end connection monitoring in Azure Network Watcher and supports hybrid and Azure cloud deployments. Connection Monitor provides support for connectivity checks that are based on HTTP, Transmission Control Protocol (TCP), and Internet Control Message Protocol (ICMP).
+
+### Question 28
+* Your web application is hosted in a VNet on a virtual machine running UbuntuLTS and has a public IP address. The virtual machine has a default network security group (NSG)implemented on the network interface (NIC) level. No other NSGs exist in this VNet. However, you are unable to visit the web app hosted on your VM over HTTP. Why?
+	* You need to host the app using App Service.
+	* **You need to allow traffic inbound for port 80.**
+	* You need to allow traffic outbound for port 443.
+	* You need to allow inbound for port 80 and allow outbound for the ephemeral ports.
+
+You need to implement a security rule on the NSG that will allow traffic over port 80, which is for servicing HTTP traffic. You only need to create the inbound security rule because NSGs are stateful.
+
+### Question 29
+* You have a web application that serves video and images to those visiting the site. You start to notice that your web server is overloaded, and often crashes because the requests have consumed all of its resources. To combat this, you've added an additional web server, and you plan to load balance these servers by serving images from the first server only and serving video from the second server only. Which Azure resource can you implement that will properly load balance (at OSI layer 7) with URL-based routing and secure with SSL at the lowest cost?
+	* **Azure Application Gateway**
+	* Azure Front Door
+	* Web Application Firewall
+	* Azure Load Balancer
+
+Azure Application Gateway operates at layer 7 (the application layer), and is a web traffic load balancer that enables you to manage traffic to your web applications. Application Gateway can make routing decisions based on URI path and secure with SSL.
+
+### Question 30
+* You are backing up your virtual machines using Azure Backup. You have 3 resource groups: RG1, RG2, and RG3. Inside of each, you have 2 virtual machines. VM1 and VM2 are located in resource group RG1, and VM3 and VM4 are located in resource group RG2. VM1 and VM3 are located in the West US region, VM2 is located in the South Central US region, and VM4 is located in the East US region. Your Azure Recovery Services vault is located in the West US region and inside of resource group RG3. Which of the following virtual machines can you backup with your existing Recovery Services vault?
+	* None of the VMs
+	* **VM1 and VM3**
+	* VM1, VM2, VM3, and VM4
+	* VM1 and VM4
+
+The virtual machines must exist within the same region as the Recovery Services vault in order to back them up.
+
+### Question 31
+* You have a .NET Core application running in Azure App Services. You are expecting a huge influx of traffic to your application in the coming days. When your application experiences this spike in traffic, you want to detect any anomalies such as request errors or failed queries immediately. What service can you use to assure that you know about these types of errors related to your .NET application immediately?
+	* Search feature in Application Insights
+	* **Live Metrics Stream in Application Insights**
+	* Client-side monitoring
+	* Log Analytics workspace
+
+Live Metrics Stream includes such information as the number of incoming requests, the duration of those requests, and any failures that occur. You can also inspect critical performance metrics such as processor and memory.
+
+### Question 32
+* Under your Azure subscription, you are trying to identify VMs that are underutilized in order to shut down all VMs with CPU utilization under 5%. Which tool could you use to analyzes your configurations and usage telemetry? You also would like personalized, actionable recommendations to optimize your Azure resources for reliability, security, operational excellence, performance, and cost.
+	* Metrics
+	* **Advisor**
+	* Monitor
+	* Customer Insights
+
+Advisor helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of your Azure resources.
+
+### Question 33
+* You have two subscriptions, one named Subscription1 and the other named Subscription2. Both subscriptions are located within the same tenant. You have one Azure virtual machine located within Subscription1 and another Azure virtual machine within Subscription2, and you'd like to view CPU utilization metrics on both virtual machines. How can you achieve this while maintaining the minimum number of Azure resources and minimizing cost?
+	* Enable guest-level monitoring on each VM
+	* Install the Log Analytics agent on the VMs
+	* **Turn on VM insights in Azure Monitor**
+	* **Create a Log Analytics workspace for both VMs**
+
+VM insights integration with Azure Monitor Logs delivers powerful aggregation and filtering, allowing Azure Monitor to analyze VM data trends over time. You can view this data in a single VM from the virtual machine directly, or you can use Azure Monitor to deliver an aggregated view of your VMs where the view supports Azure resource-context or workspace-context modes. You can view metrics data (such as CPU utilization percentage) over time by sending your metrics data to a Log Analytics workspace. This workspace can collect metrics data from multiple VMs, no matter if they are located in the same or different subscriptions.
+
+### Question 34
+* You have two subscriptions named Subscription1 and Subscription2. You are currently managing resources in Subscription1 from Computer1, which has the Azure CLI installed. You need to switch to Subscription2. Which command should you run?
+	* `Select-AzureSubscription -SubscriptionName "Subscription2"`
+	* **`az account set --subscription "Subscription2"`**
+	* `az set account --subscription "Subscription2"`
+	* `az subscription set "Subscription2"`
+
+You are accessing Azure from Computer1 with the Azure CLI installed; therefore, this command is the correct command.
+
+### Question 35
+* You have an Azure subscription named Subscription1. In Subscription1 you have 2 VNets: one named VNet-Hub and one named VNet-Spoke. Within VNet-Hub, there is an Azure Firewall with a public IP address, configured as a Standard SKU. In VNet-Spoke, there is a Windows Server 2016 with no public IP address and no network security group (NSG). Which combination of the following can you configure to utilize the public IP address of the Azure Firewall to connect to the Windows Server without exposing the server to the public internet directly?
+	* **Virtual network peering**
+	* **A NAT rule for the Firewall**
+	* An ExpressRoute gateway
+	* A virtual network gateway
+
+In order for traffic to flow from the VNet-Spoke to VNet-Hub, you will need a peered connection between the virtual networks. You can configure a NAT rule on the Azure Firewall to translate and filter inbound internet traffic to your subnets.
+
+### Question 36
+* The Consilium Company has just deployed a number of Azure VMs into a specific subnet in an Azure virtual network. They also want to deploy and configure Azure Firewall, as part of a network security plan. From those newly deployed VMs, the company wants to deny access to the website [https://www.microsoft.com](https://www.microsoft.com/ "undefined"). What are the necessary steps and best ways to achieve this using the Azure resources the company is planning to implement?
+	* A VPN gateway
+	* **A route via Route Table to the firewall (as a virtual appliance hop)**
+	* **A subnet named `AzureFirewallSubnet`**
+	* **An application rule on the Azure Firewall that blocks FQDNS [www.microsoft.com](http://www.microsoft.com/ "undefined")**
+	* An Application Gateway
+	* A network security group rule
+
+A default route to 0.0.0.0/0 with the virtual appliance private IP as a next hop is required to direct any outgoing connections through the firewall. In order to deploy and configure an Azure Firewall, you must have a subnet created named `AzureFirewallSubnet`. An application rule allows or blocks an address by URL. This is necessary in order to block [https://www.microsoft.com](https://www.microsoft.com/ "undefined") according to the requirements of the company.
+
+### Question 37
+* You have decided that you want to create 2 AKS clusters. Each of the clusters has different networking requirements. ClusterAlpha needs each pod to have a private IP address. ClusterBravo requires that each node has a private IP address. Which of the following options would you select for a networking configuration that satisfies the requirements of ClusterBravo?
+	* Container Network Interface
+	* Azure Private Link
+	* Private endpoint
+	* **Kubenet**
+
+Kubenet can provide a private IP for each node in a cluster, which will meet the requirements for the ClusterBravo cluster.
+
+### Question 38
+* Your organization is planning the deployment of an AKS cluster. You want to ensure that every single pod in the AKS cluster receives a private IP address. Which of the following network configurations would you use to provide this functionality?
+	* Microsoft routing
+	* Kubenet
+	* **Container Network Interface**
+	* Service endpoint
+
+Container Network Interface is the network config for AKS clusters that provides an IP address for pods.
+
+### Question 39
+* You've prepared a Dockerfile with the necessary steps to build an image for an application. To streamline your deployment process, you've decided to use Azure's services and have set up an Azure Container Registry for storing your app's images. Before deploying the application to a web app in Azure App Services, what would be your immediate next step?
+	* **Run the `az acr build` command**
+	* Create the App Service Plan
+	* Run the `docker push` command
+	* Run the `docker login` command
+
+The `az acr build` command will build and push your image to an Azure Container Registry all in one command. You should use this if you don't have Docker installed and/or if you don't have the compute resources to build images on your local machine.
+
+### Question 40
+* You have two subscriptions named Subscription1 and Subscription2. You are logged into Azure using Azure PowerShell from Computer1. How can you identify which subscription you are currently viewing and then switch from one subscription to the other for the current session at Computer1?
+	* `Select-AzContext`
+	* **`Get-AzContext`**
+	* `AzShow-Context`
+	* **`Set-AzContext -SubscriptionName`**
+
+In Az PowerShell 3.7.0, 'Get-AzContext' gets the metadata used to authenticate Azure Resource Manager requests. In Az PowerShell 3.7.0, `Set-AzContext` sets the tenant, subscription, and environment for cmdlets to use in the current session.
+
+### Question 41
+* You have created an application named ContainerApp1 that is to be run on Linux containers. You've created an Azure container instance with an FQDN, but you notice that when the container restarts, all application data is lost. What is the best solution to preserve the data associated with your application?
+	* Create a storage account and share the SAS with the application
+	* Run the container on a VM, and use the managed disk attached to the VM
+	* **Mount an Azure file share as a volume in Azure Container Instances**
+	* Create a public blob storage container and share the URI with the application
+
+Azure Container Instances can mount an Azure file share created with Azure Files. Azure Files offers fully managed file shares hosted in Azure Storage that are accessible via Server Message Block (SMB) protocol. Using an Azure file share with Azure Container Instances provides file-sharing features similar to using an Azure file share with Azure virtual machines.
+
+### Question 42
+* You have two Azure virtual machines named VM1 and VM2. VM1 is using the Red Hat Enterprise Linux 8.1 (LVM) operating system and is located in VNet1, within subnet1. VM2 is using the Windows Server 2019 operating system and is located in VNet1, within subnet2. VNet1 has custom DNS configured, pointing to a DNS server with the IP address 172.168.0.6. VM2 has 10.0.1.15 configured as the DNS server on its network interface. Which DNS server will VM2 use for DNS queries?
+	* 8.8.8.8
+	* 172.168.0.6
+	* 10.0.1.15 for primary, 172.168.0.6 as secondary
+	* **10.0.1.15**
+
+Since the network interface attached to VM2 is assigned to a specific DNS server, it takes precedence over the DNS configured on the VNet.
+
+### Question 43
+* You have a subscription named Subscription1. You create a new Azure VM in your subscription named VM5 running Windows 2012 R2. You try to connect and login to VM5, but you get an error that says, "We couldn't connect to the remote PC. Make sure the PC is turned on and connected to the network, and that remote access is enabled." You have verified that VM5 is running and has been assigned a public IP address. What change do you need to make in order to successfully connect and log in to VM5?
+	* Access the VM from a computer that is in the same subnet
+	* Select _Reset password_ from the VM blade
+	* **Add a rule to the network security group that will allow port 3389**
+	* Use Network Watcher for detailed connection tracing
+
+A network security group (NSG) is designed to filter traffic to and from Azure resources, including Azure VMs. Allowing port 3389 from your machine to the Azure VM will address the connection issue.
+
+### Question 44
+* You have an Azure subscription with a virtual machine named VM1. You are using a Recovery Services vault (RSV) to back up VM1 with soft delete enabled. The backup policy is set to back up daily at 11 PM UTC, retain an instant recovery snapshot for 2 days, and retain the daily backup point for 14 days. After the initial backup of VM1, you are instructed to delete the vault and all of the backup data. What should you do?
+	* Wait 15 days before deleting the data
+	* **Turn off soft delete in the vault security settings**
+	* Wait 14 days before deleting the data
+	* Delete the backup policy
+	* Delete Backup Jobs Workload
+	* **Stop the backup of VM1 and delete backup data**
+
+When you stop the backup and delete the backup data, because you have soft delete enabled, the backup data is still kept. Permanently deleting the soft-deleted backup items would remove the backup data indefinitely. If you stop the backup of VM1 and choose **Delete backup data** from the dropdown menu, this will stop future backups and delete the existing backup data.
+
+### Question 45
+* In your organization, you have a subscription with 3 resource groups. You are trying to track the costs of resources by department, but every department uses resources from each resource group. How can you best enable the organization to track the costs of its resources?
+	* **Assign tags to each resource**
+	* Assign tags to each resource group
+	* Filter cost analysis by resource groups
+	* Create resource locks for each resource
+
+Assigning tags to each resource in the subscriptions allows you to filter when performing cost analysis.
+
+### Question 46
+* VM1 is located in the East US region. You have added a Premium SSD data disk to VM1, but the IOPS are not satisfying the needs of your application. How can you change the speed of the disk?
+	* Create a new disk and migrate the data.
+	* Shut down (deallocate) the VM.
+	* **Select the disk configuration and increase the size.**
+	* Export the disk and convert to VHD.
+
+Once you've selected a size, then select a different performance tier to change its performance. A disk's performance tier can be changed without downtime, so you don't have to deallocate your VM or detach your disk to change the tier.
+
+### Question 47
+* You have finished implementing a backup solution for your company's VMs. You have created an Azure Recovery Services vault and a backup policy. You have configured Azure Backup, registering your VMs as backup items in the Recovery Services vault. You have created a recovery plan for performing mass backup operations on multiple VMs. Now you want to enable logging for restore and backup operations, so that you can understand our storage consumption over time. Which of the following would you do to implement this solution?
+	* View backup jobs in the Recovery Services vault
+	* Enable VM insights for your virtual machines
+	* **Create a Log Analytics workspace**
+	* Configure Site Recovery
+	* **Configure diagnostic settings for Recovery Services vault**
+
+Creating a Log Analytics workspace is a necessary step in implementing logging for backup operations. In order to use your Log Analytics workspace, you must enable diagnostic settings and stream your backup operations into the Log Analytics workspace.
+
+### Question 48
+* You have been directed to copy all data from one storage account to another using the AzCopy tool. You need to report which storage services you can copy. Which of those services would it be?
+	* **Azure Blob and File Shares**
+	* Only Azure File Shares
+	* Azure Queues and Blobs
+	* Azure Table and File Shares
+
+AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account.
+
+### Question 49
+* You have created a virtual machine that has a NIC with a dynamically assigned private IP. You want to provide public connectivity to this virtual machine. How could you accomplish this?
+	* Modify the NIC configurations to make the private IP assignment static
+	* Create a public IP address
+	* **Create a public IP address and associate it with the NIC of the VM**
+	* Create a new NIC for the virtual machine
+
+By creating a public IP address for your VM and associating it with the NIC, you can use it to provide public connectivity to the VM.
+
+### Question 50
+* VM1 is located in the West US region and the OS disk is Premium SSD. The size of VM1 is currently Standard_D2s_v3, but you need to change the size to Standard_D2. You are able to select the size from the Size blade, but you receive an error message. Why can't you change the VM size?
+	* You need to provide the username and password for the OS to upgrade
+	* **Standard_D2 does not support Premium SSD Managed Disks**
+	* You did not shut down (deallocate) VM1 before you changed the size
+	* The size Standard_D2 is not available in the West US region
+
+Standard_D2 does not support Premium SSD Managed Disks; therefore, you are unable to change VM1 to this size. A good way to remember which size is available is the `s` in the size, as the `s` indicates Premium SSD. See more about [Dv3 and Dsv3-Series](https://docs.microsoft.com/en-us/azure/virtual-machines/dv3-dsv3-series#dsv3-series).
+
+### Question 51
+* You work as an Azure Administrator for a film production company. The company stores all of its video clips in file servers on-premises. You are curious about extending the capacity of these on-premises file servers. What Azure Storage services could you utilize to ensure that these on-premises file servers are supported in this way?
+	* Azure Queue
+	* **Azure File Sync**
+	* Azure Blob
+	* **Azure Files**
+
+Azure File Sync is a service provided by Microsoft Azure that allows organizations to centralize their files in Azure Files while maintaining compatibility and accessibility through their on-premises Windows Servers. Essentially, it gives you the benefits of having your files in the cloud while allowing you to use them like they're still on your local network. Azure Files and File Sync have to be used together to extend on-prem file shares into the cloud. Azure Files is a Microsoft Azure service that provides fully managed file shares that are accessible via the industry-standard Server Message Block (SMB) protocol. Azure Files and File Sync have to be used together to extend on-prem file shares into the cloud.
+
+### Question 52
+* Which of the following Azure services supports Azure Disk Encryption for your virtual machines?
+	* Azure Blob Storage
+	* Azure Backup
+	* Azure File Sync
+	* **Azure Key Vault**
+
+Azure Key Vault support Azure Disk Encryption for your VMs by acting as the storage service for the encryption key used in disk encryption.
+
+### Question 53
+* You have an Azure subscription that contains the following unused resources:
+	- Network interface (nic0)
+	- Static public IP (pip1)
+	- Standard load balancer (lb1) with 5 rules configured
+	- Virtual network (VNet2) = 10.1.0.0/16
+- Stopped (deallocated) virtual machine (VM3) Which of these unused resources should you remove to lower cost?
+		- **Standard load balancer (lb1)**
+		- Stopped (deallocated) virtual machine (VM3)
+		- Network interface (nic0)
+		- **Static public IP (pip1)**
+		- Virtual network (VNet2)
+
+The pricing for a Standard load balancer is based on the number of rules configured (load balancer rules and NAT rules) and data processed. However, there is no hourly charge for the Standard load balancer itself when no rules are configured. Since this load balancer contains rules, it should be removed to save money. There is a charge for static public IP addresses irrespective of the associated resource (unless it is part of the first five static ones in the region), so this resource should be removed. [Pricing Virtual Machine IP Address Options](https://azure.microsoft.com/en-au/pricing/details/ip-addresses/)
+
+### Question 54
+* You have an Azure subscription that contains 3 virtual machines that run Windows Server 2016 and are configured as follows:
+
+| Name |   PublicIP   | PrivateIP | VNetName |     DNSSuffix |
+| :--- | :----------: | :-------: | :------: | ------------: |
+| VM1  | 65.74.185.47 | 192.1.0.4 |  VNET1   | consilium.com |
+| VM2  | 47.185.85.63 | 10.1.0.4  |  VNET2   |  axiodata.com |
+| VM3  | 66.166.78.43 | 192.1.0.5 |  VNET1   | consilium.com |
+
+* You create a public DNS zone named consilium.com and a private DNS zone named axiodata.com In the settings for the private DNS zone, you create a virtual network link to VNET2 and enable auto registration. What will happen to VM2 when it starts up?
+	* A record for VM2 will be added to the consilium.com DNS zone
+	* **A record for VM2 will be added to the axiodata.com DNS zone**
+	* A record for VM2 will be added to the axiodata.com DNS zone only once you configure the DNS servers for VNET2
+	* A record for VM2 will be added to both consilium.com and axiodata.com
+
+Any existing virtual machines and any new VMs added to VNET2 will be auto registered and a record will be added in the axiodata.com DNS zone.
+
+### Question 55
+* You work for a company that provides a streaming service for entertainment purposes. You have been storing your video files on-premises in storage servers. Your CTO has advised you that the company is migrating to the cloud, and you have been tasked with investigating which service best fits the organization's use case. You are looking for a service that allows the company to save cost by utilizing lifecycle management. Which of the following Azure services would you select to store these video files for streaming?
+	* **Azure Blob**
+	* Azure Tables
+	* Azure Queue
+	* Azure Files
+
+Azure Blob storage is an object-based storage solution designed to store block blobs such as video files, and Blob storage supports lifecycle management features for cost savings.
+
+### Question 56
+* The lead infrastructure engineer on your IT team has reached out to you as a cloud engineer to investigate a backup solution for your Azure VMs. You have already begun implementing a solution by first creating an Azure Recovery Services vault. Which of the following would you do next to implement a backup solution?
+	* **Create a backup policy**
+	* Take your first VM backup
+	* Configure a recovery plan
+	* Enable Site Recovery
+
+Since you have already created a Recovery Services vault, the next logical step is to configure the backup policy for the backup solution.
+
+### Question 57
+* Which of the following can you encrypt with Azure Disk Storage Server-Side Encryption?
+	* Temporary disks and OS disks
+	* Only data disks
+	* **OS disks and data disks**
+	* Data disks and temporary disks
+
+Azure Disk Storage Server-Side Encryption (SSE) (also referred to as encryption-at-rest or Azure Storage encryption) is always enabled and automatically encrypts data stored on Azure managed disks. This includes both OS and data disks when they are persisted on storage clusters.
+
+### Question 58
+* You have 2 virtual networks named VNet1 and VNet2. VNet1 is located in the West US region, whereas VNet2 is located in the East US region. You need to configure a virtual machine that's located in VNet1 to also communicate with VMs in VNet2. From the choices available, how can you enable communication between resources in VNet1 and VNet2?
+	* **Configure a VNet-to-VNet VPN gateway connection to allow communication between VNets in different regions**
+	* Migrate just the VM disks to VNet2
+	* Migrate the VNet1 VM to VNet2 and leave the other VM components on VNet1
+	* Migrate the network interface card (NIC), the network security group (NSG), and the VM disks to VNet2
+
+VNet-to-VNet connections allow communication between virtual networks in different regions and from different subscriptions. [Configure a VNet-to-VNet VPN Gateway Connection by Using the Azure Portal](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal).
+
+### Question 59
+* You have created a new Azure virtual machine in a subnet named Subnet1 with an attached network interface card named NIC1. The NIC1, attached to Subnet1, has the following effective routes:
+
+|Source|State|Address Prefix|Next Hop|
+|:--|:-:|:-:|--:|
+|Default|Active|10.1.0.0/16|Virtual Network|
+|Default|Invalid|0.0.0.0/0|Internet|
+|Default|Active|10.0.0.0/8|None|
+|Default|Active|100.64.0.0/10|None|
+|Default|Active|192.168.0.0/16|None|
+|Default|Active|25.33.80.0/20|None|
+|Default|Active|25.41.3.0/25|None|
+|User|Active|0.0.0.0/0|None|
+
+* What will happen when the virtual machine tries to communicate with a VM on a different network?
+	* Traffic will be forced out to the internet
+	* Traffic will be forced internally
+	* Traffic will be sent successfully
+	* **Traffic will be dropped and no connection will be established**
+
+The user-defined route with a Next Hop type of None in the table will override the default route, causing traffic to be directed to nowhere and the connection to be dropped.
+
+### Question 60
+* You have an Azure subscription named Subscription1. You have created a web app named App1 in Subscription1 that is sourced from a Git repository named Git1. You need to ensure that every commit to the master branch in Git1 triggers a deployment to a test version of the application before releasing it to production. What are two changes that you must make to App1 to fulfill this requirement?
+	* Create a new web app and configure failover settings from test to production
+	* **Add a new deployment slot to App1 to release the test version of App1**
+	* **Create a build server with the master branch of Git1 as the trigger**
+	* Configure custom domains for test and production versions of App1
+
+Deployment slots allow greater flexibility within app services, providing a built-in staging environment for your app and access to your application without deploying it to production. You have the option of creating a build server natively in App Services by selecting _Deployment Center_ in the App1 blade. This will trigger a build every time a commit is made to the master branch of Git1.

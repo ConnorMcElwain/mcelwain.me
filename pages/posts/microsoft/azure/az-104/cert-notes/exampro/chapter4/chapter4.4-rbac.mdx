@@ -1,0 +1,65 @@
+# AZ-104 Certification Notes
+## Chapter 4.4 - RBAC
+
+### Azure Role-Based Access Control (RBAC)
+Azure role-based access control (Azure RBAC) helps you manage **who has access to Azure resources**, what they can do with those resources, and what areas they have access to.
+* **Role Assignments** are way you control access to resources
+* A Role Assignment consists of these **three** elements
+	* Security principal
+	* Role definition
+	* Scope
+* There are **four fundamental** Azure roles
+* Azure RBAC includes over **70 built-in roles**
+
+A Security Principal represents the identities requesting access to an Azure resource such as:
+* User
+	* An individual who has a profile in Azure Active Directory
+* Group
+	* A set of users created in Azure Active Directory
+* Service Principal
+	* A security identity used by applications or services to access specific Azure resources
+* Managed identity
+	* An identity in Azure Active Directory that is automatically managed by Azure
+
+**Scope** is the **set of resources** that access for the Role Assignment applies to. Scope Access Controls at the Management, Subscription, or Resource Group level.
+* Management Group
+	* Subscriptions
+		* Resource Groups
+		* Scopes
+			* Resources
+
+A Role Definition is a collection of permissions. A role definition lists the operations that can be performed, such as read, write, and delete. Roles can be high-level, like owner, or specific, like virtual machine reader. Azure has built-in roles and you can define custom roles.
+* These are the four fundamental built-in roles:
+	* Owner
+	* Contributor
+	* Reader
+	* User Access Administrator
+
+### Practice Quiz
+* Which is NOT an element of a Role Assignment? A Role Assignment is consists of these three elements​
+	* role definition
+	* security principal
+	* **pricing**
+	* scope
+* Which security principal is a set of users created in Azure Active Directory?
+	* User
+	* **Group**
+	* Managed identity
+	* Service Principal
+* Which security principal is an identity in Azure Active Directory that is automatically managed by Azure?
+	* User
+	* Service Principal
+	* Group
+	* **Managed identity**
+* Which Azure built-in role has access to only Grant?
+	* Reader
+	* Owner
+	* Contributor
+	* **User Access Administrator**
+
+* What helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to?
+	* Azure role-based access control (Azure RBAC)
+* What is the scope?
+	* Scope is the set of resources that access for the Role Assignment applies to.​
+* What is a role definition?
+	* A Role Definition is a collection of permissions. ​A role definition lists the operations that can be performed, such as read, write, and delete.

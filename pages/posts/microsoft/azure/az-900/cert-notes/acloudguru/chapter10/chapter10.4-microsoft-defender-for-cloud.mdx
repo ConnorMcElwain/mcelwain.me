@@ -1,0 +1,28 @@
+# AZ-900 Certification Notes
+## Chapter 10.4 - Microsoft Defender for Cloud (formerly Azure Security Center)
+
+### Overview
+* It provides threat alerts
+* It's ready for hybrid architectures
+* Each VM has an agent installed that sends data
+* Azure analyzes the data and alerts you if necessary
+
+### Highlights
+* Policy and compliance metrics
+* A secure score to encourage great security hygiene
+* Integrate with other cloud providers (requires Azure Arc)
+* Alerts for resources that aren't secure
+
+### Using Defender for Cloud
+* Define Policies
+	* Set up policies for Azure to monitor resources from. A **policy** is a set of rules used to evaluate a resource. Use predefined policies or create your own
+* Protect Resources
+	* Actively protect your resources through **monitoring** your policies and their outcomes
+* Respond
+	* Respond to any security alerts. **Investigate** all of them, and then go back to step 1 to define new policies to account for the alert
+
+### Regulatory Compliance
+Defender for Cloud helps to streamline the process for meeting different regulatory compliance requirements using the regulatory compliance dashboard. Since Defender for Cloud can keep track of all the different regulatory compliances when it comes to cloud computing, this means that you don't have to. This also includes any policies that you set up to manage the Azure subscription. Each part of Azure is assessed for you in relation to different regulatory compliance standards.
+
+### Resource Security Hygiene
+Hygiene, in this case refers to how your different resources are configured in relation to security best practices. For example, if you don't have endpoint protection enabled on your virtual machines, this will be considered high risk. Defender for Cloud will recommend fixes such as implementing endpoint protection for your affected virtual machines, which will improve your hygiene.

@@ -1,0 +1,23 @@
+# AZ-900 Certification Notes
+## Chapter 5.2 - Load Balancer
+
+### Load Balancer Description
+Load Balancer distributes new inbound flows that arrive on the Load Balancer's frontend to backend pool instances, according to rules and health probes.
+* Inbound Flows
+	* Traffic from the internet or local network
+* Frontend
+	* The access point for the load balancer. All traffic goes here first
+* Backend Pool
+	* The VM instances receiving traffic
+* Rules & Health Probes
+	* Checks to ensure backend instance can receive the data
+
+### Scenarios
+* Internet Traffic
+	* Balanced the load of incoming internet traffic into a system application
+* Internal Networks
+	* A load balancer works well with internal applications
+* Port Forwarding
+	* Traffic can be forwarded to a specific machine in the backend pool
+* Outbound Traffic
+	* Allow outbound connectivity for backend pool VMs

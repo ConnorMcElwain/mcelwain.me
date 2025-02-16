@@ -1,0 +1,44 @@
+# AZ-104 Certification Notes
+## Chapter 11.6 - Using Azure Kubernetes Service
+
+### Traditional Azure Container Instances (ACI) Solution
+* ACI Limitations
+	* Scalability
+		* Manual redeployment is required to scale up a container group
+	* Management
+		* Orchestrating multi-container container group solutions are cumbersome without an orchestration layer
+
+### Kubernetes Container Solution
+* Kubernetes Benefits
+	* Scalability
+		* Can easily scale containers to meet demand
+	* Management
+		* Provides an orchestration layer for clusters
+
+### What Is Azure Kubernetes Service (AKS)?
+* AKS
+	* What is it?
+		* Azure Kubernetes Service (AKS) is a serverless platform for Kubernetes. It provides scalable container solutions
+	* Why use it?
+		* AKS abstracts away the management of a Kubernetes cluster by managing most of the deployment and orchestration
+* AKS provides
+	* Autoscaling
+		* Pods and Clusters
+	* Identity and Access Management
+		* Azure AD Integration
+	* Storage Volumes
+		* Azure Storage
+	* Networking
+		* VNets, NSGs, and network policies
+
+### Azure Kubernetes Service Features
+* Management
+	* Autoscaling of clusters and horizontal scaling of pods. Manage node pool configurations, and Kubernetes versioning and upgrades
+* Identity
+	* Provide access to AKS cluster using Azure AD identity objects and Role-Based Access Control (RBAC). Provide an identity for the cluster to manage underlying resources
+* Networking
+	* VNet connectivity integrated via kubenet or Container Network Interface (CNI). HTTP app routing available. Manage traffic using network policies
+* Storage
+	* Implement storage volumes that are either static or dynamic
+* Registry
+	* Store container images in Azure Container Registry, Docker Hub, or other public/private repos. Docker images are supported

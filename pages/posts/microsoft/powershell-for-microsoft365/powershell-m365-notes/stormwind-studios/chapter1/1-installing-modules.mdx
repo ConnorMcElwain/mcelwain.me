@@ -1,0 +1,42 @@
+# PowerShell for Microsoft 365 Notes
+## Chapter 1.1 - Installing Modules
+
+### Connecting to M365 Tenant
+* Azure AD
+	* Azure Active Directory module used for Graph
+		* Cmdlets include Azure AD in their name
+* MSOnline
+	* Microsoft Azure Active Directory for Windows PowerShell
+		* Cmdlets include Msol in their name
+		* No support for PowerShell version 7
+* Both will be deprecated in June 2023
+
+### Microsoft.Graph
+* Replacement for Azure AD and MSOnline
+* Works on PowerShell versions 5 and 7
+* Built on MS Graph API
+	* Single endpoint to provide access to Microsoft cloud
+
+### Microsoft.Graph Sub-Modules
+* Sub-Modules for particular functions
+	* Teams
+	* Calendar
+	* Mail
+
+### Using the Modules
+* Install-Module
+	* Downloads and installs a PowerShell module
+* Import-Module
+	* Loads the PowerShell module into the current PowerShell session
+	* Module must have already been installed
+* Get-Module
+	* Retrieve information on the module
+
+### Conclusion
+* Modules
+	* Azure AD & MSOnline
+	* Microsoft.Graph
+* Using the Modules
+	* Install-Module
+	* Import-Module
+	* Get-Module

@@ -1,0 +1,56 @@
+# AZ-900 Certification Notes
+## Chapter 5.8 - Network Quiz
+
+### Question 1
+* What is a primary reason for using a content delivery network (CDN)?
+	* **To provide better performance and improved user experience for end users**
+	* To ensure all user requests are securely handled and served
+	* To make routing decisions based on additional attributes of an HTTP request, such as URI path or host headers
+	* To ensure maximum uptime for an application that is hosted in more than one datacenter
+
+A CDN keeps a recent copy of your web application and can deliver this much faster to users close to an endpoint. This leads to better performance and improved user experience.
+
+### Question 2
+* What is a primary benefit of using a load balancer in a network?
+	* A load balancer can only distribute the load between two to five virtual machines.
+	* A load balancer can preemptively redirect incoming data to another virtual machine when a virtual disk is running low on space.
+	* **A load balancer can distribute the load to many VMs when there is too much incoming network traffic for a single VM to handle.**
+	* A load balancer inherently increases the storage capacity of virtual machines.
+
+A load balancer sits in front of two or more virtual machines to manage, and balance, the load to the virtual machines. This can be based on the amount of incoming traffic or specific properties in the traffic.
+
+### Question 3
+* Which of the following is NOT a benefit of adding a load balancer?
+	* **When a virtual disk is running low on space on a virtual machine (but not low enough to cause the VM to be unhealthy), the incoming data can be preemptively redirected to another virtual machine to manage the load.**
+	* A load balancer can log traffic that passes through it.
+	* When there is too much incoming network traffic for a single VM to handle, a load balancer can distribute the load to many VMs.
+	* A load balancer ensures only healthy servers process requests.
+
+A load balancer sits in front of two or more virtual machines to manage and balance the load. This can be based on the amount of incoming traffic or specific properties of the traffic. The max number of VMs to manage goes up to 1,000. A load balancer ensures only healthy instances receive traffic and will stop sending traffic to any server that does not pass health checks. A load balancer will not redirect traffic due to low disk space, but the load balancer will redirect traffic if the lack of any space crashes the virtual machine. All Azure load balancers can log traffic that passes through them.
+
+### Question 4
+* What are the primary functions of a load balancer in Azure?
+	* Ensuring the load is evenly distributed between two to five virtual machines only
+	* Redirecting incoming data to another virtual machine when a virtual disk is running low on space
+	* **Distributing incoming network traffic to multiple VMs, logging traffic that passes through it, and ensuring only healthy servers process requests**
+	* Logging traffic that passes through it and ensuring the load is evenly distributed between two to five virtual machines only
+
+A load balancer in Azure primarily functions to distribute incoming network traffic across multiple VMs, ensuring that no single VM is overwhelmed. It also logs the traffic that passes through it for monitoring and troubleshooting purposes. Additionally, it ensures that only healthy servers process requests, thereby improving the reliability and availability of applications.
+
+### Question 5
+* What is the best scenario for using Azure ExpressRoute?
+	* Connecting your on-premises networks into the Microsoft cloud over a private connection without a connectivity provider
+	* Connecting your on-premises networks into the Microsoft cloud over the public internet with the help of a connectivity provider
+	* Extending a VLAN to Azure using ExpressRoute
+	* **Connecting your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider**
+
+ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
+
+### Question 6
+* Which of the following is a function of an Azure VPN Gateway?
+	* To make sure the connection from a virtual network to the internet is secure
+	* **To send encrypted traffic between an Azure Virtual Network and an on-premises location over the public internet**
+	* To handle any suspicious activity trying to access your Azure subscription
+	* To balance data coming into your Azure services from an external private network
+
+A VPN gateway is an important part of a hybrid Azure infrastructure. It allows encrypted traffic to flow between on-premises services and Azure services.

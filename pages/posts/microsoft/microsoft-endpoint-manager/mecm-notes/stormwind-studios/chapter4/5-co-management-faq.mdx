@@ -1,0 +1,60 @@
+# Microsoft Endpoint Manager Notes
+## Chapter 4.5 - Co-Management (FAQ's about Co-Management Policies and Profiles)
+
+### Co-Management - Troubleshooting
+* I clicked the "Disable Activation Lock" action in the portal, but nothing happened on the device
+	* This is expected behavior
+* Why don't I see the Disable Activation Lock code in the Hardware overview blade of my iOS/iPadOS device?
+	* Use this query to check on the code: `GET -https://graph.microsoft.com/beta/deviceManagement/manageddevices('deviceId')?$select=activationLockBypassCode`
+* Why is the Disable Activation Lock action greyed out from my iOS/iPadOS device?
+	* The code has expired and been cleared from the service
+	* The device isn't supervised with the Device Restriction Policy to allow Activation Lock
+* Why are my devices showing as Hybrid AAD joined, but None for MDM?
+	* Did you have the required permissions and roles to configure co-management?
+	* Which Azure Active Directory (Azure AD) hybrid identity option did you select?
+	* What is your current MDM authority?
+	* Did you install and configure Azure AD Connect?
+	* Did you assign an Azure AD Premium license to the UPN that you used for configuration?
+	* Did you assign Intune licenses to the users?
+	* Did you configure hybrid Azure AD join for managed domains or federated domains?
+	* Did you configure the Configuration Manager client agent settings for hybrid Azure AD join?
+	* Did you configure auto-enrollment in your Intune tenant?
+	* Did you enable co-management in Configuration Manager?
+* How do I tell who started a Retire/Wipe?
+	* Under Tenant Administration -> Audit logs
+	* Check the Initiated By column
+* Why is the CM collection not syncing with my AAD group?
+	* Check the following:
+		* Is Co-management completely set up?
+		* Is your Azure AD user and user group discovery set up?
+		* Is Configuration Manager enabled to sync with Azure AD groups?
+		* Is your collection configured to sync to your Azure AD group?
+		* Is your device hybrid Azure AD joined (Domain join + Azure AD registered)
+		* Is your Configuration Manager set up for internet connectivity with connection to the URL's required for the sync?
+* What happens if I start a retire/wipe on an offline device or a device that hasn't communicated with the service in a while?
+	* MDM certificate lasts for one year from enrollment and automatically renews every year
+	* The device will remain in Retire/Wipe Pending state until the MDM certificate expires
+	* 180 days after the MDM certificate expires, the device will be automatically removed from the Azure portal
+* Why can I sign back into my Office apps after my device was retired?
+	* Retiring a device doesn't revoke access tokens
+	* Conditional Access policies can mitigate this condition
+* Why wasn't my application uninstalled after using Retire?
+	* The app was deployed as Required
+	* The app was deployed as Available and then installed by the end user from within the Company Portal
+* Why is Wipe greyed out for Android Enterprise Work Profile devices?
+	* This is expected behavior
+* I can't restart a Windows 10 device after using Wipe action?
+	* Can be caused if you choose the "Wipe device and continue to wipe even if devices lose power" option - This might prevent some devices from starting up again
+	* Can be caused when the installation of Windows has a major corruption that prevents the OS from reinstalling
+* I can't restart a BitLocker encrypted device after using the Wipe action?
+	* Can be caused if you choose the "Wipe device and continue to wipe even if devices lose power" option on a BitLocker encrypted device
+	* Use bootable media to reinstall Windows 10
+* Why do wipes sometimes show as Pending indefinitely?
+	* Devices don't always report their status back before the reset was started. So, the action shows as pending even though it's not
+	* If you've confirmed the action was successful, delete the device from the service
+* Why is the Reset Passcode action greyed out on my Android Device Admin enrolled device?
+	* To protect from ransomware, Google removed the passcode reset feature on the Device Admin API
+* Why do I get a "Not Supported" message when I issue a passcode reset to my Android 8.0 or later personally owned work profile enrolled device?
+	* The reset token hasn't been activated on the device
+* Why am I prompted to set a new passcode on my iOS/iPadOS device when I issue the Remove Passcode action?
+	* One of the compliance policies requires a passcode

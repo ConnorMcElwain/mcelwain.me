@@ -1,0 +1,363 @@
+# AZ-900 Certification Notes
+## Chapter 14.4 - Practice Exam - 2
+
+### Question 1
+* What tool provides cost information and would help to identify underutilized and idle Azure resources in order to help reduce overall spending?
+	* Azure Fundamentals
+	* Azure Monitor
+	* Application Insights
+	* **Azure Advisor**
+
+(Azure Advisor) - Advisor helps you optimize and reduce your overall Azure spending by identifying idle and underutilized resources. [Reduce service costs using Azure Advisor - Azure Advisor | Microsoft Docs](https://docs.microsoft.com/en-us/azure/advisor/advisor-cost-recommendations "null")
+
+### Question 2
+* What is the name of the query language that Log Analytics uses?
+	* NoSQL
+	* **KQL**
+	* NewSQL
+	* SQL
+
+Kusto Query Language (KQL) is the query language used by Log Analytics.
+
+### Question 3
+* Which of the following statements are true for IaaS cloud services?
+	* **Services can be scaled automatically to support system load.**
+	* **The client is responsible for all guest VM application updates and guest VM OS updates.**
+	* The client is always responsible for purchasing all Operating System (OS) host licensing.
+	* The client has complete control over the hardware hosting the VM.
+
+IaaS host services often feature the ability to scale automatically to combat increased system load and scaled back during periods of inactivity. [What is IaaS? Infrastructure as a Service | Microsoft Azure](https://azure.microsoft.com/en-us/overview/what-is-iaas/ "null"). In IaaS, clients manage their virtual machines' applications and operating systems ("guest VM OS"). While the cloud provider oversees physical hardware, clients must keep their VM software, including the guest OS, updated. Reference: [What is IaaS? Infrastructure as a Service | Microsoft Azure](https://azure.microsoft.com/en-us/overview/what-is-iaas/ "null").
+
+### Question 4
+* Your company, Llamas-R-Us, currently owns a datacenter with 150 servers for various operations. Periodically, additional compute capacity is required beyond what your datacenter can support. Your CTO has requested a solution that will quickly and temporarily provide additional compute capacity when it is needed. Any solution must minimize costs and administrative effort. What should you recommend?
+	* Fully migrate your datacenter to a public cloud environment
+	* **Implement a hybrid cloud solution**
+	* Implement a private cloud solution
+	* Purchase additional servers to host in your datacenter
+
+A hybrid cloud utilizes an existing on-premises network (or datacenter) and connects it to a public cloud environment. This allows you to retain your existing datacenter infrastructure, while at the same time supplementing your compute capacity with cloud offerings when needed.
+
+### Question 5
+* In Azure Active Directory, a user can be a member of how many AAD tenants and a guest in how many tenants outside their organization?
+	* **A user can be a member of a single AAD tenant and a guest of up to 499 outside tenants.**
+	* A user can be a member of one main tenant and two outside tenants.
+	* There is no limit.
+	* It depends on the Azure subscription type.
+
+A user can be a member of a single AAD tenant and a guest of up to 499 outside tenants. There is a difference between an account tied to a host tenant and the same account being a guest on other tenants. Azure AD's service limits and restrictions lump them together. Reference: [Azure AD service limits and restrictions](https://learn.microsoft.com/en-us/azure/active-directory/enterprise-users/directory-service-limits-restrictions "null")
+
+### Question 6
+* You need to choose a performance option for an Azure storage account. This storage account will host disks for VMs, and requires the fastest possible performance. Which performance option should you choose?
+	* Premium File Shares
+	* General-Purpose v2
+	* **Premium Page Blobs**
+	* Premium Block Blobs
+
+Premium page blobs support the fastest possible performance for page blob storage types (e.g., IaaS disks).
+
+### Question 7
+* What is the necessary process for creating a hosted Azure Files storage service on Azure for Server Message Block (SMB) file storage?
+	* Create a managed SQL Server instance using the Azure Files configuration.
+	* **Create a storage account. Then, create an Azure Files share on the storage account.**
+	* Create a virtual network. Then, create the Azure Files share as a resource on your virtual network.
+	* Create a virtual machine. In the virtual machine configuration, select the hosted Azure Files disk management configuration.
+
+Azure Files are hosted inside of a storage account.
+
+### Question 8
+* You need to create a virtual machine with the following disk requirements: - Hold up to 64TB in a single disk - Highest possible performance with sub-millisecond latency Which disk type should you select for your virtual machine?
+	* **Ultra**
+	* Premium SSD
+	* Standard SSD
+	* High Performance
+
+Ultra disks are the most expensive, yet highest-performing disk types available for Azure virtual machines. They support up to 64TB on a single disk.
+
+### Question 9
+* You need to choose a performance option for an Azure storage account. This storage account will host multiple storage formats, and will need to keep costs low, while maintaining an acceptable level of performance. Which performance option should you choose?
+	* **General-Purpose v2**
+	* Premium File Shares
+	* Premium Page Blobs
+	* Premium Block Blobs
+
+General-purpose v2 is the standard performance option which supports all storage types. It provides an acceptable level of performance for most workloads; however, does not include high performance low-latency operations. It also costs less than the premium performance options.
+
+### Question 10
+* What are the components of a Conditional Access policy?
+	* Azure Arc Agent
+	* **Signals**
+	* **Access Decisions**
+	* Action Group
+
+Signals are the conditions that must be met to trigger a Conditional Access policy. They include the affected users/groups, applications being signed into, locations, and more. Once the signal condition of a policy is met, an access decision is applied such as grant, block, or grant with restrictions (requires MFA/managed device).
+
+### Question 11
+* What is the security model that assumes all users are untrustworthy until they prove otherwise with a valid identity?
+	* Conditional Access
+	* Trusted Perimeter
+	* **Zero Trust**
+	* External Guest Access
+
+Zero Trust is the security model that assumes all users are untrustworthy until proven otherwise, regardless of location.
+
+### Question 12
+* What do you use to make sure that users of your application are who they say they are?
+	* Azure Subscriptions.
+	* Azure Regions.
+	* Azure Active Directory.
+	* Authorization
+	* **Authentication**
+
+(Authentication) - Authentication is confirming users are who they say they are. [Authentication vs. authorization - Microsoft identity platform | Microsoft Docs](https://docs.microsoft.com/en-us/azure/active-directory/develop/authentication-scenarios "null") [Authentication and authorization - Azure App Service | Microsoft Docs](https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization "null")
+
+### Question 13
+* From where can you launch Azure Cloud Shell?
+	* AzCopy
+	* **Azure portal**
+	* Azure CLI
+	* Azure Arc
+
+Cloud Shell is launched from the Azure portal. Inside Cloud Shell, you have access to both Bash and PowerShell environments.
+
+### Question 14
+* You manage a large number of VMs in Azure, all of which are configured to log CPU performance metrics. You want to view a historical analysis of CPU utilization over time in order to find trends. How should you accomplish this?
+	* Send the CPU utilization metrics to a storage account blob container. From an Azure VM, install KQL and query the collected data.
+	* **Send the CPU utilization metrics to a Log Analytics workspace. Within Log Analytics, run a query on the metrics to view trends over time.**
+	* Send the CPU utilization metrics to Application Insights. Within Log Analytics, run a query on the metrics to view trends over time.
+	* Send the CPU utilization metrics to a Log Analytics workspace. Use Cosmos DB to query the metrics to view trends over time.
+
+Log Analytics acts as both a storage container for logs/metrics as well as a query service to analyze the same logs/metrics data.
+
+### Question 15
+* Your website has recently been experiencing a higher number of errors in addition to performing below expectations. Which Azure tool is recommended to troubleshoot errors and performance bottlenecks?
+	* Azure Service Health
+	* **Application Insights**
+	* Azure Arc
+	* Log Analytics
+
+Application Insights provides valuable data on web-based applications, such as performance, customer usage, error reporting, and more.
+
+### Question 16
+* Which cloud concept describes the ability of a cloud service to be accessed quickly from any location via the internet?
+	* Dynamic scalability
+	* Disaster recovery
+	* **Low latency**
+	* Dynamic elasticity
+
+Low latency is the ability of a cloud service to be accessed quickly from any location via the internet. Azure Documentation: [Azure networking services overview](https://docs.microsoft.com/en-us/azure/networking/networking-overview "null")
+
+### Question 17
+* What describes the cloud attribute of security?
+	* Knowing what your application will cost with real-time tracking of resource usage as well as knowing that your application will perform consistently regardless of customer load
+	* **Having full control, or even choosing how much control you want, over your cloud resources' security configuration**
+	* How you interact with and implement different cloud-based resources
+	* The ability to create and enforce standardized environments, usually to meet corporate or government requirements
+
+If you want maximum control of security, Infrastructure as a Service provides you with physical resources but lets you manage the operating systems and installed software, including patches and maintenance. If you want patches and maintenance taken care of automatically, Platform-as-a-Service or Software-as-a-Service deployments may be the best cloud strategies for you.
+
+### Question 18
+* Your company hosts VM servers in both Azure and AWS. Each cloud server uses its own management tools. In an effort to reduce administrative overhead, your CIO is requesting information on Azure-native services to manage policies on servers in both locations in the same place. Ideally, they want to apply the same Azure RBAC policies and automation routines on both Azure and AWS servers. How can you accomplish this request?
+	* **Implement Azure Arc to manage and govern AWS servers within Azure.**
+	* Implement a private endpoint on the AWS resources to bring them under Azure's governance.
+	* Implement a service endpoint on the AWS resources to bring them under Azure's governance.
+	* It is not possible to manage non-Azure resources within Azure.
+
+Azure Arc extends the Azure control plane to non-Azure compute resources, such as AWS and on-premises.
+
+### Question 19
+* You are deploying an application to Azure Virtual Machines. You want to ensure that the application will remain available in the event of a hardware failure or an OS update. What Azure concept will help most in this task?
+	* Availability zone
+	* **Availability set**
+	* Zone-redundant Storage
+	* Locally redundant storage
+
+An availability set consists of 2 or more virtual machines in the same physical location within an Azure datacenter. This configuration ensures that only a subset of the virtual machines in an availability set will be affected in the event of hardware failure, OS update, or a fault domain issue, since the VMs would reside on different racks. Availability zones protect applications from complete Azure datacenter failures, which affect all VMs within the Availability set, however datacenter failures were not a requirement in this scenario.
+
+### Question 20
+* Your Azure subscriptions uses a number of different services spread across multiple resource groups. You need an all-in-one view of the current and predicted costs of your resources. Which tool would you use to find this information?
+	* **Cost Management**
+	* Azure TCO Calculator
+	* Pricing calculator
+	* Azure Arc
+
+Cost Management monitors and analyzes the cost of your current Azure resources.
+
+### Question 21
+* What is the purpose of Azure Conditional Access Policies?
+	* **Enforce conditions to grant or deny access to Azure AD resources in addition to username/password authentication.**
+	* Managed network firewall for Azure Virtual Networks
+	* Securely store and provide access to connection credentials
+	* Security Information Event Management (SIEM) tool to monitor security of Azure resources
+
+Conditional Access Policies effectively use a series of if/then statements to either grant, deny, or grant (with conditions) access to an Azure AD resource.
+
+### Question 22
+* You are deploying an application to Azure, hosted on virtual machines. You need to increase the reliability of this application, ensuring it is still available even if there is a datacenter outage. What should you do to ensure reliable operation of your application in case of a disaster?
+	* Implement a single zone virtual machine scale set for the application.
+	* Deploy virtual machines with Azure Blueprints for increased governance.
+	* Deploy virtual machines to multiple resource groups.
+	* **Deploy additional virtual machines to host the application in another zone.**
+
+Zones within a region are separate locations or datacenters in the same geographical area. Deploying additional machines to another zone will increase the reliability of the solution in case one of the datacenters is unavailable.
+
+### Question 23
+* Choose all components that are required to create a secure IPsec tunnel over the public internet from an Azure virtual network to an on-premises location.
+	* **Virtual network gateway**
+	* **Gateway subnet**
+	* **VPN device**
+	* ExpressRoute connection
+
+This scenario calls for a VPN connection over a virtual network gateway. A gateway component is one of the components needed to create this connection. Azure Documentation: [To configure the virtual network gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal#sku "null"). This scenario calls for a VPN connection over a virtual network gateway. A gateway requires its own gateway subnet on an Azure virtual network. Azure Documentation: [To configure the virtual network gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal#sku "null"). This scenario calls for a VPN connection over a virtual network gateway. Site-to-Site connections to an on-premises network require a VPN device. Azure Documentation: [Configure your VPN device](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal#vpndevice "null").
+
+### Question 24
+* Your company is beginning the process of migrating its existing applications to Azure. A business-critical accounting application requires authentication with the NTLM protocol. This application will be migrated to a virtual machine in Azure. You intend to eventually retire all on-premises resources and be 100% hosted in the cloud. You need to use your existing Active Directory (AD) domain/namespace in a cloud-hosted solution. What options are available for hosting this application in Azure while still being able to authenticate with Active Directory?
+	* Configure the application to authenticate using Azure AD credentials over Single Sign On (SSO).
+	* **Configure an Azure VM with Windows Server and operate as an Active Directory domain controller. Configure the application to authenticate with your VM-hosted AD server.**
+	* Continue using your on-premises AD server, and synchronize the server with Azure AD over Azure AD Connect. Configure the application to authenticate with your on-premises AD server.
+	* Configure the Azure Active Directory Domain Services (Azure AD DS) service to act as a fully managed Active Directory environment. Give the Azure AD DS instance a unique namespace and configure the application to authenticate with your Azure AD DS instance.
+
+This is referred to as self-managed AD, where you are in charge of configuring and maintaining a Windows Server acting as a domain controller. Self-managed AD on an Azure VM can use an existing domain namespace.
+
+### Question 25
+* You need to prevent any modifications to the configuration of a critical VM in an Azure resource group such as changing the VM size. You also need to prevent any accidental deletion of the VM. What should you use to accomplish this task?
+	* Apply an Azure Policy to the VM to prevent deletion.
+	* **Apply a read-only lock on the VM.**
+	* Create a Conditional Access policy to prevent deletion.
+	* Apply a delete lock on the VM.
+
+A read-only lock prevents both deletion AND modification of our locked resource.
+
+### Question 26
+* You are migrating your on-premises Microsoft Exchange email system to Office 365. What kind of cloud service would this be considered?
+	* Serverless
+	* **Software-as-a-Service (SaaS)**
+	* Platform-as-a-Service (PaaS)
+	* Infrastructure-as-a-Service (IaaS)
+
+(Software-as-a-Service (SaaS)) - Software as a service (SaaS) allows users to connect to and use cloud-based apps over the Internet. Common examples are email, calendaring, and office tools (such as Microsoft Office 365). Reference: [What is SaaS? Software as a Service | Microsoft Azure](https://azure.microsoft.com/en-us/overview/what-is-saas/ "null")
+
+### Question 27
+* As part of your company's Azure migration, your CFO needs a comparison of how much money would be saved by migrating their existing server cluster to Azure VMs. Additionally, migration savings must be calculated from migrating a server-hosted application to App Service. Which Azure tool can help provide cost-saving estimates of before/after migrations?
+	* Cost Management
+	* Azure Arc
+	* Pricing calculator
+	* **Azure TCO Calculator**
+
+The Total Cost of Ownership (TCO) Calculator is used to estimate the cost savings you can realize by migrating your existing workloads to Azure.
+
+### Question 28
+* What is the purpose of the Service Trust Portal?
+	* Security monitoring at scale across your Azure and non-Azure resources
+	* **Provides customers with Azure's compliance documentation**
+	* Provide authentication to Azure AD accounts based on specified conditions surrounding the login attempt
+	* Track your Azure environment's adherence to your company's compliance requirements
+
+The Service Trust Portal contains details about Microsoft's implementation of controls and processes that protect Microsoft's cloud services and the customers that use it.
+
+### Question 29
+* Name the Azure organizational component that associates a billing account with your Azure environment.
+	* Management group
+	* Resource group
+	* Azure Active Directory
+	* **Subscription**
+
+An Azure subscription is associated with a billing account, and it acts as your billing boundary in your Azure environment.
+
+### Question 30
+* Microsoft Office 365 is an example of which cloud deployment model?
+	* IaaS
+	* **SaaS**
+	* CASB
+	* PaaS
+
+(SaaS) - Software as a service (SaaS) allows users to connect to and use cloud-based apps over the internet. Common examples are email, calendar, and office tools, such as Microsoft Office 365. [What is SaaS? Software as a Service | Microsoft Azure](https://azure.microsoft.com/en-us/overview/what-is-saas/ "null") [What is PaaS? Platform as a Service | Microsoft Azure](https://azure.microsoft.com/en-us/overview/what-is-paas/ "null") [What is IaaS? Infrastructure as a Service | Microsoft Azure](https://azure.microsoft.com/en-us/overview/what-is-iaas/ "null") [Microsoft Cloud App Security | Microsoft 365](https://www.microsoft.com/en-us/enterprise-mobility-security/cloud-app-security "null")
+
+### Question 31
+* What describes the cloud attribute of governance?
+	* The resiliency of an application to continue operations even in the case of partial or wide-scale failures or outages
+	* How you interact with and implement different cloud-based resources
+	* **The ability to create and enforce standardized environments, usually to meet corporate or government requirements**
+	* Knowing what your application will cost with real-time tracking of resource usage as well as knowing that your application will perform consistently regardless of customer load
+
+Features such as templates help ensure that all your deployed resources meet corporate standards and government regulatory requirements. In addition, you can update all your deployed resources to new standards as standards change. Cloud-based auditing helps flag any resource that is out of compliance with your corporate standards and provides mitigation strategies. Depending on your operating model, software patches and updates may also automatically be applied, which helps with both governance and security.
+
+### Question 32
+* What describes the cloud attribute of predictability?
+	* How you interact with and implement different cloud-based resources
+	* The ability to create and enforce standardized environments, usually to meet corporate or government requirements
+	* The resiliency of an application to continue operations even in the case of partial or wide-scale failures or outages
+	* **Knowing what your application will cost with real-time tracking of resource usage as well as knowing that your application will perform consistently regardless of customer load**
+
+Predictability of performance is achieved with features such as autoscaling and load balancing. Predictability of performance is achieved with real-time tracking of resource usage/costs as well as predicting future costs based on current resource usage.
+
+### Question 33
+* What describes the cloud attribute of management?
+	* Having full control, or even choosing how much control you want, over your cloud resources' security configuration
+	* The ability to create and enforce standardized environments, usually to meet corporate or government requirements
+	* **How you interact with and implement different cloud-based resources**
+	* Knowing what your application will cost with real-time tracking of resource usage as well as knowing that your application will perform consistently regardless of customer load
+
+Manageability has two aspects: 1. How you create and manage resources, which includes autoscaling, template-based deployments, and monitoring/alerts. 2. How you interact with your cloud environments, including via the web portal, command line, and programmatic APIs.
+
+### Question 34
+* Your company is migrating several types of existing on-premises resources to Azure. You need to migrate the functionality of your existing on-premises file server to Azure, which will act as a mapped drive location for multiple office desktops. This solution needs to use the Server Message Block (SMB) shares for file storage and management. What solution should you use?
+	* Create a managed disk in a storage account
+	* **Azure Files**
+	* Cosmos DB
+	* Blob storage container
+
+Azure Files uses SMB shares within a storage account to act as a cloud-based network file server.
+
+### Question 35
+* You are designing a hybrid network in which your Azure virtual network will need to establish a secure and private connection to your on-premises network via an IPsec tunnel over the public internet. Which Azure service should you use to accomplish this task?
+	* Create an Azure Secure-net connection between both networks.
+	* **Azure VPN Gateway**
+	* Network peering connection
+	* Azure ExpressRoute
+
+Azure VPN Gateway allows you to establish an IPsec tunnel from an on-premises network to an Azure virtual network over the public internet.
+
+### Question 36
+* What is the purpose of Azure Arc?
+	* **Extends Azure's control plane, allowing you to manage non-Azure resources as if they were in Azure**
+	* Enables an encrypted connection over a public internet connection between an on-premises network and an Azure virtual network
+	* Provides insights on how customers are using your web-based application
+	* Enables private access to Azure PaaS services to a specific subnet in a virtual network
+
+Azure Arc extends Azure's management and governance abilities to non-Azure computing sources allowing Azure management regardless of where your compute is hosted.
+
+### Question 37
+* Which of the following statements are true regarding the differences between Private Endpoints and Service Endpoints?
+	* Service Endpoints only provide private PaaS connectivity to a subnet in a virtual network. Private Endpoints extend private PaaS connectivity to connected networks, including on-premises.
+	* Private Endpoints allow you to completely disable public access to a managed PaaS service.
+	* Service Endpoints allow you to completely disable public access to a managed PaaS service and still allow access from non-Azure locations.
+	* Private Endpoints require Azure Arc to extend private connectivity to connected non-Azure networks. Service Endpoints do not have this requirement.
+
+Service Endpoints only work with Azure Virtual Networks at a subnet-level scope. It does not extend to non-Azure networks. Private Endpoints allow private access from connected non-Azure locations, therefore allowing full removal of public PaaS access and still allowing on-premises connectivity.
+
+### Question 38
+* You are designing a hybrid network in which your Azure virtual network will need to establish a secure and private connection to your on-premises network via a high-speed leased line that directly connects to Azure. This connection cannot traverse the public internet. Which Azure service should you use to accomplish this task?
+	* **Azure ExpressRoute**
+	* Create an Azure Secure-net connection between both networks
+	* Azure VPN Gateway
+	* Network peering connection
+
+Azure ExpressRoute fulfills the requirement to establish a private connection from on-premises to Azure, and it does so by leasing a dedicated line to an Azure datacenter and does not use the public internet.
+
+### Question 39
+* You are designing an Azure infrastructure solution for your company's application. This solution must continue to function if a single datacenter goes offline. For compliance reasons, your infrastructure and data must reside in the same general location. How should you design this infrastructure?
+	* **Within a single region, replicate your infrastructure across multiple availability zones in that region.**
+	* Replicate your infrastructure across multiple regions.
+	* Use the Cosmos replication service to copy resources across fault domains.
+	* Use region pairs to replicate resources.
+
+Availability zones provide a level of fault tolerance within a single region (or general location). Each availability zone is a self-contained datacenter. By replicating resources across multiple availability zones, if 1 zone (or datacenter) goes offline, the other availability zones in the same region can continue to host your application.
+
+### Question 40
+* You have a virtual machine that is highly sensitive and requires complete isolation from any other virtual machines. What is the best service to use to achieve this requirement?
+	* Public IP address
+	* **Virtual network**
+	* Traffic manager
+	* Load Balancer
+
+(Virtual network) - To completely isolate the virtual machine you would use a separate Virtual Network. Although it is possible to achieve this via routing tables and separate subnets in the same VNet, a separate VNet ensures complete isolation. [Azure Virtual Network | Microsoft Docs](https://docs.microsoft.com/en-us/azure////virtual-network/virtual-networks-overview "null")

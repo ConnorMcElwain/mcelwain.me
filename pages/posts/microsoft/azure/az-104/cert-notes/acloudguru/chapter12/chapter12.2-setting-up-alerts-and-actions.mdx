@@ -1,0 +1,21 @@
+# AZ-104 Certification Notes
+## Chapter 12.2 - Setting Up Alerts and Actions
+
+### Describing Azure Monitor Alerts
+* Azure Monitor Alerting
+	* Alerts on signals that prompt you to take proactive actions and help automate monitoring and diagnostics
+* Signal Types
+	* Metric, activity, and log signals
+* Action Group
+	* The actions that will take place when an alert has been triggered
+
+* Alerts
+	* Resource
+	* Condition
+		* Signals
+		* Logic
+	* Actions
+		* Text, Email, Action Group
+
+### Key Takeaways
+We use the data that we're capturing from Azure, as far as our metrics and activity logs to be able to create alert rules where we're going to set the specific scope down to our resource like a virtual machine. We will determine the condition that we're going to use based off of signals, such as if the VM is stopped and put into a deallocated status in the activity log. Then we're going to take actions to restart this virtual machine using an action group, using an action inside of that action group, that's going to allow an Automation Runbook to perform that restart of the virtual machine.

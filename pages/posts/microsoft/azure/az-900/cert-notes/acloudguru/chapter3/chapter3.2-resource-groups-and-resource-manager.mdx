@@ -1,0 +1,44 @@
+# AZ-900 Certification Notes
+## Chapter 3.2 - Resource Groups & Azure Resource Manager
+
+### Resource Groups
+Everything in Azure is inside a resource group, no exceptions! While all resources must be inside of a resource group, the resource groups themselves are not a resource.
+
+### Resource Group Facts
+* One Resource
+	* Each resource can only exist in a single resource group.
+* Add/Remove
+	* You can add or remove resources to any resource group at any time.
+* Move Resource
+	* You can move a resource from one resource group to another.
+* Multiple Regions
+	* Resources from multiple regions can be in one resource group.
+* Access Control
+	* You can give users access to a resource group and everything in it.
+* Interact
+	* Resources can interact with other resources in different resource groups.
+* Location
+	* A resource group has a location, or region, as it stores meta data about the resources in it.
+
+### Azure Resource Manager (ARM)
+This is deployment and management services for Azure. If you interact with any of the resources on Azure, it goes through ARM.
+
+### ARM Benefits
+* Group Resource Handling
+	* You can deploy, manage, and monitor resources as a group.
+* Consistency
+	* Deploying resources from various tools will always result in the same consistent state.
+* Dependencies
+	* Define dependencies between resources to make sure they don't get in a fight.
+* Access Control
+	* Built-in features in the ARM make it easy to assign access rights to users.
+* Tagging
+	* Tag resources to easily identify them for future scenarios. Tagging is a way to label individual resources.
+* Billing
+	* Use tagging to stay on top of billing for groups of resources.
+
+## Summary
+* Resource Groups
+	* All resources belong to a resource group. It isn't a resource, but helps structure your Azure architecture.
+* Azure Resource Manager
+	* All interaction with Azure resources go through the ARM. It's the main Azure Architecture component for creating, updating, and manipulating resources.

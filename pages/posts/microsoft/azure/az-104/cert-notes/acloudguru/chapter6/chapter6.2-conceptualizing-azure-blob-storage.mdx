@@ -1,0 +1,44 @@
+# AZ-104 Certification Notes
+## Chapter 6.2 - Conceptualizing Azure Blob Storage
+
+### Describing Azure Blob Storage
+* Blob Storage
+	* Azure Blob is a sub-service or sub-resource of Azure Storage (storage accounts)
+	* Blob storage is **object based** and easily accessible from HTTP/REST
+	* Store items such as:
+		* Image and video files
+		* Text files
+		* Log files
+		* VHD (virtual hard disk) files
+	* All of these things store inside of our Azure Blob Storage, inside of a container, which acts like a bucket. And inside of this we have a virtualization prefix that allows it to appear as though it's a file system, but it's actually a flat file structure
+
+### Components of Blob Architecture
+* Blob Service
+	* A sub-service for storage accounts
+* Blob Container
+	* The container where we storage our blobs
+* Blobs
+	* The data we storage in our containers
+
+### Types of Blobs
+* Block Blobs
+	* Storing images or videos. Best suited for streaming
+* Append Blobs
+	* Log files
+* Page Blobs
+	* Virtual machine disks
+
+### Container Access Levels
+* Access Control
+	* By default, public access to blobs is granted at the storage account level
+* Container Access Levels
+	* **Private** (no anonymous access)
+	* **Blob** (anonymous access to blob)
+	* **Container** (anonymous access to container and blobs it contains)
+
+### Key Takeaways
+* Azure Blob services are:
+	* Object-based Storage solution
+* Blob Containers
+* Flat-File Structure
+	* Like a "bucket" that has the appearance of an actual file system

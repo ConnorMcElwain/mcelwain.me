@@ -1,0 +1,27 @@
+# AZ-104 Certification Notes
+## Chapter 4.5 - Creating and Managing Groups
+
+### Describing Groups
+* Owner and Members
+	* An owner of the group or a member of the group
+* Type of Group
+	* A security group or a Microsoft 365 group
+* Membership Type
+	* Assigned, dynamic user, or dynamic device
+
+### Practical Use
+In this example, we have an HR group with an employee who works in HR named Alice, which is an identity inside our Azure AD tenant. We can create a rule-based assignment where we're going to get Alice's profile and get the properties. We can see within Alice's profile her email, her department, and location. What we can do is perform a dynamic group assignment to add Alice to the HR group if we see that Alice has the "department" for human resources within her profile. Every time we have a user where we put them in the human resources department, they'll be dynamically assigned to this HR group without us having to do it manually.
+
+### Key Takeaways
+* Group Types
+	* Security
+		* Security groups are used to manage access to shared resources for a group of users
+	* Microsoft 365
+		* Microsoft 365 groups are used to give members access to a shared mailbox, calendar, files, etc.
+* Membership Types
+	* Assigned
+		* Users are specifically selected to be members of a group
+	* Dynamic Users
+		* Membership rules are created that automate group membership via user attributes
+	* Dynamic Device
+		* Membership rules are created that automate group membership via device attributes

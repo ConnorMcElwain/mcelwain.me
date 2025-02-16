@@ -1,0 +1,30 @@
+# AZ-900 Certification Notes
+## Chapter 8.5 - Conditional Access
+
+### Conditional Access Concepts
+Authentication Protections beyond Username/Password
+* If/then policy to grant access
+	* If (user) meets these conditions (signals), then grant/block access to defined applications
+* Often paired with multi-factor authentication (MFA)
+	* Centrally applied MFA enforcement
+		* Does not rely on end user enabling MFA
+
+### How It Works
+Create Conditional Access Policy
+* Assign signals (conditions)
+	* Users/groups
+	* Application to grant/deny access
+	* Location (IP)
+	* Approved company devices
+* Access decisions (grant/block access)
+	* Grant access
+	* Block access
+	* Granting access, but **require** MFA
+
+### Conditional Access Scenarios
+* Enforce MFA for all administrators/all users
+* Block sign-ins using legacy authentication protocols
+* Grant access only to specific locations
+* Require organization-managed devices for application sign-in
+
+Requiring managed devices and specific locations can be independent from each other. For example, we can use organization-managed devices from any location, or we can optionally pair it with location-based conditions as well. You have flexibility to choose requiring specific locations, managed devices, or both. Overall, Conditional Access policies take security beyond a simple requirement of a username and password allowing us to also apply additional if/then statements or conditions in order to approve or deny access.

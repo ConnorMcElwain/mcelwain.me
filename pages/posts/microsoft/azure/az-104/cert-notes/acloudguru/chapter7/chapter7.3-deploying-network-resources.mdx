@@ -1,0 +1,41 @@
+# AZ-104 Certification Notes
+## Chapter 7.3 - Deploying Network Resources
+
+### IP Addressing
+* Private Connectivity
+	* VNets can be used to provide private communications between resources
+* Public Connectivity
+	* VNets can be used to provide publicly resolvable address for resources
+* IP CIDR Planning
+	* Plan networks to prevent overlap in network address space to allow for network integration
+
+### Types of IPs
+* Private IPs
+	* Statically or dynamically assigned addresses that allow private connectivity between resources
+* Public IPs
+	* Statically or dynamically assigned addresses that allow public connectivity from the internet to a resource
+
+### Public IP SKUs
+* Basic SKU
+	* Statically or dynamically assignable PIP that is accessible by default and requires an NSG to restrict traffic. Does not support availability zone deployments
+* Standard SKU
+	* Statically assigned PIP that is not accessible by default and requires an NSG to allow traffic. Support availability zone deployments
+
+### NIC IP Configurations
+* Network Interface Card (NIC)
+	* IP Configurations
+		* Private IP: 10.0.0.4
+		* Public IP: x.x.x.x
+
+### Key Takeaways
+* Network Interface Card (NIC)
+	* IP Configurations
+		* Private IP: 10.0.0.4
+		* Public IPL x.x.x.x
+* Private IPs
+	* Statically or dynamically assigned addresses that allow private connectivity between resources
+* Public IPs
+	* Statically or dynamically assigned addresses that allow public connectivity from the internet to a resource
+	* Two types of public IP SKUs:
+		* Basic
+		* Standard

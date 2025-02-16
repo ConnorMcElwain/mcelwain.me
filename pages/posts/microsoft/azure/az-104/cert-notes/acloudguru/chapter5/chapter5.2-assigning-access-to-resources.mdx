@@ -1,0 +1,43 @@
+# AZ-104 Certification Notes
+## Chapter 5.2 - Assigning Access to Resources
+
+### Explaining Azure RBAC
+* Authorization System
+	* Security Principal (Who?)
+		* Who do we want to authorize?
+			* For example, an Azure AD user or group
+	* Role Definition (What?)
+		* What do we want them to be authorized to do?
+	* Scope (Where?)
+		* Where are we going to authorize them to perform these actions?
+
+### Understanding Role Definitions
+* Contributor
+```
+"Actions": [
+	"*"
+],
+"NotActions": [
+	"Auth/*/Delete",
+	...
+],
+"DataAction": [],
+"NotDataActions": []
+"AssignableScopes": [
+	"/"
+]
+```
+* Actions - NotActions = Collective Permissions
+
+### Additive Property
+* Overlapping Roles
+	* Roles follow an additive property. We add the effective permissions of each of these role definitions, and by performing this addition, this will inform us what the effective permissions will be
+		* For example: Contributor + Reader = Contributor (Effective Permissions)
+			* So in this case, contributor + reader = contributor, because contributor provides reader functionality. So effectively, this user will have contributor at the management group scope, and that will be inherited all the way down
+
+### Key Takeaways
+* Authorization System
+	* Provide identities with access to Azure resources
+	* Roles are a collection of permissions
+	* There is a scoping hierarchy for role assignments
+Implicit Deny -> Explicit Allow -> Explicit Deny

@@ -1,0 +1,48 @@
+# AZ-104 Certification Notes
+## Chapter 11.3 - Configuring Web Apps
+
+### Configuration Options
+* Custom Domain
+	* Provide a custom domain to be used by the web application. For example, www.acloudguru.com
+* Scaling
+	* Specify scaling options to scale up/scale out compute resources for your web apps
+* Deployment
+	* Deploy applications using DevOps strategies like deployment slots for a staging slot and a production slot
+* Network
+	* Manage network settings and integration by doing things such as connecting web apps with VNets, CDN, etc
+* Backup
+	* Back up web apps using full archival backups or incremental snapshots that are stored in a storage account via the Blob Storage Service
+
+### Web App Custom Domain
+We can provide a custom domain name, then we'll go to our DNS zone in our DNS provider, and we're going to add an **A record** and assign that A record the value of the public IP address of our web application. We're also going to use the Azure-provided TXT record. This TXT record is going to validate our ownership of this domain. Once we have done that, our users will be able to access that web application via the domain name that we've configured.
+
+### Web App Scaling
+The next configuration option that we're going to talk about architecturally is scaling. For our web applications, lets say we want to scale out, because we're getting more and more users to our web applications. Much like virtual machine scale sets, we can scale out our compute resources to meet that demand. When that demand decreases, we can scale back in, so that we are more appropriately sharing the compute resources with the web applications that are running on the same App Service plan. Now, should we not be able to scale out as much as we need, what we would need to do is then scale up. We can scale up our compute resources for our web application by upgrading our App Service plan to provide more compute resources and more features for our web app. Scaling is great, because we can scale up and scale out to meet the needs of our end users.
+* Scale Up Compute
+* Scale Out Compute
+
+### Web App Deployment Slots
+Using deployments slots, we can create slots that will help us deploy our applications, providing some DevOps-like strategies. For example, our application can be running in a production slot, this would be the application our end users are going to access. Then we have a staging slot, this is going to provide a secondary web app resource that's not going to cost us anything, and we're going to stage new versions of our application here. Whenever we've decided that they are ready to go to production, we'll then push them to production by swapping these slots here, and staging will go to production and production will go to staging. This is great because we can swap deployment slots very easily. Should there be an issue, we can swap these back.
+* Swap Deployment Slots
+* Secondary Web App
+
+### Web App Network Settings
+Our web applications are publicly accessible by default, and that's not something that we can change other than using access restrictions. We can deploy our web applications into virtual networks if we're using an isolated compute type to provide that isolated networking. In most cases, we're going to actually use a VNet integration to integrate our web applications with a virtual network, so that it may access resources inside of that virtual network. It's important to remember that deploying a web app into a virtual network is something that is an isolated compute type-only feature. Then we can also use virtual network integrations should we not be using an isolated compute type for our App Service plan.
+* Isolated Only
+* VNet Integration
+
+### Web App Backup
+With Web App Backup we can create a blob that's going to be the backup file of our web application and it's going to be stored in a storage account. We can schedule these backups to occur inside of our web application's configuration details for backup. These can be stored as a fully archival backup or point-in-time recovery snapshots. Full backups are going to store our app's configurations, the file content of our applications, and the database connection settings of our applications. Should we need to restore our application, we can use this blob to restore our web apps.
+* App Configuration
+* File Content
+* Database Connection
+
+### Exam Tips
+* Scaling
+	* Limited by pricing tier and compute type
+* Deployment
+	* Used for staging applications for a swap
+* Network
+	* Web App is public by default, and can be deployed into or integrated with a VNet
+* Backup
+	* Blob backups of app configs, file content, and database connections

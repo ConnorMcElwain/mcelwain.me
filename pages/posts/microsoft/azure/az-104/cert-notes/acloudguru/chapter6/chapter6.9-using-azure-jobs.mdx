@@ -1,0 +1,39 @@
+# AZ-104 Certification Notes
+## Chapter 6.9 - Using Azure Jobs
+
+### Describing Azure Jobs
+* Azure Jobs
+	* Moving large amounts of data between on-premises and Azure Storage
+		* Move to/from Blob service
+		* Move to Files services
+		* Transport self-supplied drive
+		* Supported drive types:
+			* SATA
+			* HDD
+			* SSD
+
+### Importing Jobs
+* Azure Import Job
+	* Prepare disks (WAImportExport)
+	* Create job
+	* Ship drives
+	* Check job status
+	* Receive disks
+	* Check data in Azure Storage
+
+### Exporting Jobs
+* Azure Export Job
+	* Create job
+	* Ship drives (WAImportExport)
+	* Check job status
+	* Receive and unlock disks
+
+### Key Takeaways
+* Import Jobs
+	* Send large amounts of data to the Azure cloud when network bandwidth won't support data migration
+* Export Jobs
+	* Receive large amounts of data on-premises from the Azure cloud when network bandwidth won't support data migration
+* WAImportExport CLI Tool
+	* Use to prepare disks for data and to estimate number of disks needed
+* Windows Support Only
+* Azure Blob and Files

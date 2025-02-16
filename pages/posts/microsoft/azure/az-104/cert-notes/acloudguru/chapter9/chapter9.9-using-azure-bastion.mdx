@@ -1,0 +1,29 @@
+# AZ-104 Certification Notes
+## Chapter 9.9 - Using Azure Bastion
+
+### What Is Azure Bastion?
+* Fully-managed PaaS
+* RDP/SSH connectivity
+* No public IPs exposed
+* Facts:
+	* RDP/SSH connectivity over SSL/TLS
+	* Deployed per virtual network
+	* Connectivity to all VMs in VNet
+	* HTML5 browser supported
+	* No public IPs
+	* Only supports IPv4
+	* Security is managed
+
+### Key Takeaways
+* Private Traffic
+	* Traffic from Bastion to target VM stays within VNets. (Peered VNets included)
+* Hardened Bastion
+	* NSGs are not needed because Bastion is hardened internally
+* Service Integration
+	* Bastion natively integrates with Azure Firewall
+* Concurrent Connections
+	* Total maximum connections is 25 with RDP and 50 with SSH traffic
+* Audit Logs
+	* Enable diagnostics for auditing Bastion connections
+* Required Role
+	* Reader role permissions are required on the Bastion, VM, and NIC in order to use Bastion

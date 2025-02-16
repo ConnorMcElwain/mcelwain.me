@@ -1,0 +1,53 @@
+# MS-102 Certification Notes
+## Day 4.5 - SharePoint Groups
+
+### SharePoint Groups
+* SharePoint Group Overview
+* SharePoint Site Template
+* SharePoint Site Collections for Microsoft 365 Groups
+* SharePoint Site Collections for Microsoft Teams
+* SharePoint Permission Levels and SharePoint Groups
+
+### SharePoint Group Overview
+* SharePoint Groups exist only in SharePoint
+* The initial Groups Created are determined by the Site Template used to Create the First SharePoint Site in The SharePoint Site Collection
+* Initial SharePoint Groups typically:
+	* Owner - Full Control Permission Level
+	* Member - Edit Permission Level (some templates assign the Contribute permission level to Members)
+	* Visitor - Read Permission Level
+* SharePoint Groups are administrated via the Advanced Permissions section of the Site Settings Page (typically from the Top-Level site of a Site Collection) or in the SharePoint Admin Center
+
+### SharePoint Site Templates
+* Currently there are 17 available (base) templates in SharePoint Online
+	* Get-SPOWebTemplate | Sort Name | Out-Gridview
+* SharePoint Site Templates are divided into 2 main categories:
+	* Classic
+	* Modern
+		* Modern Team Site Template
+		* Communication Site Template
+* Create New Site Collection Page in SharePoint Online Admin Center (must have SharePoint Administrator permissions)
+
+### SharePoint Site Collections for Microsoft 365 Groups
+* SharePoint Site Collections can be configured to use Microsoft 365 Groups to manage access and membership
+* This is the default behavior when creating a new Microsoft 365 Group
+* This is the default behavior when creating a Microsoft Team
+* When creating a Microsoft 365 Group or a Microsoft Team a new Site Collection is created with the Top-Level Site based on the Modern Team Site Template
+
+### SharePoint Permission Levels and SharePoint Groups
+* SharePoint Permission Levels are assigned to a group
+* Administrators can create custom permission levels
+* Out of the box Permission Levels (from a modern team site) are:
+	* Full Control
+	* Design
+	* Edit
+	* Contribute
+	* Read
+* If the Site Collection is the result of the Microsoft 365 Group or Microsoft Team creation the roles within the Group determine the permissions of the users
+	* Microsoft 365 Group Role:
+		* Owner
+		* Member
+		* Guest
+	* Permission Level:
+		* Full Control
+		* Edit
+		* Read

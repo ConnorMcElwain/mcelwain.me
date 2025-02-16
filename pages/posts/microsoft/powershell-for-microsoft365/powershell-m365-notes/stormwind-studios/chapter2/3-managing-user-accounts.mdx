@@ -1,0 +1,35 @@
+# PowerShell for Microsoft 365 Notes
+## Chapter 2.3 - Managing User Accounts
+
+### Update user account info
+* Update-MgUser
+	* Change user account information
+```
+$user = Get-MgUser -Filter "DisplayName eq 'Bob Smith'"
+
+Update-MgUser -USerld $user.Id -City "PHX"
+
+Update-MgUser -USerld $user.Id -AccountEnabled:$false
+```
+
+### Block user accounts and logins
+* Revoke-MgUserSignInSession
+	* Block user sign-in
+* -AccountEnabled:$false
+	* Disable Account
+```
+$user = Get-MgUser -Filter "DisplayName eq 'Bob Smith'"
+
+Revoke-MgUserSignInSession -UserId $user.id
+Update-MgUser -UserId $user.Id -AccountEnabled:$false
+```
+
+### Delete Users
+* Remove-MgUser
+	* Deletes User
+`Remove-MgUser -UserId $user.Id`
+
+### Conclusion
+* Update users
+* Block users and logins
+* Delete users

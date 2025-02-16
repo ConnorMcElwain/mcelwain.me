@@ -1,0 +1,30 @@
+# AZ-900 Certification Notes
+## Chapter 8.7 - External Guest Access
+
+### Challenge: How Do You Collaborate With External Users?
+Scenario: Working with outside consultant to streamline Azure or Azure AD configuration
+
+Solutions?
+Create separate organization account for external user
+* Requires external user to juggle two accounts
+Invite guest user to Azure tenant
+* Guest user uses existing account as an external collaborator
+* B2B collaboration
+
+### Adding a Guest User
+Invite a variety of account types (identity providers)
+* Microsoft, Google, Facebook
+* Other external identity providers
+Assign permissions for guest account
+* Principle of least privilege
+* Different permissions between Azure AD and Azure subscription
+Optional: Assign guest user to application
+Optional: Apply cross- tenant Conditional Access policy
+* Require MFA
+* Require approved managed devices
+
+### Scenario: Inviting an External Consultant
+Configure identity provider (if non-Microsoft)
+Invite external party
+After guest user accepts invitation, assign permissions
+* Optionally: Assign apps, apply Conditional Access policy

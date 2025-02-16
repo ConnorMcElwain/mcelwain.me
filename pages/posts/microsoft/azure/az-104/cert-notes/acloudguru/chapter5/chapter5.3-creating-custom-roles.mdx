@@ -1,0 +1,52 @@
+# AZ-104 Certification Notes
+## Chapter 5.3 - Creating Custom Roles
+
+### Describing Custom Roles
+* Virtual Machine Contributor
+```
+"Actions": [
+	"Compute/virtualMachines/*"
+],
+"NotActions": [],
+"DataAction": [],
+"NotDataActions": [],
+"AssignableScopes": [
+	"/"
+]
+```
+* Custom role definition
+* No built-in role meets requirements
+* User Access Administrator or Owner role for the account
+
+### Creating Role Definitions
+* Custom Role
+```
+"Actions": [
+	"Compute/*/read",
+	"Compute/virtualMachines/
+	restart/action"
+],
+"NotActions": [],
+"DataAction": [],
+"NotDataActions": [],
+"AssignableScopes": [
+	"/"
+]
+```
+
+### Demo: Creating Custom Roles
+* Create a Custom Role
+	* Define a custom role in JSON
+* Assign Role
+	* Assign the custom role to a user
+* Check Role Assignment
+	* Check the user's role assignment
+
+### Key Takeaways
+* Custom Roles
+	* Provide identities with access to Azure resources
+	* Roles are a collection of permissions
+	* Scoping hierarchy for role assignments
+	* Custom role definition
+	* No built-in role meets requirements
+	* User Access Administrator or Owner role for the account

@@ -1,0 +1,45 @@
+# AZ-104 Certification Notes
+## Chapter 9.2 - Creating and Managing Virtual Machines (Part 2)
+
+### Virtual Machine Architecture
+* Resource Group
+	* Virtual Network (VNet)
+		* Subnet
+			* VM
+				* NIC
+					* Private IP
+					* Public IP
+				* Disk
+				* NSG
+
+### Demonstration
+* Create a Linux VM
+	* Use Azure Portal, Azure CLI, and PowerShell via the Cloud Shell in the Cloud Playground
+* Configure Disks
+	* Add a data disk to the VM
+* Configure Networking
+	* Select/Create a VNet, subnet, NIC, PIP, and NSG
+* Install a Webserver
+	* Install Nginx using custom data
+* Open NSG for HTTP
+	* Manage security rules for the VM
+
+### Use Cases
+* Intended Purposes
+	* Linux/Windows Compute
+		* Deploy Linux/Windows virtual machines using Azure VM's IaaS model
+	* Migrate Workloads
+		* Migrate compute workloads to Azure. For example, move web servers to Azure VMs
+	* Cloud Computing Solutions
+		* Azure VM workloads with specific configurations and additional resources can provide solutions with high availability, fault tolerance, scalability, and elasticity
+
+### Exam Tips
+* Key Components
+	* CPU/Memory
+		* Sizing determines CPU and memory
+	* Networking
+		* VMs use VNets, NICs, and NSGs to determine connectivity
+	* Storage
+		* VMs use Azure Disks to storage OS, non-persistent, and persistent data
+* Bonus Tip
+	* Security for VMs can be managed by opening ports on a NSG (Network Security Group)

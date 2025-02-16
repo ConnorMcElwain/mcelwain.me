@@ -1,0 +1,56 @@
+# Microsoft Endpoint Manager Notes
+## Chapter 6.3 - Planning Device Implementation
+
+### Plan Your Azure AD Join Implementation
+* Things to consider:
+	* Review your scenarios
+	* Review your identity infrastructure
+	* Assess your device management
+	* Understand considerations for applications and resources
+	* Understand your provisioning options
+	* Configure enterprise state roaming
+	* Configure Conditional Access
+
+### Managing Users on Azure AD Joined Devices
+* Managing Local Admin Groups:
+	* Azure AD adds the following security principals to the local admin group on the device:
+		* Azure AD global administrator role
+		* Azure AD joined device local administrator role
+		* User performing the Azure AD join
+	* Adding Azure AD roles to the local administrator role allows you to update the users that manage a device anytime in AAD without modifying anything on the device
+* Managing Regular Users:
+	* To prevent regular users from becoming local administrators:
+		* Windows Autopilot
+		* Bulk enrollment
+
+### Plan Your Hybrid Azure AD Join Implementation
+* Things to consider:
+	* Review supported devices
+	* Review things you should know
+	* Review targeted deployment of hybrid Azure AD join
+	* Select your scenario based on your identity infrastructure
+	* Review on-premises AD UPN support for hybrid Azure AD join
+
+### Configuring and Verifying Hybrid Azure AD Join
+* Configuring Hybrid Azure AD Join:
+	* Ensure devices have access to the Microsoft websites from inside your network
+		* This may require a proxy or use Web Proxy Auto-Discovery
+	* Use Azure AD Connect to configure Hybrid Azure AD join for a manage domain
+		* Make sure to complete the steps for SCP (Service Connection Point) configuration
+	* For a federated environment, use an identity provider that is supported
+		* Recommended to use AD FS
+* Verifying Hybrid Azure AD Join:
+	* Locally on the device using PowerShell
+		* `Dsregcmd /status`
+		* Verify both **AzureADjoined** and **DomainJoined** are set to YES
+	* Using Azure Portal
+		* If **Registered** column says "Pending", the join hasn't completed
+		* If **Registered** column contains a date/time, the join has completed
+	* Using PowerShell
+		* `Get-MSolDevice`
+		* Value for **DeviceTrustType** is **Domain Joined**
+
+### Topic Summary
+* Planning Device Implementation
+	* Azure AD Joined Devices
+	* Hybrid Azure AD Joined Devices

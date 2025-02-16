@@ -1,0 +1,91 @@
+# MS-102 Certification Notes
+## Day 3.4 - Identity Models and Org Settings
+
+### Microsoft Entra ID (Formerly Known as Azure AD)
+* Authentication Provider for the Tenant
+* Feature rich cloud first platform:
+	* App integrations and Single sign-on
+	* Passwordless and multifactor authentication
+	* Identity protection
+	* Privileged identity management
+	* End-user self-service
+	* Unified Admin Center
+	* Integration with on Premise Active Directory
+	* Integration with Azure Active Directory Federation Services
+
+### When Tenancy is Created
+* Tenancy Created
+* Entra ID Provisioned
+* First User Created
+* Global Admin Role Assigned
+* License Assigned
+* `[tenant-name]`.sharepoint.com - public DNS configured
+* `[tenant-name]`.onmicrosoft.com - public DNS configured
+* `[username]`@`[tenantname]`.onmicrosoft.com email address provisioned in exchange online with working mailbox - public DNS configured
+
+### Exam Note: Azure AD Free tenants (Entra ID Free)
+* Enterprise Mobility + Security (EMS) E5
+* Microsoft 365 Business Basic
+* Microsoft 365 Business Standard
+* Microsoft 365 Apps
+* Office 365 F3
+* Microsoft 365 F1
+* This is a technicality in a way because they do use Entra ID (Azure AD) but the version doesn't include some of the advanced features so it really should be Free Azure AD, not Azure AD Free, but in case you run into this on the exam
+* Also you can have many different licenses in the same tenant
+
+### Pilot With 5 Cloud Users (What Does This Mean?)
+* Microsoft 365 Identity Models
+	* **Microsoft 365 Cloud identity**
+		* Born in Entra ID (Azure AD)
+		* No on-premise presence
+		* Complete autonomy from Active Directory Domain Services (ADDS - on prem)
+		* Common uses:
+			* Pilot use
+			* Small organizations
+			* Organizations with no current on prem infrastructure
+		* No Active Directory Domain Services (on prem) needed
+	* **Microsoft 365 Synchronized identity aka Hybrid Identity**
+		* Users and Groups that originate in on premise Active Directory
+		* Copy Made in Entra ID (Azure AD) using:
+			* Azure AD Connect
+			* Azure AD Connect Cloud-sync
+	* **Microsoft 365 Federated identity**
+		* ADFS - Active Directory Federation Services
+			* Support for on Premise MFA (multi factor authentication) solutions
+			* Support for Smart Cards or physical devices on premise
+			* Support for Third-party authentication provider
+
+### Pilot With 5 Cloud Users
+* Create and manage cloud users in Microsoft 365 Admin Center
+	* Creation
+	* Licensing
+	* Password
+* Create and manage cloud users via Entra ID Admin center
+* Create and manage users using Microsoft Graph PowerShell
+* Bulk Import with .csv
+
+### Verify Major Applications
+* Exchange Online
+* SharePoint Online
+* Microsoft 365 Apps for Business
+* Microsoft Teams
+
+### Configure the Organizational Settings
+* **Important Notes:**
+	* When you set your preferred language you can change it, but SharePoint online will always use your first choice, even if you change it later
+	* You cannot change the value of the country/region field
+
+### So...
+* Know your org
+* Plan your pilot
+* Understand the license options
+* Create your tenant
+* Create your pilot users
+	* Using the Microsoft 365 Admin Center
+	* Using Microsoft Graph PowerShell
+	* Using the Entra ID Admin Center
+	* Bulk import .csv
+* Complete Organizational Settings
+* Understanding the Microsoft Identity Model focusing on Cloud Identities for now
+* Verified access to portals as Global Administrator
+* Verified major Applications

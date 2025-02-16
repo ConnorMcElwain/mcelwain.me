@@ -1,0 +1,28 @@
+# AZ-104 Certification Notes
+## Chapter 7.4 - Routing Virtual Networks
+
+### Describing Routing
+* Routes = Paths for Connectivity
+	* Routes are paths through which traffic can flow
+	* For example, a route allowing virtual machines to communicate with internet outbound
+
+### Routing Types
+* System Routes
+	* **Default routes** built-in to virtual networks that **cannot** be modified
+* Custom Routes
+	* **User-defined routes** or borer gateway protocol (BGP) routes that **override system routes**
+
+### Routing Scenarios
+* User-Defined Route
+	* Routes created by users that take precedence over all routes
+	* For example, overriding routes to the internet to either go to nothing or go to a network virtual appliance (NVA) like Azure Firewall
+* BGP Route
+	* Routes that are exchanged between integrated networks
+	* For example, hybrid networks or VNet peering scenarios
+
+### Key Takeaways
+* System Routes
+	* **Default routes** built-in to virtual networks that **cannot** be modified
+* Custom Routes
+	* **User-defined routes** or BGP routes that **override system routes**
+* **Custom > BGP > System**

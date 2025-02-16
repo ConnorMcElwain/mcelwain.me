@@ -1,0 +1,130 @@
+# MS-102 Certification Notes
+## Day 5.3 - Domains and DNS For Microsoft 365 Administrators
+
+### Domains and DNS for Microsoft 365 Admins
+* DNS
+* Built in Domains
+* Custom domains and subdomains
+	* DNS for Custom Domains
+* Split Brain DNS
+* .local Domains (on Prem)
+* Managed Domains
+* Federated Domains
+* Microsoft 365 Admin Center and Domains and DNS
+* PowerShell and Domains
+
+### DNS - Domain Name System for Microsoft 365 Admins
+* DNS - the Phone Book of the Internet
+	* Tells devices where to route internet traffic
+	* Protocol defined in RFC documents like RVC 1035
+	* DNS has different record types for different uses
+	* Translates host names into IP Addresses and visa versa
+* DNS Terms for Microsoft 365 Administrators
+* Types of Records important for Microsoft 365 Admins
+	* TXT Records
+		* Type of DNS record in a form of text that contains miscellaneous information for sources outside your domain
+	* A Records
+		* An A record is a fundamental type of DNS record that indicates the IP address of a given domain
+	* CNAME Records
+		* A Canonical Name record is a type of resource record in DNS that maps one domain name (an alias) to another (the canonical name)
+	* SRV Records
+		* The DNS "service" record specifies a host and port for specific services such as VoIP, instant messaging, etc
+	* MX Records
+		* A DNS "mail exchange" record directs email to a mail server. The MX record indicates how email messages should be routed in the accordance with the SMTP protocol (SMTP is the standard protocol for all email)
+
+### DNS - Some Terms
+* Type:
+	* The type of DNS the amount of time that a nameserver keeps a DNS record before the server looks for an updated version record
+* Status:
+	* Correctly or not correctly configured
+* Name:
+	* Record Name
+		* @ = apex which is the same as the root domain name
+* Value:
+	* Where to point the traffic
+* TTL:
+	* The amount of time that a nameserver keeps a DNS record requesting an update
+
+### DNS > TXT Records
+* What it is:
+	* RFC - 1035 - Attribute record
+* Where it's used in Microsoft 365:
+	* Verify Custom Domain
+	* SPF
+	* DMARC
+* What it looks like:
+	* Verifying a custom Domain: TXT=ms234324
+	* SPF: `v=spf1 include:spf.protection.outlook.com -all`
+	* DMARC TXT record: `v=DMARC1;p=none;sp=quarantine;pct=100;rua=mailto:dmarcreports@controlflowcorp.com;"`
+
+### DNS > A Records
+* What it is:
+	* Translates host name to IP address and visa versa
+* Where it's used:
+	* Internal DNS (on premise)
+	* Public DNS for Website - *Not Microsoft 365*
+
+### DNS > CNAME Records
+* What it is:
+	* Canonical Name Record - basically it's an alias
+* Where it's used:
+	* Auto discover for applications and presence, Microsoft Teams (under the Skype for Business Section), Basic Mobility and Security
+
+### DNS > SRV Records
+* What it is:
+	* Service location record
+* Where it's used:
+	* Skype for Business Online (Microsoft Teams), Exchange Online to coordinate the flow of information between Microsoft services
+
+### DNS > MX Records
+* What it is:
+	* Mail Exchanger Record
+* Where it's used:
+	* Points mail traffic to Exchange Online (or where you want to point it)
+
+### Built In Domains
+* Microsoft Manages DNS
+	* Root Domains
+		* .onmicrosoft.com
+		* .sharepoint.com
+	* Sub Domains
+		* controlflowcorp.onmicrosoft.com
+		* controlflowcorp.mail.onmicrosoft.com
+		* controlflowcorp.sharepoint.com
+		* controlflowcorp-admin.sharepoint.com
+
+### Custom Domains
+* Non-Microsoft Owned Domains
+* Can Be Added Add to Tenancy
+	* Limit 900 Custom Domains (root and sub total)
+* Verify Ownership
+* Manage Public DNS sending Traffic to Microsoft Servers
+* Custom Sub-Domains
+	* Add Root Domain first
+
+### Custom Domains and DNS
+* Microsoft Exchange
+* MX, TXT, CNAME
+* Skype for Business (Microsoft Teams)
+	* 2 CNAME, 2 SRV
+* Basic Mobility & Security
+	* 2 CNAME, 2 SRV
+
+### Split Brain DNS
+* On Premise (internal) DNS points to one location
+* Public DNS (external) DNS points to a different location
+* Typically used to separate internal content from external on the same DNS Zone Name
+* Correct resolution is determined by DNS Zone scopes and DNS policies
+* Microsoft 365 Administrators may need to address or adjust on Premise DNS policies if Split Brain DNS is being used
+
+### Microsoft 365 Admin Center And Domains and DNS
+* Microsoft 365 Admin Center (https://admin.microsoft.com) > Settings > Domains
+
+### Non-Routable Domains
+* .local etc..
+* Synchronized Users need to have verified UPN suffixes
+* To prepare you can Add UPN suffixes and updating on Prem Users
+	* Add the new UPN Suffix (On Prem AD DS) as Alternative
+	* UPN Suffix in Domains and Trusts
+	* Change the UPN suffix for users
+	* Can use PowerShell or UPN dropdown

@@ -1,0 +1,41 @@
+# AZ-104 Certification Notes
+## Chapter 2 - Understanding Azure Resource Manager
+
+### Azure Cloud Fundamentals
+#### What Are Clouds Made Of?
+* Resources
+	* An entity managed by Azure
+	* Virtual machines, storage accounts, and virtual networks
+	* All of these resources are going to be logically grouped into a resource group
+* Resource Groups
+	* Logical container for grouping resources
+	* Group resources based on lifecycles and security
+		* For example:
+			* Resources are part of a workload that will share a common lifecycle when it's created, managed, and destroyed
+			* Group resources based on security, so we can control access based on resource groups
+			* Break resource groups down into something different like dev environments, test environments, and production environments
+	* Associated with an Azure Subscription
+* Azure Subscriptions
+	* Logical construct that groups together resource groups and associated resources
+	* Billing unit for the Azure cloud
+	* Controlled by Azure Resource Manager (ARM)
+
+### Describing Azure Resource Manager
+Azure Resource Manager (ARM) is the orchestration layer (top-level resource) for managing the Azure cloud. We can use tools like the Azure portal, the Azure CLI, and the Azure PowerShell to interact with these resources. This is all happening via REST API endpoints. Azure Resource Manager is not interacting with the resources themselves, but rather, it's interacting with and connecting to these resource providers that are associated to specific resources. For example, for compute resources, we may have a resource provider. This is then forwarded from the request that we have to manage resources for Azure Resource Manager to the resource provider to perform and complete those requests on the resources themselves.
+* Azure Resource Manager (ARM) is the orchestration layer for managing the Azure cloud
+* Uses REST API endpoints
+* ARM connects to resource provider
+* Resource provider completes the request
+
+### Overview of Azure Cloud
+How do these components interact with one another? We know that we use some REST API endpoints like the Azure portal, Azure PowerShell, and Azure CLI to interact with the Azure Resource Manager. We make requests for specific operations, and then the Resource Manager forwards these requests to the appropriate resource providers depending on the resource that we're trying to perform in operation on. Then from these resource providers, the operation is actually performed on the resources that we have specified whenever we were making the request for a specific operation.
+
+**What prevents someone from managing resources that don't belong to their organization?** Azure approaches everything from an identity-centric security method. We're using Azure AD for our identity and access management resource inside of Azure. It stands alone from our subscription and we have what is known as a tenant. For example, tenant "A" is going to have things like users. These users may make specific requests to manage resources via these REST API endpoints that will be forwarded to Azure Resource Manager. This is then forwards the request to be completed by a resource provider and then it's completed on the actual resources we're trying to manage. Now if there's another tenant out there, in this case "Tenant B", it won't be able to do anything within "Tenant A" because it doesn't have the trust relationship required between our subscription. A subscription can only have a **trust relationship with a single tenant** at a time. However, a tenant could have a **trust relationship with multiple** subscriptions. This is how we can make sure that only we have access to manage our resources across all of our subscriptions inside of the Azure cloud.
+
+### Exam Tips
+* **Resources** are **Azure-managed entities**, like virtual machines, storage accounts, and virtual networks
+* **Resources** are contained in **resource groups**
+* **Resource groups** are contained in **subscriptions**
+* You can use **REST API** endpoints to manage Azure through **Azure Resource Manager**
+* **Azure Resource Manager** is a management service
+* Each **resource** has a **resource provider**

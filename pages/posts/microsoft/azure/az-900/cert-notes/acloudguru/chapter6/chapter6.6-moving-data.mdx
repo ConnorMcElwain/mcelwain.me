@@ -1,0 +1,33 @@
+# AZ-900 Certification Notes
+## Chapter 6.6 - Moving Data
+
+### Concept: Moving Data into and Out of Azure Storage
+Different solutions based on:
+* Transfer frequency (occasional moving data/continuous automated transfer method)
+* Data size
+* Network bandwidth
+
+#### AZ-900 focus for smaller, occasional transfer:
+### AzCopy
+Command-Line Utility
+* Transfer blobs and Azure Files
+* Useful for automated scripting data transfers
+* Example of an AzCopy command:
+	* `azcopy cp "funny-llamas.mp4" "https://mystorageaccount.blob.core.windows.net/my-container"`
+
+### Storage Explorer
+Graphical User Interface (GUI) Interaction
+* Downloaded application
+* User-friendly graphical interface
+	* Drag-and-drop interaction
+* Move all storage account formats
+
+### Azure File Sync
+Synchronize Azure Files with On-Premises File Servers
+Local file server performance + cloud availability
+* Use cases:
+	* Back up local file server
+	* Synchronize files between multiple on-premises locations
+	* Remote users access Azure Files
+	* Transition to only Azure Files for file server
+		* This is a good method to help ease your way into cloud only file server

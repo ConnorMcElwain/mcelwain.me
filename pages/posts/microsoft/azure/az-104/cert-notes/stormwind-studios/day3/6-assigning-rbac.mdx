@@ -1,0 +1,63 @@
+# AZ-104 Stormwind Studio Certification Course Notes
+## Day 3.6 - Assigning RBAC
+
+### Assigning RBAC: Azure
+* Azure RBAC roles are typically assigned to:
+	* Users
+	* Groups
+	* Service Principals
+	* Managed Identities
+
+### Assigning RBAC: Azure - Users
+* An individual who has a profile in Microsoft Entra ID
+* You can assign roles to users within your own tenant or even to users in other organizations (using Microsoft Entra B2B)
+* For example, you might assign a role to a specific user to manage virtual machines or storage
+
+### Groups
+* A set of users created in Microsoft Entra ID
+* When you assign a role to a group, all users within that group inherit that role
+* Group-based assignments simplify access management for multiple users
+
+### Service Principal:
+* A security identity used by applications or services to access specific Azure resources
+* Think of it as a user identity (with a username and password or certificate specifically for an application)
+* Service principals are commonly used for automated processes or applications that need to interact with Azure resources
+
+### Assigning RBAC: Azure - Managed Identity
+* Managed Identity:
+	* An identity in Microsoft Entra ID that is automatically managed by Azure
+	* Typically used when developing cloud applications to manage credentials for authenticating to Azure services
+	* Managed identities simplify authentication and avoid the need for explicit credentials in code
+
+### Assigning RBAC: Entra ID RBAC
+* Roles can be assigned to Users and or Groups
+	* **Users:** You can directly assign Entra ID roles to individual users
+	* **Groups:** You can assign Entra ID roles to supported groups. When this is done all role permissions extend to all members of that group
+
+### RBAC Scope - Azure
+* Azure RBAC Roles can be assigned to the following scopes
+	* Management Group
+	* Subscription
+	* Resource Group
+	* Resource
+* Management Group:
+	* This is the highest level of scope. Management groups allow you to organize subscriptions and apply policies across multiple subscriptions. Role assignments at this level apply to all subscriptions within the management group
+	* **Scope Path:** `/providers/Microsoft.Management/managementGroups/{managementGroupName}`
+
+### RBAC Scope
+* Subscription:
+	* Scopes at the subscription level apply to a specific Azure subscription
+	* **Scope Path:** `/subscriptions/{subscriptionId}`
+* Resource Group:
+	* Resource groups provide a way to manage related resources within a subscription. Role assignments at the resource group level apply to all resources within that group
+	* **Scope Path:** `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
+* Resource:
+	* The most specific level of scope, where you can assign roles directly to individual resources
+	* **Scope Path:** `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{providerName}/{resourceType}/{resourceName}`
+
+### End Topic: Azure Role-based Access Control (RBAC)
+* Role Definitions
+* Azure RBAC
+* Entra ID Roles
+* Assigning RBAC
+* RBAC Scope

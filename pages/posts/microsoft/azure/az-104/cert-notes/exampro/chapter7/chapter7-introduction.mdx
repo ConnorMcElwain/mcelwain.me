@@ -1,0 +1,73 @@
+# AZ-104 Certification Notes
+## Chapter 7 - Introduction
+
+### ARM Templates
+What is Infrastructure as Code? (IaC)
+* The process of **managing and provisioning** computer data centers (e.g., Azure) through machine-readable **definition files** (e.g. JSON files) rather than physical hardware configuration or interactive configuration tools
+* You write a script that will setup cloud services for you
+IaCs can either be:
+* Declarative
+	* You defined exactly what you want, and you get exactly that
+* Imperative
+	* You define what you generally want, and the service will guess what you want
+
+ARM templates are JSON files that define azure resources you want to provision and azure services you want to configure.
+* With ARM templates you can:
+	* ARM templates are declarative. (you get exactly what you define)
+	* Stand up, tear down, or share entire architectures in minutes
+	* Reduce configuration mistakes
+	* Know exactly what you have defined for a stack to establish an architecture baseline for compliance
+
+With ARM templates you can:
+* **ARM templates** are declarative. (you get what you define)
+* Stand up, tear down, or share entire architectures in minutes
+* Reduce configuration mistakes
+* Establish an architecture baseline for compliance
+* Modularity
+	* Break up your architecture in multiple files and reuse them
+* Extensibility
+	* Add PowerShell and Bash scripts to your templates
+* Testing
+	* You can use the ARM templates tool kit (arm-ttk)
+* Preview Changes
+	* Before you create infrastructure via template, see what it will create
+* Built-In Validation
+	* Will only deploy your template if it passes
+* Tracked Deployments
+	* Keep track of changes to architecture over time
+* Policy as Code
+	* Apply Azure policies to ensure you remain compliant
+* Microsoft Blueprints
+	* Establishes relationship between resource and the template
+* CI/CD integration
+* Exportable Code
+	* Exporting the current state of a resource groups and resources
+* Authoring Tools
+	* Visual Studio Code has advanced features for authoring ARM templates
+
+### Practice Quiz
+* ARM templates are _________ that you want to provision and azure services you want to configure.
+	* CSV files that define azure resources
+	* XML files that configure azure resources
+	* JSON files that are undefined
+	* **JSON files that define azure resources**
+* Which ARM Template feature can break up your architecture in multiple files and reuse them?
+	* Testing
+	* Extensibility
+	* **Modularity**
+	* Exportable Code
+* Which of the following can ARM Templates NOT do?
+	* Stand up, tear down or share entire architectures in minutes
+	* **Special Service Reduction**
+	* Know exactly what you have defined for a stack to establish an architecture baseline for compliance
+	* Reduce configuration mistakes
+* IaCs can be either: (Choose 2)
+	* **Declarative**
+	* Unique
+	* Manageable
+	* **Imperative**
+
+* What is IaC?
+	* Infrastructure As Code (IaC) is the process of managing and provisioning computer data centers through machine-readable definition files rather than physical hardware configuration.
+* Which ARM Template feature can add PowerShell and Bash scripts to your templates?
+	* Extensibility

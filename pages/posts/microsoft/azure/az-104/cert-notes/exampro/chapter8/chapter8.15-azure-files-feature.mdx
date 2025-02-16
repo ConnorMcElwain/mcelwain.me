@@ -1,0 +1,66 @@
+# AZ-104 Certification Notes
+## Chapter 8.15 - Azure Files Feature
+
+### Azure Files
+* Backups
+	* You can backup your file share with **shared snapshots**
+		* They are read-only
+		* Incremental (they only contain as much data as has changed since the previous snapshot)
+		* You can have up to **200 snapshots** per file share
+		* You can retain backups for **up to 10 years**
+		* Backups are stored within your file share (if you delete your file share you will delete your backups)
+* Soft Delete
+	* You can prevent accidently deletion by turning on Soft Delete (Storage will be marked for deletion and retained for a period of time before final delete occurs)
+* Advanced Threat Protection (ATP)
+	* An additional layer of security intelligence that provides alerts when it detects anomalous activity on your storage account
+* Store Tiers:
+	* **Premium** - Store on to SSD with single-digit milliseconds for most IO operations
+	* **Transaction optimized** - Store on HDD with transaction heavy workloads that don't need the latency offered by premium file shares (historically this tier has been called **standard**)
+	* **Hot** - Optimized for general purpose file sharing scenarios such as **team shares** and **Azure File Sync**
+	* **Cool** - Stored on HDD for cost-efficient storage optimized for online archive storage scenario
+
+* Types of Storage
+	* **General purpose version 2 (GPv2)** - Deployed on to HDD
+	* **FileStorage** - Deployed onto SSD
+* Identity
+	* **On-Premise** - Azure Storage can be joined to an on-premise Active Directory Domain Service
+	* **Managed** - Azure Storage can be joined to Microsoft managed Active Directory Domain Service
+	* **Store Account Key** - A username (storage account name) and password (account key) can be used to mount
+* Networking
+	* Azure Files are accessible inside or outside your AWS Account from anywhere via storage account **public endpoint**
+	* SMB connects to **port 445**, your organization may need to unblock this port so you can mount your file share
+* Encryption
+	* Azure Files is **encrypted-at-rest** using Azure Storage Service Encryption (SSE)
+	* Azure Files is **encrypted-in-transit** with SMB 3.0+ with encryption or HTTPS
+
+### Practice Quiz
+* What are the types of storage in Azure Files? (Choose 2)
+	* On-Premise
+	* Backups
+	* **FileStorage**
+	* **General purpose version 2 (GPv2)**
+* Which Store Tier is stored on HDD with transaction heavy workloads that don't need the latency offered by premium file shares?
+	* Premium
+	* Hot
+	* **Transaction optimized**
+	* Cool
+* What is an additional layer of security intelligence that provides alerts when it detects anomalous activity on your storage account?
+	* Transaction optimized
+	* **Advanced Threat Protection (ATP)**
+	* Networking
+	* Premium
+* What are the types of Identities in Azure Files? (Choose 3)
+	* Public
+	* Private
+	* **On-Premise**
+	* **Store Account Key**
+	* **Managed**
+
+* Which Azure Files feature can prevent accidental deletion of files?
+	* Soft Delete
+* Which feature of Azure Files are accessible inside or outside your Azure Account from anywhere via storage account **public endpoint**?
+	* Networking
+* How are Azure Files encrypted at rest?
+	* Azure Files is encrypted-at-rest using **Azure Storage Service Encryption (SSE)**.
+* Which storage tier in Azure Files is optimized for general purpose file sharing scenarios such as **team shares and Azure File Sync**?
+	* Storage Tier: Hot

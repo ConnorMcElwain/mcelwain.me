@@ -1,0 +1,35 @@
+# Microsoft Endpoint Manager Notes
+## Chapter 4.1 - Introduction to Co-Management
+
+### What is Co-Management?
+Co-Management is one of the primary ways to combine your existing Configuration Manager environment to the Microsoft 365 Cloud.
+
+### Benefits of Co-Management
+* Link users, devices and apps with Azure Active Directory
+* Centralized visibility of device health
+* Intune-based remote actions, like restart, remote control or factory reset
+* Conditional access with device compliance
+* Modern provisioning with Windows Autopilot
+
+### Prerequisites of Co-Management
+* Licensing
+* Configuration Manager
+* Azure Active Directory (Azure AD)
+* Microsoft Intune
+* Windows
+* Permissions and roles
+
+* Set up a cloud management gateway in Configuration Manager
+	* Role needed: Azure Subscription Manager
+* Create Azure AD apps from Configuration Manager
+	* Role needed: Azure AD Global Administrator
+* Import Azure apps in Configuration Manager
+	* Role needed: Configuration Manager Full Administrator (No additional Azure roles needed)
+* Enable co-management in Configuration Manager
+	* Role needed: An Azure AD user
+		* Configuration Manager Full Administrator with All scope rights
+
+### Topic Summary
+* What is Co-Management
+* Benefits of Co-Management
+* Prerequisites of Co-Management

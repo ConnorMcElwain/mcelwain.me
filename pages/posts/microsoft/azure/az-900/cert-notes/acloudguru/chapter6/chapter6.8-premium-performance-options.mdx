@@ -1,0 +1,60 @@
+# AZ-900 Certification Notes
+## Chapter 6.8 - Premium Performance Options
+
+Premium Performance Options for Low-Latency Requirements
+* Stored on SSDs
+	* Separate considerations from managed disk types
+* Key considerations:
+	* Available storage types for each performance option
+	* Redundancy options
+		* Trade more performance for less redundancy
+		* LRS/ZRS only for all types
+	* All premium options have a higher cost
+
+### Storage Account Performance Options
+* Standard
+	* Standard general-purpose v2
+		* The default -- supports all storage types
+		* All redundancy options
+* Premium
+	* Premium block blobs
+	* Premium page blobs
+	* Premium file shares
+
+### Premium Block Blobs
+* Supported Storage Type
+	* Blob Storage
+	* Ideal for low-latency blob storage workloads
+		* AI applications, IoT analytics
+* Redundancy
+	* LRS/ZRS only
+
+### Premium Page Blobs
+* Supported Storage Type
+	* Page blobs
+		* Unmanaged virtual disk (currently being retired)
+		* Standalone API access
+			* For third party storage solutions which are using Azure page blobs in the background
+	* Redundancy
+		* LRS only (single zone)
+
+### Premium File Shares
+* Supported Storage Type
+	* Azure Files
+		* Ideal for high-performance enterprise (file server) applications
+		* Supports both Server Message Block (SMB) and Network File System (NFS) file shares
+			* Windows (SMB)/Linux (NFS) file shares
+	* Redundancy
+		* LRS/ZRS only
+
+### Premium Storage Summary
+Types of Storage Account
+* Premium block blobs
+	* Support Storage Services: Blob Storage
+		* Redundancy Options: LRS/ZRS
+* Premium page blobs
+	* Support Storage Services: Page blobs only (IaaS disks)
+		* Redundancy Options: LRS
+* Premium file shares
+	* Support Storage Services: Azure Files
+		* Redundancy Options: LRS/ZRS

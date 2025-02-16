@@ -1,0 +1,93 @@
+# Microsoft Endpoint Manager Notes
+## Chapter 5.3 - Windows Autopilot Scenarios
+
+### Windows Autopilot - Scenarios
+* Organization Type
+* Progress moving to Windows 10/11
+* MEM Migration State
+* Scenario:
+	* Windows Autopilot User-driven Mode
+		* Join device to AAD
+		* Enroll in Intune
+		* Require user credential for Azure AD join and Intune enrollment
+		* Challenges:
+			* More user wait time. This can be reduced using the white glove process
+		* User Criteria:
+			* Don't have on-prem dependency for applications and AD policy
+			* Recommended for remote users who don't have access to corporate on-prem network
+	* Windows Autopilot Self-Deploying Mode
+		* Join device to AAD
+		* Enroll in Intune
+		* No need to provide user credential to authenticate for Intune and Azure AD join. Instead, a TPM chip is used for authentication
+		* Challenges:
+			* N/A
+		* User Criteria:
+			* Don't have on-prem dependency for application and AD policy
+			* Recommended for Windows 10 kiosk scenarios or shared devices
+	* Windows Autopilot Reset
+	* Windows Autopilot for Pre-Provisioned Deployment
+	* Windows Autopilot Deployment for Existing Devices
+
+### Windows Autopilot - Scenarios
+* User-Driven Mode
+	* Join device to AAD
+	* Enroll in Intune
+	* Require user credential for Azure AD join and Intune enrollment
+	* Challenges:
+		* More user wait time. This can be reduced using the white glove process
+	* User Criteria:
+		* Don't have on-prem dependency for applications and AD policy
+		* Recommended for remote users who don't have access to corporate on-prem network
+* Self-Deploying Mode
+	* Join device to AAD
+	* Enroll in Intune
+	* No need to provide user credential to authenticate for Intune and Azure AD join. Instead, a TPM chip is used for authentication
+	* Challenges:
+		* N/A
+	* User Criteria:
+		* Don't have on-prem dependency for application and AD policy
+		* Recommended for Windows 10 kiosk scenarios or shared devices
+* Hybrid Azure AD Join
+	* Join Device to on Prem AD + registered in azure
+	* Enroll in Intune
+	* Require user credential for AAD and Intune enrollment
+	* Challenges:
+		* Require Intune connector to be installed for AD Join
+		* More end user wait time
+	* User Criteria
+		* Recommended for users who have an on-prem dependency for apps and policy
+* Existing Devices
+	* Join device to AAD
+	* Enroll in Intune
+	* Require user credential for AAD and Intune enrollment
+	* Can Copy Offline Autopilot profile
+	* Challenges:
+		* Require task sequence
+		* More end user wait time. This wait time can be reduced using the white glove process
+	* User Criteria:
+		* Recommended for users who don't have an on-prem dependency
+		* This approach can be used if company wants to achieve a mass OS rollout
+
+### Windows Autopilot - Scenarios
+* Windows Autopilot User-Driven Mode
+	* Scenario:
+		* Deploy and configure devices so that an end user can set it up for themselves
+* Windows Autopilot Self-Deploying Mode
+	* Scenario:
+		* Deploy devices to be automatically configured for shared use, as a kiosk, or as a digital signage device
+* Windows Autopilot Reset
+	* Scenario:
+		* Redeploy a device in a business-ready state
+* Windows Autopilot for Pre-Previsioned Deployment
+	* Scenario:
+		* Pre-provision a device with up-to-date applications, policies, and settings
+* Windows Autopilot Deployment for Existing Devices
+	* Scenario:
+		* Deploy Windows 10/11 on an existing Windows 7 or 8.1 device
+
+### Topic Summary
+* Windows Autopilot Scenarios
+	* Windows Autopilot Self-Deploying Mode
+	* Windows Autopilot Reset
+	* Windows Autopilot for Pre-Provisioned Deployment
+	* Windows Autopilot Deployment for Existing Devices

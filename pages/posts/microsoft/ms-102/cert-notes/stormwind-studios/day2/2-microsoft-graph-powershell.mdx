@@ -1,0 +1,12 @@
+# MS-102 Certification Notes
+## Day 2.2 - Microsoft Graph, PowerShell
+
+### Microsoft.Graph
+This is the newest way to work with Microsoft 365 using PowerShell.
+"Azure AD, Azure AD Preview, and MSOnline PowerShell modules are planned for deprecation. Microsoft Graph PowerShell is the PowerShell module to use for interacting with Azure AD and other Microsoft services."
+* Install-Module Microsoft.Graph - Scope CurrentUser
+* There are over 30 sub modules to see them
+* Get-InstalledModule | Where-Object `{$_.Name -like "*Graph.*"}`
+* Commands are run from the sub modules and require permissions
+* Find-MgGraphCommand can be used to discover required permissions for another commandlet
+	* Find-MgGraphCommand -command Get-MgUser | Select -First 1 -ExpandProperty Permissions

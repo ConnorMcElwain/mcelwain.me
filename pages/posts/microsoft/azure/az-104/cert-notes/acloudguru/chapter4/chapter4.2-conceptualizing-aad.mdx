@@ -1,0 +1,56 @@
+# AZ-104 Certification Notes
+## Chapter 4.2 - Conceptualizing Azure Active Directory
+
+### Identity and Access Management (IAM) Basics
+* Principal
+	* An unauthenticated entity that will seek to authenticate as an identity
+* Identity
+	* An identity profile that is authenticated against using credentials
+* Authorizations
+	* Actions that are permitted/prohibited for an identity to perform
+
+### What Is Azure AD?
+* Azure Active Directory (Azure AD)
+	* Identity and Access Management (IAM)
+		* A global cloud-based identity service for Azure that provides an identity repository
+	* Create Identity Resources
+		* Create users and groups
+	* Manage Identity Security
+		* Enable multi-factor authentication (MFA), control resource access, and provide policy-based controls
+
+### Azure AD Features
+* IAM Platform
+	* IAM for Azure cloud-based resources
+* Identity Security
+	* Additional security with MFA and Privileged Identity Management (PIM)
+* Collaboration and Development
+	* Azure AD B2B for collaboration and Azure AD B2C to support development
+* Monitoring
+	* Audit logs, security monitoring, identity protection, and risk management
+* Identity Integration
+	* Hybrid identity and single sign-on (SSO) using Azure AD Connect and Azure AD Domain Services
+* Enterprise Access
+	* Additional security for applications and devices both on-premises and in the cloud
+
+### Active Directory vs. Azure AD
+* Active Directory
+	* Organizational units (OUs)
+	* Group Policy Objects (GPOs)
+	* Kerberos, LDAP, NTLM
+	* Hierarchical
+	* On-Premises
+* Azure AD
+	* Administrative units
+	* SAML, WS-Federation, OAuth
+	* Flat directory structure
+	* Cloud-based solution
+	* Global
+
+### Key Takeaways
+Azure Active Directory is a global service, and whenever we get an instance of this service in our geography from where we created it, we're getting an Azure AD tenant. This is our identity and access management solution for managing our cloud-based identities. Using this , we can create a trust relationship with subscriptions to provide these identities with access to our resources.
+* Identity and Access Management (IAM)
+	* Global cloud-based identity service for Azure that provides an identity repository
+* Create Identity Resources
+	* Create users and groups
+* Manage Identity Security
+	* Enable MFA, control resource access, and provide policy-based controls

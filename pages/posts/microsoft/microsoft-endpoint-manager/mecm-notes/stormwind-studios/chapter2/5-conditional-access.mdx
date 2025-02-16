@@ -1,0 +1,37 @@
+# Microsoft Endpoint Manager Notes
+## Chapter 2.5 - Conditional Access
+
+### Conditional Access - Windows Devices
+* Corporate Devices
+* BYOD
+* Exchange On-Prem
+
+### Conditional Access - Windows Devices
+* Azure Active Directory Supported Apps
+* LOB Apps
+* Conditional Access Process:
+	* Authenticate User and Device
+		* Azure AD
+		* Redirect to App Store
+			* App Store/Google Play (Install Microsoft Authenticator/Company Portal)
+			* Install App
+				* Broker app
+				* Register device in Azure AD
+					* Verify identity of Outlook app
+					* Request token based on Client ID
+						* Policy + Approved Client IDs
+						* Issue Access token
+							* Access Outlook Cloud Service with AAD token
+							* Outlook Cloud Service
+								* Get EXO access token for user
+								* Get Corporate email
+									* Office 365 Email Service
+
+### Conditional Access - Microsoft 365 Modern Authentication
+* Access to resources from different devices and apps from anywhere
+* Access Control Infrastructure
+* Azure Active Directory enables you to enforce controls on access to apps
+
+### Topic Summary
+* Device Based
+* App Based

@@ -1,0 +1,38 @@
+# AZ-104 Certification Notes
+## Chapter 7.2 - Creating Virtual Networks
+
+### Designing a Network
+* Determine IP CIDR
+	* Select a Classless Inter-Domain Routing (CIDR) notation that allows for growth and integration
+* Subnetting Requirements
+	* Determine how to segment the solution to meet your needs, such as segmenting for n-tiers
+* Connectivity Needs
+	* Determine what type of connectivity is needed: Internet, resource to resource, resource to service, etc
+
+### Virtual Network (VNet) Features
+* Subnetting
+	* Azure VNet uses subnets to segment address spaces. Reserved IP addresses are x.x.x.0-3 and x.x.x.255
+* Private Networking
+	* Azure VNet supports DHCP for private IP addressing for resources
+* Public Networking
+	* Azure VNet supports public IP addressing (IPv4 and IPv6) so that resource can have public connectivity
+* Peering
+	* Azure VNet supports peering between Azure VNets
+* Network Gateway
+	* Azure VNet uses gateway subnets to make VPN connects
+* Monitoring
+	* Azure VNet makes monitoring easy. View logs, monitoring connectivity, and view a topology of the virtual network
+
+### Key Takeaways
+* Default Connectivity
+	* By default, intra-network traffic and outbound internet traffic is allowed
+* Address Restrictions
+	* Use of private addresses using RFC 1918 provide best results. The smallest VNet/subnet size allowed is /29 and the largest is /8
+* Reserved IPs
+	* Azure reserved IPs are x.x.x.0-3 and x.x.x.255
+* DNS and DHCP
+	* Azure-provided DNS or custom DNS. For VNets, DHCP is built-in
+* Network Integration
+	* VNets are built for integration with one another, hybrid connectivity using VPNs, and ExpressRoute
+* Supported Protocols
+	* VNets support TCP, UDP, and ICMP protocols

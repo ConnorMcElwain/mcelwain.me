@@ -1,0 +1,162 @@
+# AZ-104 Stormwind Studio Certification Course Notes
+## Day 2.2 - Entra ID Authentication Methods
+
+### Identity
+* A Security Principle or something that can be authenticated
+	* Users
+	* Applications
+	* Security Groups
+	* Servers
+	* Devices
+* A Wide Array of Authentication Methods are Supported including
+	* User-Name and Password
+	* Microsoft Authenticator
+	* SMS
+	* Temporary Access Pass
+	* Hardware OATH tokens
+	* Third-party software OATH tokens
+	* Voice call
+	* Email OTP
+	* Certificate-based authentication
+	* Multi-Factor Authentication
+
+### Account
+* An identity with data associated with is becomes an Account
+* You cannot have an Account without an Identity
+* You cannot have an Account without an Identity
+	* On Premise - homed in Active Directory Domain Services
+	* Cloud or Entra ID Account - Created in Entra ID
+	* Guest B2B - homed in another Entra ID Tenant
+	* Guest B2C - a consumer account (i.e. @gmail.com, @outlook.com etc.)
+
+### Tenancy
+* Each single instance of Entra ID represents a single tenancy
+* Tenancy = Directory
+* You can have more than one tenancy but most of the time you will be working with one
+* Azure Subscriptions are used for management of payment for Azure products and Services
+
+### Users
+* A user represents a person
+* Cloud users can be created using
+	* Microsoft Entra Portal
+	* Microsoft 365 Admin Center
+	* Azure Cloud Shell with PowerShell or Bash
+* Hybrid Users
+* Federated Users
+* Guest Users
+
+### Groups
+* Groups are logical boundaries that contain users and or resources
+* Microsoft Entra ID supports 2 main type of groups through the portal
+	* Security
+	* Microsoft 365
+* Microsoft Entra Admin Center allows for the creation of Groups
+	* Security Groups
+		* Assigned
+		* Dynamic User
+		* Dynamic Device
+	* Microsoft 365 Groups
+		* Assigned
+		* Dynamic User
+
+### Licensing
+* Licenses can be purchased into a Microsoft Entra ID tenant and the assigned to users or groups
+* Many products offer trial licenses
+
+### Roles
+* Users can be assigned Roles
+* Some Groups can be assigned Roles
+* Azure Administrative Roles - typical for products and services
+* Azure Roles - typical for Azure Resources
+
+### Comparing Entra ID to Active Directory Domain Services
+* Active Directory Domain Services (ADDS)
+	* Is primarily a hierarchical directory service product with Forests, Domains, Trees, Organization Units and Group Policies Deployed as a Role on Windows Server that provides features including:
+		* Active Directory Certificate Services (ADCS)
+		* Active Directory Lightweight Directory Services (AD LDS)
+		* Active Director Federated Services (ADFS)
+		* Active Directory Rights Management (AD RMS)
+* Entra ID Connect
+	* Is a flat structure
+	* Full Identity Solution
+	* Implements HTTP and HTTPS protocols such as SAML (Security Assertion Markup Language), WS-Federation, and OpenID Connection for authentication and OAuth for authorization
+
+### Supported Editions of Entra ID
+* Free
+	* User and Group Management for **up to 500,000 Directory Objects**
+	* **Single Sign-on**
+* Premium P1
+	* Supports everything from free
+	* Advanced Administration including Dynamic Groups, Write-Back, Self-Service Password reset
+* Premium P2
+	* Everything from free and P1
+	* **Conditional Access**
+	* **Privileged Identity Management** and more
+* Microsoft Entra ID Governance
+	* Advanced set of identity and governance capabilities
+
+### Supported Editions of Entra ID
+**Included**: ✅
+**Partially Included**: ✔️
+**Not Included**: ❌
+* Microsoft Entra ID (Free)
+	* Authentication, single sign-on, and application access ✔️
+	* Administration and hybrid identity ✔️
+	* End user self service ✔️
+	* Multifactor authentication and conditional access ✔️
+	* Identity protection ❌
+	* Event logging and reporting ✔️
+	* Identity governance ✔️
+* Microsoft Entra ID P1 ($6 user/month)
+	* Authentication, single sign-on, and application access ✅
+	* Administration and hybrid identity ✅
+	* End user self service ✔️
+	* Multifactor authentication and conditional access ✅
+	* Identity protection ❌
+	* Event logging and reporting ✅
+	* Identity governance ✔️
+* Microsoft Entra ID P2 ($9 user/month)
+	* Authentication, single sign-on, and application access ✅
+	* Administration and hybrid identity ✅
+	* End user self service ✅
+	* Multifactor authentication and conditional access ✅
+	* Identity protection ✅
+	* Event logging and reporting ✅
+	* Identity governance ✔️
+* Microsoft Entra ID Governance ($7 user/month)
+	* Authentication, single sign-on, and application access ❌
+	* Administration and hybrid identity ❌
+	* End user self service ❌
+	* Multifactor authentication and conditional access ❌
+	* Identity protection ❌
+	* Event logging and reporting ❌
+	* Identity governance ✅
+
+### Entra ID Connect and Cloud Connect
+* Entra ID Connect
+	* Installed on Prem
+	* Configured On Prem
+	* Supports Single Instance (Cold Install for High Availability)
+	* Not Multi-Forrest Friendly (without some planning)
+* Cloud Connect
+	* Light weight Agent installed on Prem
+	* Configured in Cloud
+	* Can run side by side (via OU's or other supported filtering)
+	* Supports High Availability with Multiple agent install
+	* Supports Multi Forrest
+
+### Entra ID Connect
+* Entra ID Connect
+	* aka - Azure AD Connect and Connect Sync
+	* Installed on Prem
+	* Configured On Prem
+	* Supports Single Instance (Cold Install for High Availability)
+	* Not Multi-Forrest Friendly (without some planning)
+
+### Cloud Sync
+* Cloud Sync
+	* Light weight Agent installed on Prem
+	* Configured in Cloud
+	* Can run side by side (via OU's or other supported filtering)
+	* Supports High Availability with Multiple agent install
+	* Supports Multi Forrest

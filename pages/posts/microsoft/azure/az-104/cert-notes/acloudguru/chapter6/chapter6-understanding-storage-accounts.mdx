@@ -1,0 +1,75 @@
+# AZ-104 Certification Notes
+## Chapter 6 - Understanding Storage Accounts
+
+### Describing Storage Accounts
+* Storage Account
+	* Top-level resource for storage purposes inside of Azure
+	* Underneath the storage account you have multiple different subservices that provide varying storage options
+		* Azure Queue
+			* Message-based storage for microservices
+		* Azure Files
+			* Cloud-based file-sharing service
+		* Azure Table
+			* Non-relational, semi-structured data storage service
+		* Azure Blob
+			* Object-oriented storage solution
+
+### Components of Storage Accounts
+* Account Type
+	* Determines features and costs
+* Performance Tier
+	* Determines performance levels
+* Replication
+	* Determines infrastructure redundancy
+* Access Tier
+	* Determines access levels and data costs
+
+### Understanding Azure Storage Redundancy
+* Region
+	* 2-millisecond latency envelopes
+	* Inside of these regions we have 1 or more availability zones
+		* Inside of each of these availability zones, we have independent power, cooling, and network
+		* Each availability zone typically has 1 or more datacenters
+* Locally redundant storage (LRS)
+	* Storage all 3 copies of data inside the same availability zone
+		* If this availability zone were to go down, we would lose this data
+* Zone redundant storage (ZRS)
+	* Has a copy of our data in each availability zone within a region
+		* This can withstand 2 availability zone failures before you lose data
+* Geo redundant storage (GRS)
+	* Has 3 copies of our data in an availability zone in two different regions
+		* 3 copies of data in a single availability zone per region (a total of 2 regions) so 6 copies within 2 availability zones in 2 regions
+* Geo-zonal redundant storage (GZRS)
+	* This option can provide us the ability to store a single copy of our data in each availability zone in the home region, and then store 3 copies of our data inside of an availability zone in a secondary region
+* Read-access geo-zonal redundant storage (RA-GZRS)
+	* The same as GZRS, but it's read-access
+
+### Key Takeaways
+* Account Type
+	* General purpose v1
+		* Legacy for blobs, files, queues, and tables
+	* General purpose v2
+		* Recommended for blobs, files, queues, and tables
+* Performance Tier
+	* Blob storage
+		* Legacy blob-specific accounts
+	* Standard
+		* Default storage performance tier
+	* Premium
+		* High-performance storage tier
+* Replication
+	* Locally redundant storage (LRS)
+		* Three copies in a physical location within a region
+	* Zone-redundant storage (ZRS)
+		* Three copies across zones within a region
+	* Geo-redundant storage (GRS)
+		* LRS in a primary and secondary region
+	* Geo-zone-redundant storage (GZRS)
+		* ZRS in a primary region and LRS in a secondary region
+* Access Tier
+	* Hot
+		* Frequently accessed data
+	* Cold
+		* Infrequently accessed data
+	* Archive
+		* Backup data rarely accessed

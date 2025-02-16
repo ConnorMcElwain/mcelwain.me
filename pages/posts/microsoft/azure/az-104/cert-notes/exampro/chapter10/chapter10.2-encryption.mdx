@@ -1,0 +1,36 @@
+# AZ-104 Certification Notes
+## Chapter 10.2 - Encryption
+
+### Azure Disks - Encryption
+**Azure Managed Disks** supports 2 types of encryption:
+* Server Side Encryption (SSE)
+* Azure Disk Encryption (ADE)
+
+**Server Side Encryption (SSE)**
+Provides encryption-at-rest and safeguards your data to meet your organizational security and compliance commitments. Enable **by default** for all managed disks, snapshots, and images. Temporary disk are not encrypted by server-side encryption unless you enable encryption at host
+
+Keys can be managed two ways:
+1. Platform-managed keys - Azure manages your keys
+2. Customers-managed keys - You managed your keys
+
+**Azure Disk Encryption (ADE)**
+Allows you to **encrypt the OS and Data** disks used by an IaaS Virtual Machine.
+* For Windows encryption is done by **BitLocker**
+* For Linux encryption is done by **DM-Crypt**
+
+### Practice Quiz
+* Which type of encryption supports Azure Managed Disks?
+	* **Server Side Encryption**
+	* System Error Encryption
+	* Azure Server Encryption
+	* **Azure Disk Encryption**
+* What are the two ways keys can be managed?
+	* **Platform-managed keys**
+	* System-managed keys
+	* Special-managed keys
+	* **Customer-managed keys**
+
+* Which type of encryption provides encryption-at-rest and safeguards your data to meet your organizational security and compliance commitments?
+	* **Server Side Encryption (SSE)**
+* What is Azure Disk Encryption (ADE)?
+	* **It allows you to encrypt the OS and Data disks used by an IaaS Virtual Machine**.

@@ -1,0 +1,19 @@
+# AZ-104 Certification Notes
+## Chapter 4.6 - Creating Administrative Units
+
+### Describing Administrative Units
+Lets say we have an Azure Active Directory for this example, and this is our tenant, our instance of the Azure Active Directory service. We're going to have our identity objects inside of this. This will consist of our users, applications, devices, and our groups inside of this tenant. We can have other non traditional identity objects like members. We're going to have administrators. These administrators are just members of our Azure Active Directory tenant with Azure AD administrative roles. These administrators in this example have the privileges to do everything at the tenant level, but we don't always want that. The reason why this can be undesirable is, for example, if they have this privilege at the tenant level, then each of these admins will be able to perform their admin functionality on all users inside of the tenant. That isn't always what we want to happen. Administrative units can solve this issue. Administrative units allow us to create this logical container, inside of the flat file structure that is Azure Active Directory. A good example would be creating administrative units to split up USA-based users and Canadian users.
+
+### Demo: Creating Administrative Units
+* Plan the Organization
+	* Plan the organization and evaluate its needs to determine the value that administrative units can provide for managing identities, like groups and users
+* Create an Administrative Unit
+	* Create an administrative unit to logically divide the organization and allow for scoping
+
+### Key Takeaways
+* Purpose of Administrative Units
+	* An Azure AD resource for providing a container for Azure AD objects
+* Benefits of Administrative Units
+	* Allow you to control the scope of your administrative users
+* Use Case Examples
+	* Administrative units based on geographical locations, business departments, or subsidiary organizations of a parent organization

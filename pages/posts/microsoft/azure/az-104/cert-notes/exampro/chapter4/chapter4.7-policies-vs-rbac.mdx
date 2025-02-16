@@ -1,0 +1,26 @@
+# AZ-104 Certification Notes
+## Chapter 4.7 - Policies vs RBAC
+
+### Azure Policies vs Azure Roles (RBAC)
+* Azure Policies
+	* They are used to **ensure compliance** of resources
+	* Evaluates state by examining properties on resources that are represented in Resource Manager and properties of some Resource Provider
+		* **Doesn't** restrict actions (also called operations)
+	* Ensures that resource state is compliant to your business rules without concern for who made the change or who has permission to make a change
+	* Even if an individual has access to perform an action, if the result is non-compliant resource, Azure Policy still blocks the create or update
+* Azure Roles
+	* They are used to **control access** to Azure resources
+	* Focuses managing user actions at different scopes
+	* Does restriction on Azure resources
+
+### Practice Quiz
+* Azure policies _____ restrict actions (also called operations)
+	* **doesn't**
+	* implements
+	* does
+	* executes
+
+* What are Azure Policies?
+	* They are used to ensure compliance of resource.
+* What are Azure Roles?
+	* They are used to control access to Azure resources.

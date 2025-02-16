@@ -1,0 +1,36 @@
+# PowerShell for Microsoft 365 Notes
+## Chapter 3.2 - Managing Groups
+
+### Managing Groups
+* New-MgGroup
+	* Creates a new group
+* To create a mail-enabled security group
+	* AdditionalProperties parameter
+		* There is an issue with MailEnabled switch
+```
+# Security Group
+New-MgGroup -DisplayName 'Security - Test Group' -MailEnabled:$False - MailNickName 'security-testgroup' - SecurityEnabled
+# Mail Enabled security group - seems to not be an option
+# Bug in how this command is expected to work - MailEnabled and SecurityEnabled are bools that should be switches
+# https://github.com/microsoftgraph/msgraph-sdk-powershell/issues/748
+$prob["mailEnabled"] = $true
+New-MgGroup -DisplayName 'SecurityMail - Test Group' -MailNickName 'securitymail-testgroup' -AdditionalProperties $prop -SecurityEnabled
+```
+* Remove-MgGroup
+	* Deletes a group
+```
+$delGroup = Get-MgGroup -Filter "DisplayName eq 'SecMail - MadeGroup'"
+Remove-MgGroup -GroupId $delGroup.Id
+```
+* New-MgGroupMember
+	* Add a user to a Group
+```
+$itadminGroup = Get-MgGroup -Filter "DisplayName eq 'IT-Admins'"
+
+New-MgGroupMember -GroupId $itadminsGroup.Id -DirectoryObjectId (Get-MgUser -Filter "startswith(UserPrincipalName, 'BobSmith')").id
+```
+
+### Conclusion
+* Creating and deleting groups
+* Listing groups
+* Adding users to a group

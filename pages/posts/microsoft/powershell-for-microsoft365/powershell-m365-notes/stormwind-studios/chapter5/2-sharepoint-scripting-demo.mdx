@@ -1,0 +1,28 @@
+# PowerShell for Microsoft 365 Notes
+## Chapter 5.2 - SharePoint Scripting Demo
+
+### List all SharePoint Sites
+* Get-SPOSite
+	* Lists all Sites in your SharePoint
+	* `-Filter 'Url -eq "<URL>"'`
+		* Filter results
+
+### Find users from SharePoint Sites
+* Get-SPOUser
+	* -Site
+	* -LoginName
+`Get-SPOUser -Site $site`
+
+### Get Tenant Info
+* Get-SPOTenant
+	* Provide various information on Tenant
+		* Licenses
+		* Max storage
+		* Allowed file types
+		* Guest and sharing settings
+`Get-SPOTenant | Select-Object -Property`
+
+### Conclusions
+* Listing SharePoint Sites
+* Finding Users from SharePoint Sites
+* Getting Tenant Information

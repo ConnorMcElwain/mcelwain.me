@@ -1,0 +1,53 @@
+# AZ-104 Stormwind Studio Certification Course Notes
+## Day 3.2 - Azure Object Hierarchy - Logical & Administrative
+
+### Azure Object Hierarchy - Logical, Administrative
+* Management Groups
+* Subscriptions
+* Resource Groups
+* Resources
+
+### Management Groups
+* **Purpose:** They allow you to organize and manage resources within your Azure Environment. They allow for organized application of policies, permissions, and administrative actions across multiple subscriptions
+* **Hierarchy:** Each Azure Tenancy starts with root management group at the top. Sub-management groups can be nested under the root group, forming a tree-like structure
+* **Use Cases:** Enforcement of consistent:
+	* Policies
+	* Access controls
+	* Compliance
+	* Across related subscriptions
+**For example, you can group subscriptions by department, or environment (e.g., development, QA, production)**
+
+### Subscriptions
+* **Purpose:** Subscriptions are the billing units in Azure. They represent a logical container for resources and services
+* **Scope:** Each subscription is isolated and has its own set of resources, policies, and access controls
+
+### Resource Groups
+* **Purpose:** Resource groups are used to organize and manage resources within a subscription
+* **Scope:** Resource groups exist within a subscription
+* **Use Cases:** You can group all resources related to a specific application into a single resource group
+
+### Resources
+* **Purpose:** Resources represent individual that you deploy in Azure
+* **Examples:** Examples of resources include a virtual machine instance, a database server, or a storage container
+* **Ownership:** Resources are owned by a subscription and reside within a resource group
+
+### Azure Object Hierarchy
+1. Budgets
+2. Cost Analysis
+3. Azure Pricing Calculator
+
+### Budgets
+* **Purpose:** Budgets allow you to manage costs and monitor how spending progresses over time
+* **Functionality:**
+	* You can create budgets based on actual costs or forecasted costs
+	* Configure alerts to notify you when budget thresholds are exceeded
+	* Use budgets to compare and track spending as you analyze costs
+* **Evaluation Frequency:** Budgets are evaluated against cost and usage data every 24 hours
+
+### Cost Analysis
+* **Purpose:** Cost analysis provides detailed insights into your spending patterns
+* **Functionality:**
+	* View cost breakdowns by resource, service, region, or tag
+	* Analyze historical trends and identify cost-saving opportunities
+	* Understand which service contribute most to your overall spending
+* **Access:** Available in the Azure portal under **Cost Management + Billing > Cost analysis**

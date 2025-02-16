@@ -1,0 +1,29 @@
+# AZ-104 Certification Notes
+## Chapter 8.9 - RA-GRS RA-GZRS
+
+### Replication and Data Redundancy
+Redundancy in the Secondary Region with Read Access
+* Data is replicate synchronously to primary region
+* Your data will be "in-sync" with your primary and you'll have **read access**
+
+* Read-Access Geo Redundant Storage (RA-GRS)
+	* Copies data synchronously in primary region
+	* Copies data synchronously to another region
+	* 99.99% (16 nines) of durability
+* Read-Access Geo-Zone-redundant storage (RA-GZRS)
+	* Copies data synchronously across 3 AZs in a physical region
+	* Copies data synchronously to another region
+	* 99.99% (16 nines) of durability
+
+### Practice Quiz
+* The **Redundancy in the Secondary Region with Read Access** Tier allows your data to be “in-sync” with your primary and you’ll have read access.
+	* False
+	* **True**
+* Which storage tier copies data **synchronously** **across 3 AZs** in a physical region, copies data **synchronously** to another region, and 99.99999999999999% (16 9’s) of durability?
+	* Zone-redundant storage (ZRS)
+	* Read-Access Geo Redundant Storage (RA-GRS)
+	* **Read-Access Geo-Zone-redundant storage (RA-GZRS)**
+	* Geo-Zone-redundant storage (GZRS)
+
+* Which replication type copies data **synchronously** in the primary region, copies data **synchronously** to another region, and has 99.99999999999999% (16 9’s) of durability?
+	* Read-Access Geo Redundant Storage (RA-GRS)

@@ -1,0 +1,20 @@
+# AZ-104 Certification Notes
+## Chapter 4.8 - Azure AD Device Management
+
+### Basics of Device Identity
+Azure Active Directory is understood to be the identity solution inside of the Azure Cloud. And inside of Azure Active Directory, we have identity objects that we use to authenticate into our Azure environments. For example, an employee might have a user that they authenticate as that is an identity object inside of our Azure Active Directory tenants. And you use this user to authenticate into our Azure environments and you are authorized to perform specific actions based on role assignments that you would have for this user identity. When this user authenticates into Azure, they're going to do so using a device. Their device is not registered with Azure Active Directory, and we're not managing it. With Azure Active Directory, you can register devices that are owned and operated by the company and devices that are used by individuals that are not on Azure, so that we can actually have some form of control as to what resources, assets, and data these devices are accessing.
+
+### Registration Options
+* How to Register Devices
+	* Azure AD Registered
+		* Least restrictive option, allowing for "bring your own device" (BYOD) with a personal Microsoft or local account. Supports Windows 10, iOS, iPadOS, Android, and macOS
+	* Azure AD Joined
+		* Device is owned by the organization and accesses Azure AD through a work account. These identities exist only in the cloud. Supports Windows 10 and Server 2019
+	* Hybrid Azure AD Joined
+		* Similar to Azure AD joined; however, these devices identities exist both on-premises and in the cloud. Supports Windows 7, 8.1, 10, and Server 2008 or later
+
+### Key Takeaways
+* Device Identity
+	* Simplified procedure for adding and managing devices
+	* Improved user experience on devices
+	* Single sign-on (SSO) for any registered or joined devices

@@ -1,0 +1,93 @@
+# Microsoft Endpoint Manager Notes
+## Chapter 3.9 - Operating System Deployments
+
+### Configuration Manager - Infrastructure Requirements for Operating System Deployment (OSD)
+* Infrastructure Requirements
+	* Windows ADK - Windows Assessment and Deployment Toolkit
+	* User State Migration Tool (USMT)
+	* Windows PE
+		* Boot Images
+	* Windows Server Update Service (WSUS)
+	* Internet Information Services (IIS)
+	* PXE Provider Options
+		* Windows Deployment Services (WDS)
+		* ConfigMgr PXE Responder
+	* Dynamic Host Configuration Protocol (DHCP)
+* Infrastructure Requirements continued
+	* Device Drivers
+	* OS Images
+	* Driver Catalog
+	* Management Point Role
+	* Distribution Point Role
+		* PXE-Enabled Distribution Point
+		* Multicast-Enabled Distribution Point
+	* Security Permissions and Security Scopes
+
+### Configuration Manager - Operating System Deployment (OSD) Overview
+* Things to prepare before deploying Operating Systems
+	* Manage Boot Images
+	* Manage OS Images
+	* Manage OS Upgrade Packages
+	* Manage Drivers
+	* Manage User State
+	* Prepare for Unknown Computer Deployments
+	* Associate Users with a Destination Computer
+	* OS Image Size
+	* Client Cache Size
+
+### ### Configuration Manager - Operating System Deployment (OSD) Steps
+1. WinPE and PXE Boot Stage
+2. Download Variable Files
+3. NIC Card Initialized
+4. Time Zone update
+5. Connection to MP
+6. Available OSD Task Sequences
+7. Policy download
+8. Resolve Dependencies
+9. Download OSD Task Sequence Content
+10. Launch TSManager.exe
+11. OSD Diskpart
+12. Apply OS image
+13. Download OS WIM File
+14. Primary Partition and BCD
+15. Windows Configurations
+16. Apply Network Settings
+17. Windows and Configuration Manager
+18. Reboot out of WinPE into OS
+19. Finalization
+
+### Configuration Manager - Operating System Deployment (OSD) - Methods of Deployment
+* Methods of Deployment
+	* Bootable Media
+	* PXE
+	* Software Center
+	* Standalone Media
+	* Multicast
+	* Create a WIM file for an OEM in Factory
+
+### Configuration Manager - Operating System Deployment (OSD) Deployments
+* OS Task Sequence Deployments
+	* Required vs. Available
+	* All Unknown Computers vs. Query Collections
+	* Phased Deployments
+	* Managing and Monitoring OS Deployments
+
+### Topic Summary
+* Operating System Deployment
+	* Infrastructure Requirements
+		* Windows ADK
+		* Windows PE
+			* Boot Images
+		* Internet Information Services (IIS)
+		* PXE Provider Options
+			* Windows Deployment Services (WDS)
+			* ConfigMgr PXE Responder
+		* Dynamic Host Configuration Protocol (DHCP)
+		* Device Drivers
+		* OS Images
+	* OS Tasks Sequences Overview
+	* OS Task Sequences Deployments
+		* Required vs. Available
+		* All Unknown Computers vs. Query Collections
+		* Phased Deployments
+		* Managing and Monitoring OS Deployments

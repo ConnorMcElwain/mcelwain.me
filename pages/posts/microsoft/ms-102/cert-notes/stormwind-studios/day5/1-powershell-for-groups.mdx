@@ -1,0 +1,66 @@
+# MS-102 Certification Notes
+## Day 5.1 - PowerShell For Groups
+
+### PowerShell For Groups
+* Microsoft Graph for Groups
+* MSONLINE - PowerShell for Groups
+* Azure AD
+
+### Microsoft Graph For Groups
+* To create a new Security Group:
+	* Find the permissions needed for the commandlet New-MgGroup:
+		* ```Find-MgGraphCommand ` 
+		  -command New-MgGroup | Select -First 1 -ExpandProperty Permissions```
+	* Connect to Microsoft Graph passing in the permissions needed in the -Scopes parameter if isAdmin is true:
+		* ```Connect-MgGraph `
+		  -Scopes "Directory.ReadWrite.All","Group.ReadWrite.All"```
+	* Accept the request prompt while authenticating
+	* Run the command:
+		* ```New-MgGroup -DisplayName 'Group from Microsoft Graph' - MailEnabled:$False -MailNickName 'MadeFromGraph' -SecurityEnabled```
+	* Verify the new Security Group:
+		* ```Get-MgGroup -Filter "MailNickName eq 'MadeFromGraph'"```
+
+### PowerShell for Groups
+```
+#Install MSOnline
+Install-Module MSOnline
+
+#check out Group related commands
+Get-Command "*msolgroup*"
+
+#count them there should be 7
+$(Get-Command "*msolgroup*").Count
+
+#connect
+Connect-MsolService
+
+#get help
+Get-Help New-MsolGroup Examples
+
+#run example 1
+New-MsolGroup DisplayName "MyMSONLINEMADEGroup" Description "My MSONLINEMADE test group"
+```
+
+```
+#Install the Module
+Install-Module AzureAD
+
+#get group command *note AzureADMSDirectoryObject won't be in this
+Get-Command "*AzureADGroup*"
+
+#count the commands
+$(Get-Command "*AzureADGroup*").Count
+
+#Get-Help for New-AzureADGroup
+Get-Help New-AzureADGroup -Examples
+
+#connect to AzureAD
+Connect-AzureAD
+
+#run the example
+New-AzureADGroup `
+-DisplayName "My new AZUREAD group"
+-MailEnabled $false `
+-SecurityEnabled $true `
+-MailNickName "NotSet"
+```

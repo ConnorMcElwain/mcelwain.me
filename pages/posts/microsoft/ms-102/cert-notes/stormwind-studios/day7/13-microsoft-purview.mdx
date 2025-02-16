@@ -1,0 +1,58 @@
+# MS-102 Certification Notes
+## Day 7.13 - Microsoft Purview
+
+### Microsoft 365's Info Sec Management System
+* Compliance Manager
+* Data Classification
+* Alerts
+* Policies
+* Roles & scopes
+* Solutions
+
+### Compliance Manager
+* Overview
+* Assessments
+* Improvement Actions
+* Solutions
+* Regulations
+
+### Compliance Manager - Overview
+* Single location to manage compliance with participating stakeholders
+	* Everyone uses the same guidance for actions to take to get or remain in compliance with regulations and standards
+	* Provides a full collaboration platform for Compliance Staff and IT Staff, and other relevant parties
+* Role Based Security to manage access to needed actions and information
+* Compliance Score based on default baseline assessment run against your tenancy to generate a starting point (your initial compliance posture)
+	* Initial score based on default baseline based on a combination of standards like GDPR, ISO, FedRamp and NIST to generate requirements
+	* Fulfillment of requirements divided into 2 categories
+		* Microsoft managed
+		* Tenant managed - shown as Improvement Actions you can implement to improve your score
+
+### Compliance Manager - Assessments
+* Microsoft provides many Assessment Templates
+* Number of Assessments available to run depends on licensing you can purchase more
+* Once an Assessment is created a new scan is done against the tenancy and a new set of improvement actions is generated
+
+### Compliance Manager - Improvement Actions
+* Improvement Actions are suggestions that when completed improve your score
+	* Mandatory Actions - rules implemented to access a system or data
+	* Discretionary Actions - action relies on user (such as locking computer)
+* Improvement actions are assigned categories
+	* Preventative Actions - address specific risks
+	* Detective Actions - monitor for irregular behaviors or settings
+	* Corrective actions - actions that contain or reduce damage
+* Completion of improvement action increases compliance score points
+
+### Compliance Manager - Improvement Actions
+* Scoring (most important to least)
+	* Preventative mandatory
+		* 27
+	* Preventative discretionary
+		* 9
+	* Detective mandatory
+		* 3
+	* Detective discretionary
+		* 1
+	* Corrective mandatory
+		* 3
+	* Corrective discretionary
+		* 1

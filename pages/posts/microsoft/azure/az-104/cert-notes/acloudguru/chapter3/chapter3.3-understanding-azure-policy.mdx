@@ -1,0 +1,34 @@
+# AZ-104 Certification Notes
+## Chapter 3.3 - Understanding Azure Policy
+
+### Define Azure Policy
+* Enforce Compliance and Enable Auditing
+	* Organizations need to implement enterprise-level governance and compliance capabilities
+* Prohibit Resources
+	* Control costs
+	* Restrict service access
+* Allowed Locations
+	* Geographical compliance
+
+### Components of a Policy
+* Azure Policy
+	* Policy Definition
+		* Defines the evaluation criteria for compliance, and defines the actions that take place. Either audit or deny should be something outside of compliance
+	* Policy Assignment
+		* The scope at which we will assign our policy. The scope could be a management group, subscription, resource group, or resource
+	* Initiative Definition
+		* A collection of policies that are tailored to achieving a singular high-level goal together (e.g., ensuring that VMs meet standards)
+
+### Policy Example
+* Require Tags
+	* Policy Definition
+		* Evaluate if a VM is being created with our tag **Project: az104**. If the VM is missing the tag, then deny creation of the resource
+	* Policy Assignment
+		* Assign the policy at the scope of the resource group where the VMs will be created
+
+### Key Takeaways
+Azure Policy is used to enforce compliance and governance in our organizations. We do this with Azure Policy using various components. Such as a policy definition where we create, manage, and assign policies by making the next component, policy assignments. We take those policies that we've defined, now we assign them at a scope. Since we have assigned them at a scope, be that management group, subscriptions, or resource groups, we now have the ability to enforce those policies to enforce compliance on those resources.
+* Create, manage, and assign policies
+* Enforce compliance on resources
+* Audit compliance
+* Deny creation of resources outside of compliance

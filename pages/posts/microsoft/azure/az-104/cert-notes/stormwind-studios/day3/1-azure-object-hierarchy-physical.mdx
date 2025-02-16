@@ -1,0 +1,53 @@
+# AZ-104 Stormwind Studio Certification Course Notes
+## Day 3.1 - Azure Object Hierarchy - Physical
+
+### Topic: Azure Objects
+* Azure Object Hierarchy (Physical)
+* Azure Object Hierarchy (Logical, Administrative)
+* Budgeting and Cost Management
+* Resource Tagging
+
+### Azure Object Hierarchy: Physical
+* Regions
+* Availability Zones
+* Region Pairs
+
+### Azure Object Hierarchy: Physical - Regions
+* **A region** is a geographical area on the planet that contains at least one, but potentially multiple datacenters that are nearby and networked together with a low-latency network
+* Regions, Products, and Services Operate within a Region and certain technologies can be strategically architected to span regions
+
+### Azure Object Hierarchy: Physical - Availability Zones
+* **Availability Zones** - physically separate datacenters within an Azure region
+* Each datacenter within an Availability zone has independent:
+	* Power
+	* Cooling
+	* Networking
+* Availability zones are connected through high-speed, private fiber-optic networks
+* Example:
+	* Azure Region
+		* Availability Zone 1
+		* Availability Zone 2
+		* Availability Zone 3
+* **Availability zones provide**
+* **High Availability**
+* **Low Latency**
+* **Primarily used for:**
+	* VMs, Managed Disks, Load Balancers, SQL Databases and Azure Services the Support Availability Zones
+* There are currently 3 main categories for Availability Zone Utilization
+	* **Zonal services:**
+		* You pin the resource to a specific zone (for example, VMs, managed disks, IP addresses)
+	* **Zone-redundant services:**
+		* The platform replicates automatically across zones (for example, zone-redundant storage, SQL Database)
+	* **Non-regional services:**
+		* Services are always available from Azure geographies and are resilient to zone-wide outages as well as region-wide outages, such as Entra ID
+
+### Azure Object Hierarchy: Physical - Region Pairs
+* Region pairs
+	* Where available Azure regions are paired with another region within the same geography (such as US, Europe, or Asia) **at least 300 miles away**
+	* Provide Disaster resistant High Availability
+	* Replication across Region Pairs is not automatic
+
+### End Azure Object Hierarchy: Physical
+* Regions
+* Availability Zones
+* Region Pairs

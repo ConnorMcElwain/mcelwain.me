@@ -1,0 +1,49 @@
+# AZ-900 Certification Notes
+## Chapter 3 - Regions & Availability Zones
+
+### Region Definition
+"A region is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network."
+
+### Region Definition - Broken Down
+* A set of datacenters
+	* Each region has more than one data center, which is a physical location.
+* Latency defined perimeter
+	* Latency is the time it takes data to travel. Also means that datacenters are not "too far" from each other.
+* Regional low-latency network
+	* A fiber connection between data centers in the region.
+
+Two or more data centers not too far from each other connected with a fiber connection.
+
+### How to Choose a Region
+* Location
+	* Choose a region closest to your users to minimize latency.
+* Features
+	* Some features aren't in all regions. If you need a specific feature, some regions might be unavailable.
+* Price
+	* The price of services vary from region to region.
+
+You will often have to choose which is the most important: location, feature, or price.
+
+### Paired Region
+* Each Region is Paired
+	* Paired within same geographic are except Brazil South.
+* Outage Failover
+	* If the primary region has an outage, you can failover to the secondary region.
+* Planned Updates
+	* Only one region in a pair is updated at any one time.
+* Replication
+	* Some services used paired regions for replication.
+
+### Availability Zones
+* Physical Location
+	* Each availability zone is a physical location within a region.
+* Independent
+	* Each zone has its own power, cooling and networking.
+* Zones
+	* Each region has a minimum of three zones.
+
+## Summary
+* Azure Region
+	* A set of data centers that are close enough to each other that it doesn't matter which datacenter you data is in. Latency is the time it takes for data to travel.
+* Availability Zone
+	* Within a region and each zone has its own separate power, cooling and networking. Used for protecting data from failures.

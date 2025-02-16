@@ -1,0 +1,46 @@
+# AZ-104 Certification Notes
+## Chapter 3 - Introduction to Device Management
+
+### Azure AD - Device Management
+* What is Device identity management?
+	* The management of **physical devices** such as **phones, tables, laptops, and desktop computers**, that are granted access to company resources such as Printers, Cloud Resources via **device-based Conditional Access**
+
+For companies with distributed workforce, that allows remote employees and employees who are allowed use of their own personal equipment eg. **Bring Your Own Device (BYOD)**.
+
+A company needs a way to protect their organization's assets such as access to cloud resources across these devices where they have less control over the physical securities of the work environment.
+
+There are **3 ways** to get devices into Azure AD
+* Azure AD Registered
+	* **Personally** owned or mobile devices
+		* Windows 10/11
+		* iOS
+		* Android
+		* macOS
+	* Signed in with a **personal** Microsoft or local account
+* Azure AD Joined
+	* Owned by an **organization**
+	* Signed in with the an Azure AD account belonging to the organization
+	* They exist only in the cloud
+		* Windows 10
+		* Windows Server 2019/2022 VMs running in Azure (Server core is not supported)
+* Hybrid Azure AD Joined
+	* Owned by an organization
+	* Signed in with an Active Directory Domain Services account belonging to that organization
+	* The exist in the cloud and on-premises
+
+### Practice Quiz
+* Which method to get devices into Azure AD involves owned by an organization and they exist in the cloud and on-premises?
+	* Azure AD Joined
+	* **Hybrid Azure AD Joined**
+	* Azure AD Registered
+	* Azure BYOC Joined
+* Which method to get devices into Azure AD involves having personally owned or mobile devices, and be signed in with a personal Microsoft or local account?
+	* Hybrid Azure AD Joined
+	* **Azure AD Registered**
+	* Bring Your Own Device Joined
+	* Azure AD Joined
+
+* What is the management of physical devices such as phones, tablets, laptops, and desktop computers, that are granted access to company resources such as Printers, Cloud Resources via device-based Conditional Access?
+	* Device identity management
+* What are the criteria for 'Azure AD Joined' for devices to get into Azure AD?
+	* Owned by an organization, signed in with an Azure AD account belonging to the organization and they exist only in the cloud.

@@ -1,0 +1,9 @@
+# AZ-104 Certification Notes
+## Chapter 8.3 - Implementing VPNs (Demonstration)
+
+### Key Takeaways
+So the key takeaways from this lesson, implementing VPNs, are that when we're creating our VPNs, first, we have to create our virtual network and our subnets inside of that virtual network that we want to have as part of this VPN connection. Optionally, we specify our DNS server settings for this virtual network. We then create our gateway subnet because we have to have this gateway subnet in order to create our virtual network gateway. This VPN gateway we get with our virtual network gateway will allow us to communicate, and it's going to be inside of the Azure cloud. Then, we'll create a local network gateway inside of the Azure cloud with the configuration details of the connection that we're going to have with our on-premise network. We configure the VPN device that we have on-prem. Once we've done that, we can then create the VPN connection itself on our virtual network gateway using a Site-to-Site configuration, in the event that we want to connect our cloud to on-prem network.
+* VNet-to VNet
+* Site-to-Site
+* Point-to-Site
+* IPsec tunnel for encryption

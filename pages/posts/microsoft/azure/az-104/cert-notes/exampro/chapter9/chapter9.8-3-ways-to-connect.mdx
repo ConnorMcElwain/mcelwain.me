@@ -1,0 +1,28 @@
+# AZ-104 Certification Notes
+## Chapter 9.8 - 3 Ways To Connect
+
+### SSH, RDP, and Bastions
+There are **3 ways to connect** to your Virtual Machines.
+* **Secure Shell (SSH)** is a protocol to establish a secure connection between a client and a server
+	* This is how you can remotely connect to your Azure VM via terminal
+	* SSH happens on Port 22 via TCP
+	* RSA Key Pairs are commonly used to authorize access
+* **Remote Desktop Protocol (RDP)** is a proprietary protocol developed by Microsoft which provides a user with a graphical interface to connect to another computer over a network connection
+	* This is how you can remotely connect to Windows Server via Visual Desktop
+	* RDP happens on Port 3389 via TCP and UDP
+* **Bastion**: Azure Bastion is a service you deploy that lets you connect to a virtual machine using your browser and the Azure Portal. It provides **secure** and seamless RDP/SSH connectivity to your virtual machines directly from the Azure  Portal over TLS. A bastion is a hardened instance that is monitored. Users connect to this VM which then establishes a connection to the target instance. Sometimes known as jump box since you have one extra security step.
+
+### Practice Quiz
+* Which method of connecting to your VMs is a protocol to establish a secure connection between a client and server?
+	* **Secure Shell (SSH)**
+	* Secure Bypass Mode (SBM)
+	* Remote Desktop Protocol (RDP)
+	* Bastion
+* What are the ways you can connect to your Virtual Machines? (Choose 3)
+	* **Secure Shell (SSH)**
+	* **Bastion**
+	* Connector System
+	* **Remote Desktop Protocol (RDP)**
+
+* What is Remote Desktop Protocol (RDP)?
+	* **It is a proprietary protocol developed by Microsoft which provides a user with a graphical interface to connect to another computer over a network connection.**

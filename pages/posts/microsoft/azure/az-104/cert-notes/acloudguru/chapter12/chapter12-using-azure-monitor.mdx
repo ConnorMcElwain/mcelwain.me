@@ -1,0 +1,56 @@
+# AZ-104 Certification Notes
+## Chapter 12 - Using Azure Monitor
+
+### Describing Azure Monitor
+* Full-Stack Monitoring
+	* Provides end-to-end monitoring for applications and underlying infrastructure
+	* Captures metrics and logs on monitored resources
+		* Monitor Azure resources
+		* Monitor on-premises resources
+		* Monitor platform services
+		* Monitor application code
+
+### Metric vs. Logs
+* Metrics
+	* Short, time-based data
+	* Frequently updated
+	* Near real-time data
+	* Alerts based on numeric values
+	* Visualization via Metrics Explorer
+* Logs
+	* Long, event-based data
+	* Sporadically updated
+	* Free-form and/or structured
+	* Stored in Log Analytics workspace
+	* Built-in query language (Kusto)
+
+### Monitoring Explained
+* Azure
+	* Metrics
+		* Azure Monitor
+			* Metrics Explorer
+		* Log Analytics
+			* Log Analytics
+		* Storage Accounts
+		* Event Hub
+			* Non-Azure Destinations
+	* Logs
+
+### Key Takeaways
+* Metrics
+	* Metrics are gathered on a per-resource basis
+	* How to use metrics?
+		* View metrics in Metrics Explorer
+		* Query in Log Analytics
+		* Alert and take action
+		* Export and archive
+* Logs
+	* Logs are not gathered by default by the Azure platform
+	* How to use logs?
+		* Query in Log Analytics
+		* Archive
+		* Stream to third party
+* Diagnostic Settings
+	* Define how and where metrics and logs will be stored on a per-resource basis
+		* OS-level data
+		* App-level data

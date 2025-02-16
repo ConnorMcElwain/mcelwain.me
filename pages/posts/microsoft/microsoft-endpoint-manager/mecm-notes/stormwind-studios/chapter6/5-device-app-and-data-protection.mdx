@@ -1,0 +1,127 @@
+# Microsoft Endpoint Manager Notes
+## Chapter 6.5 - Device, App, and Data Protection
+
+### What is Conditional Access
+* Common Signals
+	* User or group membership
+	* IP Information
+	* Device
+	* Application
+	* Real-time and calculated risk detection
+	* Microsoft Defender for Cloud Apps
+* Common Decisions
+	* Block Access
+	* Grant Access
+* Common Policies
+	* Requiring multi-factor authentication for users with administrative roles
+	* Requiring multi-factor authentication for Azure management tasks
+	* Blocking sign-ins for users attempting to use legacy authentication protocols
+	* Blocking risky sign-in behaviors
+	* Requiring organization managed devices for specific applications
+	* etc
+* Identities
+	* Require multi-factor authentication for admins*
+	* Securing security info registration
+	* Block legacy authentication*
+	* Require multi-factor authentication for all users*
+	* Require multi-factor authentication for guest access
+	* Require multi-factor authentication for Azure management*
+	* Require multi-factor authentication for risky sign-in **Requires Azure AD Premium P2**
+	* Require password change for high-risk users **Requires Azure AD Premium P2**
+* Devices
+	* Require complaint or Hybrid Azure AD joined device for admins
+	* Block access for unknown or unsupported device platform
+	* No persistent browser session
+	* Require approved client apps or app protection
+	* Require compliant or Hybrid Azure AD joined device or multi-factor authentication for all users
+	* Use application enforced restrictions for unmanaged devices
+		* These four policies when configured together, provide similar functionality enabled by security defaults
+
+### Building Conditional Access Policies
+* All policies are enforced in two phases:
+	* Phase 1 - Collect Session Details
+	* Phase 2 - Enforcement
+* Signal
+	* User Location Device Application Real-Time Risk
+* Decision
+	* Allow Access Require MFA Block Access
+* Enforcement
+	* Apps and Data
+
+### Conditional Access Assignments - Users and Groups
+* Include Users
+	* None
+		* No users selected
+	* All users
+		* All users that exist in the directory including B2B guests
+	* Select users and groups
+		* All guest and external users
+		* Directory roles
+		* Users and Groups
+* Exclude Users
+	* All guest and external users
+	* Directory roles
+	* Users and groups
+* Microsoft Cloud Applications
+	* Administrators can assign a Conditional Access policy to cloud apps from Microsoft
+* User Actions
+	* User actions are tasks that can be performed by a user. Currently, Conditional Access supports two user actions:
+		* Register security information:
+		* Register or join devices
+
+### Conditional Access Assignments - Conditions
+* Signals
+	* Signals can help more refined restrictions
+		* Risk
+		* Device Platform
+		* Location
+* Block Access
+	* Block is a powerful control that should be wielded with appropriate knowledge
+* Grant Access
+	* Require multi-factor authentication (Azure AD Multi-Factor Authentication)
+	* Require device to be marked as compliant (Microsoft Intune)
+	* Require hybrid Azure AD joined devices
+	* Require approved client app
+	* Require app protection policy
+	* Require password change
+	* Require all the selected controls (control AND control)
+	* Require one of the selected controls (control OR control)
+* Session
+	* Application enforced restrictions
+	* Conditional Access Application Control
+	* Sign-in Frequency
+	* Persistent Browser Session
+
+### Conditional Access - Report-Only Mode
+* Report-Only mode:
+	* Conditional Access policies can be enabled in report-only mode, this is not applicable with the "User Actions" scope
+	* During sign-in, policies in report-only mode are evaluated but not enforced
+	* Results are logged in the **Conditional Access** and **Report-only** tabs of the Sign-in log details
+	* Customers with an Azure Monitor subscription can monitor the impact of their Conditional Access policies using the Conditional Access insights workbook
+	* Result:
+		* Report-only: Success
+			* All configured policy conditions, require non-interactive grant controls, and session controls were satisfied
+		* Report-only: Failure
+			* All configured policy conditions were satisfied but not all the required non-interactive grant controls or session controls were satisfied
+		* Report-only: User action required
+			* All configured policy conditions were satisfied but user action would be required to satisfy the required grant controls or session controls. With report-only mode, the user is not prompted to satisfy the require controls
+		* Report-only: Not applied
+			* Not all configured policy conditions were satisfied. For example, the user is excluded from the policy, or the policy only applies to certain trusted named locations
+* Policy enforcement
+	* Early-bound policy enforcement
+	* Late-bound policy enforcement
+
+### Conditional Access - Filter for Devices
+* Common scenarios
+	* Restrict access to Microsoft Azure Management, to privileged users, accessing from secure devices
+		* You would create two Conditional Access policies:
+			* Policy 1: All Global administrators - require MFA and require device compliance
+			* Policy 2: All Global administrators excluding devices using rule expression device.extensionAttribute1 equals SAW and for Access controls
+
+### Topic Summary
+* Conditional Access
+	* Assignments - Users and Groups
+	* Cloud apps or actions
+	* Access controls
+	* Configure resilience defaults
+	* Sign-in frequency and browser persistence controls

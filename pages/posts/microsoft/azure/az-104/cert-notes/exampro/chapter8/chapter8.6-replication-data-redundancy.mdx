@@ -1,0 +1,37 @@
+# AZ-104 Certification Notes
+## Chapter 8.6 - Replication Data Redundancy
+
+### Replication and Data Redundancy
+When you create a Storage Account, you need to choose a **Replication Type**. Replication stores multiple copies of your data so that it's protected from:
+* Planned events
+* Transient hardware failures
+* Network or power outages
+* Massive natural disasters
+
+The greater level of redundancy the more expensive the cost of replication:
+* **Primary Region Redundancy**
+	* Locally Redundant Storage (LRS)
+	* Zone-redundant storage (ZRS)
+* **Secondary Region Redundancy**
+	* Geo redundant storage (GRS)
+	* Geo-zone-redundant storage (GZRS)
+* Second Region **Redundancy with Read Access**
+	* Read-access geo-redundant storage (RA-GRS)
+	* Read-access geo-redundant storage (RA-GZRS)
+
+### Practice Quiz
+* Which Replication Type includes Locally **Redundant Storage (LRS)** and **Zone-redundant storage (ZRS)**?
+	* Tertiary Region Redundancy
+	* **Primary Region Redundancy**
+	* Secondary Region Redundancy
+	* Secondary Region Redundancy with Read Access
+* Which Replication Type includes Read Replicas?
+	* Zero Region Redundancy
+	* **Secondary Region Redundancy with Read Access**
+	* Primary Region Redundancy
+	* Secondary Region Redundancy
+
+* What is Replication?
+	* Replication stores multiple copies of your data so that it is protected from planned events, transient hardware failures, network or power outages, and massive natural disasters.
+* What is defined as the storing of the same data in multiple locations? E.g. Storing the same data on multiple data centers
+	* Data Redundancy

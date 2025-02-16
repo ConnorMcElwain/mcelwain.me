@@ -1,0 +1,38 @@
+# AZ-104 Certification Notes
+## Chapter 3.7 - Building a Cloud Governance Strategy with Azure Tooling
+
+### Defining Governance
+* Cloud Governance
+	* Rules
+	* Policies
+	* Compliance standards
+	* Control over resources
+	* Enforce rules, policies, and standards
+
+### Planning a Cloud Strategy
+* Define
+	* Define the cloud governance needs of the organization
+* Plan
+	* Plan which tools will be used to implement governance
+* Ready
+	* Understand how those tools will be used to implement governance
+* Adopt
+	* Implement governance for the organization using a cloud strategy
+
+### Governance Services
+* Management Groups and Subscriptions
+	* Organize subscriptions into hierarchical structures
+* Azure RBAC
+	* Provide access to resources at varying scopes
+* Policies
+	* Implement policies to enforce standards
+* Locks and Tagging
+	* Lock resources to prevent deletion, and tag resources to categorize
+
+### Key Takeaways
+* Management Groups
+	* Policy
+	* Subscriptions
+		* Resource Groups
+			* RBAC
+Management groups can be looked at as another container for things like subscriptions to help us create some hierarchal structure for organizations. These subscriptions are that billing entity that contains our resource groups and the resources that they contain. We can perform cost analysis on these resources from our subscriptions. Inside of Azure, we have the governance tooling of also using Azure Policies to enforce compliance standards such as a tagging name convention for resources inside of Azure. You can create role assignment with Azure RBAC roles. When users have role assignments to access specific resources, for example a resource group, there are specific things like read-only or delete locks that are going to override those RBAC role permissions to prevent specific operations.

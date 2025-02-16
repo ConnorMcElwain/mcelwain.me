@@ -1,0 +1,39 @@
+# AZ-900 Certification Notes
+## Chapter 9.4 - Serverless
+
+### Are there no servers?
+Yes, there are servers. You just don't manage them, it's extreme PaaS.
+
+### Azure Functions
+* Original Serverless Product
+	* It's the first "serverless" service on Azure. The Azure service most will start with when exploring serverless architecture
+* Single Task
+	* It's called function as only a single task is performed every time. The function only runs once for each invocation
+* Basic Compute Unit
+	* It's a fundamental compute action and can be run millions of times per second if needed
+
+### Logic Apps
+* Connect Systems
+	* Connect systems both inside and outside of the Azure platform. Integrate not only apps, but also data flows, services and entire systems
+* Automation
+	* A lot of ways to schedule, automate and orchestrate tasks and processes
+* Quick Start
+	* No coding required to get started straight away. You just need access to your apps to integrate
+
+### Event Grid - What is an event?
+An event is when an application wants the world (other connected applications) to know that something happened. It could be the placing of an order, for example. How do you get that event to the applications that need to know? This is where Event Grid comes in. Event Grid is a big network of connections to any service that wants it. You can connect most Azure products to it, and when they're connected, events are sent to Event Grid from which connected services can receive the events.
+
+### Azure Event Grid
+* Routing Service
+	* Event Grid is a routing service for sending and receiving events between applications
+* Serverless
+	* No management of infrastructure components. Create a Azure Event Grid and start connecting services
+* Ease of Use
+	* Event Grid makes complex architecture simpler
+
+### Exam Tips
+Serverless approaches work extremely well with cloud services. ACG is all serverless.
+* Yes, there are servers (they just aren't yours)
+* Azure Functions are the most basic of compute tasks. Does one function then dies until next time it's called
+* Logic Apps are a quick and simple way to integrate systems and applications inside and outside of Azure
+* Event Grid is a routing service for passing events between applications that need to know about the events

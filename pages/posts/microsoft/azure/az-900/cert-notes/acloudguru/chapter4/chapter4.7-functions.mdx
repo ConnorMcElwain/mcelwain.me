@@ -1,0 +1,29 @@
+# AZ-900 Certification Notes
+## Chapter 4.7 - Functions
+
+### What are Azure Functions?
+* IaaS/PaaS vs Function
+	* IaaS/PaaS
+		* Install your own applications
+		* Access to the operating system
+		* Resource visibility
+		* An app service has no OS access, but has resource access
+	* Function
+		* Smallest compute service on Azure
+		* A single function of compute
+		* Called, or invoked, via a standard web address
+		* Runs once and stops
+
+### Architecture
+* VM
+	* No maintenance
+	* No processes
+	* Nothing VM related
+
+### Function Benefits 
+* Only Runs When Needed
+	* The Azure Function only runs when there is data to process. No traffic = no resource usage
+* Saves Money
+	* No resources running means you don't pay for the function when it's not used
+* Resilience
+	* If your function fails, it doesn't affect other function instances

@@ -1,0 +1,17 @@
+# MS-102 Certification Notes
+## Day 7.2 - Prepare for Synchronization
+
+### Prepare for Synchronization
+* Preparing the local Directory
+* Configuring Synchronization
+* Troubleshooting Synchronization
+* PowerShell and Synchronization
+
+### Preparing the Local Directory
+* Remove duplicate proxyAddress and userPrincipalName attributes
+* Ensure that all objects to be synchronized must have valid userPrincipalName values
+* Remove invalid or questionable characters in object attributes
+* In Multi-forest deployments follow Microsoft recommendations such as: Consider consolidating forests, Use only in the primary logon forest
+* UPN's must be verified domains in Microsoft 365
+* UPN's must not contain invalid characters: `\ % & * + / = ? {} | <> () ; : , [] "`
+* IdFix is a tool to help you prepare your AD DS (on Prem) forest

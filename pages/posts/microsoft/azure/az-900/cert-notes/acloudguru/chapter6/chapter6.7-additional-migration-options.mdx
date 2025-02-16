@@ -1,0 +1,38 @@
+# AZ-900 Certification Notes
+## Chapter 6.7 - Additional Migration Options
+
+### Two More Migration Solutions
+* Azure Data Box
+* Azure Migrate
+
+### Azure Data Box
+Scenario: Transfer LOTS of data and/or limited bandwidth
+* Lots = Too much to transfer over the internet
+* Relative to available network bandwidth
+Offline data transfer to/from Azure
+Copy data to physical data storage device (Data Box)
+* Encrypted
+* Rugged
+Ship Data Box to/from Azure
+* To Azure: Data Box data transferred to storage account
+* From Azure: Data Box delivered to on-premises location for on-site transfer
+
+### Data Box Use Cases
+* Initial bulk data migration
+* Disaster recovery
+	* Restore Azure backup to on-premises location
+* Security Requirements
+	* Sensitive data that cannot be sent over the internet
+
+### Azure Migrate
+Migrate non-Azure resources into Azure
+* Servers
+* Databases
+* Applications
+
+### Azure Migrate Scenario: Migrate Datacenter to Azure
+* Discover dependent resources to migrate
+* Migrate VMs
+* Migrate databases to managed database services (e.g., Azure SQL)
+* Migrate on-premises applications and dependencies
+* Migrate bulk data with Data Box

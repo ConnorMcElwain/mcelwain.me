@@ -1,0 +1,26 @@
+# AZ-104 Certification Notes
+## Chapter 3.2 - Using Management Groups
+
+### Defining Management Groups
+* Managing Subscriptions
+	* Organize and manage subscriptions by logically grouping them into management groups
+	* Organizational hierarchy
+	* Provides another scope for enforcing governance and compliance
+* Parent-Child Relationships
+	* Root management group is the top-level
+	* Management groups and subscriptions can have a single parent
+	* Supports six levels of hierarchy
+* Compliance Support
+	* Azure Policies
+	* Azure role-based access control (RBAC)
+
+### Understanding Hierarchy
+The root management group is the top-level resource. It's the parent or grandparent or great grandparent of everything that will fall underneath it, all the way down to 6 levels of hierarchy.
+
+### Key Takeaways
+We use management groups to provide a set of hierarchal structure for organizations. For example, you have a root management group. And underneath the root management group, we may have subscriptions in other management groups. These are child objects of the root management group. This can continue down 6 levels of hierarchy. For the root management group, it's important that we understand that we are not given access to this by default.
+* Root management group access is not given by default
+	* This is due to the type of access this would give an individual. This would provide access to do things throughout your entire environment.
+* Root management group cannot be moved or deleted
+* Azure RBAC is supported for management groups
+* Global Administrators must be elevated to User Access Administrator of root group

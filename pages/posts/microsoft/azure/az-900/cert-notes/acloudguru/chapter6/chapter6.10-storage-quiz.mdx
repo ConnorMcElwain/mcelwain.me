@@ -1,0 +1,92 @@
+# AZ-900 Certification Notes
+## Chapter 6.10 - Storage Quiz
+
+### Question 1
+* What is a suitable use case for the Azure Files storage service?
+	* Provide temporary file storage for a web application.
+	* Store files larger than 2 GB.
+	* **Replace or supplement on-premises file servers.**
+	* Archive large amounts of data.
+
+Azure Files can be used to completely replace or supplement traditional on-premises file servers or NAS devices. Popular operating systems such as Windows, macOS, and Linux can directly mount Azure file shares wherever they are in the world. SMB Azure file shares can also be replicated with Azure File Sync to Windows Servers, either on-premises or in the cloud, for performance and distributed caching of the data where it's being used.
+
+### Question 2
+* What significance does the name for your Azure storage account have?
+	* No significance. You can name a storage account what you want.
+	* **The combination of the storage account name and the Azure Storage service endpoint forms the endpoints for your storage account. Your storage account name must be unique within Azure.**
+	* The name you give the storage account becomes the main web address for accessing the files in it. It must be unique within your Azure subscription.
+	* Each storage account name is linked to a set of users that can access it.
+
+A storage account provides a unique namespace in Azure for your data. Every object you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Azure Storage service endpoint forms the endpoints for your storage account. Your storage account name must be unique within Azure. No two storage accounts can have the same name.
+
+### Question 3
+* When choosing between Azure Storage redundancy models, what is the difference between locally redundant storage (LRS) and zone-redundant storage (ZRS)?
+	* LRS is in a single region but across multiple availability zones. ZRS is also in a single region but replicated in a single zone.
+	* **LRS is in a single region and single zone. ZRS is also in a single region but across multiple availability zones.**
+	* LRS is across two paired regions, with each region hosting replicated copies in a single zone. ZRS is also across paired regions, but the primary region replicates data across multiple availability zones.
+	* LRS is in a single region. ZRS is redundancy between two paired regions.
+
+LRS is single-region redundancy with three data copies in a single zone/datacenter. ZRS is also single-region redundancy but with three copies across three separate availability zones in the same region.
+
+### Question 4
+* Which is not a time you would want to use Azure Data Box to transfer data to Azure Storage?
+	* Limited network bandwidth
+	* Transferring a very large amount of data
+	* **Transferring on-premises servers to Azure**
+	* Regulatory compliance when data cannot travel over the internet
+
+This is an ideal scenario for Azure Migrate.
+
+### Question 5
+* Which is a drawback of the Azure Storage premium performance options?
+	* Lower IOPS available
+	* Only apply to Azure Files
+	* **Fewer redundancy options**
+	* Lower latency
+
+None of the premium performance options offer multi-region redundancy. Premium page blobs have only LRS redundancy options.
+
+### Question 6
+* What types of data can be stored in a blob container within Azure Storage?
+	* Binary files that comply with the Azure data types defined for the storage type
+	* **Any kind of binary file, such as videos, images, documents, and applications**
+	* Any kind of binary file that is less than 4096 KB in size
+	* Only known binary formats such as images, video, and text documents
+
+Blob containers on Azure act similar to directories in a file system. They can contain an unlimited number of blobs.
+
+### Question 7
+* Which is not a valid managed disk storage type on Azure?
+	* Premium SSD and Standard SSD
+	* Standard HDD
+	* **Premium HDD**
+	* Ultra Disk
+
+Premium HDD does not exist. Hard disk drives tend to be an older technology with very specific use cases in modern computing, so there is no need for a Premium variant of this disk type.
+
+### Question 8
+* What is the MINIMUM number of data copies created with any Azure Storage redundancy option?
+	* **Three**
+	* One
+	* Two
+	* Zero
+
+Azure creates three copies of data per region. All single-region options create three copies. All paired-region options create six copies, with three copies in each region.
+
+### Question 9
+* Which type of blob is not supported by Azure Storage?
+	* **File blob**
+	* Block blob
+	* Append blob
+	* Page blob
+
+File storage is different from blob storage specifically.
+
+### Question 10
+* Which Azure Storage utility is a command-line-based application for moving/manipulating Azure Storage data, specifically blob and Azure Files objects?
+	* Azure File Sync
+	* **AzCopy**
+	* Storage Explorer
+	* Azure CLI
+
+AzCopy is a command-line utility for transferring Azure blobs and Azure Files.

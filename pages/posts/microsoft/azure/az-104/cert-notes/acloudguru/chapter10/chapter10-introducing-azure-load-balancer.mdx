@@ -1,0 +1,32 @@
+# AZ-104 Certification Notes
+## Chapter 10 - Introducing Azure Load Balancer
+
+### Describing Azure Load Balancer
+* Azure Load Balancer (LB)
+	* Azure Load Balancer is a networking solution for distributing traffic between backend compute
+		* Layer 4 load balancing (TCP/UDP)
+		* High availability
+		* Backend resources must be redundant
+		* Virtual machines and VMSS
+
+### Components of an Azure Load Balancer
+* Frontend IP
+	* Private or public endpoint for accessing the load balancing solution
+* Backend Pool
+	* Compute solution underlying the load balancer
+* Health Probe
+	* Probe that periodically checks the health of the backend pool to determine available nodes
+* Rules
+	* Load balancing or NAT rules configured for allowing inbound/outbound access
+
+### Key Takeaways
+* Load Balancing
+	* Balance traffic between external or internal solutions
+* Health Probing
+	* Health check ports for nodes in the backend pool
+* DNAT
+	* Port forward inbound traffic to nodes in the backend pool
+* SNAT
+	* Port forward outbound traffic from nodes in the backend pool
+* Availability Zones
+	* Determine availability zone selection for deployment

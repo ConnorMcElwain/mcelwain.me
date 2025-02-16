@@ -1,0 +1,47 @@
+# AZ-104 Certification Notes
+## Chapter 10.5 - Disk Types
+
+### Azure Disks - Disk Types
+Azure offers **4 tiers** of disks:
+1. **Ultra Disks**
+	* Deliver high throughput, high I/OPS, and consistent low latency disk storage for Azure VMs
+	* Dynamically change the performance of the disk, without the need to restart your VM
+	* Suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads
+	* Can only be used as **data disks** (use a Premium SSD or OS Disk)
+	* Only supported with very specific VM series
+2. **Premium SSD**
+	* High-performance and low-latency disk support for Azure VMs with input/output (IO)-intensive workloads
+	* Suitable for mission-critical production applications
+	* Only be used with VM series that are premium storage-compatible
+	* Guaranteed IOPS, and throughput of that disk (Standard tiers don't have IOPS guaranteed)
+	* Designed to provide low single-digit millisecond latencies and target IOPS and throughput described in the preceding table 99.9% of the time
+3. **Standard SSD**
+	* Cost-effective storage option optimized for workloads that need consistent performance at lower IOPS levels
+	* Compared to standard HDDs, standard SSDs deliver better availability, consistency, reliability, and latency
+	* Suitable for Web Servers, low IOPS application servers, lightly used enterprise applications, and Dev/Test workloads
+	* Designed to provide single-digit millisecond latencies and the IOPS and throughput up to the limits described in the preceding table 99% of the time
+	* IOPS and throughput may vary sometimes depending on the traffic patterns
+	* Available on all Azure VMs
+4. Standard HDD
+	* Reliable, low-cost disk support for VMs running latency-insensitive workloads
+	* Available on all Azure VMs
+	* Latency, IOPS, and Throughput of Standard HDD disks may vary more widely as compared to SSD-based disks
+	* Designed to deliver write latencies under 10 ms and read latencies under 20 ms for most IO operations
+	* Available in all Azure regions and can be used with all Azure VMs
+
+### Practice Quiz
+* Which Disk Type has reliable, low-cost disk support for VMs running latency-insensitive workloads and is available on all Azure VMs?
+	* Standard SSD
+	* **Standard HDD**
+	* Ultra Disks
+	* Premium SSD
+* Which Disk Type has high-performance and low-latency disk support for Azure VMs with input/output (IO)-intensive workloads and is suitable for mission-critical production applications?
+	* **Premium SSD**
+	* Standard SSD
+	* Standard HDD
+	* Ultra Disks
+
+* Which disk tier can deliver high throughput, high I/OPS, and has consistent low latency disk storage for Azure VMs?
+	* **Ultra Disks**
+* What is Standard SSD?
+	* **It is a cost-effective storage option optimized for workloads that need consistent performance at lower IOPS levels. Compared to standard HDDs, standard SSDs deliver better availability, consistency, reliability, and latency**.

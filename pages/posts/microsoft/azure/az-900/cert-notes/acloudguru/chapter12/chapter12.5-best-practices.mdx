@@ -1,0 +1,56 @@
+# AZ-900 Certification Notes
+## Chapter 12.5 - Best Practices
+
+### Spending Limits
+* Default Limit
+	* Some Azure accounts with monthly credits to use will have default spending limits. When the credits are used, the limit kicks in
+* No Increase
+	* When the credits are gone, either remove the limit entirely or leave it in effect
+* No Spending Limit
+	* Pay-as-you-go accounts have no spending limit functionality
+
+### Quotas
+* Property Limit
+	* A quota is a limit on a certain property of an Azure service. For example, a maximum of 100 namespaces for Event Hub
+* Ensure Service Level
+	* The quotas are necessary to ensure Azure can maintain their high service level
+* Quota Change
+	* If you need to increase the quota for a particular service, you can ask Microsoft to increase them
+
+### Tags
+* Tags are non-functional labels that attach to a resource or resource group
+* Use as many tags as you want
+
+### Tags - Continued
+* Identify Roles
+	* Protect sensitive data by defining which roles can access a resource
+* Related Resources
+	* To make bulk processing and updating easier, define which resources are related
+* Filter
+	* Filter resources per project, customer or for reporting purposes
+* Unambiguous
+	* Create a list for tags used that includes: description, tag name, and potential values
+
+### Pay-as-you-go
+Pay-as-you-go = Expensive
+
+### Reserved Instances
+Reserved instances can save you a lot of money. Not all Azure services can be reserved.
+
+### Reserved Capacity
+* 1-or 3-Year commitment
+	* Azure SQL
+		* Save up to 80%
+	* Synapse Analytics
+		* Save up to 65%
+	* Cosmos DB
+		* Save up to 65%
+	* Redis Cache
+		* Save up to 55%
+Change regions, scale up or down, apply it to multiple subscriptions, and cancel at any time.
+
+### Azure Hybrid Benefits
+Azure will let you use existing licenses instead of forcing you to purchase new ones with every new VM or server.
+
+### Advisor
+The Advisor portal gives you best practices advice in general through recommendations. For cost optimization, this could be a recommendation to scale down a virtual machine, removing networks you aren't using, and storage that is dormant.

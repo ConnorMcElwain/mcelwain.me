@@ -1,0 +1,364 @@
+# AZ-900 Certification Notes
+## Chapter 14.5 - Practice Exam - 3
+
+### Question 1
+* You need a service to define and enforce compliance standards in multiple Azure subscriptions. What service or feature should you use?
+	* Conditional Access policy
+	* Azure Sentinel
+	* **Azure Policy**
+	* ARM templates
+
+Azure Policy enforces organizational standards and compliance at scale. Examples include restricting a SKU or size of a virtual machine or defining which types of Azure resources are allowed.
+
+### Question 2
+* Define the concept of "scalability."
+	* A cloud service that remains available after a failure occurs
+	* A cloud service that responds quickly when demand increases and needs to be manually scaled down when demand decreases
+	* **The ability of a system to handle increased load**
+	* The ability of a cloud service to be accessed quickly from any location via the internet
+
+Microsoft's official definition of scalability is: "Scalability is the ability of a system to handle increased load."* Elasticity is the ability to dynamically scale to meet demand. Scaling can be dynamic or manual (such as, often, the case for vertical scaling). Reference: [Design for Scaling](https://learn.microsoft.com/en-us/azure/architecture/framework/scalability/design-scale "null")
+
+### Question 3
+* What methods are available to connect to the Azure Public Cloud?
+	* **Client or Site to Site VPN**
+	* **Over the internet**
+	* **Express Route**
+	* Physically at the Azure datacentre
+
+(Client or Site to Site VPN) - The methods to connect to the Azure Public Cloud are over the internet to public endpoints, via site or client VPN's to devices you configure in the Cloud environment or through a dedicated connection such as Express Route. As a customer it is not possible to connect directly into the environment whilst being physically at the datacentre. (Over the internet) - The methods to connect to the Azure Public Cloud are over the internet to public endpoints, via site or client VPN's to devices you configure in the Cloud environment or through a dedicated connection such as Express Route. As a customer it is not possible to connect directly into the environment whilst being physically at the datacentre. (Express Route) - The methods to connect to the Azure Public Cloud are over the internet to public endpoints, via site or client VPN's to devices you configure in the Cloud environment or through a dedicated connection such as Express Route. As a customer it is not possible to connect directly into the environment whilst being physically at the datacentre. [Networking | Microsoft Azure](https://azure.microsoft.com/en-gb/product-categories/networking/ "null") 
+
+### Question 4
+* Define "economy of scale".
+	* Spending money on products or services now and being billed for them now. You can deduct this expense from your tax bill in the same year.
+	* Prices for individual resources and services are provided so you can predict how much you will spend in a given billing period based on your expected usage.
+	* **The ability to do things more efficiently or at a lower cost per unit when operating at a larger scale.**
+	* Spending money on physical infrastructure up front, and then deducting that expense from your tax bill over time.
+
+(The ability to do things more efficiently or lower cost per unit when operating at a larger scale) - Cloud providers such as Microsoft, Google, and Amazon are large businesses that leverage the benefits of economies of scale and then pass the savings on to their customers. Reference: [Economies of scale - Learn | Microsoft Docs](https://docs.microsoft.com/en-us/learn/modules/principles-cloud-computing/3b-economies-of-scale "null")
+
+### Question 5
+* While you are at a customer site, you have been asked to quickly create a new development virtual machine for your developers to experiment with new code features. The only computing device you have available is an Apple iPad tablet running iOS. Which methods can you use to create the virtual machine?
+	* Create the VM with an ARM template via the iPad's command-line interface.
+	* Install PowerShell on the tablet, and install the Azure module in PowerShell to create the resources.
+	* **Use the Azure portal.**
+	* Install Bash on the tablet, and install the Azure module in PowerShell to create the resources.
+
+The Azure portal is accessible from any web browser, including mobile operating systems. From within the Azure portal, you can use the web interface to create a VM, or you can use Cloud Shell within the portal to create the resources via the command line.
+
+### Question 6
+* You maintain a pool of identical virtual machines that serves an application behind a load balancer. When customer demand increases, you need to add additional copies of the virtual machine to the pool to meet customer demand. What cloud attribute does this demonstrate?
+	* **Horizontal scaling**
+	* Security
+	* Governance
+	* Vertical scaling
+
+Horizontal scaling (or scaling out) is defined by adding additional copies of a resource, like a VM or container, to a resource pool.
+
+### Question 7
+* Which Azure service can help you collect, analyze, and act on telemetry from your cloud and on-premises environments?
+	* Azure WebJobs
+	* Azure Analyzer
+	* **Azure Monitor**
+	* Azure App Service
+
+(Azure Monitor) - Azure Monitor is a service that can help you understand how your applications are performing and proactively identify issues affecting them and the resources they depend on. [Azure Monitor overview - Azure Monitor | Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/overview "null")
+
+### Question 8
+* From a pricing perspective, select the two statements that are true regarding infrastructure as a service virtual machines (VMs) and serverless resources, such as Azure Functions.
+	* **Serverless resources, such as Azure Functions, are only billed when a function is executed (or run) and no longer billed once the function is no longer active.**
+	* **Virtual machines are billed for the time they are running, whether or not they are in use.**
+	* Serverless resources, such as Azure Functions, are only billed for the entire time the function is created and ready to use.
+	* Virtual machines are billed only when actively in use, such as when remoting into the machine.
+
+Serverless cloud resources use a _pay per consumption_ model. Billing does not occur when it is not in use. Virtual machines (IaaS) are billed for compute and storage while they are turned on and running, regardless of whether they are actively in use.
+
+### Question 9
+* Your organization repeatedly deploys the same collection of resources across multiple departments. Your technology director wants to know if there is a quicker, more reliable method for consistently deploying the same resources. Which method would you recommend as the team's first step in automating the repeated deployment of individual resources?
+	* Azure Resource Manager
+	* **Azure Resource Manager (ARM) templates**
+	* Conditional Access policy
+	* Azure Blueprints
+
+ARM templates are Azure's native Infrastructure-as-Code (IaC) solution that can consistently and automatically deploy the same environments that are defined in code format.
+
+### Question 10
+* Which Azure service can host your web apps without you having to manage underlying infrastructure?
+	* Azure DataBricks
+	* Application Insights
+	* Azure WebJobs
+	* **Azure App Service**
+
+Azure App Service enables you to build and host web apps, mobile back-ends, and RESTful APIs in the programming language of your choice without managing infrastructure. [Azure App Service documentation - Azure App Service | Microsoft Docs](https://docs.microsoft.com/en-us/azure/app-service/ "null")
+
+### Question 11
+* Your company uses a single, critical virtual machine that will be in place for years. You want to save costs on long-running virtual machines. What should you do?
+	* Azure Scale Sets
+	* Management groups
+	* Use an Azure Spot Virtual Machine
+	* **Use an Azure Reserved Virtual Machine Instance**
+
+Azure Reserved Virtual Machine Instances allow you to sign on for a 1- or 3-year commitment for a long-running virtual machine that can save up to 70% compared to month-to-month pricing.
+
+### Question 12
+* Which of the following are valid Azure storage redundancy types
+	* **Zone redundant storage (ZRS)**
+	* Global zone storage (GZS)
+	* **Read-access geo-zone-redundant storage (RA-GZRS)**
+	* **Locally redundant storage (LRS)**
+
+(Zone redundant storage (ZRS)) - Azure has many redundancy options to choose from when identifying which storage option to select. The following are all valid Azure Storage redundancy options - Locally redundant storage, Zone-redundant storage, Geo-redundant storage, Read-access geo-redundant storage, Geo-zone-redundant storage and Read-access geo-zone-redundant storage. (Read-access geo-zone-redundant storage (RA-GZRS) - Azure has many redundancy options to choose from when identifying which storage option to select. The following are all valid Azure Storage redundancy options - Locally redundant storage, Zone-redundant storage, Geo-redundant storage, Read-access geo-redundant storage, Geo-zone-redundant storage and Read-access geo-zone-redundant storage. (Locally redundant storage (LRS)) - Azure has many redundancy options to choose from when identifying which storage option to select. The following are all valid Azure Storage redundancy options - Locally redundant storage, Zone-redundant storage, Geo-redundant storage, Read-access geo-redundant storage, Geo-zone-redundant storage and Read-access geo-zone-redundant storage. [Data redundancy - Azure Storage | Microsoft Docs](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy "null") 
+
+### Question 13
+* Which of the following attributes describe public cloud offerings?
+	* Insecure connections to resources
+	* **Pay-as-you-go pricing**
+	* Upfront hardware purchases
+	* Hardware configuration
+
+Public cloud uses a pay-as-you-go pricing model, paying for resources as they are used, not in advance.
+
+### Question 14
+* You need to implement multi-factor authentication (MFA) for Microsoft Cloud apps across your entire organization. The requirement for MFA needs to be centrally rolled out and enforced. What Azure functionality should you use to accomplish this task?
+	* Azure AD Connect
+	* Network Security Groups (NSG)
+	* **Use a Conditional Access policy to roll out MFA to the entire organization**
+	* Azure Information Protection
+
+Conditional Access policies are a component of Azure Active Directory that let you create if-then statements for allowing/denying authentication to different applications, including conditions to require multi-factor authentication. They provide centralized conditional access that can be enforced company-wide.
+
+### Question 15
+* Which of the following are benefits of Azure geographies?
+	* Any Azure geography can be used by anyone
+	* **They are fault tolerant and can often withstand complete region failure**
+	* **Azure has geographies throughout the world**
+	* **Data residency is honored within the geographical boundary**
+
+(Fault tolerant and can withstand complete region failure) - Azure Geographies are groups of one or more Azure Region. Every region already has fault-tolerance (more than one data-center) but most Geographies have more than one Region as well, giving you multiple levels of redundancy. (Azure has geographies throughout the world) - Azure has geographies in the Americas, Europe, Asia Pacific, the Middle East and Africa. (Data residency honored within geographical boundary) - Azure has geographies around the world providing data residency within each region to give customer peace of mind over their data sovereignty.
+
+### Question 16
+* You need to create an Azure storage solution that will store messages created by an Azure web role. The messages will then be processed by an Azure worker role. What type of storage solution should you create?
+	* A virtual machine data disk
+	* A File service in a storage account
+	* A Blob service in a storage account
+	* **A Queue service in a storage account**
+
+Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. [What is Azure Queue Storage?](https://docs.microsoft.com/en-us/azure/storage/queues/storage-queues-introduction "null")
+
+### Question 17
+* Which of the following statements about SaaS cloud services is correct?
+	* Applications must be accessed from a secure network (a.k.a. VPN).
+	* **The service provider will take care of the app's infrastructure, including servers, storage, and networking. They will also manage the app's software, including updates and security patches.**
+	* The client is responsible for purchasing all client software.
+	* The client has complete control over the application.
+
+SaaS is a cloud computing model in which the software is hosted and managed by a third-party service provider. This means that the user does not need to worry about the underlying infrastructure or software maintenance. The service provider takes care of everything from provisioning servers to applying security patches. In SaaS, the client handles user management and some application configurations.
+
+### Question 18
+* What are Azure Resource Manager (ARM) templates?
+	* A component of Azure AD to allow authentication based on conditions (i.e., if-then statements) that must be met to either allow or deny access
+	* **Azure's native Infrastructure-as-Code (IaC) solution**
+	* A declarative method to orchestrate the deployment of resource templates and other artifacts such as role assignments, policy assignments, resource templates, and resource groups
+	* Azure's management construct that manages and controls access to all interaction with Azure
+
+ARM templates are Azure's native Infrastructure-as-Code (IaC) solution that can consistently and automatically deploy the same environments that are defined in code format.
+
+### Question 19
+* You need to reference how Microsoft secures their cloud infrastructure to meet strict compliance controls. What do you need to reference for this information?
+	* **Service Trust Portal**
+	* Compliance Manager
+	* Conditional Access policies
+	* Azure Arc
+
+The Service Trust Portal contains details about Microsoft's implementation of controls and processes that protect Microsoft's cloud services and the customers that use it.
+
+### Question 20
+* You are migrating an on-premises application to the Azure Cloud. The application communicates with a file share hosted on a Windows server that no other applications have access to. Which Azure storage services could be used to migrate the file share to?
+	* **Azure Disk Storage**
+	* Azure Virtual Machine
+	* **Azure Files**
+	* Azure Data Lake
+
+Azure Disk Storage can be used to house the migrated Windows file share data. [Azure Disk Storage | Microsoft Azure](https://azure.microsoft.com/en-gb/services/storage/disks/ "null"). Azure Files can be used to house the migrated Windows file share data. [File Storage | Microsoft Azure](https://azure.microsoft.com/en-gb/services/storage/files/ "null").
+
+### Question 21
+* What is the preferred method to synchronize user identities on an on-premises Active Directory server with Azure AD?
+	* It is not possible to synchronize an on-premises Active Directory server with Azure AD. For security reasons, they must be maintained separately.
+	* Use Azure Identity Protection in your on-premises environment to synchronize on-premises and Azure AD accounts.
+	* **Use Azure AD Connect in your on-premises environment to synchronize on-premises and Azure AD accounts.**
+	* Use Azure AD Connect in your Azure environment to synchronize on-premises and Azure AD accounts.
+
+Azure AD Connect in an on-premises environment is capable of synchronizing on-premises and Azure AD accounts, so users can be signed in and be managed in both locations without having to maintain 2 separate Active Directory environments.
+
+### Question 22
+* Which of the following are serverless computing services provided by Azure?
+	* **Azure Event Grid**
+	* **Azure Logic Apps**
+	* **Azure Functions**
+	* Azure Virtual Machines
+
+Event Grid is a highly scalable, serverless event broker that you can use to integrate applications using events. Azure Logic Apps is fully managed by Microsoft Azure, which frees you from worrying about hosting, scaling, managing, monitoring, and maintaining solutions built with these services. When you use these capabilities to create "serverless" apps and solutions, you can just focus on the business logic and functionality. These services automatically scale to meet your needs, make integrations faster, and help you build robust cloud apps using little to no code. Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs.
+
+### Question 23
+* What is the purpose of the Cost Management feature in Azure?
+	* **Monitors and analyzes the cost of your current Azure resources**
+	* Estimate the cost savings you can realize by migrating your existing workloads to Azure
+	* Track your Azure environment's adherence to your company's compliance requirements
+	* Create accurate estimates of hourly or monthly Azure costs across the entire Azure portfolio
+
+Cost Management is part of subscription billing tools, which breaks down current cost via a variety of filters and can also set budgets and alerts.
+
+### Question 24
+* Your organization is planning to migrate your entire datacenter to Azure. You are required to recommend an architected solution that will allow operations to continue if an entire Azure region becomes unavailable. Which cloud attribute should you factor into your solution?
+	* **Reliability**
+	* Scalability
+	* Security
+	* Predictability
+
+Reliability describes the ability to continue business operations in the case of an outage or disaster.
+
+### Question 25
+* After enforcing multi-factor authentication via a Conditional Access policy, users are complaining about the extra steps required to log in to their Microsoft 365 accounts. What steps can you take to lessen the inconvenience of this additional authentication step while still maintaining a strong security posture?
+	* In the affected Conditional Access policy, create an exception only for Microsoft 365 applications to not enforce MFA, but require MFA everywhere else.
+	* Implement passwordless authentication. Users will not enter a password at the system login prompt. Instead, they will authenticate with the Google Authenticator app on their smartphones and answer a challenge after verifying ID with a PIN or biometric authorization.
+	* **Implement passwordless authentication. Users will not enter a password at the system login prompt. Instead, they will authenticate using the Microsoft Authenticator app on their smartphones and answer a challenge after verifying ID with a PIN or biometric authorization.**
+	* Remove multi-factor enforcement, which will remove the additional security layer.
+
+Passwordless authentication bypasses the system's login. In this scenario, users verify identity with something they have like a smartphone, plus something like a PIN or biometrics.
+
+### Question 26
+* What is the purpose of Azure Blueprints?
+	* Synchronize on-premises AD with Azure AD.
+	* **Automated and repeatable environment setup in Azure.**
+	* Automated and repeatable resource deployment in Azure.
+	* Collect security data from across all your Azure and non-Azure resources, providing a single pane of glass for security monitoring and management.
+
+Azure Blueprints provides automated and repeatable environment setup in Azure. It is able to implement: - Role assignments - Policy assignments - Azure Resource Manager templates (ARM templates) - Resource groups
+
+### Question 27
+* Which statement best describes a Hybrid Cloud architecture?
+	* Special use case for secure Government workloads
+	* **Utilizes services of both Public and Private Clouds**
+	* Cannot be used with Microsoft Azure
+	* Does not require any on-premise hardware
+
+(Utilizes services of both Public and Private Clouds) - A Hybrid Cloud architecture describes a solution that utilizes both Public and Private Cloud offerings, including private on-premise systems. This is useful, because it allows companies the flexibility of the cloud, but can also manage tight governance requirements which may not allow certain data to be held in the Public Cloud. This can require on-premise hardware. This approach is possible with Microsoft Azure, and is not specific to any type of workloads, although Governments may find this especially useful. [Hybrid Cloud Computing - Definition | Microsoft Azure](https://azure.microsoft.com/en-au/overview/what-is-hybrid-cloud-computing/ "null")
+
+### Question 28
+* You are the Azure Administrator for Radio Gaga, LTD. You have a resource group named RG-RG and need to ensure no other administrators can create virtual networks in this resource group. What can you implement to accomplish this?
+	* Properties
+	* **Azure Policy**
+	* Access Control (IAM)
+	* Locks
+
+Azure Policy is used to enforce different rules and effects over your resources, such as limiting what actions different administrators can perform within your RG-RG resource group. The other answers are incorrect: Access Control can be used to prevent the creation of Azure resources, but improper use could prevent required system access from other administrators, so this is not the best selection. Locks can be used on a resource to prevent accidental deletion or modification of a resource group, for example. Properties are typically read-only values for an Azure resource, such as its resource ID, subscription, resource group, and other information. Reference: [Overview of Azure Policy - Azure Policy | Microsoft Docs](https://docs.microsoft.com/en-us/azure/governance/policy/overview "null")
+
+### Question 29
+* What are region pairs?
+	* Two or more regions in an Availability Set
+	* **A region that is linked with another region in the same geography**
+	* Two geographies working together to host an application
+	* A method to route traffic between two Availability Zones
+
+(A region that is linked with another region in the same geography) - Azure has the concept of region pairs, these are two or more regions that are at least 300 miles apart within a single Geography. This enables the ability to replicate certain resources such as virtual machine storage across the geography providing protection against such events as natural disasters or civil unrest. [Ensure business continuity & disaster recovery using Azure Paired Regions | Microsoft Docs](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions "null")
+
+### Question 30
+* You are the Systems Administrator for a local university. You are deploying several sets of systems that will be used for research and development teams. Each set of systems will be uniform in nature, containing the same number and type of Azure resources. What should you recommend to automate the creation of these Azure resources?
+	* Virtual machine scale sets
+	* **Azure Resource Manager templates**
+	* Multiple Azure Subscriptions
+	* Management groups
+
+(Azure Resource Manager templates) - An Azure Resource Manager template is the framework by which resources are created. They can be used to define and automate the creation of similar resources.
+
+### Question 31
+* What types of data does Azure Monitor collect?
+	* **Metrics and logs**
+	* **Subscription monitoring data**
+	* Physical hardware data
+	* Only logs
+	* Only metrics
+
+All data collected by Azure Monitor fits into one of two fundamental types, metrics and logs. Metrics are numerical values that describe some aspect of a system at a particular point in time. They are lightweight and capable of supporting near real-time scenarios. Logs contain different kinds of data organized into records with different sets of properties for each type. Telemetry such as events and traces are stored as logs in addition to performance data so that it can all be combined for analysis. [Monitoring data platform](https://docs.microsoft.com/en-us/azure/azure-monitor/overview#monitoring-data-platform "null"). Azure Monitor collects two broad types of data: metrics and logs. Within these data types sits subscription monitoring data. [Azure Monitor overview - Azure Monitor | Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/overview "null")
+
+### Question 32
+* What kind of information does Azure Information Protection protect?
+	* Azure Blob Storage
+	* **Office documents**
+	* **Email messages**
+	* Virtual hard disks
+	* **PDF documents**
+
+(Office documents) - Azure Information Protection (sometimes referred to as AIP) helps protect: Email messages, Office documents and PDF documents. AIP is a cloud-based solution that helps an organization classify and, optionally, protect its documents and emails by applying labels. Azure Information Protection is not used to protect data in Azure Blob Storage nor can it help protect virtual hard disks. [What is Azure Information Protection? - AIP | Microsoft Docs](https://docs.microsoft.com/en-us/azure/information-protection/what-is-information-protection "null"). (Email Messages) - Azure Information Protection (sometimes referred to as AIP) helps protect: Email messages, Office documents and PDF documents. AIP is a cloud-based solution that helps an organization classify and, optionally, protect its documents and emails by applying labels. Azure Information Protection is not used to protect data in Azure Blob Storage nor can it help protect virtual hard disks. [What is Azure Information Protection? - AIP | Microsoft Docs](https://docs.microsoft.com/en-us/azure/information-protection/what-is-information-protection "null"). (PDF Documents) - Azure Information Protection (sometimes referred to as AIP) helps protect: Email messages, Office documents and PDF documents. AIP is a cloud-based solution that helps an organization classify and, optionally, protect its documents and emails by applying labels. Azure Information Protection is not used to protect data in Azure Blob Storage nor can it help protect virtual hard disks. [What is Azure Information Protection? - AIP | Microsoft Docs](https://docs.microsoft.com/en-us/azure/information-protection/what-is-information-protection "null").
+
+### Question 33
+* Which of the following components are required to establish communication between on-premises resources and resources in Azure?
+	* **VPN Gateway**
+	* Route tables
+	* VNet peer
+	* **Azure Virtual Network**
+
+A VPN Gateway defines the Azure network side of a site-to-site virtual private network. [Azure VPN Gateways](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways "null"). Azure Virtual Network enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. [Azure Virtual Network | Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview "null").
+
+### Question 34
+* You need to create a network drive in Azure Storage. The drive needs to be accessible from several computers that run Windows 8.1. What storage solution should you create?
+	* A virtual machine data disk
+	* A Blob service in a storage account
+	* **A File service in a storage account**
+	* A Queue service in a storage account
+
+(A File service in a storage account) - Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. [Introduction to Azure Files | Microsoft Docs](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction "null")
+
+### Question 35
+* Which of the following statements are true about horizontal scaling?
+	* Horizontal scaling requires downtime to increase compute capacity.
+	* **Horizontal scaling adds additional copies of a resource, like a VM or container, to a resource pool.**
+	* **Horizontal scaling does not require downtime.**
+	* **Horizontal scaling can occur automatically with no manual interaction.**
+
+Horizontal scaling (or scaling out) is defined by creating additional copies of a resource. It allows rapid expansion of compute capacity in a pool of resources with no downtime. Since horizontal scaling creates copies of resources, it can be added to without bringing the application down to make changes to compute capacity. By contrast, increasing the number of CPUs/RAM in existing virtual machines requires taking the VM offline to make the change. Since horizontal scaling creates copies of resources, adding and subtracting resources in response to demand can occur automatically based on application demand metrics.
+
+### Question 36
+* You maintain a single virtual machine (VM) as an internal server. This server has two CPUs and 8 GB RAM. You decide to increase the capacity of the same server to four CPUs and 16 GB RAM. Which cloud attribute is this an example of?
+	* Load balancing
+	* Autoscaling
+	* Horizontal scaling
+	* **Vertical scaling**
+
+Vertical scaling (or scaling up) is increasing the compute capacity of an existing resource, usually by adding more CPUs or RAM to an existing VM.
+
+### Question 37
+* You need to choose an Azure-native tool that enables you to manage, control, and monitor access to important resources in your organization. These resources include resources in Azure AD, Azure, and other Microsoft Online services such as Microsoft 365 or Microsoft Intune. What service should you choose?
+	* Azure Sentinel
+	* **Azure Privileged Identity Management (PIM)**
+	* Azure Key Vault
+	* Azure Firewall
+
+Azure Privileged Identity Management (PIM) is a service in Azure Active Directory (Azure AD) that enables you to manage, control, and monitor access to important resources in your organization.
+
+### Question 38
+* What are the advantages of the Zero Trust security model?
+	* **Limits rogue actors from accessing sensitive resources.**
+	* Allows extending the Azure management control plane to non-Azure resources.
+	* **Allows access from any location once identity has been verified.**
+	* Restricts access to sensitive resources to users in trusted locations.
+
+Because it requires establishing trust with identities, as well as restricting access to only what is necessary to perform a job (i.e., principle of least privilege), Zero Trust limits the ability of rogue actors or compromised accounts to do damage. The Zero Trust security model is necessary for the modern "work from anywhere" workplace, as access can be granted regardless of a user's location.
+
+### Question 39
+* What are the three components necessary for any role-based access control (RBAC) assignment?
+	* **Scope**
+	* **Security principal**
+	* Conditional Access policy
+	* **Role definition**
+
+Scope determines which set of resources (subscription, resource group, individual VM, etc.) a user or other identity has access to. Security principal is the identity, or the "who," that needs access. Role definition defines what level of access is granted to an identity (security principal).
+
+### Question 40
+* You are the system administrator for T-Bones Restaurant Group, Inc. You currently have an on-premises data center that consists of 50 Windows servers running IIS and SQL Server. IT management has dictated that all systems should be moved to Azure in the coming year. They also state that only platform-as-a-service (PaaS) solutions should be implemented. Which of the following meet these requirements?
+	* Azure Virtual Machines
+	* **Azure App Service**
+	* Azure Virtual Network
+	* **Azure SQL Database**
+
+(Azure App Service) - Azure App Service is a platform-as-a-service (PaaS) offering for web services and is a common solution for the migration of IIS. (Azure SQL Database) - Azure SQL Database is a platform-as-a-service (PaaS) offering for relational database management and is a common solution for the migration of SQL.

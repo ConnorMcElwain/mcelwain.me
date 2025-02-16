@@ -1,0 +1,577 @@
+import { Callout } from 'nextra-theme-docs'
+import Image from 'next/image'
+
+
+<Callout type="warning" emoji="⚠️">
+  This post is still being constructed, content/information will change!
+</Callout>
+
+# Configuration Manager (MECM) Set Up
+In this post, I will cover why I'm learning and building a full MECM install and setup. If you have ever been tasked with setting up Configuration Manager from scratch, you're probably well aware of how much information is out there to help guide you through the process. The issue I ran into constantly was trying to decipher what information was accurate and relevant to my specific setup. There are numerous ways to build out MECM (and its other components) depending on your organization's current environment, financial/resource limitations, goals, etc. At the City of Urbana, Illinois, I have been tasked with the project of creating a full MECM environment in preparation for migrating to [Microsoft 365](https://www.microsoft.com/en-us/microsoft-365/business/compare-all-microsoft-365-business-products-b?ef_id=_k_66eb2cce3fdd18f9fcf84b8ec3bea511_k_&OCID=AIDcmm474qp8el_SEM__k_66eb2cce3fdd18f9fcf84b8ec3bea511_k_&msclkid=66eb2cce3fdd18f9fcf84b8ec3bea511). I decided to build and document a test version environment similar to what I'm dealing with at work in my home lab. This has allowed me to troubleshoot tons of issues throughout this setup process at home where I can at least bang my head against non-helpful error codes on my own time.
+### The Set Up
+* Primary Server (**[Windows Server 2022](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022?msockid=1a181e0c6c5565d4056e0b336d3a6464)**)
+	* [Configuration Manager](https://www.microsoft.com/en-us/evalcenter/evaluate-microsoft-endpoint-configuration-manager?msockid=1a181e0c6c5565d4056e0b336d3a6464) (MECM)
+	* [SQL Server 2019](https://www.microsoft.com/en-us/sql-server/sql-server-2019?msockid=0009abed4e886c4b243ebfe54f206d04)
+	* [Management Point](https://learn.microsoft.com/en-us/mem/configmgr/core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles#management-point)
+* Distribution Server (**[Windows Server 2022](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022?msockid=1a181e0c6c5565d4056e0b336d3a6464)**)
+	* [Distribution Point](https://learn.microsoft.com/en-us/mem/configmgr/core/servers/deploy/configure/install-and-configure-distribution-points)
+* [WSUS Server](https://learn.microsoft.com/en-us/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (**[Windows Server 2022](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022?msockid=1a181e0c6c5565d4056e0b336d3a6464)**)
+
+### The Prerequisites
+First download and install the [Configuration Manager Prerequisites Tool](https://msendpointmgr.com/configmgr-prerequisites-tool/#:~:text=ConfigMgr%20Prerequisites%20Tool%20is%20designed%20to%20help) on the **Primary Server**. This tool isn't required, but I have found it extremely helpful for installing and setting up some of the basic drivers, settings, and addons that are needed for Configuration Manager. Within the Sites section of the application, click Site Type, select Primary Site, then click install. This may take some time, confirm in the **Installation Activity** section that all features have been successfully installed onto the Primary Server.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/The Prerequisites/prereq-1.png"
+    alt="Configuration Manager Prerequisites Tool"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+
+#### System Management
+Next we need to create the System Management Container on the main domain controller. In the **Server Manager** on the **domain controller**, click the "Tools" dropdown towards the top right of the window and select **ADSI Edit**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/The Prerequisites/System Management/sysm-1.png"
+    alt="ADSI Edit Location"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Right click ADSI Edit and select "Connect to...", leave everything default and click OK. Open up "Default naming context" and CN=System. Right click CN=System, select **New** and then **Object**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/The Prerequisites/System Management/sysm-3.png"
+    alt="ADSI Editing"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Select the "container" class and input **System Management** in the Value box.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/The Prerequisites/System Management/sysm-4.png"
+    alt="Creating System Management Object"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Right click the System Management folder, select properties, go into the **Security tab**, add the primary server computer account and **Grant Full Control** permissions.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/The Prerequisites/System Management/sysm-5.png"
+    alt="Adding primary server computer account"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Then, click "Advanced", select the primary server computer account, then click **Edit**. In the Applies to list, select **This object and all descendant objects**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/The Prerequisites/System Management/sysm-6.png"
+    alt="Permission Entry for System Management"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Click OK and close out of the ADSI Edit console. Make sure you add the **computer account** of the primary server that's hosting MECM to the **Schema Admins** security group in **Active Directory Users and Computers**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/The Prerequisites/System Management/sysm-7.png"
+    alt="Schema Admins"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+This step is **NEEDED** before proceeding below.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/The Prerequisites/System Management/sysm-8.png"
+    alt="Adding primary server computer account to Schema Admin AD Group"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+
+#### Updating Active Directory Schema
+Go into the settings section of the Configuration Manager Prerequisites Tool on the **Primary Server** and add your domain admin account credentials. You can provide these credentials by navigating to the **Settings** section, then go to the **Credentials** tab.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/The Prerequisites/Updating Active Directory Schema/schema-1.png"
+    alt="Admin Credentials for Configmger prerequisties tool"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+This will be needed for the tool to properly update the [Active Directory Schema](https://learn.microsoft.com/en-us/mem/configmgr/core/plan-design/network/schema-extensions). If you haven't already, download **[Configuration Manager](https://www.microsoft.com/en-us/evalcenter/evaluate-microsoft-endpoint-configuration-manager?msockid=1a181e0c6c5565d4056e0b336d3a6464)** on the **Primary Server**. Now navigate back to the Configuration Manager Prerequisites Tool, select the **Directory** option, and within the **Schema** tab, click the detect button for the tool to identify your master domain controller.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/The Prerequisites/Updating Active Directory Schema/schema-2.png"
+    alt="AD Schema Update"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Click the browse button, within the Configuration Manager install folder we extracted earlier, find the file **[EXTADSCH.EXE](https://learn.microsoft.com/en-us/mem/configmgr/core/plan-design/network/extend-the-active-directory-schema#option-a-use-the-extadschexe-tool)** within `SMSSETUP\BIN\X64`.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/The Prerequisites/Updating Active Directory Schema/schema-3.png"
+    alt="Adding extadsch.exe file to AD Schema"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Click the extend button to proceed with extending the Active Directory schema for Configuration Manager.
+
+### Installing WSUS Server
+To install Windows Server Update Services (WSUS), navigate to the **Manage** tab towards the top right corner of **Server Manager** and select **Add Roles and Features**. The installation type will be **Role-based or feature-based installation**. On the **Server Roles** page, select the **Windows Server Update Services** check box and click next.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Installing WSUS Server/wsus-1.png"
+    alt="Installing Windows Server Update Services"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+On the "Features" page, make sure you check **.NET Framework 3.5 Features**. This is **REQUIRED** for WSUS to install properly. In Role Services under WSUS, leave the defaults of **WID Connectivity** and **WSUS Services** checked and click next.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Installing WSUS Server/wsus-2.png"
+    alt="Role Service installs for WSUS"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Before continuing, we need to create a folder (preferably on a separate drive from the OS) named **WSUS**. This is the location where WSUS will store updates locally. Check the box for **Store updates in the following location**, and provide the path for the folder you just created. Once WSUS is installed, you should get a notice in Server Manager wanting you to complete **Post-Installation tasks**, select it to start the post-installation configuration process. Once that has completed, you are done installing and configuring WSUS.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Installing WSUS Server/wsus-3.png"
+    alt="Post-deployment Configuration for WSUS"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+If you do open Windows Server Update Services, **do NOT continue** with the configuration process. This will be done after we have set up our Primary Server and installed/configured Configuration Manager.
+
+### Service Accounts & AD Groups
+It's best practice to create the necessary service accounts and groups before installation:
+* Service Accounts
+	* SQL Server Service Account - **MECM-SQL**
+	* WSUS Service/Installation Account - **MECM-WSUS**
+	* MECM Software Install Service Account - **MECM-Installs**
+* MECM Groups
+	* Domain group containing all MECM Admins - **MECM-Admins**
+	* Domain group containing all MECM servers in the hierarchy group - **MECM-SiteServers**
+
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Service Accounts & AD Groups/accounts-groups-1.png"
+    alt="AD User Accounts Created"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Service Accounts & AD Groups/accounts-groups-2.png"
+    alt="AD Groups Created"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Provide these service accounts and groups in the proper **administrative AD permission groups**.
+
+### Primary Server Set Up
+#### C:\ Drive File Prevention
+Create a file named [**no_sms_on_drive.sms**](https://learn.microsoft.com/en-us/mem/configmgr/core/plan-design/hierarchy/the-content-library) on the C: drive on **all encompassing servers** (Primary Site, Management/Distribution Point, WSUS Server).
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/C Drive File Prevention/c-drive-file-prevention-1.png"
+    alt="NO_SMS_ON_DRIVE.SMS file created on C: Drive"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+This file prevents Configuration Manager and other services from installing programs, files, and logs that should otherwise be on a separate non OS drive.
+
+#### [Windows ADK](https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install) Type/Install
+Within the Configuration Manager Prerequisites Tool, select the **ADK** section, within the "Online" tab, select the Windows ADK version you'd like installed. In my case, I'll be installing the **[Windows 11 ADK version 22H2](https://go.microsoft.com/fwlink/?linkid=2196127)** and **[Windows PE add-on for the ADK for Windows 11](https://go.microsoft.com/fwlink/?linkid=2196224)**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Windows ADK Type Install/windows-adk-install-1.png"
+    alt="Windows ADK Install using ConfigMgr Prerequisties tool"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Create a folder to store the ADK install file, specify said location, and click install. Restart the system to complete the installation.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Windows ADK Type Install/windows-adk-install-2.png"
+    alt="Windows ADK Install Successfully Screen"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+
+#### Local Administrative Access for Primary Server
+Add your primary server (**computer account**) to the administrator group of your **management/distribution point** and **WSUS server**. You can access the Local Users and Groups by searching **lusrmgr.msc** in the **Run** function.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Local Administrative Access for Primary Server/local-admin-1.png"
+    alt="Run lusrmgr.msc"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Specifically for the WSUS server, also add the primary server computer account to the **WSUS Administrator** group as well.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Local Administrative Access for Primary Server/local-admin-2.png"
+    alt="Adding a WSUS Administrator"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+
+### SQL Server Set Up
+Next download your preferred compatible SQL Server. Due to what license we already had available, we went with the [SQL Server 2019 Core Edition](https://www.microsoft.com/en-us/evalcenter/download-sql-server-2019#:~:text=Review%20SQL%20Server%202019%20system%20requirements%20and%20release?msockid=0009abed4e886c4b243ebfe54f206d04). Check the **[supported SQL server options](https://learn.microsoft.com/en-us/mem/configmgr/core/plan-design/configs/support-for-sql-server-versions)** if your environment requires newer/different SQL database needs. Launch `SQL2019-SSEl-Eval` and select Custom for the SQL installation process.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/SQL Server Set Up/sql-setup-1.png"
+    alt="SQL Server Evaluation Edition Custom Option"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+The SQL Server Installation Center should open, select the **Installation** tab towards the left side of the window, and select **New SQL Server stand-alone installation or add features to an existing installation**. Selecting what version of SQL Server you're on is important, if you do not have a product key, select **Evaluation** under the "Specify a free edition:" drop down section.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/SQL Server Set Up/sql-setup-2.png"
+    alt="SQL Server Free Edition (Evaluation)"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Do **NOT** select **Express**. SQL Express is [not compatible with the MECM](https://learn.microsoft.com/en-us/mem/configmgr/core/plan-design/configs/support-for-sql-server-versions#sql-server-2019-standard-enterprise) environment we are building. During the SQL Server Setup process, in "Feature Selection", under Instance Features, select the **Database Engine Services** checkbox.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/SQL Server Set Up/sql-setup-3.png"
+    alt="Database Engine Services option selected"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Within the "Instance Configuration" section of the setup, I created a named instances called "**MECMSQL**", the instance name is up to you.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/SQL Server Set Up/sql-setup-4.png"
+    alt="Instance Name"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+You will need to create a domain joined **service account** specifically for the SQL Server. I created an account called **MECM-SQL** and input this user as the **SQL Server Agent** and **SQL Server Database Engine**. You can create two separate accounts for these services if your security structure requires it.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/SQL Server Set Up/sql-setup-5.png"
+    alt="SQL Service Account(s)"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+On the next tab "Collation", you **NEED** to confirm you have "**[SQL_Latin1_General_CP1_CI_AS](https://learn.microsoft.com/en-us/sql/relational-databases/collations/set-or-change-the-server-collation?view=sql-server-ver16#server-collation-in-sql-server)**" as the selected Database Engine. This is required for Configuration Manager and SQL Server to install properly.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/SQL Server Set Up/sql-setup-6.png"
+    alt="Required Collation Setup"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+It's recommended to create an MECM Admin group (and or an SQL Admin group) to specify and add who should receive admin privileges. In the "**Database Engine Configuration**" section of the setup installer, under the Server Configuration tab, specify the groups and or individual users who should become SQL Server administrators.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/SQL Server Set Up/sql-setup-7.png"
+    alt="SQL Server administrators"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Next, under the memory tab within "**Database Engine Configuration**", select the recommended memory settings.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/SQL Server Set Up/sql-setup-8.png"
+    alt="Recommended RAM allocated for SQL Server"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+You can now exit the SQL Server Installation Center program.
+
+After installing the SQL Server, you will need to install the [ODBC Driver for SQL Server](https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver16) and [SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16) before you can start the Configuration Manager installation. Launch **SQL Server Configuration Manager** and navigate to "SQL Server Network Configuration". Inside, select "Protocols for `[Your Instance Name]"`, right click "TCP/IP" and select properties.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/SQL Server Set Up/sql-setup-9.png"
+    alt="SQL Server Configuration Manager TCP/IP Location"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Remove any values within "TCP Dynamic Ports" under the **IP Addresses** tab and add port **1433** within TCP Port for IP1, IP2, IP3, IP4, and IPAll. In IP1, make sure Enabled is selected as **Yes**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/SQL Server Set Up/sql-setup-10.png"
+    alt="Remove TCP Dynamic Ports"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Go back to SSMS and restart the SQL Server within **SQL Server Services** to apply these new settings.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/SQL Server Set Up/sql-setup-11.png"
+    alt="Restart SQL Server within SQL Server Configuration Manager"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+On the Primary Server, run PowerShell as **administrator** and input this command `New-NetFirewallRule -DisplayName "Allow ConfigMgr SQL Server ports" -Direction Inbound -LocalPort 1433,4022 -Protocol TCP -Action Allow`. This command opens the necessary ports within the firewall for the SQL Server.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/SQL Server Set Up/sql-setup-12.png"
+    alt="Admin PowerShell on Primary Server to open specific firewall ports"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Now launch **SSMS** so we can connect to the SQL Server. In the "**Server name:**" section, input the name of the Primary Server hosting the SQL Server (in my case that server is called **MECM**), add a "`\`", then the named instance you created (in my case it's **MECMSQL**). It should look like this `MECM\MECMSQL`. If you're having trouble connecting to the SQL server, under **Connection Security**, make sure you check **Trust server certificate**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/SQL Server Set Up/sql-setup-13.png"
+    alt="Connecting to SQL Server"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Once connected, right click the Databases folder and select **New Database**. For simplicity sake, name the database **MECMDB**, remembering the name of this database will be important during the Configuration Manager install process.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/SQL Server Set Up/sql-setup-14.png"
+    alt="Creating SQL Database"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+
+### Configuration Manager Install Process
+Download the [Configuration Manager installer](https://www.microsoft.com/en-us/evalcenter/download-microsoft-endpoint-configuration-manager#:~:text=Review%20Configuration%20Manager%20Current%20Branch%20supported?msockid=0009abed4e886c4b243ebfe54f206d04) on the **Primary Server** and extract it. Open the installer by launching `splash.hta`.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Configuration Manager Install Process/mecm-install-1.png"
+    alt="Launch splash.hta"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Within the Configuration Manager Setup Wizard under Getting Started, we will be selecting the default Setup Option **Install a Configuration Manager primary site**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Configuration Manager Install Process/mecm-install-2.png"
+    alt="Config Manager Setup Wizard Default Setting for Primary Site"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Create a folder `D:\Configuration Manager\Prerequisite Files` to store Configuration Manager's prerequisite downloads and select said location to start its downloads.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Configuration Manager Install Process/mecm-install-3.png"
+    alt="Creating folder for prerequisite files to be downloaded to"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Under **Primary Site Installation**, select the **Install the primary site as a stand-alone site** option.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Configuration Manager Install Process/mecm-install-4.png"
+    alt="Stand-alone site"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Under the **Database Information** portion of the install process, provide the custom SQL instance name (if you created one) and the name of the database we previously created. For me the SQL instance name would be **MECMSQL** and the database name would be **MECMDB**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Configuration Manager Install Process/mecm-install-5.png"
+    alt="Database Information for Config Manager Setup Wizard"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Under **Client Computer Communication Settings** section, select the second option **Configure the communication method on each site system role**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Configuration Manager Install Process/mecm-install-6.png"
+    alt="Client Computer Communication Settings"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+On the **Site System Roles** install section, direct the distribution point install to the **Distribution Server** and the management point install to the **Primary Server**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Configuration Manager Install Process/mecm-install-7.png"
+    alt="Site System Roles"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Once the Prerequisite Check has completed with zero errors, proceed with the Configuration Manager install.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Configuration Manager Install Process/mecm-install-8.png"
+    alt="Prerequisite Check"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Configuration Manager Install Process/mecm-install-9.png"
+    alt="Configuration Manager Install Completed"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+
+### Updating Configuration Manager
+First thing we want to do is ensure Configuration Manager has the latest updates installed. Launch the **Configuration Manager Console** from the Primary Server.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Updating Configuration Manager/update-config-1.png"
+    alt="Configuration Manager Console"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Navigate to the Administration section at the bottom left of Configuration Manager. Within Overview, go into **Updates and Servicing**. Click the "Check for updates" button, if there are updates available for installation, click on the update, make sure the "State" for the update says **Read to install**. If it's, click the Install Update Pack to proceed.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Updating Configuration Manager/update-config-2.png"
+    alt="Updating Configuration Manager"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Launch Configuration Manager, select **Monitoring** at the bottom left of the program, within **System Status**, ensure the monitoring sensors on **Site Status** and **Component Status** are green/"OK".
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Updating Configuration Manager/update-config-3.png"
+    alt="Checking Monitor Sensors"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+
+### Discovering Devices
+Next is to find all of the devices on your domain. Navigate to Administration, Hierarchy Configuration, then [Discovery Methods](https://learn.microsoft.com/en-us/mem/configmgr/core/servers/deploy/configure/about-discovery-methods). Here we will determine which discovery method we want to enable to find our domain joined systems. In this instance, I will use the **[Active Directory System Discovery](https://learn.microsoft.com/en-us/mem/configmgr/core/servers/deploy/configure/about-discovery-methods#bkmk_aboutForest)** method. This will discover all devices that have been domain joined. Right click the discovery method and select properties.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Discovering Devices/discovering-devices-1.png"
+    alt="Checking Monitor Sensors"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Check the **Enable Active Directory User Discovery** box, click apply, then **right click** the **white area** towards the lower half of the window and select **new**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Discovering Devices/discovering-devices-2.png"
+    alt="Enable Active Directory User Discovery"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+The path you select will be dependent on how you have AD set up, in my case because I want to **find all devices connected to the domain**, I selected the **top level container**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Discovering Devices/discovering-devices-3.png"
+    alt="Active Directory Container"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Click OK to exit out of the window to go back to the Discovery Methods page within the Administration tab of MECM. **Right click** the Discovery Method you just edited (in this case Active Directory System Discovery) and select the **Run Full Discovery Now** option.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Discovering Devices/discovering-devices-4.png"
+    alt="Run Full Discovery"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+It may take some time to complete the discovery process. Confirm all your systems have been populated by navigating to **Assets and Compliance**, **Device Collections**, and then **All Systems**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Discovering Devices/discovering-devices-5.png"
+    alt="Make sure all your system show up in Assets and Compliance"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+
+#### Creating Device Collections
+Once you have confirmed all devices have been populated within Assets and Compliance, we can start installing the client on systems. Within **Assets and Compliance**, right click **Device Collections** and select **[Create Device Collections](https://learn.microsoft.com/en-us/mem/configmgr/core/clients/manage/collections/create-collections)**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Creating Device Collections/creating-device-collections-1.png"
+    alt="Creating a Device Collection"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+For this example, I will name this device collection "Workstations". This collection will only have desktop computers and will ignore any servers also in AD. Click the "Browse.." button next to **Limiting collection** and select **All Systems**. We need to add a [rule](https://learn.microsoft.com/en-us/mem/configmgr/core/clients/manage/collections/create-collections#collection-rules), in this case a **Direct Rule**. Select **System Resource** for Resource class and **Name** for Attribute name. In this example the name of my workstations start with "W" (W10/W11), so to detect only systems with that naming scheme, putting "**W%**" in the Value portion of this page will allow the query to only search for systems that start with W.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Creating Device Collections/creating-device-collections-2.png"
+    alt="Creating a System Resource Rule"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Since my servers do not follow this naming scheme, they will not show up in this Device Collection. Once you have finished the device query and selected your systems to be added to the Device Collection, check the "**Use incremental updates for this collection**". This will periodically check for new resources on the domain that fit this "W" naming scheme and add them to the collection. This is not required, but it's a nice feature to have enabled. After completing the rest of the set up process, go into your newly created Device Collection to ensure you see all the devices have imported properly.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Creating Device Collections/creating-device-collections-4.png"
+    alt="Confirming systems populated within the Device Collection"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+
+#### Boundaries and Boundary Groups
+Once you have created your Device Collections and have organized where you want your systems to be, we need to configure **[Boundaries](https://learn.microsoft.com/en-us/mem/configmgr/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups)** in the **Administration** section. Within Administration, under **Hierarchy Configuration**, right click **Boundaries** and create a new Boundary.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Boundaries and Boundary Groups/boundary-groups-1.png"
+    alt="Creating a Boundary"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Depending on your goals will determine how you want to configure your boundary. For this example, I will stick with creating an **[Active Directory site boundary](https://learn.microsoft.com/en-us/mem/configmgr/core/servers/deploy/configure/boundaries#active-directory-site)**
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Boundaries and Boundary Groups/boundary-groups-2.png"
+    alt="Type of Boundary (Active Directory Site Boundary)"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+and an **[IP subnet boundary](https://learn.microsoft.com/en-us/mem/configmgr/core/servers/deploy/configure/boundaries#ip-subnet)**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Boundaries and Boundary Groups/boundary-groups-3.png"
+    alt="Type of Boundary (IP Subnet Boundary)"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Right click the IP subnet boundary we just created, hover over "**Add Selected Items**" and select **Add Selected Items to New Boundary Groups**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Boundaries and Boundary Groups/boundary-groups-4.png"
+    alt="Add Selected Items to New Boundary Groups"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+This menu will allow you to create a Boundary Group and add your boundaries to it.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Boundaries and Boundary Groups/boundary-groups-5.png"
+    alt="Main Boundary Group Properties"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Now go back to the **Boundary Groups** tab, right click your custom created boundary group, and go to **properties**. Click the **References tab** and add your site system servers (Primary Site Server and Distribution Server). Next we will need to set up and assign the installation account that will be used to push the MECM client, updates, and software to systems. Navigate to **Site Configuration**, **Sites**, left click your Primary site, click the Settings drop down towards the top right side of the window, click the **Client Installation Settings** drop down, and select **Client Push Installation**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Boundaries and Boundary Groups/boundary-groups-6.png"
+    alt="Client Push Installation"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+On the General tab, check the **[Allow connection fallback to NTLM](https://learn.microsoft.com/en-us/answers/questions/401519/client-push-error-2147942405)** option **IF** security protocols within your environment are okay with the [potential security risks](https://blog.quest.com/ntlm-authentication-what-it-is-and-why-you-should-avoid-using-it/) that come with NTLM authentication.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Boundaries and Boundary Groups/boundary-groups-7.png"
+    alt="Enabling Allow Connection fallback to NTLM"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+This will allow MECM to authenticate with **a less secure connection** as a fallback option if Kerberos is unable to authenticate. Now go into the **Accounts tab** within this new popup window and select the service account we created earlier specifically for MECM installs (**MECM-Installs**). Ensure this account is in the proper administrative groups in AD or else you will run into permission issues when attempting to push the client installs to computers. Make sure ports **TCP: 135, 445, and 2701** are open on all client systems.
+
+### Pushing Client Installs
+The next step after completing these prerequisites is to install the client on our computers. Navigate back to your Device Collections in **Assets and Compliance**, right click the device collection of your choice and select **Install Client**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Pushing Client Installs/client-install-1.png"
+    alt="Install Client in Assets and Compliance"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Ensure you check the "**Install the client software from a specified site**" and select your Primary Site.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Pushing Client Installs/client-install-2.png"
+    alt="Install the client software from a specified site (Primary Site) option selected"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Refer to the **[ccm.log](https://learn.microsoft.com/en-us/mem/configmgr/core/plan-design/hierarchy/log-files)** `\Program Files\Microsoft Configuration Manager\Logs\ccm.log` to view any errors for client deployments. You can use the [CMTrace](https://learn.microsoft.com/en-us/mem/configmgr/core/support/cmtrace) log viewing tool that can be found within Configuration Manager's installation files `\SMSSETUP\TOOLS\CMTrace`.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Pushing Client Installs/client-install-3.png"
+    alt="View ccm.log file using CMTrace program"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+When a client has been successfully installed on a system, it should reflect that change with **Client = Yes** in the Device Collection. You **MUST** approve any trusted device that has the client installed to complete the installation process.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Pushing Client Installs/client-install-4.png"
+    alt="Manually approve client installs on domain joined systems"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+This can be automated, but by default you must manually approve client device installations on trusted systems. In order to manually approve trusted workstations for the client to be installed, within your **Device Collection** right click an empty spot in the tab section and select **Approved**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Pushing Client Installs/client-install-5.png"
+    alt="Approve option"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+This will now show you which devices are approved or have not been approved yet. Right click the devices you want to approve, and select **approve**.
+
+#### Automatic Client Approval
+Configuration Manager will automatically approve clients that have been added to the domain and have a valid [PKI certificate](https://learn.microsoft.com/en-us/mem/configmgr/core/plan-design/network/pki-certificate-requirements) allowing them to authenticate through [Kerberos authentication](https://learn.microsoft.com/en-us/mem/configmgr/core/plan-design/hierarchy/security-and-privacy-for-site-administration). If you do not have this set up, devices will authenticate via NTLM. Due to NTLM being considered less secure, Configuration Manager will not auto approve devices joined in the domain. To enable automatic approval without devices having PKI certificates/authenticating through Kerberos, navigate to the **Administration tab** in Configuration Manager. Under **Site Configuration**, left click **Sites** and click the **Hierarchy Settings** button towards the top left of the window.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Automatic Client Approval/automatic-client-approval-1.png"
+    alt="Hierarchy Settings location"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+Click the **Client Approval and Conflicting Records** tab, under **Client approval method**, select the **"Automatically approve all computers (not recommended)"** option, click apply.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Automatic Client Approval/automatic-client-approval-2.png"
+    alt="Automatically approve all computers settings location"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+
+### Creating an Application for Deployment
+To create an application like Google Chrome to deploy to systems, navigate to **Software Library** at the bottom left of Configuration Manager. Within **Application Management** go to **Applications**. Right click Applications, select **Create Application**. Select the type of application installer and the location where the installer is.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Creating an Application for Deployment/creating-app-1.png"
+    alt="Creating an Application"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+
+#### Deploying an Application
+To deploy an application to systems with the client installed, navigate to the **Device Collections** and right click the collection you'd like to push the software to, hover over **Deploy**, and select **Application**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Deploying an Application/deploy-app-1.png"
+    alt="Deploying an Application to a Device Group"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+From the "Deploy Software Wizard", you can select which application you'd like to deploy. In **Deployment Settings** within the wizard, you can either force installs on devices by selecting "Required" within the **Purpose** section, or "Available" if you want to add the application install as an option within those system's Software Center. To speed up the process, if you right click the Device Collection you just deployed an application to and hover over **Client Notification**, select **Download Computer Policy**.
+<div class="mx-auto p-3">
+  <img 
+    src="/screenshots/mecm-setup/Deploying an Application/deploy-app-2.png"
+    alt="Speeding up the process with forcing Computer Policy to systems"
+    class="border-solid border-1 border-black rounded shadow-lg w-full opacity-85"/>
+</div>
+This will force sync the systems in that collection with the most recent information from Configuration Manager. This is a quick and easy way to push any updates you make to device's Software Center (and other changes).
+
+#### Updating an Application
+Pushing an update on an application or package is common to ensure all software is securely patched on your managed systems. Whether you're updating an install script or just replacing an installer in Software Library, make sure after your changes that you left click the application, and select the **Deployment Type** tab towards the bottom of the window. Right click the installer within that tab and select **Update Content**.

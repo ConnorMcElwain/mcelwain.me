@@ -1,0 +1,53 @@
+# AZ-104 Certification Notes
+## Chapter 8.2 - Implementing VPNs
+
+### VPN Gateway vs. VNet Peering
+* VPN Gateway
+	* Establishes connectivity between VNets, similar to VNet peering
+* Components:
+	* VNet gateway for VPN gateway
+	* Gateway subnet
+	* Public IP per VNet gateway
+	* IPsec tunnel for encryption
+
+### Capabilities of Azure VPN Gateway
+Azure VPN Gateway provides us capabilities in establishing these point-to-site (P2S) VPN gateways, and site-to-site (S2S) VPN gateways with our on-premise networks. These are features that we don't get with the VNet peering connections that we have, where we're just pairing 2 virtual networks in the Azure cloud. One of the things that makes VPN gateways in Azure different than VNet peerings is that with our VPN gateways, what we have is transitive traffic. Say we have a VNet peering connection with 2 different VNets. As long as we have a way of using the gateway transit in the settings of the peering connection itself, what we'll be able to do is communicate with the on-premise network from that virtual network as well because o that transitive property of allowing that transitive traffic. So in cases in which we want to have encrypted traffic, or we want to have transitive routing inside of our networks, then what we want to use is a VPN gateway.
+
+### Routing Types
+* Policy-Based
+	* Static routing via policy declarations
+	* Legacy on-premises VPN devices
+	* Only supports IKEv1
+	* Only Basic SKU
+* Route-Based
+	* Static and dynamic routing
+	* Resilient to topology changes
+	* Can coexist with ExpressRoute
+	* Supports IKEv2
+
+### VPN Gateway SKUs
+* SKU
+	* Basic
+	* VpnGW1AZ
+	* VpnGw2AZ
+	* VpnGw3AZ
+* Site-to-Site Tunnels
+	* Max: 10
+	* Max: 30
+	* Max: 30
+	* Max: 30
+* Throughput
+	* 100 Mbps
+	* 650 Mbps
+	* 1 Gbps
+	* 1.25 Gbps
+* BGP Support
+	* Not supported
+	* Supported
+	* Supported
+	* Supported
+* Note:
+	* Basic VPN gateway should only be used in dev/test workloads and it does not support migrating between SKUs, instead of requiring a redeployment of the gateway
+
+### Active-Active vs. Active-Passive
+With our VPN gateways that we create, we have the option of using is either the active-active or active-passive configuration. Say we have a VNet gateway here, and we're having a VPN connection between an on-premise network. What's going to happen in a traditional method in which we don't configure active-active, is we have active-passive (IPsec IKE S2S VPN Tunnel). What this means is that our IPsec tunnel is going to be existing between a VNet gateway that is active, and the active local network gateway on-prem. What we're going to have here is a standby VNet gateway 

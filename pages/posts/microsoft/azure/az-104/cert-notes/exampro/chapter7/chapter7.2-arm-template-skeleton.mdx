@@ -1,0 +1,39 @@
+# AZ-104 Certification Notes
+## Chapter 7.2 - ARM Template Skeleton
+
+### ARM Template - Skeleton
+* Skeleton
+	* The general structure of an ARM template
+* $schema
+	* Describes the properties that are available within a template
+* contentVersion
+	* The version of the template. You can provide any value for this element
+* apiProfile
+	* Use this value to avoid having to specify API versions for each resource in the template
+* parameters
+	* Values you can pass along to your template
+* variables
+	* You transform parameters or resource properties using function expressions
+* functions
+	* User-defined functions available within the template
+* resources
+	* The azure resources you'll want to deploy or update
+* outputs
+	* Values that are returned after deployment
+
+### Practice Quiz
+* Which component of the ARM Template skeleton are values you can pass along to your template
+	* variables
+	* resources
+	* **parameters**
+	* apiProfile
+* Which component of the ARM Template skeleton describes the properties that are available within a template?
+	* **$schema**
+	* apiProfile
+	* contentVersion
+	* resources
+
+* What are **variables** in an ARM Template?
+	* Variables you transform parameters or resource properties using function expressions.
+* Which component of the ARM Template skeleton are values that are returned after deployment?
+	* Outputs

@@ -1,0 +1,21 @@
+# PowerShell for Microsoft 365 Notes
+## Chapter 1.2 - Connecting to Tenant
+
+### Permissions
+* Each module has multiple read and write permissions
+* Each sub-module requires delegated permissions from the user session connecting to read data or make changes
+
+### Provide permissions
+* Connect-MgGraph -Scopes "User.Read.All", "Group.ReadWrite.All"
+	* Run before using Microsoft.Graph cmdlets
+
+Use the `Find-MgGraphPermission` cmdlet
+
+`Get-Module -Name *graph*`
+
+`Find-MgGraphPermission users
+`Find-MgGraphPermission organization`
+
+### Conclusions
+* Microsoft.Graph Permissions
+* Connecting-MsGraph

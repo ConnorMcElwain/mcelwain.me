@@ -1,0 +1,55 @@
+# AZ-900 Certification Notes
+## Chapter 8.2 - Azure Active Directory
+
+### Active Directory
+* Traditional Office Use
+	* Active Directory was designed for traditional office use with computers and printers
+* What is "Web"?
+	* The web as a concept or service was not part of the design for Active Directory. Web services were not part of the original vision for Active Directory in 2000
+* Authentication
+	* Active Directory authentication uses services that aren't available on Azure
+
+Active Directory is **NOT** Azure Active Directory. They are not the same product, they're very different. It's **unlikely** you can transfer knowledge from one to the other.
+
+### Azure Active Directory (AAD) Service
+* Mandatory
+	* You can't have an Azure account without an AAD service
+* First User
+	* Every Azure account needs a first user and this user is in the initial AAD instance
+
+### Tenant
+* Organization
+	* A tenant represents the organization
+* Dedicated AAD
+	* A tenant is dedicated instance of AAD that an organization receives when signing up for Azure
+* Separate
+	* Each tenant is distinct and completely separate from other AAD tenants
+* One User - One Tenant
+	* Each user in Azure can only belong to a single tenant. Users **can be guests** of other tenants though
+
+### Subscription
+* Billing Entity
+	* All resources within a subscription are billed together
+* Cost Separation
+	* You can have multiple subscriptions within a tenant to separate costs
+* Payment
+	* If a subscription isn't paid, all the resources and services associated with the subscription stop
+
+### Hybrid Cloud Architecture
+In a hybrid cloud architecture, you have some services on-premises and some services hosted on Azure. When you want to setup a hybrid cloud infrastructure, AAD can help manage your users both in the cloud on Azure and on your premises.
+
+### Azure AD Now Part of Microsoft Entra
+Microsoft Entra = New Product Family
+* Includes all of Microsoft's identity and access capabilities
+* Includes Azure AD, plus Permissions Management and Verified ID
+* Exam perspective: Know that Azure AD is part of the broader Microsoft Entra product family
+
+### Exam Tips
+Manage users and permissions with Azure Active Directory.
+* Active Directory(AD) is not the same as Azure Active Directory
+* Different skillsets from AD to Azure AD
+* Every Azure account will have an Azure AD service
+* A tenant is a dedicated instance of Azure AD. It represents your organization in Azure
+* A user belongs to a single tenant, but can be a guest in multiple
+* A subscription is a billing entity. All resources belong to a single subscription
+* Azure AD can help manage users in a hybrid cloud setup

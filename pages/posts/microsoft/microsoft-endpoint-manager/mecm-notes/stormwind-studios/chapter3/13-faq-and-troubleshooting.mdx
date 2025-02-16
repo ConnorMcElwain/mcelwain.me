@@ -1,0 +1,43 @@
+# Microsoft Endpoint Manager Notes
+## Chapter 3.13 - FAQ's and Troubleshooting
+
+### Configuration Manager - Application Deployment
+* How does the device know it has an application to install? There are a million log files. Which one does what?
+	* Log Files:
+		* Client Log Files - `C:\Windows\CCM\Logs` or `C:\Windows\ccmsetup\logs`
+		* Server Log Files - `Drive Letter:\Program Files\Microsoft Configuration Manager\Logs`
+* How does the device know it has an application to install?
+	* Log Files to check:
+		* PolicyAgent.log
+		* PolicyEvaluator.log
+		* Scheduler.log
+		* DMCAgent.log
+		* CIAgent.log
+		* CIDownloader.log
+		* CIStore.log
+		* CIStateStore.log
+		* DCMReporting.log
+		* AppDiscovery.log
+		* AppintentEval.log
+		* AppEnforce.log
+	* Site administrator
+		* An Admin creates a new app and distributes the content to distribution point
+	* Management point
+		* Admin creates a deployment for the app
+	* Distribution point
+		* The client system checks for policy updates
+	* Management point
+		* The client system contacts the management point for content location
+	* Client System
+		* The client system downloads the content from the distribution point and installs the application
+
+### Co-Management - Frequent Questions regarding Device Profiles and Policies
+* What happens when a profile is deleted or no longer applicable?
+
+### Co-Management - Troubleshooting
+* Task Sequences
+	* My Application isn't installing from my OSD Task Sequence. Why?
+	* Why did my boot image change to the new test .wim that I created when I didn't assign it to my task sequence?
+		* MECM OSD Task Sequences always default to the most recent version of the boot image that is created
+	* If I delete a user from Configuration Manager, will it also delete from Active Directory?
+		* No. Things deleted from Configuration Manager will not affect Active Directory

@@ -1,0 +1,32 @@
+# AZ-104 Certification Notes
+## Chapter 7.7 - Using Azure Firewall
+
+### Describing Azure Firewall
+* Azure Firewall
+	* Filter traffic with a Platform as a Service (PaaS) firewall
+	* Fully qualified domain name (FQDN) support
+		* You do have to manage a subnet inside of our virtual network. We have to create an Azure Firewall subnet with a /26 or lower on the prefix number for our virtual network, in order for us to provision our firewall inside of this virtual network using Azure Firewall. This is because the firewall will be taking up some IP addresses within our network, and we need a /26 to be able to allow the scaling of using those IP addresses
+
+### Azure Firewall Features
+* DNAT and SNAT
+	* Configure outbound/inbound NAT rules for your networks
+* Network Rules
+	* Configure network (Layer 4) rules for what traffic is allowed
+* App Rules
+	* Configure rules for filter websites visited from your network
+* Threat Intel
+	* Identify malicious IPs and domains
+* Monitoring
+	* Integrate with Azure Monitor capture firewall traffic
+
+### Implementation Steps
+* Virtual Network
+	* Create Azure Firewall Subnet (/26 or lower)
+		* Create Azure Firewall
+			* Use routes (Route Table), create a route from our default subnet where our virtual machine is and route that traffic into our firewall
+
+### Key Takeaways
+When provisioning Azure Firewall, we need to have in our virtual network a specific Azure Firewall subnet with a /26 prefix, or a lower prefix number to allow for scaling of the IP addresses for the Azure Firewall we're going to provision inside of that subnet. Then we're going to use a route to allow connectivity to flow between our resources and the public internet, so we can use that firewall to filter traffic with both our NAT rules, our network rules, and our application rules that we have in our firewall, in rule collections or inside of an Azure policy that we have for our Azure Firewall.
+* NAT rules
+* Network rules
+* Application rules

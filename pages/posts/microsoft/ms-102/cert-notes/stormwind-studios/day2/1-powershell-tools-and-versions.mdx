@@ -1,0 +1,104 @@
+# MS-102 Certification Notes
+## Day 2.1 - PowerShell Tools and Versions
+
+### PowerShell Tools and Versions
+* Run as Administrator and Execution Policy
+	* Running scripts and code with admin privilege's
+	* When running in Admin (PowerShell or PowerShell ISE), if you run `Get-ExecuitionPolicy` you can see what execution policy the shell you're in currently has. If it's in administrator mode, it should report "**Unrestricted**" meaning you have full capabilities for executing code/commands
+* The Shell
+	* **PowerShell** itself
+* Visual Studio Code
+* ISE (Integrated Scripting Environment)
+* Versions
+
+### PowerShell Version
+* PowerShell 5.1 is built on top of the .NET Framework v4.5
+* PowerShell 6.0 became open source built on .NET Core 2.0 which allowed it to become cross-platform and able to run on Windows, macOS, and Linux
+* PowerShell 7.x is the latest production ready version
+* *In this course we will use either 5.1, or 7.x with the PowerShell ISE or Visual Studio Code*
+
+### $MaximumFunctionCount
+In PowerShell version 5.x and below the built $MaximumFunctionCount variable is set to 4096. To work with Microsoft.Graph.* modules it's best to change it to a higher number like 20,000.
+
+### A Quick Word on PowerShell Modules...
+* PowerShell commands are encapsulated into modules
+* Initially Each Product/Service had their own module and users need to have certain administrative roles to use them
+* Microsoft.Graph has over 30 sub modules
+	* Microsoft.Graph is meant to replace the previous methods
+
+### PowerShell Modules
+* MSOnline
+* AzureAD
+* ADSync
+* Microsoft.Online.SharePoint.PowerShell
+* ExchangeOnlineManagement
+* MicrosoftTeams
+* Pnp PowerShell
+* Microsoft.Graph (sub-modules)
+
+### MSOnline
+* Install-Module MSOnline
+* Connect-MsolService
+	* Administrative role that can run MSOnline commands: Global Administrator
+* Typical Tasks
+	* Work with users and groups
+	* Assign licenses
+	* Manage Domains
+	* Manage Administrative Roles
+
+### AzureAD
+* Install-Module AzureAD
+* Connect-AzureAD
+	* Administrative role that can run AzureAD commands: Global Administrator
+* Typical Tasks
+	* Work with users and groups
+	* Assign licenses
+	* Manage Devices
+	* Manage Administrative Roles
+
+### ADSync
+* ADSync is installed when the product Azure AD Connect is installed
+* Import-Module ADSync
+	* Roles vary by the installation configuration of Azure AD Connect
+* Typical Tasks
+	* Manage the Synchronization Schedule
+	* Force a synchronization
+	* Stop the running of the Synchronization process
+	* Test connectivity
+
+### Microsoft.Online.SharePoint.PowerShell
+* Install-Module
+* Microsoft.Online.SharePoint.PowerShell
+* Connect-SPOService `https://(your-tenant)-admin.sharepoint.com`
+	* Administrative role that can run AzureAD commands: Global Administrator, SharePoint Online Administrator, Site Collection Administrator (scoped to their site collection(s))
+* Typical Tasks
+	* Create and Manage Site Collections
+	* Create and Manage Hub Sites
+	* Manage SharePoint Users (SPOUser)
+
+### ExchangeOnlineManagement
+* Install-Module ExchangeOnlineManagement
+* `Connect-ExchangeOnline UserPrincipalName [...@onmicrosoft.com]`
+	* Administrative role that can run ExchangeOnlineManagement commands: Global Administrator, Exchange Online Administrator
+* Typical Tasks
+	* Work with Exchange Online Mailboxes
+	* Work with Recipients
+	* Gather Statistics
+	* Work with Mail Flow
+
+### MicrosoftTeams
+* Install-Module MicrosoftTeams
+* Connect-MicrosoftTeams
+	* Administrative role that can run MicrosoftTeams commands: Global Administrator, Teams Administrator
+* Typical Tasks
+	* Work with Teams
+	* Work with Channels
+	* Manage Teams Phone
+	* Manage Meetings
+
+### PnP PowerShell
+* Install-Module Pnp.PowerShell - Scope CurrentUser
+* Installation required registration as an Azure Application and is not a simple process for most users
+* "PnP PowerShell is a cross-platform PowerShell Module providing over 650 cmdlets that work with Microsoft 365 environments and products such as SharePoint Online, Microsoft Teams, Microsoft Planner, Microsoft Flow and more. It runs on Windows, Linux, and macOS."
+* [PnP PowerShell](https://learn.microsoft.com/en-us/powershell/sharepoint/sharepoint-pnp/sharepoint-pnp-cmdlets)
+* PnP PowerShell is beyond the scope of this course; however it can be useful in some situations which is why it's mentioned here

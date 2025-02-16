@@ -1,0 +1,368 @@
+# AZ-900 Certification Notes
+## Chapter 14.7 - Practice Exam - 5
+
+### Question 1
+* Select the cloud concept that is defined by: - Using clusters of VMs to ensure resource availability - a set of technologies that minimize IT disruptions by providing business continuity of IT services through redundant, fault-tolerant, or failover-protected components within an Azure region
+	* Scalability
+	* Reliability
+	* **High availability**
+	* Agility
+
+While there is some overlap between many of the core cloud concepts, high availability is specifically defined by making sure IT disruptions are minimized as much as possible, which is carried out by using clusters of identical servers, automatically replacing failed servers, redundant, fault-tolerant, or failover-protected components, etc.
+
+### Question 2
+* You are looking to build and host your website on Azure without needing to manage the underlying infrastructure. Which type of Cloud service should you choose?
+	* Software as a Service (SaaS)
+	* Private Cloud
+	* **Platform as a Service (PaaS)**
+	* Infrastructure as a Service (IaaS)
+
+(Platform as a Service (PaaS)) - Platform as a service (PaaS) is a complete development and deployment environment in the cloud, with resources that enable you to deliver everything from simple cloud-based apps to sophisticated, cloud-enabled enterprise applications, all without you having to manage any of the underlying infrastructure or services. Reference: [What is PaaS? Platform as a Service | Microsoft Azure](https://azure.microsoft.com/en-gb/overview/what-is-paas/ "null")
+
+### Question 3
+* Which Azure service should you use to correlate metrics and logs from multiple Azure resources into a centralized repository?
+	* Azure Event Grid
+	* Azure Event Hubs
+	* Azure SQL Data Warehouse
+	* **Azure Monitor**
+
+(Azure Monitor) - Log data collected by Azure Monitor (formerly Azure Log Analytics) is stored in a Log Analytics workspace, which is based on Azure Data Explorer. It collects telemetry from a variety of sources and uses the Kusto query language used by Data Explorer to retrieve and analyze data. [Overview of log queries in Azure Monitor - Azure Monitor | Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/log-query-overview "null")
+
+### Question 4
+* Azure virtual machines can be moved between which of the following Azure resources?
+	* Availability Sets
+	* **Availability Zones**
+	* **Subscriptions**
+	* **Resource Groups**
+	* **Regions**
+  
+(Availability Zones) - Using Azure Site Recovery, you can migrate Azure VMs to other Availability Zones. [Move Azure VMs into Availability Zones | Microsoft Docs](https://learn.microsoft.com/en-us/azure/site-recovery/move-azure-vms-avset-azone "null") [Enable Azure VM disaster recovery between availability zones | Microsoft Docs](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery "null"). (Subscriptions) - Azure virtual machines can be moved between subscriptions with either Azure PowerShell or the Azure portal. (Resource Groups) - Azure virtual machines can be moved between resource groups with either Azure PowerShell or the Azure portal. [Move virtual machines to resource group or subscription | Microsoft Docs](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations?tabs=azure-cli "null"). (Regions) - Using Azure Site Recovery, you can migrate Azure VMs to other regions. [Move Azure VMs across regions | Microsoft Docs](https://learn.microsoft.com/en-us/azure/resource-mover/tutorial-move-region-virtual-machines "null").
+
+### Question 5
+* Which of the following is an Azure compute service?
+	* Azure Advisor.
+	* **Azure Functions.**
+	* Azure SQL Database.
+	* Azure Data Factory.
+  
+(Azure Functions) - Azure Functions is the only Azure compute service in the provided options. Azure Functions is a managed Function-as-a-Service (FaaS) offering, providing the ability to run small pieces of code called functions in the cloud. [Choosing an Azure compute service - Azure Architecture Center | Microsoft Docs](https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-overview "null")
+
+### Question 6
+* You are migrating a web-based application from your on-premises datacenter to Microsoft Azure. The web application is primarily built on a Python Flask web framework. Your CIO has requested the application be migrated to an Azure solution that requires minimal ongoing maintenance. What type of cloud solution should you recommend?
+	* Software as a Service (SaaS)
+	* Hardware as a Service (HaaS)
+	* **Platform as a Service (PaaS)**
+	* Infrastructure as a Service (IaaS)
+
+PaaS solutions provide managed services to develop your own applications without the need to manage the underlying operating system.
+
+### Question 7
+* You are in the process of migrating your existing on-premises SQL databases to Azure. You will migrate them to Azure SQL databases, as opposed to deploying SQL database servers in Azure. What kind of cloud service would this be considered?
+	* Infrastructure-as-a-Service (IaaS)
+	* **Platform-as-a-Service (PaaS)**
+	* Software-as-a-Service (SaaS)
+	* Serverless
+
+(Platform-as-a-Service (PaaS)) - PaaS is a complete development and deployment environment in the cloud with resources that enable you to deliver everything from simple cloud-based apps to sophisticated, cloud-enabled enterprise applications. An Azure SQL instance would be considered a PaaS service because you do not manage any guest servers as with IaaS.  
+[What is PaaS? Platform as a Service | Microsoft Azure](https://azure.microsoft.com/en-us/overview/what-is-paas/ "null")
+
+### Question 8
+* You need to choose a performance option for an Azure storage account. This storage account will provide cloud-hosted file server functionality for a high performing Linux application that requires NFS file shares. Which performance option should you choose?
+	* General-Purpose v2
+	* Premium Block Blobs
+	* Premium Page Blobs
+	* **Premium File Shares**
+
+Premium file shares provide high performance support for Azure Files, which is a cloud-hosted file server in either SMB or NFS format.
+
+### Question 9
+* Which Azure service can you use to make sure your virtual machines are running smoothly and without problems?
+	* Azure Information Protection
+	* **Azure Monitor**
+	* Azure Blueprints
+	* Microsoft Defender for Identity
+
+(Azure Monitor) - Azure Monitor collects and analyzes telemetry data from your virtual machines to provide you with alerts and recommendations for how they are running.  
+[Azure Monitor overview - Azure Monitor | Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/overview "null")
+
+### Question 10
+* A cloud architecture consisting of both on-premise and public cloud networks is joined to allow applications to operate across the two. What is this known as?
+	* **Hybrid Cloud**
+	* Public Cloud
+	* Stretched Cloud
+	* Private Cloud
+
+(Hybrid Cloud) - A Hybrid Cloud is created when on-premise and public cloud environments are joined. This is a method many companies with existing on-premise infrastructure transition through in their journey to cloud, as it gives flexibility between the two environments and enables a phased migration approach. Reference: [Microsoft cloud IT architecture resources | Microsoft Docs](https://docs.microsoft.com/en-us/office365/enterprise/hybrid-cloud-overview "null")
+### Question 11
+* App Services allows you to create web, mobile, API and logic apps. In the shared responsibility model, what model is App Services aligned to?
+	* **Platform as a Service (PaaS)**
+	* Hybrid as a Service
+	* Infrastructure as a Service (IaaS)
+	* Software as a Service (SaaS)
+
+(Platform as a Service (PaaS)) - App Services aligns to the Platform as a Service Model as App Services provides a development and deployment environment, with Infrastructure components, development tools, business intelligence and database management systems all ready to go without you having to provision the individual components [What is PaaS? Platform as a Service | Microsoft Azure](https://azure.microsoft.com/en-in/overview/what-is-paas/ "null")
+
+### Question 12
+* Which of the following statements about Azure availability zones are true?
+	* Availability zones are used to ensure that the VM resources are isolated from each other when they are deployed within an Azure datacenter.
+	* All Availability Zones are located in different Azure Geographies.
+	* **Each availability zone has its own power, cooling, and networking capabilities.**
+	* **Azure regions that support Availability Zones have a minimum of three.**
+
+(Each availability zone has its own power, cooling, and networking capabilities) - Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. (Each Azure region that supports Availability Zones has a minimum of three availability zones) - To ensure resiliency, there's a minimum of three separate zones in supported regions. [Availability Zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#availability-zones "null")
+
+### Question 13
+* Which of the following services would be considered Software-as-a-Service (SaaS)?
+	* Virtual Machines
+	* **Azure Active Directory**
+	* Kubernetes
+	* **Office 365**
+
+(Azure Active Directory) - Azure Active Directory is considered as SaaS due to the level of provider responsibility. Reference: [What is SaaS? Software as a Service | Microsoft Azure](https://azure.microsoft.com/en-gb/overview/what-is-saas/ "null"). (Office 365) - Office 365 is considered as SaaS due to the level of provider responsibility. Reference: [What is SaaS? Software as a Service | Microsoft Azure](https://azure.microsoft.com/en-gb/overview/what-is-saas/ "null").
+
+### Question 14
+* What is the purpose of Conditional Access policies?
+	* Synchronize on-premises Active Directory environments with Azure AD.
+	* Manage network access to virtual machines in a virtual network.
+	* Provide time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources.
+	* **Component of Azure AD to allow authentication based on conditions (i.e., if-then statements) that must be met to either allow or deny access.**
+
+Conditional Access is the tool used by Azure Active Directory to bring signals together, to make decisions, and enforce organizational policies. Conditional Access policies, at their simplest, are if-then statements. If a user wants to access a resource, then they must complete an action or meet a set of conditions.
+
+### Question 15
+* Name 2 benefits unique to using Government Cloud on Azure.
+	* Dedicated Hosts
+	* **Screened personnel**
+	* Access to Compliance Manager to meet compliance requirements
+	* **Dedicated regions for data isolation**
+
+Microsoft employees who service Government Cloud must go through additional screening requirements. Government Cloud resources are hosted in dedicated regions for use only by government agencies.
+
+### Question 16
+* What of the following apply to Azure Service Health?
+	* **Supports both planned and unplanned outages.**
+	* Must be activated for each service.
+	* Provides the same information as Resource Health.
+	* Does not support real-time tracking of incidents.
+	* Available only for paid Azure support plans.
+
+(Supports both planned and unplanned outages) - Azure Service Health is a free service available to all Azure users which provides a personalized dashboard highlighting both planned and unplanned service issues affecting your resources. [Azure Service Health | Microsoft Azure](https://azure.microsoft.com/en-au/features/service-health/ "null")
+
+### Question 17
+* You are beginning to extend your on-premises data center into Azure. You have created a new Azure subscription and resource group called RG-One. You deploy two virtual machines into RG-One with the intent of promoting these to Active Directory domain controllers. What kind of cloud service would this be considered?
+	* Platform-as-a-Service (PaaS)
+	* Hybrid-as-a-Service (HaaS)
+	* **Infrastructure-as-a-Service (IaaS)**
+	* Software-as-a-Service (SaaS)
+
+(Infrastructure-as-a-Service (IaaS)) - Infrastructure as a service (IaaS) is the use of on-demand computing infrastructure which is provisioned and managed over the internet. Deploying virtual machines into an Azure subscription would be considered an IaaS service. Reference: [What is IaaS? Infrastructure as a Service | Microsoft Azure](https://azure.microsoft.com/en-us/overview/what-is-iaas/ "null")
+
+### Question 18
+* We are running a non-critical workload on Azure using on-demand virtual machines. This workload can have interruptions as it is not business critical. We recently used the Cost Management tool to analyze that we are spending a lot of money on Azure. We decide to look for a solution for decreasing the costs of this non-business-critical workload. Which of the following would provide us cost savings of up to 90% on this workload?
+	* Reserved Virtual Machines
+	* Virtual Machine scale sets
+	* Make no changes, On-Demand Virtual Machines provide the 90% cost savings
+	* **Spot Virtual Machines**
+
+Spot Virtual Machines are virtual machines that are provided at a reduced cost on Azure. They are provided at a reduced cost because they can be allocated/deallocated by Microsoft based on overall Azure compute capacity. Using Spot Virtual Machines could provide up to a 90% cost savings, and we don't have to worry if the virtual machines are deallocated as the workload we have is non-business critical.
+
+### Question 19
+* What is the purpose of Azure AD Connect?
+	* Create if-then statements for allowing/denying authentication to different applications, including conditions to require multi-factor authentication.
+	* Cloud-based security solution that works with on-premises Active Directory to detect threats.
+	* **Synchronize user identities in an on-premises AD environment with Azure AD.**
+	* SIEM tool that is able to collect security data from across all your Azure and non-Azure resources, providing a single pane of glass for security monitoring and management.
+
+Azure AD Connect is able to synchronize your on-premises and Azure AD identities to manage both in a single location.
+
+### Question 20
+* To better improve your Azure AD accounts, you want to centrally enforce and manage multi-factor authentication for all administrator accounts that log in to Azure. How should you accomplish this?
+	* Enable single sign-on (SSO) to enforce MFA.
+	* Implement Azure Active Directory Domain Services (AADDS) to enforce MFA.
+	* Enable Zero Trust in Azure AD (AAD) to enforce MFA (multi-factor authentication).
+	* **Create a Conditional Access policy that requires administrator accounts to authenticate with MFA when they log in to Azure.**
+
+Conditional Access policies provide centralized enforcement of MFA, which can be scoped to specific users/groups, applications, and more.
+
+### Question 21
+* To access the Azure Cloud Shell (>_), what do you need to do?
+	* Select the icon (>_) in the list on the left menu of the Azure Portal.
+	* **Select the icon (>_) in the top menu of the Azure Portal.**
+	* The Cloud Shell is not accessible from the Azure Portal.
+	* Type Open Cloud Shell in the Azure Portal search bar.
+
+('Select the icon (>_) in the top menu of the Azure Portal') - The Azure Cloud Shell is accessible by selecting the (>_) button in the top menu of the Azure Portal. [Azure Portal](https://portal.azure.com/ "null")
+
+### Question 22
+* Regarding Azure's premium performance options for storage accounts, what are key limitations that must be considered when choosing one?
+	* **Premium performance options cost more than the standard general-purpose v2 performance type.**
+	* Premium performance options are only available in a small number of Azure regions.
+	* **Premium performance options do not support all redundancy types.**
+	* **Premium performance options are limited to a specific storage type.**
+
+Premium performance options cost more than the standard performance type. You must balance performance with costs, which could be significant for very large storage amounts. Premium performance options only support the single-region redundancy types. Further, premium page blobs only support the ZRS (single zone) redundancy type. Each of the premium performance options only support a single storage type for the entire storage account. For example, if you enable premium file shares for your performance type, you cannot use any storage format across the entire storage account other than Azure Files.
+
+### Question 23
+* Which type of cloud service gives you the most flexibility and control over the solutions you implement?
+	* FaaS
+	* **IaaS**
+	* PaaS
+	* SaaS
+
+IaaS, or Infrastructure as a Service, is the most flexible of cloud services, allowing you the most control over the solutions you implement in Azure, where you can run your own virtual machines, and design your own storage. Platform as a Service (PaaS) manages the OS, Middleware, and Runtimes. Function as a Service (FaaS) is similar to PaaS in this respect. Software as a Service (SaaS) manages the Applications. Reference: [What is IaaS? Infrastructure as a Service | Microsoft Azure](https://azure.microsoft.com/en-au/overview/what-is-iaas/ "null")
+
+### Question 24
+* Which of the following Azure services is an example of serverless cloud computing?
+	* **Azure Functions**
+	* Virtual Machines
+	* Azure SQL Server
+	* Azure Virtual Networks
+
+Serverless is a cloud computing category that completely removes all server resource management and bills by only resources consumed. From this list, Azure Functions does not have any server setup component, and you are charged only when a function runs. You are not charged for server resources that you may or may not be using. [Azure Functions](https://azure.microsoft.com/en-us/services/functions/ "null").
+
+### Question 25
+* Which of the following can be configured through Azure Blueprints?
+	* Role Assignments
+	* Policy Assignments
+	* Resource Manager Templates
+	* **All of the answers**
+
+(All of the above) - All of the answers provided are possible through Blueprint configuration. Blueprints are used by Architects and Engineers to design and build environments and are a useful tool in ensuring you have commonly defined subscriptions for certain use case types. [Azure Blueprints - Governed Cloud Environments | Microsoft Azure](https://azure.microsoft.com/en-gb/services/blueprints/ "null")
+
+### Question 26
+* In our organization, we are planning to deploy a virtual machine workload to host our robotic process automation solution. Which of the following tools can estimate the costs of the virtual machines for this workload?
+	* Support request
+	* TCO calculator
+	* **Pricing calculator**
+	* Cost Management tool
+
+The Pricing calculator is used to estimate costs for a specific workload in Azure, such as the virtual machine workload for hosting our robotic process automation solution.
+
+### Question 27
+* Which of the following is true when calculating costs in Azure related to bandwidth?
+	* All network costs, including ingress and egress, are free for Azure.
+	* Inbound data transfer between Azure services located in two regions is charged.
+	* Data transfer between Azure services located within the same region is charged.
+	* **Outbound data transfer between Azure services located in two regions is charged.**
+
+Outbound data transfer between Azure services located in two regions is charged at the normal rate, and inbound data transfer is free. (Note: Starting from July 1, 2023, data transfer billing between virtual machines across availability zones will begin for egress and ingress traffic.) Azure Documentation: [Bandwidth Pricing > Frequently Asked Questions](https://azure.microsoft.com/en-us/pricing/details/bandwidth/#faq "null").
+
+### Question 28
+* What command-line environments are available for use in the Azure Cloud Shell?
+	* MS-DOS
+	* **PowerShell**
+	* Windows
+	* **Bash**
+
+(PowerShell) - The Azure Cloud Shell supports the Bash and PowerShell command-line environments. MS-DOS and Windows are Operating Systems and are therefore not valid options. (Bash) - The Azure Cloud Shell supports the Bash and PowerShell command-line environments. MS-DOS and Windows are Operating Systems and are therefore not valid options. [Azure Cloud Shell - Browser-based command line | Microsoft Azure](https://azure.microsoft.com/en-au/features/cloud-shell/ "null")
+
+### Question 29
+* You are inviting an external consultant to help implement a new Azure initiative. You would prefer the consultant use their existing identity credentials to access your Azure tenant's resources, so you will provide external guest access to your Azure tenant. What must the consultant have in order to use their existing identity credentials?
+	* A Conditional Access policy
+	* A valid email account
+	* **An account with a known identity provider**
+	* A Microsoft account only
+
+External guest access requires an identity provider, which can include Microsoft, Google, and Facebook accounts, as well as other configured third-party providers. The identity provider account is usually an email account.
+
+### Question 30
+* What is the description of a region in Microsoft Azure?
+	* A logical boundary defining the secure communication boundary between a customers virtual machines.
+	* A geographical area containing all of the Azure datacenters located within a single countries borders.
+	* A geographical area containing at least one Azure datacenter per continent worldwide.
+	* **A set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network.**
+
+(A set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network.) - An Azure region is a set of data centers, deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. With more global regions than any other cloud service provider, Azure gives customers the flexibility to deploy applications where they need. An Azure region has discrete pricing and service availability. [Azure global infrastructure](https://azure.microsoft.com/en-au/global-infrastructure/ "null")
+
+### Question 31
+* What are the main components of an Azure VPN Gateway setup?
+	* An Azure Load Balancer to distribute the traffic between on-premises and Azure correctly.
+	* An Azure Storage account for storing any requests that can't be delivered immediately.
+	* A static backend pool of VMs that can be targeted as traffic builds up.
+	* **A secure connection, called a tunnel, which encrypts the traffic sent through it.**
+	* **An on-premises network with a complimentary gateway that can accept the encrypted data.**
+	* **The VPN Gateway must be attached to an Azure Virtual Network.**
+
+(A secure connection, called a tunnel, which encrypts the traffic sent through it.) An Azure VPN Gateway consists of a Virtual Network, a secure connection called a tunnel, and an on-premises network and gateway. A storage account, a backend pool of VMs and a Load Balancer are not needed. (An on-premises network with a complimentary gateway that can accept the encrypted data.) - An Azure VPN Gateway consists of a Virtual Network, a secure connection called a tunnel, and an on-premises network and gateway. A storage account, a backend pool of VMs and a Load Balancer are not needed. (The VPN Gateway must be attached to an Azure Virtual Network.) - An Azure VPN Gateway consists of a Virtual Network, a secure connection called a tunnel, and an on-premises network and gateway. A storage account, a backend pool of VMs and a Load Balancer are not needed. [About Azure VPN Gateway | Microsoft Docs](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways "null")
+
+### Question 32
+* What is the purpose of role-based access control (RBAC)?
+	* Method of organizing subscriptions into groups that can be given roles and policies in a single location.
+	* Synchronizes an on-premises Active Directory environment with Azure AD.
+	* **Authorization system built on Azure Resource Manager that provides fine-grained access management of Azure resources.**
+	* Create if-then statements for allowing/denying authentication to different applications, including conditions to require multi-factor authentication.
+
+Azure RBAC provides fine-grained control to Azure resources. It is defined by a role definition assigned to a security principal at a specific scope of access.
+
+### Question 33
+* You need to view performance metrics and customer usage for your website. Which Azure service is able to help with this?
+	* Log Analytics
+	* **Application Insights**
+	* Azure Service Health
+	* Azure Sentinel
+
+Application Insights provides valuable data on web-based applications, such as performance, customer usage, error reporting, and more.
+
+### Question 34
+* Which of the following tools can be used to manage Azure resources on a Google Chromebook?
+	* **Azure portal**
+	* **Azure Cloud Shell**
+	* Azure CLI
+	* PowerShell
+
+(Azure portal) - Azure portal is a web application that is accessible on all modern desktop, tablet devices, and browsers. As long as your device can run a modern web browser, you can generally use the Azure Portal. [Supported browsers and devices for Azure portal | Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-supported-browsers-devices "null"). (Azure Cloud Shell) - Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure resources. It provides the flexibility of choosing the shell experience that best suits the way you work. Linux users can opt for a Bash experience, while Windows users can opt for PowerShell. At this time, there is no native PowerShell Core distribution for Google OS, and the current version of the CLI cannot be installed on Google OS. [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview "null").
+
+### Question 35
+* Which of the following statements regarding Azure Virtual Machines is true?
+	* **Deleted virtual machines will still incur charges for storage.**
+	* Two virtual machines with the same size will incur the same monthly charges.
+	* Virtual machines can be auto-resized to combat system performance.
+	* If a virtual machine stays stopped and de-allocated for 30 days, it will be deleted.
+
+(Deleted virtual machines will still incur charges for storage) - When a virtual machine is deleted, its managed disk remains in the Azure portal and can be used to create a new virtual machine. Until this disk is manually removed, you will incur charges for the disk whether it is in use or not. [Purchase Azure products and services - Learn | Microsoft Docs](https://docs.microsoft.com/en-us/learn/modules/predict-costs-and-optimize-spending/1a-purchasing-products "null")
+
+### Question 36
+* What is the name of the logical container used to group together and manage resources in Azure?
+	* **Resource Groups.**
+	* Cloud Groups.
+	* Cloud Folders.
+	* Resource Folders.
+
+(Resource Groups) - An Azure Resource Group is a container used to hold the resources deployed in your Azure account. Resource Groups can contain almost any type of resource in Azure, such as Virtual Machines, VNets, and Storage Accounts. The other options do not exist. [Overview - Azure Resource Manager | Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview "null")
+
+### Question 37
+* Which of the following tools provides us the ability to analyze Azure costs and makes cost-savings recommendations?
+	* **Cost Management tool**
+	* TCO calculator
+	* Pricing calculator
+	* Log Analytics
+
+The Cost Management tool gives us analytics features for gathering insight into our cloud costs and provides cost-savings recommendations for our Azure resources.
+
+### Question 38
+* You are asked to identify the benefits of using a serverless solution with Azure Functions. Which of the following are benefits of Azure Functions?
+	* **No infrastructure to manage.**
+	* No execution timeouts.
+	* Always running.
+	* **Automatic scalability.**
+
+(No infrastructure to manage) - Serverless computing with Azure Functions enables developers to build applications faster by eliminating the need for them to manage infrastructure. With Azure Functions, Azure automatically provisions, scales and manages the infrastructure required to run the code. Azure Functions are triggered by events and run for only a short period of time so are not always running. (Automatic scalability) - Serverless computing with Azure Functions enables developers to build applications faster by eliminating the need for them to manage infrastructure. With Azure Functions, Azure automatically provisions, scales and manages the infrastructure required to run the code. Azure Functions are triggered by events and run for only a short period of time so are not always running. [Serverless computing and applications | Microsoft Azure](https://azure.microsoft.com/en-au/overview/serverless-computing/ "null")
+
+### Question 39
+* What are the characteristics of an Availability Zone?
+	* **Availability Zones protect your instances from the failure of a single datacenter.**
+	* **Each zone has its own isolated power, cooling, and networking.**
+	* Each zone runs different Azure services.
+	* **Availability Zones exist within regions.**
+	* Availability Zones only apply for Storage Accounts.
+
+(Availability Zones protect your instances from the failure of a single datacenter) - An Azure Availability Zones are groups of datacenters within a region which have their own isolated power, cooling, and networking. This is to ensure if one part of a local power grid fails, or a major internet outage occurs in a city that it should not impact multiple datacenters. This exists to protect your instances from the failure of entire datacenters. Each availability zone will share part of the load for running every Azure service in a region. Many resource types can benefit from Availability Zones, such as Storage Accounts, Virtual Machines, and Databases. (Each zone has its own isolated power, cooling, and networking) - An Azure Availability Zones are groups of datacenters within a region which have their own isolated power, cooling, and networking. This is to ensure if one part of a local power grid fails, or a major internet outage occurs in a city that it should not impact multiple datacenters. This exists to protect your instances from the failure of entire datacenters. Each availability zone will share part of the load for running every Azure service in a region. Many resource types can benefit from Availability Zones, such as Storage Accounts, Virtual Machines, and Databases. (Availability Zones exist within regions) - An Azure Availability Zones are groups of datacenters within a region which have their own isolated power, cooling, and networking. This is to ensure if one part of a local power grid fails, or a major internet outage occurs in a city that it should not impact multiple datacenters. This exists to protect your instances from the failure of entire datacenters. Each availability zone will share part of the load for running every Azure service in a region. Many resource types can benefit from Availability Zones, such as Storage Accounts, Virtual Machines, and Databases [Azure Availability Zones | Microsoft Azure](https://azure.microsoft.com/en-au/global-infrastructure/availability-zones/ "null")
+
+### Question 40
+* We are working as a cloud architect for a cloud solutions provider. We have an exploratory call with a customer about migrating into the Azure cloud. Currently, the customer's infrastructure is all self-hosted, on-premises. The customer is interested in possible cost savings on the Azure cloud. What tool can we use to provide the customer with a cost comparison between on-premises and in Azure?
+	* **TCO calculator**
+	* Cost Management tool
+	* Request a quote from Microsoft
+	* Pricing calculator
+
+The TCO (Total Cost of Ownership) calculator is used to compare costs between our on-premises solutions and the Azure cloud equivalent of these solutions. We could use this tool to inform the customer of the possible cost savings involved with moving their workloads to Azure.

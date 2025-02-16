@@ -1,0 +1,43 @@
+# AZ-104 Certification Notes
+## Chapter 8.4 - Performance Tiers
+
+### Performance Tiers (Blob Storage)
+There are 2 types of performance tiers for storage accounts: Standard and Premium. **IOPS** stands 
+for Input/Output Operations Per Second. The higher the IOPS the faster a drive can read and write.
+* Premium Performance
+	* Stored on Solid State Drives **(SSDs)**
+	* Optimize for low-latency
+	* Higher throughput
+	* Use cases:
+		* Interactive workloads
+		* Analytics
+		* AI or ML
+		* Data transformation
+An SSD has **no moving parts** and data is distributed randomly. This is why it can read and write so fast.
+
+* Standard Performance
+	* Stored on Hard Disk Drives **(HDDs)**
+	* Varied performance based on access tier (Hot, Cool, Archive)
+	* Use cases:
+		* Backup and disaster recovery
+		* Media content
+		* Bulk data processing
+A HDD **has moving parts**, an arm that needs to read and write data sequential to a disk. It's very good at writing or reading large amounts of data that is close together.
+
+### Practice Quiz
+* An SSD has ___ and data is distributed randomly. This is why it can read and write so fast.
+	* moving parts
+	* small parts
+	* large parts
+	* **no moving parts**
+* **IOPS** stands for Input/Output Operations Per Second. The higher the IOPS the faster a drive can read and write.
+	* False
+	* **True**
+* Which Performance Tier stores data on SSDs, optimizes for low-latency, has higher throughput, etc?
+	* **Premium Performance**
+	* Standard Performance
+	* Full Performance
+	* Minimum Performance
+
+* Which performance tier for storage accounts is stored on HDDs, and has varied performance based on access tier (Hot, Cool, Archive)?
+	* Standard Performance

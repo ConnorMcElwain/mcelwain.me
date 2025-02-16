@@ -1,0 +1,53 @@
+# AZ-900 Certification Notes
+## Chapter 8.10 - Summary
+
+### Azure AD (AAD): A Central Component of Azure Authentication/Authorization
+* AAD Is Fundamental!
+	* You can't use Azure without AAD. AAD is not the same as Active Directory (AD)
+* AAD Is First
+	* The first service of every new account will be an AAD instance
+* Tenant
+	* Tenant = Organization
+	* Single instance of AAD
+	* A user account can be a member of a single tenant and can be a guest of up to 499 tenants
+* Subscription
+	* Billing entity that controls the cost of resources and services associated with it
+* Hybrid Cloud
+	* AAD can help you manage users in a hybrid cloud architecture between on-premises and in Azure
+
+### Authentication/Authorization Topics
+Zero Trust Concepts
+* **Everyone** assumed untrustworthy unless proven otherwise
+	* Regardless of location
+* Trusted **identities** vs. trusted locations
+* Necessary for remote work
+Multi-Factor Authentication
+* Extra layer of security using something you **know**, something you **have**, and something you **are**
+Conditional Access
+* If/then policy for granting access (i.e., conditions)
+* Centralized management
+* Examples:
+	* Require MFA
+	* Require managed device
+Passwordless Authentication
+* Bridge gap between security and convenience
+* Remove system password
+	* Replace with something you have/are
+* Methods:
+	* Microsoft Authenticator
+	* Windows Hello
+	* FIDO2 hardware security key
+
+External Guest Access
+* External collaboration
+* Invite external user with existing account
+* Works with many identity providers
+	* Microsoft/Google/Facebook
+Azure Active Directory Domain Services (Azure AD DS)
+* Managed instance of Active Directory (AD DS)
+* Integrates with classic AD features
+	* Kerberos, LDAP, NTLM, Group Policy
+* One-way sync with Azure AD
+* Requires separate domain
+Single Sign-On
+* Use single username and password to log in to multiple applications using AAD

@@ -1,0 +1,40 @@
+# AZ-104 Certification Notes
+## Chapter 4.8 - Azure AD Roles vs RBAC
+
+### Azure AD Roles vs Azure Roles (RBAC)
+* Azure AD Roles
+	* They are used to control access of AD resources
+	* AD resources being:
+		* Users
+		* Groups
+		* Billing
+		* Licensing
+		* Application Registration
+		* Etc...
+* Azure Roles
+	* They are used to control access to Azure resources
+	* Azure resources being:
+		* Virtual Machines
+		* Databases
+		* Cloud Storage
+		* Cloud Networking
+		* Etc...
+
+* By default, Azure roles and Azure AD roles **do not span** Azure and Azure AD
+* By default, the **Global Administrator** doesn't have access to Azure resources
+* Global Administrator can gain access to Azure resources if granted the **User Access Administrator** role (an Azure role)
+
+### Practice Quiz
+* By default, which Azure AD role doesn't have access to Azure resources?
+	* **Global Administrator**
+	* User Administrator
+	* Billing Administrator
+	* System Administrator
+* The following are examples of Azure resources EXCEPT
+	* Cloud Storage
+	* Virtual Machines
+	* Databases
+	* **Systems**
+
+* What is able to control access of AD resources such as Users, Groups, Billing, Licensing, Application Registration, etc?
+	* Azure AD Roles

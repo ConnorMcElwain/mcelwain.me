@@ -1,0 +1,40 @@
+# AZ-900 Certification Notes
+## Chapter 8.8 - Azure Active Directory Domain Services
+
+### Limitations of Azure AD and Cloud Migrations
+Migrate legacy applications over to the cloud. Older applications that are critical to running the business are typically unable modern authentication protocols like OAuth 2.0.
+* Unable to use modern authentication protocols (OAuth 2.0)
+	* Applications that do not use these modern application protocols are not able to properly integrate or authenticate with Azure Active Directory
+Instead these applications require traditional Active Directory (AD DS) management/protocols
+* Group Policy
+* LDAP
+* NTLM
+* Kerberos
+
+### Possible Solutions?
+Continue using on-premises AD
+* Sync to Azure AD with Azure AD Connect
+Configure AD server on Azure VM
+* Also known as **self-managed** AD DS
+* You maintain/configure the operating system (OS)
+Azure Active Directory Domain Services (Azure AD DS)
+* **Managed** Active Directory Domain Services
+* Provides classic AD features in a managed service
+	* Group Policy, LDAP, Kerberos, domain join
+
+### How Azure AD DS Works
+Azure AD DS is a managed service
+* No need for OS configuration/management
+* Behind the scenes: two Windows domain controllers for high availability
+Create unique namespace/domain name
+* Example: aadds-companyname.com
+* Standalone domain, **not** extension of on-premises AD domain
+One-way sync from Azure AD to Azure AD DS
+* Synchronize users, groups, and credentials
+* Azure AD may also bidirectional sync with on-premises AD
+
+### Azure AD DS Scenario
+Lift and shift legacy enterprise application to Azure VMs
+* Application does not support modern authentication, therefore cannot properly integrate with the Azure AD service
+Requirement to integrate application with classic, cloud-hosted AD using managed services
+Cloud-hosted legacy application authenticates with Azure AD DS

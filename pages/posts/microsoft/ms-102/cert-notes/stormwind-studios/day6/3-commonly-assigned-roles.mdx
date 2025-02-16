@@ -1,0 +1,182 @@
+# MS-102 Certification Notes
+## Day 6.3 - Commonly Assigned Roles
+
+* Global Administrator
+* Global Reader
+* Groups Administrator
+* Billing Administrator
+* User Administrator
+* Helpdesk Administrator
+* License Administrator
+* Message Center Privacy Reader
+* Message Center Reader
+* Office Apps Administrator
+* Organization Message Writer
+* Password Administrator
+* Fabric Administrator
+* Power Platform Administrator
+* Reports Reader
+* Service Support Administrator
+* SharePoint Administrator
+* Teams Administrator
+* Exchange Administrator
+* User Experience Success Manager
+
+### Global Administrator
+* The person who signed up for the tenant is automatically assigned the Global Administrator Role
+* Global Administrators can perform most management tasks across most aspects of the Tenancy
+* Microsoft recommends 2-4 per tenant
+* Break Glass Global Admin
+* Only Global Admins can:
+	* Reset all users' passwords for all users, including other Global Admins
+	* Add and manage domains
+	* Unblock another Global Admin
+	* Global Administrators **cannot** assign themselves roles via the Microsoft 365 Admin Center
+
+### Global Reader
+* Can View admin features and settings in admin centers
+* Cannot edit any settings
+
+### Groups Administrator
+* Manage All Group Settings including:
+	* Group Properties
+	* Naming Conventions
+	* Expiration Policies
+	* Membership
+	* Ownership
+
+### Billing Administrator
+* Purchasing Licenses and Communication Credits
+* Manage Subscriptions
+* Monitor Service Health
+* Create and manage support tickets
+
+### User Administrator
+* Manage Users
+* Update Password Expiration Policies
+* Manage Service Requests
+* Monitor Service Health
+* **For NON-ADMINS** User Administrators Can:
+	* Delete and Restore Users
+	* Reset Passwords
+	* Force Users to Sign Out
+	* Update (FIDO) device keys
+
+### Helpdesk Administrator
+* Reset Passwords
+* Force Users to sign out
+* Manage service requests
+* Monitor Service Health
+* Can only help non-admin users and users assigned the roles:
+	* Directory reader
+	* Guest inviter
+	* Helpdesk Admin
+	* Message center reader
+	* Reports Reader
+
+### License Administrator
+* Assign or remove license assignments
+* Edit user usage location
+* Manage Group based License assignments
+
+### Message Center Privacy Reader
+* Can read privacy and security messages and updates in the Microsoft 365 Message Center
+* Can receive email notifications related to data privacy
+* Can view groups, domains, and subscriptions
+* Cannot create, read, or manage service requests
+* Can Monitor Message center notifications
+* Share message center posts
+* Read Only access to Azure AD Users and Groups
+
+### Office Apps Administrators
+* Message deployment configurations and installation of Microsoft 365 Apps
+* Create and manage policies in the Microsoft 365 Apps Admin Center
+	* https://config.office.com
+* Select, unselect, and publish "what's new" content for users to see in their Microsoft 365 Apps
+* Create and manage service requests
+* Monitor service health
+
+### Organization Message Writer
+* Write, publish, and delete organizational messages using Microsoft 365 Admin Center or Endpoint Manager
+* Manage organizational message delivery options
+* Read organizational message delivery results
+* Enable or disable permission options for organizational messages
+* View usage reports
+
+### Password Administrator
+* Reset Passwords For
+	* Non-Administrators
+	* Directory readers
+	* Guest Inviters
+	* Password Admins
+
+### Fabric Administrator
+* Manage all aspects of Microsoft Fabric
+	* Fabric is Microsoft's unified platform for data and analytics needs
+* Open and Manage Service Requests
+* Monitor Service Health
+
+### Power Platform Administrator
+* Manage all admin features for
+	* Microsoft PowerApps
+	* Power Automate
+	* Data Loss Prevention
+* Create and manage service requests
+* Monitor Service Health
+
+### Reports Reader
+* View usage data
+* View activity reports
+* Access to the Power BI adoption content pack
+* View data returned by Graph Reporting API
+
+### Service Support Administrator
+* Normally added as an additional role to a service administrator like
+	* SharePoint Administrator
+	* Teams Administrator
+	* Exchange Online Administrator
+* Open and manage service requests
+* View and share Message Center Posts
+
+### SharePoint Administrator
+* Manage all admin features of SharePoint Online
+* Add and Manage Microsoft 365 Groups
+* Open and Manage Service Requests
+* Monitor Service Health
+
+### Exchange Administrator
+* Manage most admin features of Exchange Online
+* Manage mailboxes and anti-spam policies
+* View activity reports
+* Open and manage support tickets
+* Monitor Service Health
+
+### User Experience Manager
+* Read organizational-level usage reports for Microsoft 365 apps and services but not user details
+* View organizations product feedback
+* View Net Promoter Score (NPS) survey results
+* View help article views
+* Read message center posts and service health data
+
+### Delegated Administration for Microsoft Partners
+* Partner sends and email
+* Global Admin Accepts
+* Partner added to Partner Relationships Page
+* Automatically Granted
+	* Global Admin
+	* Helpdesk Admin
+* Can user Granular delegated administrative Privileges (GDAP)
+* Can be removed at any time
+
+### Volume Licensing Roles
+* Permissions controlled by the VL agreement
+* Volume Licensing blade visible in the Microsoft 365 Admin center info
+* Volume licensing users register on the Volume Licensing Service Center (VLSC), where all roles and permissions for volume licensing functions are managed
+
+### Least Privilege
+* Giving users and processes only the privileges needed to perform intended functions
+* Microsoft 365 Administrators are expected to always practice this especially with Privileged Identities
+
+### Multi Factor Authentication For Admins
+* All Privileges Identities should have Multi Factor Authentication Required
+* Security Defaults have this turned on

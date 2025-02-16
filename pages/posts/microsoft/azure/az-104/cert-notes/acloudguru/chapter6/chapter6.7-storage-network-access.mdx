@@ -1,0 +1,23 @@
+# AZ-104 Certification Notes
+## Chapter 6.7 - Storage Network Access
+
+### Storage Access Options
+* Public Endpoint
+	* All services are public by default using the services public endpoint URL
+* Restricted Access
+	* Storage account access can be restricted to virtual networks, IP address ranges via the storage account's firewall, and via specific resource instances
+* Private Endpoints
+	* Allow private IP access for resources in an associated virtual network
+
+### Public Endpoints
+The default connectivity that we have is public endpoints. Over the internet, whether it's through a client, an application, or as a user, we're able to access each of these services and their resources over the public endpoints for each of the services. Each service has its own specific public endpoint. For example:
+```https://<accountName>.<subService>.core.windows.net/<resourceName>```
+We're able to access each of these services and the resources using the same URL. We can secure the access of these by providing the storage account firewall by restricting access, so we only have access from specific public IP address spaces, and specifically, virtual networks.
+
+### Key Takeaways
+* Provide Network Access
+	* Each sub-service has an endpoint
+	* Endpoints:
+		* Public endpoint
+		* Restricted access
+		* Private endpoint

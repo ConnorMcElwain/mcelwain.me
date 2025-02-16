@@ -1,0 +1,37 @@
+# AZ-900 Certification Notes
+## Chapter 6.1 - Blob
+
+Blob means "Binary Large Object"
+
+### Storage Levels
+These blobs of data are stored in containers, inside the storage account. There are three layers to Blob storage: storage account, container, and then blob.
+
+A blob container is like a mixed bag of items that're all labeled in a sensible manner.
+
+### Scenarios
+* Images
+	* Store various sizes and formats as a single image storage
+* All Types
+	* Store any kind of files and have distributed access through the Azure cloud storage
+* Streaming
+	* Stream audio and video directly from your blob storage
+* Log files
+	* Write to log files regardless of size and frequency
+* Data Store
+	* Store any kind of data at scale, such as for archiving, backup, restore and disaster recovery
+
+### Blob Types
+* Block
+	* Store text and binary data up to 4.7TB. Made up of individually managed blocks of data
+* Append
+	* Block blobs that are optimized for append operations. Works well for logging where data is constantly appended
+* Page
+	* Store files up to 8TB. Any part of the file could be accessed at any time, for example a virtual hard drive
+
+### Pricing Tiers
+* Hot
+	* Frequently accessed files. Lower access time and higher access costs
+* Cool
+	* Lower storage costs and higher access times. Data remains here for at least 30 days
+* Archive
+	* Lowest costs and highest access times

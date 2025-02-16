@@ -1,0 +1,74 @@
+# AZ-900 Certification Notes
+## Chapter 8.11 - Authentication and Authorization Quiz
+
+### Question 1
+* If you have multiple applications in Azure Active Directory that you want users to access, which is the best way to handle user access?
+	* Providing each user with a password for each app, as this is most secure
+	* **Using single sign-on**
+	* Using multi-factor authentication
+	* Using the built-in premium authentication service
+
+Single sign-on lets users use a single username and password to access all apps registered with Azure AD.
+
+### Question 2
+* Which is an authentication method used to verify a user with multi-factor authentication (MFA)?
+	* Something you feel
+	* Something you can recall quickly
+	* Something you say
+	* **Something you have**
+
+Azure multi-factor authentication helps safeguard access to data and applications while maintaining simplicity for users. It provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy-to-use authentication methods, which are something you know, have, or are.
+
+### Question 3
+* What are the two main components of a Conditional Access policy?
+	* Redundancy method and SKU
+	* **Signals and Decisions**
+	* Decisions and Redundancy method
+	* SKU and Signals
+
+Signals are the if/then conditions that determine if a policy is applied to a user login. When the signals, or conditions, of a Conditional Access policy are met, a decision is then made to either grant or block access, including requiring MFA at login.
+
+### Question 4
+* What is a definition of authorization?
+	* Being able to log in to the Azure portal from anywhere.
+	* **Determination of access to a system based on assigned roles/permissions**
+	* Confirmation of your identity for a system
+	* The ability of a system to determine your location when accessing it
+
+Authorization determines your access to a system once you have been authenticated. This could be the right to access a certain part, create a new customer, or install new software.
+
+### Question 5
+* What is a preferred method of inviting an external user as a collaborator in your Azure AD environment?
+	* **Invite their existing account as an external guest user.**
+	* Enable scoped views of your tenant that are accessible to approved external users.
+	* Azure AD does not allow for external users. All users must belong to the primary tenant organization.
+	* Create a separate organization account for the external user.
+
+Azure AD allows you to invite guest users with their existing user account assuming it can be authenticated with a variety of identity providers.
+
+### Question 6
+* Which type of management/protocol is not ideal for using Azure Active Directory Domain Services (AADDS)?
+	* **OAuth 2.0**
+	* Kerberos
+	* Group Policy
+	* NTLM
+
+OAuth 2.0 is a modern authentication protocol that is usually handled by Azure Active Directory.
+
+### Question 7
+* What is a simple definition of the Zero Trust security model?
+	* No users ever have access to resources because they are not trusted.
+	* All users are assumed to be untrustworthy unless they are in a trusted location, like a corporate network.
+	* Zero Trust is another name for Conditional Access policies.
+	* **All users are assumed to be untrustworthy until proven otherwise using identity.**
+
+Identity-based authorization enables the "work from anywhere" model and does not limit users to a "trusted perimeter" to access trusted resources.
+
+### Question 8
+* How does passwordless authentication ease the burden of signing in with multi-factor authentication?
+	* No password is required to log in, only a valid username.
+	* Passwordless authentication requires both a system password and multi-factor authentication from an approved device.
+	* A username is replaced by a secure PIN code.
+	* **Removes system password and replaces it with device authentication combined with biometrics/PIN.**
+
+With passwordless authentication, the system login does not prompt for a password. Instead, it prompts for authentication from an approved device, usually with biometrics or a PIN code.

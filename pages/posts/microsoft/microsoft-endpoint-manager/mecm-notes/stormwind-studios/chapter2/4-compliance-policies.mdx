@@ -1,0 +1,74 @@
+# Microsoft Endpoint Manager Notes
+## Chapter 2.4 - Compliance Policies
+
+### Compliance Policies
+* Rules and settings to be compliant for users and devices
+* Actions in the event of a noncompliance
+* Compliance policy and Conditional Access = Block rule breakers
+
+### Compliance Policies - Tenant-Wide
+Microsoft Endpoint Manager Admin Center -> Endpoint Security -> Device Compliance -> Compliance Policy Settings
+* Devices with no compliance policy assigned:
+	* Compliant or Not Compliant
+* Enhanced jailbreak detection
+	* Disabled or Enabled
+* Compliance Status Validity Period
+	* Up to 120 days
+
+### Compliance Policies - Device Compliance Policy
+* Rules for Compliance
+* Actions for Noncompliance
+* User Groups
+  Device Groups
+
+### Compliance Policies - Creation
+* Pre-Requisites
+* Creating a policy
+* Refresh Cycle Time
+* Compliance Policy Severity Level - Which policy wins?
+
+### Compliance Policies - Creation
+* How long does it take for devices to get a policy, profile, or app after they are assigned?
+	* Estimated Frequency:
+		* All platforms
+			* About every 8 hours (refresh cycle)
+* Recently enrolled - compliance and configuration check-in's
+	* iOS/iPadOS and macOS
+		* Every 15 minutes for 1 hour and then around every 8 hours
+	* Android and Windows 10/11 PCs enrolled as devices
+		* Every 3 minutes for 15 minutes then every 15 minutes for 2 hours and then around every 8 hours
+	* Windows Phone and Windows 8.1
+		* Every 5 minutes for 15 minutes then every 15 minutes for 2 hours and then around every 8 hours
+* Hardware and Software Inventory
+	* All platforms
+		* Every 7 days after date of enrollment
+
+### Compliance Policies - Noncompliance Actions
+* Actions for Noncompliance
+	* Mark as Not Compliant
+	* Email end-user
+	* Remote lock
+	* Retire
+	* Send push notification to end-user
+
+### Compliance Policies - Monitoring Compliance
+* Microsoft Endpoint Manager Admin Center -> Devices -> Overview -> Compliance status
+	* Dashboard Overview
+		* Compliant
+		* In-Grace Period
+		* Not evaluated
+		* Not compliant
+		* Device Not Synced
+
+### Compliance Policies - Third Party Compliance
+* Configure Intune to work with the device compliance partner, and then configure groups of users whose devices are managed by that compliance partner
+* Configure your compliance partner to send data to Intune
+* Enroll your devices to your device compliance partner
+
+### Topic Summary
+* Tenant-Wide Policy
+* Device Policy
+* Creation of Compliance Policies
+* Noncompliance Actions
+* Monitoring Compliance
+* Third Party Compliance

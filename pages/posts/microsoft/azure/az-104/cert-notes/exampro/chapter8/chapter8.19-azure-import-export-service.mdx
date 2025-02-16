@@ -1,0 +1,67 @@
+# AZ-104 Certification Notes
+## Chapter 8.19 - Azure Import Export Service
+
+### Azure Import/Export Service
+Used to securely **import large amounts of data** to Azure Blob storage and Azure Files **by shipping disk drives** to an Azure datacenter.
+
+You have 2 options for shipping drives on import:
+* Use your own disk drives
+* Use **Microsoft** provided drives
+Microsoft ships up to 5 encrypted solid-state disk drives (SSDs) known as **Azure Data Box Disk** with a 40 TB total capacity per order, to your datacenter through a regional carrier.
+
+You can quickly configure **Azure Data Box Disk** drives, copy data to disk drives over a USB 3.0 connection, and ship the disk drives back to Azure.
+
+To prepare your drive, you'll need to use the command-line **WAImportExport tool** to:
+* Prepare your disk drives that are shipped for import
+* Copying your data to the drive
+* Encrypts the data on the drive with AES 256-bit BitLocker
+* Generate the drive **journal files** used during import creation
+* Helps identify numbers of drives needed for export jobs
+
+There are two versions of **WAImportExport**:
+* Version 1 for import/export into Azure Blob storage
+* Version 2 for importing data into Azure files
+
+**WAImportExport** tool is only compatible with 64-bit Windows
+
+Once you have prepared your drives and generate journal files, you can create an Import Job
+
+The **journal file** stores basic information such as:
+* Drive serial number
+* Encryption key
+* Storage account details
+
+* You'll specify Region and Storage Account
+* You'll provide shipping information
+
+For **export jobs** you:
+* You can only export from Azure Blob
+* You can ship up to 10 empty drives to Azure per job
+* You create an export job and the data is loaded onto those drives and shipped back to you
+
+### Practice Quiz
+* Which version of **WAImportExport** is used for import/export into Azure Blob storage?
+	* Version 0
+	* Version 3
+	* Version 2
+	* **Version 1**
+* What is another name for the encrypted SSDs with 40 TB total capacity that Microsoft can ship to your datacenter via a regional carrier?
+	* Azure File Disk
+	* Azure Hard Disk Drive
+	* Azure Storage Device
+	* **Azure Data Box Disk**
+* What is true about export jobs?
+	* **You can only export from Azure Blob**
+	* **You create an export job and the data is loaded onto those drives and shipped back to you**
+	* **You can ship up to 10 empty drives to Azure per job**
+	* You can prevent storage failure
+* What are the options for shipping drives on import?
+	* **Use Microsoft provided drives**
+	* **Use your own disk drives**
+	* Use Cloud provided drives
+	* Use Google drive
+
+* What is used to securely **import large amounts of data** to Azure Blob storage and Azure Files **by shipping disk drives** to an Azure datacenter?
+	* Azure Import/Export Service
+* What tool can help you prepare your disk drives that are shipped for import, copy your data to the drive, encrypt the data on the drive with AES 256-bit BitLocker, and more?
+	* WAImportExport tool

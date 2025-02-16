@@ -1,0 +1,104 @@
+# Microsoft Endpoint Manager Notes
+## Chapter 6.2 - Azure Device Identities
+
+### Azure AD - Registered Devices
+* Must have an Azure Active Directory Account
+* Access limited based on AAD account and Conditional Access policies
+* Managed through MDM tools like Microsoft Intune
+* MDM enforces configurations
+* AAD registrations is done when accessing a work application for the first time or manually using the Windows settings menu
+
+### Azure AD - Azure AD Joined Devices
+* AAD and Intune enforce configurations:
+	* Requiring storage to be encrypted
+	* Password complexity
+	* Software installation
+	* Software updates
+* AAD join can be used in scenarios such as:
+	* Transitioning to cloud-based infrastructure using AAD and MDM
+	* When on-prem domain join is not possible
+	* Primary access to Microsoft 365 or other SaaS apps integrated with AAD
+	* Managing a group of users in AAD instead of in Active Directory
+	* To provide joining capabilities to workers who work from home or are in remote branch offices with limited on-premises infrastructure
+* Goal of AAD joined devices is to simplify:
+	* Windows deployments of work-owned devices
+	* Access to organizational apps and resources from any Windows device
+	* Cloud-based management of work-owned devices
+	* Users to sign into their devices with their Azure AD or synced Active Directory work or school accounts
+
+### Azure AD - Hybrid Azure AD Joined Devices
+* Use Azure AD hybrid join devices if:
+	* You support down-level devices running Windows 7 and 8.1
+	* You want to continue to use Group Policy to manage device configuration
+	* You want to continue to use existing imaging solutions to deploy and configure devices
+	* You have Win32 apps deployed to these devices that rely on Active Directory machine authentication
+
+### Azure AD - Device Registrations
+* Azure AD join in Managed or Federated Environments
+	* Cloud Experience Host (AAD Join Web App)
+		* Endpoint Discovery
+		* JSON OpenID doc
+		* Build sign-in request
+		* Collect Username/Password
+		* Realm Discovery
+		* JSON realm doc
+		* POST Credentials
+		* ID Token
+		* User accepts MDM tou
+		* DRS Discovery
+		* Discovery Data Document
+			* Generate TPM bound device keys and signed certificate request (dkpub/priv)
+			* Derive transport key from TPM storage root key (tkpub/priv)
+		* ID token, cert request, tkpub, attestation data
+		* Write device object
+		* Device cert
+		* Install device cert in computer personal store
+			* Validate ID token
+			* Create device ID and cert
+			* Write device object
+	* Azure AD
+	* Azure DRS
+	* Intune
+* Hybrid Azure AD join in Managed Environments
+	* Automatic-Device-Join Task
+		* User signs in w/ Password
+		* LDAP query
+			* Service Connection point in configuration partition
+		* LDAP response
+		* Create self-signed cert
+		* LDAP write
+			* Computer's userCertificate attribute
+		* Generate TPM bound device keys and signed certificate request (dkpub/priv)
+		* Derive transport key from TPM storage root key (tkpub/priv)
+		* Device cert
+		* Install device cert in computer personal store
+	* Active Directory
+		* Authentication using userCertificate*
+		* ID Token
+		* Detect attribute change on computer
+		* userCertificate object GUID Computer SID
+	* AAD Connect
+		* ID token, cert request, tkpub, attestation data
+		* userCertificate object GUID Computer SID
+	* Azure AD
+		* Write device object
+	* Azure DRS
+		* Update device object
+			* Validate ID token
+			* Create device ID and cert
+
+### Azure AD Joined Devices and SSO
+* When a user signs in to an AAD joined device:
+	* Azure AD sends the details of the on-prem domain info back to the device with the token
+	* The local security authority (LSA) service enables Kerberos and NTLM authentication on the device
+* SSO allows on an AAD joined device:
+	* Access to a UNC path on an AD member server
+	* Access to an AD member web server
+
+### Topic Summary
+* Azure Device Identities
+	* Azure AD registered Devices
+	* Azure AD joined Devices
+	* Hybrid Azure AD joined devices
+	* Device registration flows
+	* SSO to on-prem resources

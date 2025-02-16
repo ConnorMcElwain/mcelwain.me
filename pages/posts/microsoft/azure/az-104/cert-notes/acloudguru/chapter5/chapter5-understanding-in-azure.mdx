@@ -1,0 +1,90 @@
+# AZ-104 Certification Notes
+## Chapter 5 - Understanding Roles in Azure
+
+### Describing RBAC
+* **Who?**
+	* Security Principals/Identity Objects
+		* Users
+* **What** can they do?
+	* Role Assignment
+		* Provide roles to these security principles
+* **Where?**
+	* Effective Permissions
+		* Where is the scope where they can perform these actions that they've been assigned based on the role
+
+### Describing Azure Roles
+With Azure roles, what we have here is the ability to provide identity objects inside of our Azure Active Directory tenants, such as "Mike" (user) with a role assignment, using what is known as a role definition.
+* Contributor (Role Definition)
+```
+"Actions": [
+		  "*"
+	  ],
+	  "NotActions": [
+		  "Auth/*/Delete",
+		  ...
+	  ]
+```
+Here we have a contributor role definition that we can assign to the user (in this case Mike). Then we can determine the scope at which we want to assign this role for Mike. Lets say we assign it at the subscription level, because role assignments have a waterfall effect, this role assignment will be inherited from the level at which we set the scope, all the way down to the lowest level. So Mike will be able to perform contributor actions at the subscription, all resource groups it contains, and all of the resources inside of those resource groups, inside of our Azure resources, in our Azure environments.
+
+### Describing Azure Roles
+* Owner
+	* Full access to resources and delegates access
+* Reader
+	* Can only view resources
+* Contributor
+	* Can create and manage resources
+* User Access Administrator
+	* Can delegate access to resources
+
+### Describing Azure AD Roles
+These are a special set of roles that we have specifically for providing access to manage identity objects inside of our Azure AD tenants themselves. So not inside of our Azure subscriptions where our Azure resources like virtual networks and virtual machines exist, but rather providing the ability to manage those identity resources, like users, applications, or devices, inside of our Azure Active Directory tenants.
+
+* Global Administrator
+	* Can manage Azure AD resources
+		* Root-level role
+* Billing Administrator
+	* Can perform billing tasks
+* User Administrator
+	* Can manage users and groups
+* Helpdesk Administrator
+	* Can reset passwords for users and other helpdesk related functions
+
+### Azure Roles vs. Azure AD Roles
+* Azure Roles
+	* Manage access to Azure resources
+	* Scope can be at multiple levels
+	* Supports custom roles
+	* Main roles:
+		* Owner
+		* Contributor
+		* Reader
+		* User Access Administrator
+* Azure AD Roles
+	* Manage access to Azure AD resources
+	* Scope is at tenant level
+	* Supports custom roles
+	* Main roles:
+		* Global Administrator
+		* User Administrator
+		* Billing Administrator
+
+### RBAC Architecture
+* Azure AD Roles
+	* Roles that have an impact on those resources that exist inside of our Azure AD tenant itself
+* Azure Roles (RBAC)
+	* Roles that have an impact on providing users that are still from our Azure AD tenant, but providing them access to perform actions on the resources that exist within our Azure resources. Such as subscriptions, resource groups, virtual machines, and virtual networks.
+Something to take note of in this architecture, in-between Azure AD Roles and Azure Roles (RBAC), there's a "special" root space that exists inside of Azure where you can use the global admin and provide it User Access Administrator roles so that it can be the root of the tenant and all of the resources. Typically, the time in which you would want to do this is if you locked yourself out of your global admin and you want to recover access to this global admin, you could use another user that is your back-up global admin to provide them User Access Administrator of the root level. This will allow you to regain access of the organization. Typically, you'd only want to use this in very specific situations.
+
+### Key Takeaways
+* Azure Roles vs. Azure AD Roles
+	* Azure Roles
+		* Control access to Azure resources
+		* Referred to as Azure RBAC
+		* Built-in roles
+		* Custom roles
+		* Scope at management groups, subscriptions, resource groups, and resources
+	* Azure AD Roles
+		* Controls access to Azure AD resources
+		* Built-in roles
+		* Custom roles
+		* Scope at Azure AD tenant

@@ -1,0 +1,36 @@
+# AZ-104 Certification Notes
+## Chapter 8 - Configuring Azure VNet Peering
+
+### Describing VNet Peering
+* Network Connectivity
+	* Default Connectivity
+		* While intra-network traffic and outbound internet traffic is allowed, virtual networks are by default isolated
+	* VNet Peering
+		* Bridge together virtual networks to allow connectivity between these networks
+* Non-Reciprocal
+	* Connection must be established in both directions
+* Global Connectivity
+	* Peerings can be same region or cross-region (global)
+Something we have to keep in mind with VNet peerings is that they are non-transitive. Say we have a peering connection between VNet-1 and VNet-2, and the one going in the opposite direction to VNet-2 to VNet-1, these virtual networks are peered. Then let's say that VNet-2 is also in a peering relationship with VNet-3 here. And this peering connection allows VNet-2 and VNet-3 to communicate. Just because VNet-2 is able to communicate with VNet-1 and VNet-3, does not mean that VNet-1 and VNet-3 can communicate. Virtual network peerings are non-transitive. We would have to create a separate peering connection between VNet-1 and VNet-3, and we'd have to have that peering connection in order for them to communicate going in both directions.
+
+### Benefits of VNet Peering
+* Benefits
+	* Low-latency, high-bandwidth connections
+	* Cross-network communications
+	* Data transfer between/across:
+		* Subscriptions
+		* AAD tenants via Azure roles
+		* Azure regions
+
+### Key Takeaways
+* Types of Peering
+	* Virtual network peering
+	* Global virtual network peering
+* Benefits
+	* Low-latency, high-bandwidth connections
+	* Cross-network communications
+	* Data transfer between/across subscriptions, AAD tenants via Azure roles, and Azure regions
+* Transitivity
+	* Peering connections are non-transitive
+* Reciprocity
+	* Peering connections are not reciprocal

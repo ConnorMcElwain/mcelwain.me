@@ -1,0 +1,41 @@
+# AZ-104 Certification Notes
+## Chapter 6.11 - Azure Blueprints
+
+### Azure BluePrints
+Azure BluePrints enable **quick creation** of **governed subscriptions**. Compose artifacts based on common or organization-based patterns into re-usable blueprints. The service is designed to help with environment setup.
+* Blueprints are a declarative way to orchestrate the deployment of carious resource templates and other artifacts such as:
+	* Role Assignments
+	* Policy Assignments
+	* Azure Resource Manager templates (ARM templates)
+	* Resource Groups
+The Azure BluePrints service is backed by the globally distributed Azure Cosmos DB. Blueprint objects are replicated to multiple Azure regions.
+
+* ARM Templates vs Azure Blueprints
+	* Nearly everything that you want to include for deployment in Azure Blueprints can be accomplished with an ARM template
+* ARM Template
+	* ARM templates are storage either locally or in source control
+	* There's no active connection or relationship to the ARM template
+* Azure Blueprints
+	* Relationship between the blueprint definition (what should be deployed) and the blueprint assignment (what was deployed)
+	* Can also upgrade several subscriptions at once that are governed by the same blueprint
+
+Azure BluePrints support improved tracking and auditing of deployments.
+
+### Practice Quiz
+* What are some examples of Azure Blueprint resource templates and artifacts?
+	* Role Assignments
+	* ARM templates
+	* **All of the options**
+	* Resource Groups
+	* Policy Assignments
+* The Azure Blueprints service is backed by the globally distributed Azure Cosmos DB
+	* **True**
+	* False
+* Azure Blueprints supports _____
+	* improved configuration details to your containers
+	* decreased tracking speed and longer auditing of deployments
+	* **improved tracking and auditing of deployments**
+	* improved secure-environment-variables
+
+* What are Azure Blueprints?
+	* Azure Blueprints enable quick creation of governed subscriptions.

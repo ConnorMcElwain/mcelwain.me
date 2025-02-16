@@ -1,0 +1,36 @@
+# AZ-104 Stormwind Studio Certification Course Notes
+## Day 4.4 - Azure Locks
+
+### Topic: Locks
+* What are Azure Resource Locks
+* Lock inheritance
+* Lock Scope
+* Important Considerations
+* Azure Locks Demo
+
+### What are Azure Resource Locks
+* Azure Locks can be placed on:
+	* Azure subscriptions
+	* Resource groups
+	* Resources
+* Locks can prevent deletion or modifications
+* Azure Resource Locks override any user permissions
+* There are 2 Types of Locks
+	* Delete - authorized users can modify a resource but not delete it
+	* Read-only - authorized users can read but not delete or update it
+
+### Lock Inheritance
+* All resources within the parent scope inherit the lock of their parent including resources you add later
+* If multiple locks apply to a resource, the most restrictive lock in the inheritance takes precedence
+* For Subscriptions:
+	* A resource lock does not prevent subscription cancellation
+	* If a lock is present when a subscription is cancelled, Azure deactivates the resources in the subscription
+	* Azure only deletes your resources permanently after a waiting period
+
+### Lock Scope
+* Azure Locks apply to the control plane (the administrative plane)
+* Azure Locks do not apply to the data plane
+	* For example, a read only lock on an Azure SQL database does not prevent Create, Read, Update, or Delete Operations to the data, but the actual database itself remains under the control of the lock
+
+### Important Considerations
+Applying locks can lead to blocked actions such as preventing the POST method from sending instructions to the Azure Resource Manager. Microsoft Learn lists several examples of this and should be reviewed.

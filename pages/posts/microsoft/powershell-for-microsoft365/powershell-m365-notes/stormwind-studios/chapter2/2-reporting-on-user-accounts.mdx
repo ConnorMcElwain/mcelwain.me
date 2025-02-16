@@ -1,0 +1,35 @@
+# PowerShell for Microsoft 365 Notes
+## Chapter 2.2 - Reporting on User Accounts
+
+### Find User Account Information
+* List users, count and if users do not have email
+```
+# get users with inline filter
+Get-MgUser -Filter "startswith(UserPrincipalName, 'BobSmith')"
+
+Get-MgUser -Filter "DisplayName eq 'Bob Smith'"
+
+# get users with piped to filter
+Get-MgUser -all | Where-Object {$_.DisplayName -eq "Bob Smith"}
+
+Get-MgUser -all | Where-Object {$_.Mail -eq $null}
+
+# compare user counts
+Write-Host "Total Users: $((Get-MgUser -Count userCount -ConsistencyLevel eventual).count)'n Users without email: $((Get-MgUser -all | Where-Object {$_.Mail -eq $null}).count)"
+
+Get-MgUser -Count userCount -ConsistencyLevel eventual $global:userCount
+```
+
+### List User Accounts
+* List blocked and active user accounts
+```
+# list blocked user accounts
+Get-MgUser -Filter "AccountEnabled eq false"
+
+#list table of current users
+Get-MgUser -All -Filter "AccountEnabled eq true" | Select-Object -Property DisplayName, mail, City | Format-Table
+```
+
+### Conclusion
+* Finding user account information
+* Listing Active and Blocked users

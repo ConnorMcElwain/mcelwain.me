@@ -1,0 +1,22 @@
+# AZ-104 Certification Notes
+## Chapter 13 - Understanding Disaster Recovery
+
+### Describing Disaster Recovery
+* What is Disaster Recovery?
+	* The process of recovering from disaster, such as a datacenter power outage. Every business needs a business continuity and disaster recovery (BCDR) plan
+		* Assess risks
+		* Determine critical workloads
+		* Decide backup technique
+		* Test disaster recovery
+
+### Recovery Point Objectives (RPO) vs. Recovery Time Objectives (RTO)
+As part of determining our plan for disaster recovery and how we're going to be implementing it, we need to understand a few things. In terms of a time/line graph, we have to determine things such as from the point of the disaster itself. What can we stand to lose in terms of data and how long does it take for us to recover? **These values are known as our RPO values**, which represent the hours from our last backup successfully to the point of disaster in time. Next, we have our RTO values which are recovery time objectives, which represent the amount of hours in time in representation between the disaster and the full point of recovery.
+
+### Key Takeaways
+* Disaster Recovery Methods
+	* Backup
+		* A copy of business critical data
+	* Cold Site
+		* A copy of critical infrastructure that needs preparation before disaster recovery is complete
+	* Hot Site
+		* A copy of critical infrastructure and data that is ready to be swapped in as the production workload

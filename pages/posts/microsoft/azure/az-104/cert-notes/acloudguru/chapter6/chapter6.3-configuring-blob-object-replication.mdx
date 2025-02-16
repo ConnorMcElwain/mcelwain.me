@@ -1,0 +1,29 @@
+# AZ-104 Certification Notes
+## Chapter 6.3 - Configuring Blob Object Replication
+
+### Describing Object Replication
+* Object Replication
+	* Object replication asynchronously copies block blobs between storage accounts
+		* Requires source and destination storage accounts
+		* Requires versioning and change feed
+		* Supports cross-tenant replication
+
+### Benefits of Object Replication
+* Minimized Latency
+	* Reducing latency for read requests
+* Increased Efficiency
+	* Processing block blobs in different regions
+* Data Distribution
+	* Processing and analyzing data in one location that replicates to other regions
+* Cost Optimization
+	* Moving replicated data to the archive tier can reduce costs
+
+### Key Takeaways
+* Versioning
+	* Versioning must be enabled on both the source and destination accounts to perform replication
+* Cross Subscription and Azure AD
+	* Object replication is supported across subscriptions and Azure AD tenants
+* Change Feed
+	* Change feed must be enabled on the source account. Azure Storage monitors the $blobchangefeed to advise replication
+* Replication Policy
+	* A storage account can be a source for up to two destination accounts. Each policy supports only a single pairing using a policy ID

@@ -1,0 +1,29 @@
+# AZ-104 Certification Notes
+## Chapter 9.3 - Cloud Init
+
+### Cloud-Init
+**Cloud-init** is the industry standard multi-distribution method for cross-platform **cloud instance initialization**. It's supported across all major public cloud providers, provisioning systems for private cloud infrastructure, and bare-metal installations.
+
+What is Cloud Instance Initialization?
+* The process of preparing an instance with configuration data for the operation system and runtime environment
+
+Cloud instances are initialized from a disk image and instance data:
+* Meta-data
+* User-data
+* Vendor-data
+
+**User Data** is a script that you want to run when an instance first boots up. eg: Install Apache web-server.
+
+Azure Virtual Machines supports for cloud-init across most Linux Distros that support it.
+
+### Practice Quiz
+* What sources of data are cloud instances initialized from a disk image and instance data? (Choose 3)
+	* **User-data**
+	* Image-data
+	* **Vendor-data**
+	* **Meta-data**
+
+* What is Cloud Instance Initialization?
+	* **The process of preparing an instance with configuration data for the operating system and runtime environment**
+* What is a script that you want to run when an instance first boots up? e.g. Install Apache web-server
+	* **User Data**

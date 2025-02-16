@@ -1,0 +1,34 @@
+# AZ-104 Certification Notes
+## Chapter 11.5 - Using Azure Container Instances for Containers
+
+### Describing Azure Container Instances
+* Azure Container Instances (ACI)
+	* Azure Container Instances is a container hosting service, much like Docker
+* Defining Container Groups
+	* A collection of containers that share a lifecycle, resources, local networking, and storage
+* Container Storage
+	* Can use Azure file shares for persistent data storage
+* Container Networking
+	* Can deploy containers as either private or public resources
+
+### Demonstration
+* Create a Container Group
+	* Create a container group using the image storage in the Azure Container Registry (ACR)
+* Update the Container Group
+	* Update the container group with a FQDN
+* Deploy a Multi-Container Solution
+	* Using a JSON file to create a multi-container group
+
+### ACI Feature Highlights
+* Scaling/Sizing
+	* No autoscaling options available, manual redeployment of a container group is required. You determine CPU, memory, and GPU
+* Storage
+	* Persistent storage is available by mounting a storage volume. For example, an Azure file share in Azure Files
+* Container Groups
+	* A top-level resource in ACI. A collection of containers that are on the same host machine and share a lifecycle and resources
+* Restart Policy
+	* Restart of containers is available using policies: Always, Never, and OnFailure
+* Networking
+	* A container group shares an IP address and fully qualified domain name (FQDN). Ports must be opened for external access. Localhost connectivity by default within the group. Can deploy as public, private, or none
+* Environment Variables
+	* Save plaintext and secure environment variables to be used by a container. For example, a database connection string 

@@ -1,0 +1,43 @@
+# AZ-104 Certification Notes
+## Chapter 12.4 - Understanding Monitor Insights
+
+### Describing Insights
+* Service Monitoring
+	* Service-specific monitoring features built into Azure Monitor
+	* Includes:
+		* VM Insights
+		* Network Insights
+		* Container Insights
+		* Application Insights
+
+### VM and Network Insights
+* VM Insights
+	* Monitoring service specific to virtual machines and virtual machine scale sets (VMSS)
+		* Requires Log Analytics workspace
+		* Requires Log Analytics agent (installed when connected)
+		* Also known as Azure Monitor for VMs
+* Network Insights
+	* Monitoring service specific to virtual network resources
+		* No agent installation required
+		* Works in tandem with Network Watcher if enabled
+		* Also known as Azure Monitor for Networks
+
+### Container and Application Insights
+* Container Insights
+	* Monitoring service specific to containers or AKS clusters
+		* Requires Log Analytics workspace
+		* Requires Log Analytics agent
+* Application Insights
+	* Monitoring service specific to application code
+		* App Insights resource
+		* Instrumentation of app code
+
+### Key Takeaways
+* VM Insights
+	* Virtual machine and VMSS-specific monitoring service
+* Network Insights
+	* Virtual network-specific monitoring service
+* Container Insights
+	* Container or AKS cluster-specific monitoring service
+* Application Insights
+	* Application code-specific monitoring service

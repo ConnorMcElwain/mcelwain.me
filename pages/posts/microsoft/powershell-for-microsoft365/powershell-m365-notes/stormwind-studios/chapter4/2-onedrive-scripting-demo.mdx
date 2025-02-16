@@ -1,0 +1,30 @@
+# PowerShell for Microsoft 365 Notes
+## Chapter 4.2 - OneDrive Scripting Demo
+
+### Get Report of all Users OneDrive
+* Generate reports on the last 7 days of OneDrive usage and export to a CSV
+```
+Get-MgReportOneDriveUsageStorage -Period D7 -OutFile .\report.csv
+
+Get-MgReportOneDriveUsageAccountCount -Period D7 -OutFile .\report_2.csv
+```
+
+### Find a Users OneDrive
+* List info for one user's OneDrive
+```
+$steve = Get-MgUser -Filter "DisplayName eq 'Steven Landry'"
+$steveOD = Get-MgUserDrive -UserId $steve.id
+$steveRoot = Get-MgUserDriveRoot -DriveId $steveOD.id -UserId $steve.id
+```
+
+### Restore a Deleted OneDrive
+* Get-SPODeletedSite -IncludePersonalSite
+	* Gather Deleted OneDrives
+* Restore-SPODeletedSite
+	* Restore Deleted Sites
+`Restore-SPODeletedSite -Identity <deleted OneDrive URL>`
+
+### Conclusion
+* Report of OneDrive sites
+* Retrieving a users OneDrive
+* Restoring a deleted OneDrive

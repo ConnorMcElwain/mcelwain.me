@@ -1,0 +1,36 @@
+# AZ-104 Certification Notes
+## Chapter 6.5 - Configuring Azure Files
+
+### Describing Azure Files
+* Azure Files
+	* Azure Files is a sub-service/sub-resource of Azure Storage (storage accounts)
+	* Azure Files is a managed file share service
+	* Features:
+		* SMB/NFS connectivity
+		* Supports Windows, Linux, and macOS
+		* Extended by Azure File Sync
+		* Traditional file structure
+
+### Components of Azure Files
+* File Service
+	* Azure Files services is a sub-service of Azure Storage storage accounts
+* File Share
+	* The file structure we are connecting to locally
+* Files and Folders
+	* The files and folders that exist in the file share
+
+### Connectivity Options
+* Insecure Connectivity
+	* REST, SMB 2.1, and SMB 3.0
+* Secure Connectivity
+	* REST and SMB 3.0
+* Security
+	* Data encrypted at rest by default and in transit over HTTPS and SMB
+
+### Key Takeaways
+* Managed File Share
+	* Utilizes storage account redundancy and security
+* Operating Systems
+	* Windows, Linux, and macOS support
+* File Share Quota
+	* 5 TB default size

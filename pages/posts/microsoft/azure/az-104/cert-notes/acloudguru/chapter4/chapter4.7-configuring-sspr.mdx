@@ -1,0 +1,50 @@
+# AZ-104 Certification Notes
+## Chapter 4.7 - Configuring SSPR
+
+### Describing SSPR
+* Old School Password Reset Method
+	* Whenever a user would have a password authentication issue, it would require an administrator to reset their passwords
+		* Less productive workers
+		* Increased admin overhead
+* Self-Service Password Reset (SSPR)
+	* Users can reset their passwords by themselves without having to actually make this request to the help desk admin.
+		* Enable users to change or reset their passwords
+		* Increased productivity
+		* Decreased admin overhead
+
+### SSPR Process
+* Localization
+	* Verification
+		* Authentication
+			* Password Reset
+				* Notification
+
+### Authentication Methods
+* Mobile Apps
+	* Authentication via app notification. An example is the Microsoft Authenticator application
+* Mobile App Code
+	* Authentication via time-based codes. An example is the Microsoft Authentication application
+* Email
+	* Authentication via an email external to Microsoft using codes sent to that email address
+* Mobile Phone
+	* Authentication via a mobile number using a phone call or SMS that provides a code. (Less recommended method)
+* Office Phone
+	* Authentication via a non-mobile phone using a phone call that prompts the user to press #
+* Security Questions
+	* Authentication via answering a set of security questions. (Least recommended method)
+
+### SSPR Considerations
+* Keep In Mind...
+	* Enable and manage SSPR via Azure AD groups
+	* Required Methods
+		* One or more of the available authentication methods is required for SSPR
+	* SSPR for Admins
+		* Security questions not available for admins. By default, admins must register for MFA methods
+	* Required Licenses
+		* Azure AD P1 or P2, Microsoft Apps for Business, or Microsoft 365 licensing is required for SSPR
+
+### Key Takeaways
+* Self-Service Password Reset (SSPR)
+	* Unauthenticated users use SSPR
+		* Decreased administration overhead
+		* Secure password reset for users and admins

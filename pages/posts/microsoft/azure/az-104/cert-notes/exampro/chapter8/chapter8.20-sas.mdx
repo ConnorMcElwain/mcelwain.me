@@ -1,0 +1,60 @@
+# AZ-104 Certification Notes
+## Chapter 8.20 - SAS
+
+### Shared Access Signatures
+A shared access signature (SAS) is a URI that grants restricted access rights to **Azure Storage** resources. Share the URI to grant clients temporary access to specific set of permissions.
+
+Types of shared access signatures:
+* Account-level SAS
+	* Access to resources in one or more of the storage services
+* Service-level SAS
+	* Access to single the storage account by using the storage account key
+* User delegation SAS
+	* Access to storage account using Azure AD credentials
+	* Limited by only to Blob and Containers
+	* Microsoft considers this method best practice for accessing via SAS
+
+A shared access signature comes into different formats:
+* Ad hoc SAS
+	* The star time, expiry time, and permissions are part of the URI
+	* Any type of SAS can be an ad hoc SAS
+* Service SAS with stored access policy:
+	* A stored access policy is defined on a resource container (limited to blob container, table, queue, or file share)
+	* The stored access policy can be associated to multiple SAS to manage constraints
+
+The URI Format itself:
+* **Blob URI**: https://myaccount.blob.core.windows.net/mycontainer/myblob.txt
+* **sv (Storage service version)** which version of the storage services to use
+* **st (Start Time)** The time the SAS becomes valid
+* **se (Expiration Time)** The time when the SAS becomes invalid e.g. Container (c) or Blob (b)
+* **sr (Storage Resource)** If the resource is a blob, queue
+* **sp (Permissions)** What operations can be performed against the storage resource e.g. Read (r) and Write (w)
+* **sig (Signature)** Used to authenticate access a SHA256 algorithm
+
+You can **generate** SAS via
+* Azure SDK
+* Azure Portal
+
+### Practice Quiz
+* Which type of SAS has access to single the storage account by using the storage account key?
+	* User delegation SAS
+	* **Service-level SAS**
+	* Account-level SAS
+	* Ad hoc SAS
+* Where can you generate SAS via?
+	* **Azure Portal**
+	* Azure Software
+	* Azure Feature
+	* **Azure SDK**
+* Which part of the **URI Format** manages what operations can be performed against the storage resource?
+	* sig (Signature)
+	* st (Start Time)
+	* **sp (Permissions)**
+	* sr (Storage Resource)
+
+* What is a shared access signature (SAS)?
+	* A shared access signature is a URI that grants restricted access rights to Azure Storage resources.
+* What is **sv** in the URI Format (SAS)?
+	* Storage services version: it shows which version of the storage services to use.
+* Which type of SAS has the start time, expiry time, and permissions part of the URI?
+	* Ad hoc SAS

@@ -1,0 +1,37 @@
+# AZ-104 Certification Notes
+## Chapter 9.7 - VM Generations
+
+### Hyper-V and Generation 1 vs 2
+**Hyper-V** is Microsoft's **hardware virtualization product**. It lets you **create and run a software version of a computer**, called a virtual machine. Each virtual machine acts like a compete computer, running an operating system and programs.
+
+There are two generations of Hyper-V VMs:
+* **Generation 1** - Supports most guest operating systems
+* **Generation 2** - Supports most 64-bit versions of Windows and more current versions of Linux and FreeBSD operating systems
+
+**Azure** has Generation 1 and Generation 2 VMs which are similar **but are not exactly the same** as Hyper-V Generations.
+
+The most important difference between Azure Gen 1 and Gen 2:
+* Gen 1
+	* **BIOS-based** architecture
+* Gen 2
+	* **UEFI-based** boot architecture (improved boot and installation times)
+	* Secure Boot verifies the boot loader is signed by a trusted authority
+	* Large boot volume up to 64 TB
+
+**Hyper-V VMs** are packaged into Virtual Hard Disk formats: VHD or VHDX files.
+
+### Practice Quiz
+* What type of Hyper-V VMs support most 64-bit versions of Windows and more current versions of Linux and FreeBSD operating systems?
+	* **Generation 2**
+	* Premium
+	* Standard
+	* Generation 1
+* Hyper-V VMs are packaged into Virtual Hard Disk formats: VHD or VHDX files
+	* False
+	* **True**
+
+* What is Microsoft's **hardware virtualization product**? It lets you create and run a software version of a computer, called a virtual machine.
+	* **Hyper-V**
+* What is the most important difference between Azure Gen 1 and Gen 2?
+	* Gen 1 has **BIOS-based** architecture.
+* Gen 2 has **UEFI-based** boot architecture, has secure Boot which verifies the boot loader is signed by a trusted authority, and has a larger boot volume up to 64 TB.

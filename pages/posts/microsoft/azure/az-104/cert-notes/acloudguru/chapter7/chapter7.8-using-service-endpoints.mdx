@@ -1,0 +1,25 @@
+# AZ-104 Certification Notes
+## Chapter 7.8 - Using Service Endpoints
+
+### Accessing PaaS Services
+* Platform as a Service (PaaS) Connectivity
+	* By default, Microsoft services have a public endpoint
+	* For example, a VM will access an Azure file share from a storage account using a public endpoint
+
+### Describing Service Endpoints
+* Service Endpoint
+	* Using service endpoints, you can provide private connectivity to a service from inside your virtual network
+	* For example, a VM will access an Azure file share from a storage account using a service endpoint
+	* Enabled *per* subnet
+	* **Not** all services are supported
+	* Supported services differ per region
+	* Does **not** give services a private IP
+	* Provides source IP as private IP
+	* Firewalls can enhance security (optional)
+
+### Key Takeaways
+* Service Endpoint
+	* Using service endpoints, you can enable private connectivity to your services
+	* Decreased attack surface
+	* Enables use of NSG rules
+	* Enhanced routing

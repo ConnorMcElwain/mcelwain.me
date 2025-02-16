@@ -1,0 +1,15 @@
+# AZ-900 Certification Notes
+## Chapter 8.4 - Multi-Factor Authentication
+
+Multi-Factor Authentication is when you need at least two ways to identify yourself to log in. Using more than one form of authentication means that if one is compromised by attackers, they are still not getting in.
+
+### Approach
+* Something you know
+	* Almost always a username and password
+* Something you have
+	* Such as an app on your phone or a key fob
+* Something you are
+	* A fingerprint or retina scan (or other biometric authentication method)
+
+### Two Factor Authentication - Example
+You are trying to log into a website that requires you to provide your valid email and password for authentication. Getting this correct is one factory of authentication. To make sure your credentials haven't been compromised, a code is sent to your phone, which you receive and enter into the website. The system uses something you know (your username/password) and something you have (your phone) to make sure you can get access into the website. MFA is enabled through Azure Active Directory.

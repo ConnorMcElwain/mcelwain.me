@@ -1,0 +1,20 @@
+# AZ-104 Certification Notes
+## Chapter 3.4 - Tagging Resources
+
+### Describing Resource Tagging
+* What Are Tags?
+	* Tags inside of Azure are simple just a name-value pair
+		* Name:Value
+			* Dept:Marketing
+			* Env:Prod
+	* Name can be 512 characters, and value can be 256 characters
+	* Storage accounts can have a name with only 128 characters
+
+### Resource Tag Assignment Hierarchy
+* Tags are not inherited
+	* You can create Azure Policies and create a policy that forced this inheritance of these tags for things inside of resource groups for example
+* A resource can have up to 50 tags
+
+### Key Takeaways
+* Manage resources via tags. For example, shutting down all VMs with a specific tag or developers can only update VMs with a specific tag
+* Tags are not inherited from the higher scope like a resource group. Each resource must be tagged independently. You can use Azure Policy to enforce tagging

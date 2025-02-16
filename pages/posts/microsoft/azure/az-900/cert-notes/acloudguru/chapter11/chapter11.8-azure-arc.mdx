@@ -1,0 +1,52 @@
+# AZ-900 Certification Notes
+## Chapter 11.8 - Azure Arc
+
+### The Challenge of Managing Complex Environments
+Computing resources in multiple locations
+* Microsoft Azure
+* On-Premises
+* Other Clouds (AWS, GCP)
+
+Each computing source uses its own management tools
+* More locations = more management overhead
+* Cannot apply Azure governance policies to non-Azure resources
+
+What if we could:
+* Manage both Azure and non-Azure resources in the same interface?
+* Apply Azure governance policies to non-Azure resources?
+Solution: Azure Arc
+
+### What's Azure Arc?
+* Technical definition:
+	* Centralized governance and management for on-premises and multi-cloud computing resources
+* Simplified definition:
+	* Manage non-Azure resources as if they were in Azure
+	* Extend Azure cloud management and services to non-Azure locations
+
+### How It Works
+How Azure Arc works is that it effectively extends the Azure control management to our non-Azure locations. It works by installing an agent on these non-Azure computing resources to bring it into Azure's control plane. As a result, you Azure access and management is effectively extended from Azure to your non-Azure resources using Azure Arc as your bridge or connection between your non-Azure locations and Azure as well.
+
+### Benefits of Azure Arc
+* Manage Azure and non-Azure resources in the same place
+* Manage non-Azure Kubernetes clusters
+* Deploy Azure-managed database services to non-Azure locations
+	* Example: Azure SQL Managed Instance
+* Manage and protect non-Azure servers
+	* Monitor non-Azure OSs alongside Azure VMs
+	* Protect with Microsoft Defender for Cloud
+	* Apply Azure Automation runbooks
+* Apply Azure governance
+	* RBAC
+	* Azure Policies
+	* Azure Blueprints
+* Deploy Azure serverless services to non-Azure hardware
+	* Azure App Service
+	* Azure Functions
+	* Azure Logic Apps
+	* And more
+
+### Scenario
+You maintain servers in both Azure and an on-premises datacenter.
+* You want to apply Azure management services (Azure Blueprints, Azure Policy) to these servers
+
+Solution: Azure Arc

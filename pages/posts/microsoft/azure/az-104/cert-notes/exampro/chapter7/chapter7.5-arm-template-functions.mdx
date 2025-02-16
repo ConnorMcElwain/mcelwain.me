@@ -1,0 +1,50 @@
+# AZ-104 Certification Notes
+## Chapter 7.5 - ARM Template Functions
+
+### ARM Template - Functions
+* Functions
+	* Allows you to apply transformations to your ARM variables
+		* Template Functions - built-in functions
+		* User-Defined Functions - custom functions you create
+
+Functions are called using parentheses eg. (): `{ "condition": "[equals(parameters('newOrExisting'),'new')]" }`
+
+Template Functions
+* Array
+	* array, concat, contains, createArray, empty, first, intersection, last, length, min, max, range, skip, take, union
+* Comparison
+	* coalesce, equals, less, lessOrEquals, greater, greaterOrEquals
+* Date
+	* dateTimeAdd, utcNow
+* Deployment
+	* deployment, environment, parameters, variables
+* Logical
+	* and, or, if, not
+* Numeric
+	* add, copy, index, div, float, int, min, max, mod, mul, sub
+* Object
+	* contains, empty, intersection, json, length, union
+* Resource
+	* extensionResourceId, ListAccountSas, listKeys, listSecrets, list, picZones, providers, reference, resourceGroup, resourceID, subscription, subscriptionResourceId, tenantResourceId
+* String
+	* base64, base64ToJson, base64ToString, concat, contains, dataUri, DataUriTOString, empty, endsWith, first, format, guid, indexOf, last, lastIndexOf, length, newGuid, padLeft, replace, skip, split, startsWith, string, substring, take, toLower, toUpper, trim, uniqueString, uri, uriComponent, uriComponentToString
+
+### Practice Quiz
+* Which ARM Template function has contains, empty, intersection, JSON, length, union?
+	* **Object**
+	* Resource
+	* Array
+	* String
+* Which type of function are custom functions that you create?
+	* Numeric Functions
+	* Template Functions
+	* Object Functions
+	* **User-defined Functions**
+* Which ARM Template function can add, copyIndex, div, float, int, min, max, mod, mul, sub, etc?
+	* Comparison
+	* Logical
+	* **Numeric**
+	* Resource
+
+* What are Functions in an ARM Template?
+	* Functions allow you to apply transformations to your ARM variables. Type types: Template functions (Built-in) and User-defined functions (Custom)

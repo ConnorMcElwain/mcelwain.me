@@ -1,0 +1,18 @@
+# AZ-900 Certification Notes
+## Chapter 5.3 - VPN Gateway
+
+### Main Components
+An Azure VNet with a VPN Gateway attached. This gateway will have its own public IP address. A secure connection called a tunnel, which has one of a number of encryption mechanisms. An On-Premises network with a complementary gateway that can accept the encrypted data. This is called a Site-to-Site Connection.
+
+### Virtual Network Gateway
+A virtual network gateway is composed of two or more virtual machines that've been deployed to a specific subnet you create, which is called the gateway subnet.
+
+### VPN Gateway
+A VPN Gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
+
+### Exam Tips
+VPN Gateways are instrumental in a hybrid cloud architecture.
+* A VPN Gateway is a specific VNet Gateway. It consists of two or more dedicated VMs
+* VNet Gateway + "vpn" becomes a VPN Gateway
+* Sends encrypted data between Azure and on premises network
+* Azure Gateway Subnets, secure tunnel and on-premises gateway makes up a VPN Gateway scenario

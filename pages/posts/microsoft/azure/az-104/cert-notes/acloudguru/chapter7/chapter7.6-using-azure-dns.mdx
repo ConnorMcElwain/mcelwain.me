@@ -1,0 +1,49 @@
+# AZ-104 Certification Notes
+## Chapter 7.6 - Using Azure DNS
+
+### Describing Azure DNS
+* Azure DNS
+	* A Domain Name System (DNS) hosting service that provides name resolution
+	* Implemented using:
+		* Records/record sets
+		* Support A, AAAA, CNAME, TXT, MX, PTR, SRV, and SOA
+		* Private/public zones
+
+### Describing Record Sets
+* Record
+	* Name
+		* www.acg.com
+	* Type
+		* A
+	* Value
+		* Public_IP
+* Record Set
+	* The main concept behind the record set is that we're providing multiple records in a set, rather than individual records:
+	* Name
+		* www.acg.com
+		* www.acg.com
+	* Type
+		* A
+		* A
+	* Value
+		* Public_IP_1
+		* Public_IP_2
+
+### Describing Alias Records
+* Alias Record
+	* Reference the resource rather than the IP address that may change over time:
+	* Name
+		* www.acg.com
+	* Type
+		* A
+	* Value
+		* Resource
+
+### Key Takeaways
+* Considerations
+	* Features:
+		* Role-Based Access Control (RBAC)
+		* Activity logs
+		* Resource locking
+		* Private DNS zone
+		* Alias records

@@ -1,0 +1,28 @@
+# AZ-104 Certification Notes
+## Chapter 6.12 - ARM CheatSheet
+
+### Azure Resource Manager CheatSheet
+**Azure Resource Manager (ARM)** is a service that allows you to **manage** Azure resources.
+It's a management layer that allows you to: Create, Update, Delete Resources
+* Apply Management features e.g. Access Controls, Locks, Tags
+* Writing Infrastructure as Code (IaC) via JSON templates
+
+ARM is a service layer that **spans multiple features and services**: Subscriptions, Management Groups, Resource Groups, Resource Providers, Resource Locks, Azure Blueprints, Resource Tags, Access Control (IAM), Role-Based Access Controls (RBAC), Azure Policies, ARM Templates.
+
+Think of Azure Resource Manager (ARM) as a **gate keeper**.
+* All **requests** flow through ARM and it decides whether that request can be performed on a **resource**
+
+**Scope** is a **boundary of control** for azure resources. It's a way to **govern** your resource by placing resources within a logical grouping and also applying logical restrictions in the form of rules
+* **Management Groups** - A logical grouping of multiple subscriptions
+	* **Subscriptions** - Grants you access to Azure service based on a billing and support agreement
+		* **Resource Groups** - A logical grouping of multiple resources
+			* **Resources** - An azure service e.g. Azure VMs
+
+An Azure Account can have **multiple subscriptions** and the most common three are: Free Trial, Pay-As-You-Go, Azure for Students. **Resource Providers** are a list of possible services within Azure, some services are registered by default and others need to be explicitly registered
+
+**Resource Tags** are a **key and value pair** that you can assign to azure resources. Resource Locks prevent users from accidently modifying or deleting resources at the Subscription, Resource Group, or Resource Scope
+* **CanNotDelete** (Delete) authorized users can still read and modify a resource, but they can't delete the resource
+* **ReadOnly** (Read-only) authorized users can read a resource, but they can't delete or update the resource
+**Blueprints** enable **quick creation** of **governed subscriptions**.
+* Nearly everything that you want to include for deployment in Azure Blueprints can be accomplished with an ARM template
+* Relationship between the blueprint definition (what should be deployed) and the blueprint assignment (what was deployed)

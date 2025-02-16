@@ -1,0 +1,30 @@
+# AZ-104 Certification Notes
+## Chapter 9.8 - Automating Virtual Machine Configuration
+
+### Describing Configuration Automation
+* Config Automation
+	* Automates configuration management of virtual machines using an Automation account and PowerShell Desired State Configuration (DSC)
+		* Supports Linux and Windows VMs
+		* Built-in pull server
+		* PowerShell DSC uses declarative syntax
+
+### Describing PowerShell DSC
+* PowerShell DSC
+```
+Configuration MyDscConfiguration {
+	Node "localhost" {
+		WindowsFeature MyFeatureInstance {
+			Ensure = 'Present'
+			Name = 'Web-Server'
+		}
+	}
+}
+```
+
+### Key Takeaways
+* Automation Account
+	* Service for managing update configurations for VMs
+* PowerShell DSC
+	* PowerShell scripts that declare desired state of VMs
+* Local Configuration Manager
+	* Sends current config sate to pull server for evaluation

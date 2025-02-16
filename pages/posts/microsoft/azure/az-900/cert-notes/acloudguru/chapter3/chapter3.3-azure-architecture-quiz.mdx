@@ -1,0 +1,47 @@
+# AZ-900 Certification Notes
+## Chapter 3.3 - Azure Architecture Quiz
+
+### Question 1
+* Which of the following statements regarding Azure Resource Manager is NOT true?
+	* Azure Resource Manager templates (ARM templates) always deploy resources in the same consistent state.
+	* **Azure Resource Manager enables the managing of your infrastructure through scripts rather than declarative templates.**
+	* Azure Resource Manager is the deployment and management service for Azure.
+	* If a user sends a request from any Azure tools, APIs, or SDKs, Azure Resource Manager handles the request.
+
+Azure Resource Manager enables the managing of your infrastructure through declarative templates, which makes deployments much easier.
+
+### Question 2
+* What is an availability zone?
+	* **A unique physical location within a region that is made up of one or more datacenters equipped with independent power, cooling, and networking**
+	* A set of datacenters close together
+	* One or more datacenters (with shared power and cooling) that are close together to provide backup for each other
+	* A collection of software that can enable high scalability at short notice
+
+AZs are individual physical locations within a region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking.
+
+### Question 3
+* What is the primary function of Azure Resource Manager?
+	* Azure Resource Manager is mainly used to ensure that all Azure tools, APIs, or SDKs function correctly.
+	* Azure Resource Manager primarily enables the managing of your infrastructure through scripts.
+	* The main function of Azure Resource Manager is to ensure that ARM templates always deploy resources in the same consistent state.
+	* **Azure Resource Manager is the deployment and management service for Azure.**
+
+Azure Resource Manager enables you to create, update, and delete resources in your Azure account. It is the deployment and management service for Azure.
+
+### Question 4
+* When can you delete a resource group from Azure?
+	* When all the resources in the resource group have stopped
+	* **At any time, as long as your resources or resource group are not locked by a related service**
+	* When an account is deactivated
+	* Only when the resource group is empty
+
+When a resource group is removed or deleted, all of the resources within it are deleted with it. You can remove resource groups at any time. To delete a resource group, you need access to the delete action. You also need delete for all resources in the resource group. If you have the required access, but the delete request fails, it may be because there's a lock on the resources or resource group. Even if you didn't manually lock a resource group, it may have been automatically locked by a related service. Or, the deletion can fail if the resources are connected to resources in other resource groups that aren't being deleted. For example, you can't delete a virtual network with subnets that are still in use by a virtual machine.
+
+### Question 5
+* Which statement is true of resource groups in Azure?
+	* Resource groups don't contain any data and are assigned rather than created.
+	* Resource groups can only hold foundational resource types.
+	* Resource groups are transferrable between regions.
+	* **Resource groups are containers that hold related resources for an Azure solution.**
+
+Resources belong to a resource group, which can be a geographical, logical, customer-specific, or any other type of grouping.

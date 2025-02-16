@@ -1,0 +1,20 @@
+# AZ-104 Certification Notes
+## Chapter 7.9 - Using Private Endpoints
+
+### Describing Private Endpoints
+* Private Endpoint
+	* Using Azure Private Link, you can connect your services as **connected resources** in your network with a private IP known as a private endpoint
+	* Private endpoint connectivity for:
+		* Azure services
+		* Customer/partner services
+	* Provides direct service (sub-resource) mapping
+
+### Hybrid Network Environments
+For example, in situations in which we have virtual networks peered into our other virtual networks that have a private endpoint. They're going to be able to communicate with our services over that private endpoint, the same as if it were a connected resource, like a virtual machine in the middle of a peering connection between these two virtual networks. In the case of an on-premises to virtual network peering, what we're going to do is the same thing. We'll be able to connect to that service via that private IP so that we don't have to use the public internet and what we get is a private IP that acts as the IP for our connected service like Azure Files.
+
+### Key Takeaways
+* A private endpoint providers:
+	* A private IP for your connected services
+	* Connectivity to Azure services
+	* Connectivity to customer/partner services
+	* Direct service (sub-resource) mapping

@@ -1,0 +1,74 @@
+# Microsoft Endpoint Manager Notes
+## Chapter 5.2 - Windows Autopilot Process
+
+### Windows Autopilot - Process
+* Windows Autopilot Process
+	* OEM-Optimized Windows OS applied at Manufacturing facility with Device Drivers
+		* Saves on maintaining OS image
+		* Saves on maintaining updated drivers
+	* Device delivered directly to end user
+		* Saves on additional shipping costs
+	* IT Admin registered the device information and assigns to end user
+		* Saves on additional infrastructure for imaging
+	* End User receives device and logs in
+	* Full settings and policies are pushed directly to the device
+	* Additional applications are pushed directly to the device
+	* End user can use device
+
+### Windows Autopilot - Requirements
+* Software
+	* Windows 10 - Pro, Pro Education, Pro for Workstation, Enterprise, Education
+	* Windows 11 - Pro, Pro Education, Pro for Workstation, Enterprise, Education
+* Networking
+	* Ensure DNS name resolution for internet DNS names
+	* Allow access to all hosts via port 80 (HTTP), 443 (HTTPS), and 123 (UDP/NTP)
+	* More restrictive internet access
+	* Require authentication before internet access is obtained
+* Services
+	* Windows Autopilot Deployment Services
+	* Windows Activation Service
+	* Azure Active Directory (Azure AD)
+	* Microsoft Intune
+	* Windows Update Service
+	* Delivery Optimization
+	* Windows Notification Services (WNS)
+* Other 
+	* Microsoft Store, Microsoft Store for Business & Education
+	* Microsoft 365
+	* Certificate revocation lists (CRLs)
+	* Hybrid Azure AD join
+	* Autopilot self-deploying mode and Autopilot pre-provisioning
+	* Azure Active Directory
+	* Office 365
+* Licenses and Subscriptions
+	* Azure Active Directory (Azure AD) and an MDM service such as Microsoft Intune
+* One is required:
+	* Microsoft 365 Business Premium subscription
+	* Microsoft 365 F1 or F3 subscription
+	* Microsoft 365 Academic A1, A3, or A5 subscription
+	* Microsoft 365 Enterprise E3 or E5 subscription
+	* Enterprise Mobility + Security E3 or E5 subscription
+	* Intune for Education subscription
+	* Azure Active Directory Premium P1 or P2 and Microsoft Intune (or alternative MDM solution) subscription
+	* Even when using Microsoft 365 subscriptions, you'll still need to assign Intune licenses to end users
+* Configuration Requirements
+	* Configure Azure Active Directory automatic enrollment
+	* Configure Azure Active Directory customer branding
+		* Square Logo
+		* Sign-in Page Text
+		* Azure Active Directory Tenant Name
+	* First user logon needs to have Azure Active Directory join permissions (unless it is a userless context)
+* Some Scenarios will have additional Requirements
+	* Device Registration
+	* Profile Configuration
+
+### Topic Summary
+* Introduction
+	* Autopilot Process
+	* Autopilot Requirements
+		* Software
+		* Networking
+		* Services
+		* Other
+		* Licenses and Subscriptions
+		* Configurations

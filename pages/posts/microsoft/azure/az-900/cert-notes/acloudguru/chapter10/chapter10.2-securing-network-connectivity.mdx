@@ -1,0 +1,41 @@
+# AZ-900 Certification Notes
+## Chapter 10.2 - Securing Networking Connectivity
+
+### Firewall
+* Rules
+	* A firewall defines rules for what kind of traffic can and cannot access the device or service behind it
+* Variations
+	* Firewalls comes as hardware and software versions. They can suit any type and size of network
+* Critical Part
+	* Any network that take security serious will have a firewall
+
+### Distributed Denial of Service Attacks - History
+* U.S. Banks
+	* In 2012, 6 U.S. banks were flooded with 60Gb of traffic every second
+* CloudFlare
+	* In 2014, CloudFlare was attacked with 400Gb of traffic per second
+* GitHub
+	* In 2018 GitHub experienced 1.35Tb of traffic per second. A new record for DDoS attacks
+
+### DDoS Protection Service
+* Many Internet-Connected Devices
+	* A lot of computers and other connected devices target a single website to make it stop. GitHub had a 127M requests per second attack
+* Protection
+	* Detects the DDoS attack and deflects it. Various levels of protection depending on scenario
+* No Downtime
+	* There is no interruption to your service at all. Azure will mitigate the attack globally
+
+### Network Security Groups (NSG)
+* Resource Firewall
+	* Personal resource firewall. Attach to virtual network, subnet or network interface
+* Rules
+	* A NSG determines who can access the resources attached to it, using rules for inbound and outbound traffic
+
+### Network Security Group
+For example, if you have a virtual machine that's on a virtual network, the network can be behind a firewall protecting everything on the network, and then the VM can have its own network security group to define specific rules for just that machine.
+
+### Application Security Groups
+* Protects Application Infrastructure
+	* Focus the security on the application rather than the IP endpoint
+* Natural Extension
+	* Group VMs and virtual networks into logical application groups and apply an application security group

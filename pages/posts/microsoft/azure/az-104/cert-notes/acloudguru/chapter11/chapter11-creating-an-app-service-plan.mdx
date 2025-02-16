@@ -1,0 +1,43 @@
+# AZ-104 Certification Notes
+## Chapter 11 - Creating an App Service Plan
+
+### What Is an App Service Plan?
+* App Service Plan
+	* An App Service plan defines a set of compute resources for a web app to run on
+* Pricing Tier
+	* Free, Shared, Basic, Standard, Premium, PremiumV2, PremiumV3, and Isolated
+* Size of VMs
+	* The size of virtual machine instances (Small, Medium, Large)
+* Number of VMs
+	* The number of virtual machine instances running under a plan
+* Region
+	* Azure geolocation where app is deployed (e.g. East US, West US, South Central US, etc.)
+
+### App Service Plan Compute Types
+The pricing tier of an App Service plan determines the features you get and what you pay. There are three core compute types across the plans.
+* Shared
+	* Run apps on the same VM as other apps, including apps of other customers. (Cannot scale out because of shared compute)
+* Dedicated
+	* Run only apps using the same App Service Plan on a dedicated VM. (Isolated compute)
+* Isolated
+	* Run apps using dedicated VMs and dedicated VNets. (Isolated compute and networking)
+
+### Traditional vs. App Service
+* Traditional
+	* Administer and manage hardware
+	* Manage patching and security
+	* Manage load balancing
+* App Service
+	* Managed infrastructure
+	* High availability
+	* Scalability
+
+### Exam Tips
+* App Service Plans
+	* A plan that defines the compute resources and available features for a web app
+* App Services Plan Compute Resources
+	* Pricing tier, size of VM instances, number of VM instances, and region
+* App Services Plan Compute Types
+	* Shared, dedicated, and isolated. Each provides a different level of compute isolated, network isolation, and features like scaling
+* App Services Plans and Web Apps
+	* Provides a Platform as a Service (PaaS) to configure and host applications, rather than managing infrastructure. You just manage a few configuration details and your code

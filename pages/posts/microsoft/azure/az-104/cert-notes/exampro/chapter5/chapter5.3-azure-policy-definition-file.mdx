@@ -1,0 +1,79 @@
+# AZ-104 Certification Notes
+## Chapter 5.3 - Azure Policy Definition File
+
+### Anatomy of an Azure Policy Definition File
+* Display Name
+	* Identifies the policy (128 character limit)
+* Type (readonly)
+	* Built-in - Maintained by Microsoft
+	* Custom - Created by you
+	* Static - Microsoft Owned, A Regulatory Compliance
+* Description
+	* Provides the context of the policy
+* Metadata
+	* Optional key value information to store on the policy
+* Mode
+	* Determines which resource types are evaluated. Changes whether using Resource Provider or Azure Resource Manager
+		* Resource Manager
+			* All - resource groups, subscriptions, and all resource types
+			* Indexed - only resource types that support tags and location
+		* Resource Provider
+			* Microsoft.ContainerService.Data (deprecated)
+			* Microsoft.Kubernetes.Data
+			* Microsoft.KeyVault.Data
+
+* Parameters
+	* Value you can pass into the policy to allow the policy to be more flexible. A parameter has the following properties
+		* Name
+			* The name of the parameter
+		* Type
+			* String, array, object, boolean, integer, float, or date/time
+		* Metadata
+			* Used by Azure to display friendly information
+				* Description
+				* displayName
+				* strongType (optional, multi-select list)
+				* assignPermissions
+		* defaultValue (optional)
+		* allowValues (optional)
+You reference parameters by using **field and in**
+
+* Policy Rule
+	* Consists of **If** and **Then** blocks
+	* In the **If** block, you define one or more conditions that specify when the policy is enforced
+	* You can apply logical operators to these conditions to precisely define the scenario for a policy
+* Policy Effect
+	* Deny
+		* The resource creation/update fails due to policy
+	* Audit
+		* Creates a warning event in the activity log when evaluating a non-compliant resource, but it doesn't stop the request
+	* Append
+		* Adds additional parameters/fields to the requested resource during creation or update. A common example is adding tags on resources such as Cost Center or specifying allowed IPs for a storage resource
+	* Audit If Not Exists
+		* Creates a warning event in the activity log when evaluating a non-compliant resource, but it doesn't stop the request
+	* Deploy If Not Exists
+		* Executes a template deployment when a specific condition is met. For example, if SQL encryption is enabled on a database, then it can run a template after the DB is created to set it up a specific way
+	* Disabled
+		* The policy rule is ignored (disabled). Often used for testing
+
+### Practice Quiz
+* What are the components of Type (readonly)? (Choose 3)
+	* **Custom**
+	* **Static**
+	* Mode
+	* **Built-in**
+* Which Azure Policy Definition manages the value you can pass into the policy to allow the policy to be more flexible?
+	* **Parameters**
+	* Description
+	* Metadata
+	* Type
+* Which Policy Rule creates a warning event in the activity log when evaluating a non-compliant resource, but it doesn't stop the request?
+	* **Audit**
+	* Append
+	* Deny
+	* Disabled
+
+* What is the Azure Policy definition of Mode?
+	* The mode determines which resource types are evaluated. Changes whether using Resource Provider or Azure Resource Manager.
+* What is a Policy Rule?
+	* A Policy Rule consists of **If** and **Then** blocks. In the **If** block, you define one or more conditions that specify when the policy is enforced.

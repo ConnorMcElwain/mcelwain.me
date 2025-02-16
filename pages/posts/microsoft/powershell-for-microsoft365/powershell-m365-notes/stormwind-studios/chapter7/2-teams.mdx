@@ -1,0 +1,44 @@
+# PowerShell for Microsoft 365 Notes
+## Chapter 7.2 - Teams
+
+### Find Teams
+* Multiple options for finding a Teams Team
+```
+$team_posh = Get-Team -DisplayName HelpDesk
+$team_graph = Get-MgTeam -TeamId $team_post.GroupId
+```
+
+### Creating Teams
+* Creates a Team based off a template
+```
+# show a list of available templates
+Get-CsTeamTemplateList
+
+$params = @{
+	"Template@odata.bind" = "https://graph.microsoft.com/v1.0/teamsTemplates('com.microsoft.teams.template.OnboardEmployees')"
+	DisplayName = "NewEmployees"
+	Description = "Fresh Fish"
+}
+New-MgTeam -BodyParameter $params
+
+$params = @{
+	"Template@odata.bind" = "https://graph.microsoft.com/v1.0/teamsTemplates('com.microsoft.teams.template.OrganizeHelpDesk)"
+	DisplayName = "HelpDesk"
+	Description = "Working Tickets"
+}
+New-MgTeam -BodyParameter $params
+
+# Creator account became the Teams OWNER unless otherwise specified in cmdlet
+```
+
+### Removing Teams
+```
+$team_posh = Get-Team -DisplayName HelpDesk
+
+Remove-Team -GroupId $team_posh.GroupId -Verbose
+```
+
+### Conclusions
+* Create a team based on a template
+* Locate other teams
+* Removing a team

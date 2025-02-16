@@ -1,0 +1,364 @@
+# AZ-900 Certification Notes
+## Chapter 14.3 - Practice Exam - 1
+
+### Question 1
+* Your corporate office hosts data for office users on an on-premises file server. You want to automatically synchronize the file server's data with Azure Files for backup/disaster recovery purposes. You also wish to enable remote users to operate from a synchronized copy of mapped drives in Azure Files in the future. Which tool would you recommend for this task?
+	* Azure Storage Explorer
+	* Azure Data Box
+	* AzCopy
+	* **Azure File Sync**
+
+Azure File Sync automatically synchronizes on-premises file servers with Azure Files.
+
+### Question 2
+* You are using Azure Blob Storage for long-term storage of server logs to meet compliance requirements. These files will be accessed, at most, once per year (if ever) and do not need to be immediately accessible. How should you meet these requirements with minimal cost?
+	* Store the server logs using the Hot storage tier.
+	* Use Azure Files to store the server logs.
+	* **Store the server logs using the Archive storage tier.**
+	* Store the server logs using the Cool storage tier.
+
+The Archive storage tier does meet the requirement to store files at a lower cost. The Archive tier also has a "rehydration" time before the files are accessible; however, that is acceptable in this scenario. This is the preferred option.
+
+### Question 3
+* Which of the below capabilities are enabled by Azure Arc?
+	* **Apply role-based access control (RBAC) polices on non-Azure servers.**
+	* **Protect Amazon EC2 instances with Microsoft Defender for Cloud.**
+	* Privately connect on-premises networks to Azure-managed services.
+	* **Enable running Azure serverless services (e.g., Azure Functions) in containerized form on on-premises servers.**
+
+Azure Arc can extend Azure RBAC controls to non-Azure resources. Azure Arc can extend the features and monitoring of Microsoft Defender for Cloud to non-Azure resources. Azure Arc can run some Azure serverless services on local/on-premises servers.
+
+### Question 4
+* Which cloud attribute is defined by knowing what your cloud resources are going to cost as well as the ability to estimate future costs through current trends?
+	* **Predictability**
+	* Reliability
+	* Manageability
+	* Governance
+
+Predictability is knowing what your application will cost with real-time tracking of resource usage. It also allows forecasting future costs based on current usage. Though not noted in the question, predictability _also_ describes knowing that your application will perform consistently regardless of customer load.
+
+### Question 5
+* Your company is planning to create a large, complex application using multiple types of microservices that will be deployed on Azure. You need to choose an Azure service that can orchestrate multiple containerized microservices with minimal management overhead. Which Azure service should you choose?
+	* **Azure Kubernetes Service (AKS)**
+	* Azure Virtual Machines
+	* Azure Container Instances
+	* Azure Cloud Storage
+
+Kubernetes uses containers, which fulfills the requirement to bundle an application with its dependencies and ensure portability. Compared to Azure Container Instances, which are more suitable for running single containers on demand, AKS is more suitable for large-scale orchestration of multiple containers interacting with each other.
+
+### Question 6
+* You are using Azure Blob Storage for long-term storage of security video footage to meet compliance requirements. Video files are accessed infrequently, yet must be readily available when needed. How should you meet these requirements with minimal cost?
+	* Use Azure Files to store the video files.
+	* Store video files using the Archive storage tier.
+	* **Store video files using the Cool storage tier.**
+	* Store video files using the Hot storage tier.
+
+The Cool storage tier is ideal for infrequently access files at a lower cost; however, the files are still readily available unlike the Archive tier.
+
+### Question 7
+* What is the preferred method to run Azure serverless services, like Logic Apps, on your on-premises servers?
+	* Enable Azure Sentinel on your on-premises servers.
+	* It is not possible to run Azure services on non-Azure hardware.
+	* Install the Logic Apps connector on your on-premises server.
+	* **Enable Azure Arc on your on-premises servers.**
+
+Azure Arc enables Azure serverless services (like Logic Apps) to run on non-Azure servers as a containerized workload.
+
+### Question 8
+* You need to select an Azure service that can connect multiple systems, including automating data flow between systems. You do not have a developer background and need to choose a no-code solution. What should you choose?
+	* Azure Cognitive Services
+	* Cosmos DB
+	* Azure Functions
+	* **Azure Logic Apps**
+
+Azure Logic Apps provides no-code solutions for connecting and automating workflows between different services and applications.
+
+### Question 9
+* Your company plans to move several servers to Azure. The company's compliance policy states a server named HRServer1 must be in a separate physical location from all other servers. Which Azure services can be used to meet the compliance policy requirements?
+	* A virtual network for HRServer1 and another virtual network for all other servers
+	* One resource group for HRServer1 and another resource group for all other servers
+	* **One Azure region for HRServer1 and another Azure region for all other servers**
+	* A virtual network subnet for HRServer1 and a separate network subnet for all other servers
+
+(One Azure region for HRServer1 and another Azure region for all other servers) - The correct answer is to have one Azure region for server HRServer1 and another Azure region for all other servers. An Azure region is a set of data centers deployed in a specific geographic location. By placing HRServer1 in a different Azure region to other servers, you have ensured it resides in a separate physical location from all your other servers. The other answers are incorrect as they will not ensure HRServer1 is in a separate physical location. A resource group is simply a logical construct that groups multiple resources together so they can be managed as a single entity. Resources from different resource groups can reside in the same location. Having HRServer1 reside in a separate subnet or virtual network does not ensure it is in a separate physical location - again these are logical constructs that span the same region/physical location. [Azure Regions | Microsoft Azure](https://azure.microsoft.com/en-us/global-infrastructure/regions/ "null")
+
+### Question 10
+* Which cloud attribute describes how you manage and interact with cloud resources?
+	* Governance
+	* **Manageability**
+	* Reliability
+	* Predictability
+
+Manageability has two aspects: 1. How you create and manage resources, which includes autoscaling, template-based deployments, and monitoring/alerts. 2. How you interact with your cloud environments, including via a web portal, command line, and programmatic APIs.
+
+### Question 11
+* Which of the following Azure services can support serverless cloud?
+	* Azure Virtual Machines
+	* Azure SQL (Provisioned compute tier)
+	* **Azure App Service**
+	* **Azure Logic Apps**
+
+Azure App Service is a Platform as a Service (PaaS) offering that supports serverless application environments. Along with Azure Functions, Azure Logic Apps is one of the more well-known serverless cloud services on Azure.
+
+### Question 12
+* Your company has several internal departments. Each department is responsible for purchasing its own IT equipment and services. The company plans to implement an Azure environment. You need to ensure that each department can use a different payment option for the Azure services it consumes. What should you create for each department?
+	* **Subscription**
+	* Reservation
+	* Management groups
+	* Azure Payment plan
+
+(Subscription) - A subscription is an agreement with Microsoft to use one or more Microsoft cloud platforms or services, for which charges accrue based on either a per-user license fee or on cloud-based resource consumption. Microsoft's Software as a Service (SaaS)-based cloud offerings (Office 365, Intune/EMS, and Dynamics 365) charge per-user license fees. Microsoft's Platform as a Service (PaaS) and Infrastructure as a Service (IaaS) cloud offerings (Azure) charge based on cloud resource consumption. Payment options can only be specified per Azure subscription. A reservation can be used to save costs on Azure resources. Azure resources, such as virtual machines, can be reserved in one-year or three-year terms, resulting in significant cost savings. However, Azure reservations are not used to manage billing for Azure services. If your organization has many subscriptions, you may need a way to efficiently manage access, policies, and compliance for those subscriptions. Azure management groups provide a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance conditions to the management groups. Billing is **not** managed via an Azure management group. There is no such thing as an Azure payment plan.. [Subscriptions, licenses, accounts, and tenants for Microsoft's cloud offerings | Microsoft Docs](https://docs.microsoft.com/en-us/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings "null")
+
+### Question 13
+* Which of the following are characteristic of public clouds?
+	* **Lower costs**
+	* Improved security
+	* Higher maintenance
+	* **High scalability**
+
+(Lower Costs) - Unlike private cloud deployments, public cloud deployments do not require paying for hardware and services that remain idle for long periods of time. This results in lower costs. Resources are shared with others, so control and security are not as good as those in a private cloud. (High Scalability) - Private clouds still afford the scalability and efficiency of a public cloud. Resources are purchased and available to meet your business needs.
+
+### Question 14
+* What is the purpose of Azure Monitoring alerts?
+	* Storage and analysis of logs and metrics, including queries of trends.
+	* **Proactive notifications to relevant personnel when there is a problem with your infrastructure or application.**
+	* Provide customer-interaction insights on your web-based applications.
+	* Notifications of Azure service incidents that affect wide-scale Azure services.
+
+Azure Monitoring alerts notify support personnel when there is an unexpected problem with your Azure environment, allowing a timely resolution.
+
+### Question 15
+* What is the purpose of Application Insights?
+	* **Provides insights such as customer behavior, performance bottlenecks, and web application errors**
+	* Gain insights from stored logs and metrics collected by Azure Monitor via queries
+	* Security information event management (SIEM) tool to monitor security of Azure resources
+	* Lists planned and unplanned service outages of Azure resources
+
+Application Insights provides website performance monitoring.
+
+### Question 16
+* As part of your company's Azure migration, you plan on hosting an internal application with App Service. Your CFO needs an estimate of the monthly costs of running the application. Which Azure service should you use to create a monthly cost estimate?
+	* Azure Arc
+	* Azure TCO Calculator
+	* **Pricing calculator**
+	* Cost Management
+
+The pricing calculator can create accurate estimates of hourly or monthly Azure costs across the entire Azure portfolio.
+
+### Question 17
+* Your corporation relies on compute services hosted on-premises, on Azure, and on AWS. You recently deployed Microsoft Defender for Cloud to your Azure resources and have been very pleased with the result. You would like to implement the "single pane of glass" functionality of Defender for Cloud for your AWS and on-premises resources. What is a required prerequisite to achieve this?
+	* Connect to the external resources with service endpoints.
+	* Connect to the external resources with private endpoints.
+	* Integrate the non-Azure services with Azure Sentinel.
+	* **AWS and on-premises resources must first have Azure Arc enabled.**
+
+Azure Arc is the standard method of integrating non-Azure resources with Azure management tools and is a prerequisite to integrate external locations with Microsoft Defender for Cloud. Please note that Azure Arc integration was not a prerequisite in the older version of Azure Security Center (now Defender for Cloud), but it is now a prerequisite.
+
+### Question 18
+* You've been given the task of creating a company-owned Azure network infrastructure that establishes a secure, private connection to all resources in those networks using only Azure's private network backbone. Your Azure resources are located in 2 different regions. What Azure services should you use to accomplish this task?
+	* Create a virtual network in each region, and connect both networks with a VPN gateway connection.
+	* Create a virtual network in each region, and connect both networks with a websocket connection.
+	* **Create a virtual network in each region, and connect both networks with network peering.**
+	* Create a single Azure virtual network that spans both regions. All resources in this network will communicate over a private connection.
+
+Network peering allows you to connect multiple virtual networks over the private Azure network for a private network connection.
+
+### Question 19
+* Which of the following operating systems can have Azure CLI and Azure PowerShell installed? Choose all that apply.
+	* **macOS**
+	* iOS
+	* **Linux**
+	* **Windows**
+
+Azure CLI and Azure PowerShell are cross-platform command-line tools that can be installed on macOS, Linux, and Windows. Azure Documentation: [Azure CLI vs Azure PowerShell](https://docs.microsoft.com/en-us/azure/developer/azure-cli/choose-the-right-azure-command-line-tool#azure-cli-vs-azure-powershell "null").
+
+### Question 20
+* You currently have two Azure Pay-As-You-Go subscriptions. You would like to combine these into a single subscription. How can you accomplish this?
+	* **Contact Microsoft Azure Support**
+	* Using Azure CLI, run the `az account merge` command
+	* In the Azure Portal, check both subscriptions then click the "Merge" button
+	* Using Azure PowerShell, run the `Merge-AzureRmSubscription` cmdlet
+
+(Contact Microsoft Azure Support) - The only way to combine Azure subscriptions is to open a support case with Microsoft. There is no such feature in the Azure Portal to combine Azure subscriptions. There is no such CLI command to merge subscriptions. There is no such PowerShell cmdlet either. [Subscriptions, licenses, accounts, and tenants for Microsoft's cloud offerings | Microsoft Doc](https://docs.microsoft.com/en-us/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings "null")
+
+### Question 21
+* Your company, A Llama Guru, has increased its usage of Azure services over time. They are now using multiple subscriptions across various sectors of the company for a wide range of projects. As the number of subscriptions has increased, managing access and permissions across your numerous subscriptions has become quite cumbersome. What would you recommend to easily manage multiple subscriptions from a single source?
+	* **Management groups**
+	* Use resource groups to manage multiple subscriptions
+	* Azure tenants
+	* Azure Active Directory
+
+Management groups are an Azure resource management scope that sit above individual subscriptions. They are in fact a grouping, or collection of multiple subscriptions. Permissions, policies, and compliance settings applied to a management group are automatically inherited by all subscriptions inside of that group.
+
+### Question 22
+* You have an on-premises application that processes incoming queue messages and records the data to a log file. You migrate this application to an Azure function app. Which cloud service model would your application then be considered after this migration?
+	* Platform-as-a-Service (PaaS)
+	* Infrastructure-as-a-Service (IaaS)
+	* **Serverless**
+	* Software-as-a-Service (SaaS)
+
+(Serverless) - Serverless computing is the abstraction of servers, infrastructure, and operating systems. When you build serverless apps, you don't need to provision and manage any servers, so you don't have to worry about infrastructure. Serverless computing is driven by the reaction to events and triggers happening in near-real time in the cloud.
+
+### Question 23
+* Which cloud attribute is defined by maintaining full control over your cloud resources, including patch management and network control?
+	* **Security**
+	* Governance
+	* Manageability
+	* Predictability
+
+Like its name implies, the security cloud attribute describes having full control, or even choosing how much control you want, over your cloud resources' security configuration.
+
+### Question 24
+* Select which Azure service you should choose to run an application with the following requirements: - All software dependencies are bundled with the application source code - Bundled application is portable - Provision and run compute only when needed to save costs - Minimal management overhead
+	* Azure Virtual Machines
+	* **Azure Container Instances**
+	* Azure Cloud Storage
+	* Azure Kubernetes Service (AKS)
+
+Containers fulfill the requirement to bundle an application with its dependencies and ensure portability. Azure Container Instances allows you to only run your container when needed and have lower management overhead compared to a fully orchestrated Azure Kubernetes Service option.
+
+### Question 25
+* Select the cloud concept that is defined by: - Knowing that your application will perform as expected, even under heavy load.
+	* High availability
+	* **Predictability**
+	* Reliability
+	* Scalability
+
+Predictability is knowing that your application will always perform as expected regardless of load. While there is some overlap with the concepts of scalability and high availability to achieve this outcome, the concept of being confident of _consistent_ performance is Predictability.
+
+### Question 26
+* Choose 2 command-line tools that can be used to interact with Azure resources using the Azure CLI.
+	* ARM templates
+	* **PowerShell**
+	* **Bash**
+	* Python
+
+You can use the Azure CLI with PowerShell to work with Azure in a command-line format. You can use the Azure CLI with Bash to work with Azure in a command-line format.
+
+### Question 27
+* Your company is beginning their migration of on-premises storage data to Azure. Your existing file server has over 60 TB of data, which is too much to transfer over an internet connection to an Azure Storage account. You want to send an initial bulk offline data transfer, which can be followed up by later transfers over the internet once the first bulk upload is complete. Which tool would you recommend to accomplish this task?
+	* Azure File Sync
+	* Azure Storage Explorer
+	* **Azure Data Box**
+	* AzCopy
+
+Azure Data Box is an encrypted hard drive intended for offline bulk data transfers.
+
+### Question 28
+* Which of the following components are required for Azure Monitor alerts?
+	* Private Endpoint Connector
+	* Access Decisions
+	* **Action Group**
+	* **Alert Rule**
+
+After an alert is triggered via an alert rule, the action group designates who is informed of the triggered alert. The alert rule provides the conditions that must be met before triggering an alert.
+
+### Question 29
+* You have a business-critical database server running on an Azure VM. Because this server is business critical, you need to automatically notify your SRE team whenever CPU utilization rises above 90% for over 5 minutes. Which Azure service or feature is able to fulfill this requirement?
+	* Azure Sentinel
+	* Log Analytics
+	* **Azure Monitoring alerts**
+	* Application Insights
+
+Azure Monitoring alerts monitor conditions (such as an unresponsive application/VM) that can then automatically notify relevant personnel to take action on the issue.
+
+### Question 30
+* Your company is beginning their migration of on-premises servers to Azure. You need to plan the migration of several VMs and their hosted applications to Azure. This also requires discovering app dependencies on other servers necessary for continuation of service. Which Azure service is best able to help with this migration process?
+	* Azure Data Box
+	* Azure Storage Explorer
+	* AzCopy
+	* **Azure Migrate**
+
+Azure Migrate is a full cloud migration and modernization platform. One of its features is the ability to discover dependencies of resources being migrated to Azure.
+
+### Question 31
+* You are the systems administrator for Highlander Cutlery, Inc. Your company has an on-premises network that contains multiple servers. As part of a headcount reduction, the company plans to reduce the following administrative responsibilities of network administrators. Backing up application data. Replacing failed server hardware. Managing physical server security. Updating server operating systems. Managing permissions to shared documents. The company plans to migrate several servers to Azure virtual machines. Which administrative responsibilities will be reduced after the planned migration?
+	* Updating server operating systems
+	* **Managing physical server security**
+	* Backing up application data
+	* **Replacing failed server hardware**
+	* Managing permissions to shared documents
+
+(Managing physical security) - One advantage of the IaaS cloud model is that a cloud service provider will manage physical security of the server infrastructure as part of the Shared Responsibility Model. Within the Shared Responsibility Model of public cloud deployments, it is the responsibility of the cloud provider to replace failed server hardware.
+
+### Question 32
+* Which cloud attribute is defined as being able to create and enforce standardized environments, usually to meet corporate or government requirements?
+	* Predictability
+	* Reliability
+	* **Governance**
+	* Manageability
+
+Governance describes enforcing standards via templates and policies that dictate what can and cannot be created. It also includes the ability to audit cloud environments to alert if any resources are out of compliance.
+
+### Question 33
+* You have a requirement to select the optimal Azure service for storing large amounts of directly-accessible data, including image files, videos, and backup files. Which service should you choose?
+	* Azure Files in a storage account
+	* Queue storage in a storage account
+	* Cosmos DB
+	* **Blob storage in a storage account**
+
+Blob storage is the preferred storage account method for unstructured data that can be directly accessed, such as video files, images, backup files, and much more.
+
+### Question 34
+* Which cloud attribute is defined by knowing your application will perform as expected regardless of customer demand?
+	* **Predictability**
+	* Reliability
+	* Manageability
+	* Governance
+
+Predictability is knowing that your application will perform at a consistent level. This is achieved through a combination of autoscaling, high availability, and load balancing. Though not noted in the question, it also describes transparency in costs.
+
+### Question 35
+* Your company is spread across five offices and multiple departments, all of which use various Azure services. You need a consistent method to track which office and department is using which resources when it comes to cost tracking. What is the preferred method of labeling various Azure resources to track who is using what?
+	* Azure Blueprints
+	* **Tags**
+	* ARM templates
+	* VM images
+
+Tags are labels that can be attached to any Azure resource, whether they are individual services or even resource groups.
+
+### Question 36
+* Which of the following statements are true about virtual machine vertical scaling in Azure Compute?
+	* **Vertical scaling increases the compute capacity of an existing resource, usually by adding more CPUs or RAM to an existing VM.**
+	* **Vertical scaling requires downtime to increase compute capacity.**
+	* Vertical scaling adds additional copies of a resource, like a VM or container, to a resource pool.
+	* Vertical scaling can occur automatically with no manual interaction.
+
+This is also known as scaling up, where the compute capacity of an existing resource is changed, such as adding more CPUs/RAM to an existing VM. Changing the amount of CPU/RAM in an existing virtual machine requires downtime to make the change.
+
+### Question 37
+* Which of the following services includes Log Analytics, Azure Monitor alerts, and Application Insights?
+	* Azure Advisor
+	* Azure Service Health
+	* Azure Service Trust Portal
+	* **Azure Monitor**
+
+Azure Monitor includes services such as Log Analytics, Azure Monitor alerts, and Application Insights. Azure Monitor acts as a wide-ranging surveillance tool that aggregates, scrutinizes, and reacts to telemetry data from your cloud-based and on-site infrastructures. Log Analytics allows you to collect, store, and analyze log data from virtually any source, enabling in-depth insights into operational performances and patterns. Azure Monitor alerts help you identify and respond to critical situations and potential issues within your Azure resources, based on specific metrics and log query results. Application Insights monitors live applications, automatically detects performance anomalies, and helps in diagnosing issues and understanding how to improve app performance and usability.
+
+### Question 38
+* What is the concept in which you layer multiple stages of security such as physical security, network security, etc., to create a robust defense against cybersecurity threats?
+	* Azure Firewall
+	* SIEM
+	* Compliance management
+	* **Defense in depth**
+
+Defense in depth is the concept in which by layering different security measures, protection against security threats is greatly increased.
+
+### Question 39
+* What type of cloud architecture is Microsoft Azure generally best described as?
+	* Private Cloud
+	* Hybrid Cloud
+	* Secure Cloud
+	* **Public Cloud**
+
+(Public Cloud) - Microsoft Azure is best described as a Public Cloud provider, since nearly anybody can provision services on Microsoft Azure, if they have an account on the platform. This is the same as other major public cloud providers, like AWS and Google Cloud Platform.  
+[Public Cloud - Definition | Microsoft Azure](https://azure.microsoft.com/en-au/overview/what-is-a-public-cloud/ "null")
+
+### Question 40
+* Which of the following is true in relation to Azure Management Groups?
+	* Management Groups allow you to easily create fully compliant environments and manage them.
+	* Management Groups allow you to implement policy-based management for all Azure services.
+	* Management Groups allow you to create custom dashboards to view and analyze your cloud usage.
+	* **Management Groups allow you to apply policies with flexible hierarchies to multiple subscriptions.**
+
+(Management Groups allow you to apply policies with flexible hierarchies to multiple subscriptions.) - Azure management groups provide a level of scope above subscriptions. You organize subscriptions into containers called management groups and apply your governance conditions to the management groups. For example, you can apply policies to a management group that limits the regions available for virtual machine (VM) creation. [Organize your resources with management groups - Azure Governance | Microsoft Docs](https://docs.microsoft.com/en-gb/azure/governance/management-groups/overview "null")

@@ -1,0 +1,17 @@
+# PowerShell for Microsoft 365 Notes
+## Chapter 7.5 - Messages
+
+### Messages
+* New-MgTeamChannelMessage
+	* Create a message in Teams
+```
+$teams = Get-Team
+foreach($team in $teams)
+{
+$channel = Get-MgTeamChannel -TeamId $team.GroupId | Where-Object {$_.DisplayName -eq "Weather Announcements"}
+New-MgTeamChannelMessage -TeamId $team.GroupId -ChannelId $channel.Id -Body @{Content="TESTING" }
+}
+```
+
+### Conclusion
+* Creating a message to channels

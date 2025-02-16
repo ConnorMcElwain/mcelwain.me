@@ -1,0 +1,24 @@
+# AZ-104 Certification Notes
+## Chapter 8.4 - Configuring ExpressRoute
+
+### Describing ExpressRoute
+ExpressRoute is the service that we utilize in the Azure cloud to make a direct physical connection into our Azure resources and Microsoft resources. Now how this is different from a VPN Gateway is it's not an IPsec tunnel connection. What we're making is a physical dedicated connection. This connection is not encrypted by default, but it allows us to make that private connection physically over the wire to the Azure cloud and our Microsoft resources from our on-prem networks. What we're talking about is our Azure cloud resource like our IaaS resources, like virtual networks and virtual machines. We're also talking about our Microsoft resources like Office 365, but also our past services that we have inside of Azure. This inclusive of past services if they don't have a private endpoint inside of our virtual networks, they could easily end up on either side of the Microsoft or Azure side of this connection. And we're trying to connect our on-prem network to either of these Azure resources or Microsoft resources. We can do this with Edge Locations. On the Microsoft side of things, we have the Microsoft Edge location, and on our side of things, we have a Partner Edge location. We can utilize a partner, like an ISP, to allow us to connect from our on-premise networks to that ISP that then has a physical connection from the Partner Edge to the Microsoft Edge. This is where ExpressRoute comes into play, we create an ExpressRoute circuit. We have both a primary and a secondary circuit that exists between the Microsoft Edge and the Partner Edge allowing for a highly available connection on 2 physically dedicated connections into the Azure resources and Microsoft resources. Then we connected through our partner to our on-premise network, allowing us to connect from our on-prem network to the Partner Edge, from the Partner Edge over the ExpressRoute circuits (primary and secondary), to the Microsoft Edge, and thus into our Azure resources and Microsoft resources. When we're connecting into these resources, what we have are peering configurations. After we've created our ExpressRoute circuits, the peer configurations that we have once we have successfully provisioned the Partner-Edge-side connection to our on-prem network, is the Microsoft peering. This is going to be a peering that allows a connection to our resources like Office 365, and our past service. Then for our Azure resources, like our virtual networks or virtual machines and our private endpoints, we use a peering configuration of Azure private peering to connect to these things through our ExpressRoute. Whenever we're doing this, we have to keep in mind that we have to have a virtual network gateway for our private peering connection into Azure to connect to our virtual networks. Then we have to create a connection on our ExpressRoute to connect to this virtual network gateway inside of our virtual network. Next, whenever we're setting up our ExpressRoutes on-prem, what we have to have is an ASN number (the autonomous system number), where we're going to use in the ExpressRoute configuration. We'll also need a VLAN ID to use so we can peer our network. Inside of our network we have to create 2 /30 subnets. Each of these subnets are going to have 4 addresses, and 2 are going to be in use while the other 2 are going to be what we're using to maintain our connection via ExpressRoute and have a BGP session to exchange those routes via ExpressRoute.
+
+### Implementation Steps
+* Creating an ExpressRoute
+	* Create ExpressRoute Circuit
+	* Give Service Key to Provider
+	* Create Peering Configuration
+		* Note: This step will be part of step 2 if the provider only offers Layer 3 connectivity instead of Layer 2
+	* Create Virtual Network Gateway
+		* The gateway type must be ExpressRoute and it must be deployed into a gateway subnet
+
+### Key Takeaways
+* Azure ExpressRoute
+	* Dedicated physical connection
+	* Built-in redundancy
+	* Connectivity to Microsoft
+	* Connectivity via private peering
+	* Dynamic routing via BGP
+	* 50 Mbps - 10 Gbps
+	* Not encrypted by default

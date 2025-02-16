@@ -1,0 +1,25 @@
+# AZ-104 Certification Notes
+## Chapter 9.5 - Configuring Virtual Machine Availability and Scale Sets (Part 2)
+
+### Why Use Scale Sets?
+* Purpose of Virtual Machine Scale Sets
+	* Simplify scaling configurations
+	* Save costs by aligning usage with demand
+	* Scale to meet demand of traffic
+
+### Virtual Machine Scale Set Components
+* Scale Set Components
+	* VM Definition
+		* Define VM size, OS, NICs, storage, etc.
+	* Autoscaling Definition
+		* Define scaling actions, scaling in/out based on condition met (e.g. If CPU utilization > 80% then +1 VM)
+	* Scale-In Policy
+		* Delete VMs by priority as scaling-in-operations occur
+
+### Exam Tips
+* High Availability
+	* Design highly available solutions using zonal redundant deployments
+* Availability Sets
+	* Provide protection for redundant VMs by preventing outages related to faults and updates by logically grouping them into domains
+* Scale Sets
+	* Auto scale solutions to meet demands of traffic and scale in to decrease costs when demand goes down

@@ -1,0 +1,78 @@
+# AZ-104 Stormwind Studio Certification Course Notes
+## Day 3.4 - Azure RBAC
+
+### Topic: Azure Role-based Access Control (RBAC)
+* Role Definitions
+* Azure RBAC
+* Entra ID Roles
+* Assigning RBAC
+* RBAC Scope
+* JSON for RBAC
+
+### Role Definitions
+* Azure RBAC focuses on Azure-specific resources
+* Microsoft Entra ID RBAC deals with identity-related resources within the Azure AD environment
+* Role Definitions are names given to a set of permissions
+* Custom Roles can be created
+* Azure RBAC is expressed as JSON
+
+### Azure RBAC
+* Owner
+* Contributor
+* Reader
+* Role Based Access Control Administrator
+* User Administrator
+
+### Azure RBAC: Owner
+* **Description:** Provides full access to manage all resources, including the ability to assign roles in Azure RBAC
+* **Permissions:** Can perform all management actions on resources
+* **Example Task:** As an Owner, you have full access to manage all resources, including the ability to assign roles in Azure RBAC
+	* Manage resource groups: You can create, modify, or delete resource groups
+	* Assign roles: You have the authority to assign roles to other users or groups
+	* Configure network security groups: You can control inbound and outbound traffic
+**Note:** You're essentially the top-level administrator for the subscription
+
+### Azure RBAC: Contributor
+* **Description:** Grants full access to manage all resources within an Azure subscription
+* **Permissions:** Can create, update, and delete resources
+	* **Cannot** assign roles in Azure RBAC
+* **Example Task:** A User assigned the Contributor role in an Azure subscription can create, update, and delete resources
+	* **Create a virtual machine:** You can provision a new virtual machine (VM) within the subscription
+	* **Modify storage settings:** You can adjust storage configurations for existing resources
+	* **Deploy a web app:** You have the authority to create and manage web apps
+
+### Azure RBAC: Reader
+* **Description:** Allows viewing of existing Azure resources without making any changes
+* **Permissions:** Can view resource configurations and properties
+* **Example Task:** If you're a Reader, your role is to view existing Azure resources without many any changes
+	* Here's what you might do:
+		* **View VM configurations:** You can check the properties and settings of virtual machines
+		* **Inspect network configurations:** You have read-only access to network resources
+		* **Review resource group details:** You can see the contents of a resource group
+**Note:** You won't be able to modify anything
+
+### Azure RBAC: Role Based Access Control Administrator
+* **Description:** Manages access to Azure resources by assigning roles using Azure RBAC
+* **Permissions:** Assigns roles to users, groups, and service principals
+	* Does not manage access using other methods like Azure Policy
+* **Example Task:** As a RBAC Administrator, your focus is on managing access to Azure resources by assigning roles
+	* **Assign roles:** Grant specific roles to users, groups, or service principals
+	* **Review role assignments:** Check who has access to what resources
+	* **Audit permissions:** Ensure proper access controls are in place
+
+### Azure RBAC: Users Administrator
+* **Description:** Allows management of user access to Azure resources
+* **Permissions:** Assigns permissions related to user access
+* **Example Task:** Managing user access to Azure resources
+	* **Add users to groups:** You can add users to specific groups for resource access
+	* **Modify user permissions:** Adjust permissions for individual users
+	* **Handle access requests:** Approve or deny requests for resource access
+**Note:** Your focus is on user-level access management
+
+### Entra ID Roles
+* **Purpose:** Entra ID roles control access to Microsoft Entra resources, including **users, groups**, and **applications**, using the **Microsoft Graph API**
+* **Scope:** It manages access to resources within the Microsoft Entra (Azure AD) environment
+* **How it works:**
+	* Entra ID roles are used for managing resources like users, groups, and applications at the tenant level
+	* These roles are not tied to specific Azure resources but focus on identity and access management within the Entra environment
+* **Example:** You can assign a user the SharePoint Administrator role which will allow them to manage all aspects of SharePoint Online for tenancy

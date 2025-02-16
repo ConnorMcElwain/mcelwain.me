@@ -1,0 +1,51 @@
+# Microsoft Endpoint Manager Notes
+## Chapter 3.5 - Content Management Options
+
+### Configuration Manager - Content Management Considerations
+* Fundamentals
+	* Accounts used for content management
+		* Network access account
+		* Package access account
+	* Bandwidth throttling and scheduling
+	* Binary Differential Replication (BDR) vs. Delta Replication Caching
+
+### Configuration Manager - Client Locations
+* Client Locations
+	* Intranet
+		* Distribution points can use HTTP or HTTPs
+		* Only use a content-enabled cloud management gateway for fallback when on-premises distribution points aren't available
+	* Internet
+		* Requires internet-facing distribution points to accept HTTPS
+		* Can use content-enabled cloud management gateway
+	* Workgroup
+		* Requires distribution points to accept HTTPS
+		* Can use a content-enabled cloud management gateway
+
+### Configuration Manager - Content Source Priority
+* Content Source Locations
+	* The distribution point on the same computer as the client
+	* A peer source in the same network subnet
+	* A distribution point in the same network subnet
+	* A peer source in the same boundary group
+	* A distribution point in the current boundary group
+	* A distribution point in a neighbor boundary group configured for fallback
+	* A distribution point in the default site boundary group
+	* The Windows Update cloud service
+	* An internet-facing distribution point
+	* A content-enabled cloud management gateway in Azure
+
+### Configuration Manager - Content - Distribution Point Considerations
+* Windows LEDBAT
+* Content Library
+* On-demand content distribution
+* Package transfer manager
+* Fallback
+* Network Bandwidth
+	* Pre-staged content
+	* Scheduling and throttling
+
+### Topic Summary
+* Content Management Considerations
+* Client Locations
+* Content Source Priority
+* Content - Distribution Point Considerations

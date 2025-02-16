@@ -1,0 +1,38 @@
+# AZ-104 Certification Notes
+## Chapter 11.4 - Describing Containers in Azure
+
+### What Are Containers?
+* Container
+	* A container is a unit of software. This unit consists of code, its dependencies, and configurations to be shipped and run anywhere
+* Dockerfile
+	* Container Image
+		* Container Registry
+			* Container Host
+
+* Dockerfile
+	* A definition of all code and dependencies in a container solution
+* Container Image
+	* A template of a container built from a Dockerfile
+* Container
+	* An instance of a container image running
+* Container Host
+	* A platform for running container instances
+
+### Container Development Concepts
+With containers, we can create our applications and we can create what is known as a container image. This is going to have the fully-built solution with the code, the dependencies, and the configurations for running our application. All we have to do is push this out to our end users, and as long as they have what is known as a container host, they'll be able to run our application with no issues regardless of their underlying software and configurations.
+
+### Demonstration
+* Create a Container
+	* Creating containers follows a similar process regardless of where they are hosted
+* Create a Container Registry
+	* Create the Azure Container Registry that will act as the repository
+* Push Container to Registry
+	* Push the container image to Azure Container Registry, which is a repository of container images
+
+### Key Takeaways
+* Development
+	* Create and build a container so it can be shipped
+* Registry
+	* Manage a container registry (repository) of container images in a single place. For example, Azure Container Registry (ACR)
+* Host
+	* Host a container image as an instance of a container on a hosting service. For example, Azure Container Instances (ACI)

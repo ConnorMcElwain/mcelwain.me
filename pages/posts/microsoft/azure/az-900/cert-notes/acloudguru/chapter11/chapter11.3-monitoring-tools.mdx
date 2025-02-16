@@ -1,0 +1,62 @@
+# AZ-900 Certification Notes
+## Chapter 11.3 - Monitoring Tools
+
+### Monitor All the Things!
+Azure includes multiple monitoring tools to gain full visibility into your Azure environment:
+* Log Analytics
+* Application Insights
+* Azure Monitor Alerts
+
+### Log Analytics
+* Azure Monitor generates **A LOT** of logs and telemetry data
+* Log Analytics stores and queries (or analyzes) that data to gain valuable insights
+	* Examples:
+		* VM disk size
+		* VPN connection logs
+		* Long term analysis
+		* Combine metrics for complex queries
+
+### Queries in Log Analytics
+* Choose between pre-built and custom queries
+* Queries in Kusto Query Language (KQL) format
+	* KQL is the querying language used to query different types of logs in Log Analytics. SQL is similar (the syntax is a little bit different)
+  
+### Application Insights
+* Performance insights for web applications
+* Answers questions:
+	* "How are users using out app?"
+	* "Where are our performance bottlenecks?"
+	* "Why are we getting website errors?"
+
+### Application Insights (Continued)
+* Web apps only
+* Available for App Service, Azure VMs, and non-Azure resources
+	* VMs require installed agent
+* Application Insights scenario
+	* Find performance bottlenecks in web application
+	* Discover how users are using the website
+
+### Azure Monitor Alerts
+When something breaks, alert someone to fix it!
+Notifications in response to unexpected events:
+* Examples:
+	* VM unresponsive
+	* VM using excessive CPU
+	* Application latency over 500 ms
+
+### Alert Components
+* Alert Rule
+	* Monitored resource
+	* Monitored telemetry
+	* Conditions to trigger alert
+	* Assigned severity
+* Rule Example
+	* Monitored resource: VM
+	* Monitored telemetry: CPU utilization
+	* Condition: > 90% CPU for 5 minutes
+	* Severity: 2 - Warning
+* Action group = action(s) taken when rule is triggered
+	* Notification targets
+		* Email/SMS to support personnel
+		* Send to automation workflows (Logic Apps, Azure Functions, and more)
+In all scenarios, when something is not working as expected, Azure Monitor alerts inform the right group to do something about it!

@@ -1,0 +1,39 @@
+# AZ-104 Certification Notes
+## Chapter 9.14 - VM CheatSheet
+
+### Virtual Machines CheatSheet
+* **Azure Virtual Machines (VMs)** allows you to create Linux and Windows virtual machines
+* The **size** of the virtual machine is determined by the image
+	* The image defines the combination of vCPUs, Memory, and Storage Capacity
+* The current limit on a per subscription basis is **20 VMs per region**
+* Azure VMs are billed at an **hourly rate**
+* A single instance VMs has an availability of 99.9% (when all storage disks are premium)
+* Two instances deployed in Availability Set will give you 99.95% availability
+* You can attach multiple Managed Disk to your Azure VMs
+* When you **launch** an Azure Virtual Machine other networking components will be either created or associated to your Virtual Machine
+	* Network Security Group (NSG), Network Interface (NIC), Public IP Address, VNet
+* Azure VMs come in a variety of sizes that are also optimized for specific use cases
+	* General Purpose, Compute Optimized, Memory Optimized, Storage Optimized, GPU, High Performance Compute
+* Azure Compute Unit (ACU) provides a way of comparing (CPU) performance across Azure SKUs
+* ACU is currently standardized on a **Small (Standard_A1)** VM with the value of **100**
+* All other SKUs then represent approximately how much faster that SKU can run a standard benchmark
+* You can install the **Azure Mobile App**, and you can monitor your VMs on the go
+* **Hyper-V** is Microsoft's **hardware virtualization product**.
+	* It lets you **create and run a software version of a computer**, called a virtual machine
+* There are two generations of Hyper-V VMs:
+	* **Generation 1** - Support most guest operating systems
+	* **Generation 2** - Support most 64-bit versions of Windows and more current versions of Linux and FreeBSD operating systems
+* **Hyper-V VMs** are packaged into Virtual Hard Disk formats: VHD or VHDX files
+* There are **3 ways to connect** to your **Virtual Machines**
+* **Secure Shell (SSH)** to connect via a terminal or SSH client eg. PuTTy
+	* SSH happens on **Port 22** via TCP
+	* RSA Key Pairs are commonly used to authorize access
+* **Remote Desktop Protocol (RDP)** a graphical interface to connect to another computer over a network connection
+	* This is how you can remotely connect to Windows Server via Virtual Desktop
+	* RDP happens on **Port 3389** via TCP and UDP
+* **Azure Bastion** a service you deploy that lets you connect to a virtual machine using your browser and the Azure Portal
+	* Supports both SSH or RDP, useful when you only have access to a browser like a Chromebook, or do not have permission to configure or install software
+* **Update Management** allows you to **manage and install operating system updates and patches** for both **Windows** and **Linux** virtual machines that are deployed in Azure, on-premises, or in other cloud providers
+	* Update Management will perform a scan for update compliance
+	* A compliance scan is by default, **performed every 12 hours** on **Windows** and **every 3 hours** on **Linux**
+	* It can take between **30 minutes and 6 hours** for the dashboard to display updated data from managed computers

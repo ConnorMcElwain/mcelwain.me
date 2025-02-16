@@ -1,0 +1,235 @@
+# AZ-104 Certification Notes
+## Chapter 1.2 - AZ-104 Readiness Quiz
+
+### Question 1
+Choose 4
+* What are some of the advantages of using a subnet with Azure Virtual Network?
+	* **Subnets can have network security groups associated with them in the Resource Manager deployment model for more granular control.**
+	* **You can secure a subnet individually from the entire virtual network.**
+	* **IP address allocation on the subnet is more efficient.**
+	* **You can logically group services on the same virtual network.**
+	* Virtual machines will start faster, as the network provisioning is already done.
+	* You can save costs by only using a part of the virtual network through a subnet.
+
+You can use an Azure network security group to filter network traffic to and from Azure resources in an Azure virtual network. A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol. Subnets enable you to segment the virtual network into one or more subnetworks. Subnets enable you to segment the virtual network into one or more subnetworks and allocate a portion of the virtual network's address space to each subnet. This makes address allocation more efficient. You can have a separate network security group for the subnet, and you can logically group services as well. Subnets enable you to segment the virtual network into one or more subnetworks and allocate a portion of the virtual network's address space to each subnet. This allows you to logically group services in subnets on the same virtual network.
+
+### Question 2
+* We need to create an Azure Storage solution that will store messages created by an application so they can be processed by another application. What type of storage solution should you create?
+	* **A Queue service in a storage account**
+	* A File service in a storage account
+	* A Blob service in a storage account
+	* A virtual machine data disk
+
+Azure Queue Storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS.
+
+### Question 3
+* What is one simple way to ensure you meet certain governance rules and regulations when setting up a new Azure environment?
+	* **Use Azure Blueprints.**
+	* Use Azure Compliance Monitor to compare your infrastructure options.
+	* Use a support plan of Professional Direct or Premier level to get architecture help for a new Azure environment.
+	* Use the Azure Template Wizard when creating a new service.
+
+Azure Blueprints is a template service for creating compliant Azure infrastructure projects. You can use it to comply with standards and regulations that apply to your company. You can get architecture help using a support plan too, but it is much more laborious. [Azure Blueprints Governed Cloud Environments | Microsoft Azure](https://azure.microsoft.com/en-au/services/blueprints/ "null")
+
+### Question 4
+* What types of data does Azure Monitor collect?
+	* Underlying hardware data
+	* **Metrics and activity logs**
+	* Only activity logs
+	* Only metrics
+
+Azure Monitor collects two broad types of data: metrics and logs. Within these data types sits subscription monitoring data. Physical hardware data is not collected by Azure Monitor. [Azure Monitor overview - Azure Monitor | Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/overview "null")
+
+### Question 5
+* What is the name of the logical container used to group together and manage resources in Azure?
+	* Cloud groups
+	* **Resource groups**
+	* Resource folders
+	* Cloud folders
+
+An Azure resource group is a container used to hold the resources deployed in your Azure account. Resource groups can contain almost any type of resource in Azure, such as virtual machines, VNets, and storage accounts. The other options do not exist. [Overview - Azure Resource Manager | Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview "null")
+
+### Question 6
+* Which of the following components can be used to load balance traffic to web applications, such as Azure App Service web apps using layer 7 of the OSI model?
+	* Route table
+	* Virtual Network
+	* **Application Gateway**
+	* Virtual Network Gateway
+	* Traditional Load Balancer
+
+Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. They are aware of the much more abstract high-level layer 7 in the OSI model, meaning the load balancer understands HTTP headers and can do things such as routing requests to different places based on the URL of a web request.
+
+### Question 7
+Choose 3
+* What methods are available to connect to the Azure public cloud?
+	* Physically at the Azure datacenter
+	* **Over the internet**
+	* **Client or site-to-site VPN**
+	* **ExpressRoute**
+
+The methods to connect to the Azure public cloud are over the internet to public endpoints, via site or client VPNs to devices you configure in the cloud environment, or through a dedicated connection such as ExpressRoute. Site and client VPNs are one possible method to connect your devices to the public cloud environment. The other possible methods are over the internet to public endpoints or through a dedicated connection such as ExpressRoute. ExpressRoute is one possible method to connect to the public cloud environment. The other possible methods are over the internet to public endpoints or via site or client VPNs you configure in the cloud environment. [Networking | Microsoft Azure](https://azure.microsoft.com/en-gb/product-categories/networking/ "null")
+
+### Question 8
+* Which of the following services includes Log Analytics, Azure Monitor alerts, and Application Insights?
+	* Azure Service Health
+	* **Azure Monitor**
+	* Azure Advisor
+	* Azure Service Trust Portal
+
+Azure Monitor includes services such as Log Analytics, Azure Monitor alerts, and Application Insights. Azure Monitor acts as a wide-ranging surveillance tool that aggregates, scrutinizes, and reacts to telemetry data from your cloud-based and on-site infrastructures. Log Analytics allows you to collect, store, and analyze log data from virtually any source, enabling in-depth insights into operational performances and patterns. Azure Monitor alerts help you identify and respond to critical situations and potential issues within your Azure resources, based on specific metrics and log query results. Application Insights monitors live applications, automatically detects performance anomalies, and helps in diagnosing issues and understanding how to improve app performance and usability.
+
+### Question 9
+* Which of the below is a compute service that allows you to run manageable VMs inside a cloud network?
+	* Azure Container Instances
+	* Redis Cache
+	* **Azure Virtual Machines**
+	* Azure Virtual Network
+
+Azure Virtual Machines is a compute service that allows you to run virtual machines in the cloud.
+
+### Question 10
+Choose 2
+* Which of the following statements are true for IaaS cloud services?
+	* The client is responsible for purchasing all operating system (OS) host licensing.
+	* **Services can be scaled automatically to support system load.**
+	* The client has complete control over the hardware hosting the VM.
+	* **The client is responsible for all guest VM OS and application updates.**
+
+IaaS host services often feature the ability to scale automatically to combat increased system load and scaled back during periods of inactivity. Client must perform all guest OS and application updates. Operating system (OS) licensing is included in the per-use cost of the service. [What is IaaS? Infrastructure as a Service | Microsoft Azure](https://azure.microsoft.com/en-us/overview/what-is-iaas/ "null")
+
+### Question 11
+* Which of the following can be used to restrict connectivity to Azure virtual machines or subnets?
+	* Virtual network gateway
+	* Service endpoint
+	* Route table
+	* **Network security group**
+
+You can filter network traffic to and from resources in a virtual network using network security groups. You can control how Azure routes traffic from subnets. [Plan Azure virtual networks | Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm#security "null")
+
+### Question 12
+* Which of the following terms is used to describe verifying the identity of a user?
+	* Azure Active Directory
+	* Authorization
+	* **Authentication**
+	* Azure regions
+
+Authentication is confirming users are who they say they are. [Authentication vs. authorization - Microsoft identity platform | Microsoft Docs](https://docs.microsoft.com/en-us/azure/active-directory/develop/authentication-scenarios "null") [Authentication and authorization - Azure App Service | Microsoft Docs](https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization "null")
+
+### Question 13
+* Which Azure service can help you collect, analyze, and act on telemetry from your cloud and on-premises environments?
+	* Azure WebJobs
+	* **Azure Monitor**
+	* Azure Analyzer
+	* Azure App Service
+
+Azure Monitor is a service that can help you understand how your applications are performing and proactively identify issues affecting them and the resources they depend on. [Azure Monitor overview - Azure Monitor | Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/overview "null")
+
+### Question 14
+Choose 2
+* Which of the following are characteristic of the private cloud?
+	* Lower costs
+	* **Improved security**
+	* **High scalability**
+	* Limited flexibility
+
+Because resources are not shared with others, private clouds are seen by Microsoft as providing higher levels of control, privacy and security. Microsoft states that "...private cloud computing gives businesses many of the benefits of a public cloud - including self-service, scalability, and elasticity...". Azure Documentation: [What is a private cloud?](https://azure.microsoft.com/en-us/overview/what-is-a-private-cloud/ "null")
+
+### Question 15
+* Which of the following statements best describes a network security group?
+	* Network security groups are established connections between your network and Azure.
+	* Network security groups are groups of devices within a subnet that perform security functions.
+	* **Network security groups contain inbound and outbound security rules enabling traffic to be filtered.**
+	* Network security groups are another name for peered virtual networks, allowing secure communication between resources.
+
+Network security groups are used to filter traffic to and from resources in an Azure virtual network. They contain lists of security rules that allow or deny inbound and outbound traffic. The security rules contain properties such as priority, source or destination, protocol, direction, port range, and action. [Azure network security groups overview | Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#network-security-groups "null")
+
+### Question 16
+Choose 2
+* Which of the following components are required to establish private communication between on-premises resources and resources in Azure?
+	* **Azure Virtual Network**
+	* VNet peer
+	* **Virtual network gateway**
+	* Route tables
+
+Azure Virtual Network enables many types of Azure resources, such as Azure virtual machines (VMs), to securely communicate with each other, the internet, and on-premises networks. [Azure Virtual Network | Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview "null") A virtual network gateway defines the Azure network side of a site-to-site virtual private network. [Azure VPN Gateways](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways "null")
+
+### Question 17
+* As our first move to Azure, we have created a new Azure subscription and resource group called RG-DC. You deploy two virtual machines into RG-DC with the intent of promoting these to Active Directory domain controllers. These are example actions for what cloud computing service type?
+	* Database as a service (DBaaS)
+	* **Infrastructure as a service (IaaS)**
+	* Software as a service (SaaS)
+	* Platform as a service (PaaS)
+
+Infrastructure as a service (IaaS) is the use of on-demand computing infrastructure provisioned and managed over the internet. Deploying virtual machines into an Azure subscription would be considered an IaaS service. [What is IaaS? Infrastructure as a Service | Microsoft Azure](https://azure.microsoft.com/en-us/overview/what-is-iaas/ "null")
+
+### Question 18
+* We are migrating an application from on-premises to the Azure cloud. The application communicates with a file share hosted on a Windows server on premises that no other applications have access to. Which Azure Storage service could be used to replace the file share?
+	* **Azure Files**
+	* Azure Virtual Machines
+	* Azure Queues
+	* Azure Data Lake
+
+Azure Files can be used to house the migrated Windows file share data. [File Storage | Microsoft Azure](https://azure.microsoft.com/en-gb/services/storage/files/ "null")
+
+### Question 19
+* What is the description of a region in Microsoft Azure?
+	* A geographical area containing at least one Azure datacenter per continent worldwide.
+	* A geographical area containing all of the Azure datacenters located within a single countries borders.
+	* A logical boundary defining the secure communication boundary between a customer's virtual machines.
+	* **A set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network.**
+
+An Azure region is a geographical area, usually around one part of a particular country, that comprises of one or more physical Azure datacenters connected together with very fast network connections. Regions can span across multiple countries (such as the East Asia region), and there can be more than one region per country (the US has over a dozen regions). A logical boundary for secure communication would usually refer to a VNet (a virtual network). Reference: [Azure global infrastructure](https://azure.microsoft.com/en-au/global-infrastructure/ "null")
+
+### Question 20
+* Which Azure service should you use to correlate metrics and logs from multiple Azure resources into a centralized repository?
+	* **Azure Monitor**
+	* Azure Event Grid
+	* Azure Event Hubs
+	* Azure SQL Data Warehouse
+
+Log data collected by Azure Monitor (formerly Azure Log Analytics) is stored in a Log Analytics workspace, which is based on Azure Data Explorer. It collects telemetry from a variety of sources and uses the Kusto query language used by Data Explorer to retrieve and analyze data. [Overview of log queries in Azure Monitor - Azure Monitor | Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/log-query-overview "null")
+
+### Question 21
+* You have been asked to migrate a single and monolithic web application to Azure. Which compute service would allow you to update and scale the application in a fast, easy and network efficient manner, while simplifying deployments?
+	* Virtual Machines
+	* Blob Storage
+	* **Containers**
+	* Azure Functions
+
+There are benefits to using containers to manage monolithic deployments. Scaling the instances of containers is far faster and easier than deploying additional VMs. Deploying updates as Docker images is far faster and network efficient. Docker containers typically start in seconds, speeding rollouts. Tearing down a Docker container is as easy as invoking the docker stop command, typically completing in less than a second. [Monolithic application deployed as a container](https://docs.microsoft.com/en-us/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/monolithic-applications#monolithic-application-deployed-as-a-container "null").
+
+### Question 22
+* Which Azure service should you use to store certificates?
+	* Azure Security Center
+	* Azure Information Protection
+	* **Azure Key Vault**
+	* Azure storage account
+
+Azure Key Vault can be used to securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets. [Azure Key Vault Overview - Azure Key Vault | Microsoft Docs](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-overview "null")
+
+### Question 23
+* Which of the following Azure Storage services is most suitable for replacing on-premises file servers?
+	* Disk Storage
+	* **Azure Files**
+	* Azure Storage Explorer
+	* Blob Storage
+
+Azure Files provides highly available network file shares using the SMB protocol. This allows multiple VMs to read and write the files, and files may be accessed remotely using a URL. [Introduction to Azure Storage - Cloud storage on Azure | Microsoft Docs](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction#disk-storage "null")
+
+### Question 24
+* Which of the following statements regarding Azure Virtual Machines is true?
+	* **Deleted virtual machines will still incur charges for storage.**
+	* If a virtual machine is stopped and deallocated for 30 days, it will be deleted.
+	* Two virtual machines with the same size will incur the same monthly charges.
+	* Virtual machines can be auto-resized to combat system performance.
+
+When a virtual machine is deleted, its managed disk remains in the Azure portal and can be used to create a new virtual machine. Until this disk is manually removed, you will incur charges for the disk whether it is in use or not. [Purchase Azure products and services - Learn | Microsoft Docs](https://docs.microsoft.com/en-us/learn/modules/predict-costs-and-optimize-spending/1a-purchasing-products "null")
+
+### Question 25
+* What are security policies used for in Azure?
+	* A set of rules that Azure uses to validate user access and permissions to Azure resources.
+	* **A set of rules that Azure can use to evaluate if your configuration of a service is secure and complies with your organization's security guidelines.**
+	* Rules used to restrict and validate access to files and documents hosted on Azure.
+	* To connect to outside security services that aren't part of the Azure Trusted Providers program.
+
+Security policies in Azure define the desired configuration of your services and workloads. They help ensure you're complying with your company's security requirements. User access and permissions are done through Azure Active Directory. Restricting access to files can be done with Azure Information Protection. [Working with security policies | Microsoft Docs](https://docs.microsoft.com/en-us/azure/security-center/tutorial-security-policy "null")

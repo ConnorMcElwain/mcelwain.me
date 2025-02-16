@@ -1,0 +1,31 @@
+# AZ-900 Certification Notes
+## Chapter 12.4 - Pricing Factor
+
+### Scenario
+Any Azure account can have a lot of resources: networks, connections, virtual machines, firewalls, storage accounts, functions, and more. You'll have resources connected to each other, and quickly you can lose track of how many dependencies are between various services. Then, try and calculate which pricing is valid where, and how much it will be. Calculating Azure costs on mature infrastructure is almost impossible.
+
+### Influences on Pricing
+* Resource Size
+	* Different sizes of resources will have different pricing. A more powerful virtual machine will cost more
+* Resource Type
+	* There is a very big difference in the amount of hardware resources needed for various types of resources, as well as complexity
+* Location
+	* Different Azure locations have different prices for services. Exchange rates, labor costs and more have an influence on the price
+* Bandwidth
+	* The bandwidth your services are using incurs a cost as well
+
+### Zones & Bandwidth
+Azure has three billing zones in the world. Each of these zones include many Azure regions. Any data transfer between Azure services located in the same zone is free. Any data transfer between two different billing zones is charged. This is also called ingress, data in, and egress, data out, data. Ingress data is **always free**, but egress data (data going out) **has a cost** with it when it's transmitted between two different billing zones.
+
+### Pricing Calculator
+The calculator will estimate cost for almost any scenario. You can add any Azure service and it'll show in the calculator complete with any features that affect the pricing. If you add a virtual machine, you can select the size, location, operating system, and tier. If you add a functions app, you decide on the memory, number of executions, add execution time. Once you've added up all the different services you think you'll need, Azure will give you an estimate on the monthly cost of the services. Just remember, this is only an estimate! You can export the estimate into a spreadsheet and use that as part of any proposals. 
+* Choose from all available Azure services
+* Select resource properties, such as for a Virtual Machine
+* Monthly cost estimate
+* Export estimate for further analysis and use
+
+### Total Cost of Ownership Calculator
+The Total Cost of Ownership Calculator can help answer the question of whether you'll be better off with a fully on-prem, hybrid, or fully cloud environment.
+* Get an estimate of the total savings you could get for moving your on-premises resources to Azure
+* Estimate total savings over a period of time by using Azure
+* Comprehensive reports to share with stakeholders

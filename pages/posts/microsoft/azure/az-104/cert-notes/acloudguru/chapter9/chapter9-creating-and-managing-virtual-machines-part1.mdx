@@ -1,0 +1,49 @@
+# AZ-104 Certification Notes
+## Chapter 9 - Creating and Managing Virtual Machines (Part 1)
+
+### What is an Azure Virtual Machine?
+* Scalable cloud computing resource offered as Infrastructure as a Service (IaaS)
+* Includes CPU, memory, storage, and networking resources
+* Can be created from the Azure Portal, Azure CLI, or PowerShell
+
+### Defining Virtual Machines
+* Core Parts
+	* CPU and Memory
+		* Determined by virtual machine (VM) sizing. Selected based on VM use case
+	* Networking
+		* Virtual Networks (VNets), Subnets, Network Interface Card (NIC), Public IP (PIP), and Network Security Group (NSG)
+	* Storage
+		* Azure Disks, consisting of OS disk, temporary disk, and data disk
+
+### Keeping VM Workloads in the Family
+* VM Family Type:
+	* General Purpose
+		* **Balanced CPU-to-memory.** Best for testing, development, or for small to medium workloads
+	* Compute Optimized
+		* **High CPU-to-memory.** Good for medium traffic web servers, network appliances, batch processing, and app servers
+	* Memory Optimized
+		* **High memory-to-CPU.** Works well for relational databases, caching, and in-memory analytics
+	* Storage Optimized
+		* **High disk throughput and I/O.** Good for Big Data, SQL, NoSQL, and data warehousing. Works well for Online Transactional Processing (OLTP) databases
+	* GPU
+		* **Specialized for heavy graphic rendering and video editing.** Works well for artificial intelligence (AI) training and deep learning
+	* HPC
+		* **Fastest and most powerful.** Great for intensive workloads like large scale geophysics and advanced mathematics/sciences
+
+### Virtual Machine Properties
+* Name:
+	* VM1
+* Region:
+	* East US 2
+* Size:
+	* Standard_B1s
+* Image:
+	* Linux/Windows
+
+* Virtual Machine
+	* Disk
+		* Operating system and temporary disk by default
+		* Can add additional data disks
+	* NIC
+		* IP configurations
+			* Private IP address and if wanted a public IP address

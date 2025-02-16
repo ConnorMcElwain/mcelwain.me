@@ -1,0 +1,75 @@
+# AZ-104 Certification Notes
+## Chapter 8.2 - Storage Comparison
+
+### Introduction to Storage Accounts
+* Type:
+	* General-purpose V2
+		* Service:
+			* Blob, File, Queue, Table, Disk, Data Lake Gen 2
+		* Performance Tiers:
+			* Standard, Premium
+		* Access Tiers:
+			* Hot, Cool, Archive
+		* Replication:
+			* LRS, GRS, RA-GRS, ZRS, GZRS, RA-GZRS
+		* Deployment Models:
+			* Resource Manager
+	* General-purpose V1
+		* Service:
+			* Blob, File, Queue, Table, Disk
+		* Performance Tiers:
+			* Standard, Premium
+		* Access Tiers:
+			* N/A
+		* Replication:
+			* LRS, GRS, RA-GRS
+		* Deployment Models:
+			* Resource Manager (**Classic**)
+	* BlockBlobStorage
+		* Service:
+			* Blob (block, append)
+		* Performance Tiers:
+			* Premium
+		* Access Tiers:
+			* N/A
+		* Replication:
+			* LRS, ZRS
+		* Deployment Models:
+			* Resource Manager
+	* FileStorage
+		* Service:
+			* File
+		* Performance Tiers:
+			* Premium
+		* Access Tiers:
+			* N/A
+		* Replication:
+			* LRS, ZRS
+		* Deployment Models:
+			* Resource Manager
+	* BlobStorage
+		* Service:
+			* Blob (Block, append)
+		* Performance Tiers:
+			* Standard
+		* Access Tiers:
+			* Hot, Cool, Archive
+		* Replication:
+			* LRS, GRS, RA-GRS
+		* Deployment Models:
+			* Resource Manager
+
+### Practice Quiz
+* Which storage type has the most **Service** and **Replication** features?
+	* BlobStorage
+	* General-purpose V1
+	* **General-purpose V2**
+	* FileStorage
+* Which storage type has the Deployment Models **Resource Manager** and **Classic**?
+	* BlobStorage
+	* General-purpose V2
+	* BlockBlobStorage
+	* **General-purpose V1**
+
+* Which storage type only has the Performance Tier **Standard**?
+	* BlobStorage

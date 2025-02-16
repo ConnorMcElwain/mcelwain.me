@@ -1,0 +1,26 @@
+# AZ-104 Certification Notes
+## Chapter 9.11 - Bastion
+
+### Azure Bastion
+**Azure Bastion** is an **intermediate harden instance** you can use to connect to your target server via SSH or RDP. It will provision a web-based RDP client or SSH Terminal.
+
+**Some devices cannot run an RDP Client** such as a Google Chromebook, so Azure Bastion is one of the only ways to allow you to do that.
+
+When you create an Azure Bastion you need to add a subnet to your VNet called **AzureBastionSubnet** with at least a size of /27 (32 addresses)
+
+If you have a Windows Server which requires RDP, and have a Bastion in the same VNet, you just enter in your username and password like you normally would.
+
+If you have a Linux server you can SSH with the Bastion. You can use SSH Private Key or Password that you set when you created your VM.
+
+### Practice Quiz
+* You can use SSH Private Key or Password that you set when you created your VM
+	* **True**
+	* False
+* When you create an Azure Bastion You need to add a Subnet to your VNet called (**BLANK**) with at least a size of /26 (32 addresses)
+	* **AzureBastionSubnet**
+	* AzureVNetSubnet
+	* AzureVMSubnet
+	* AzureDeviceSubnet
+
+* What is an **intermediate harden instance** you can use to connect to your target server via SSH or RDP?
+	* **Azure Bastion**

@@ -1,0 +1,25 @@
+# PowerShell for Microsoft 365 Notes
+## Chapter 7.3 - Teams Users
+
+### Managing Users
+* Add-TeamUser
+	* Add a User to a Team
+* Remove-TeamUser
+	* Remove a User from a Team
+
+Adding Users
+```
+$team = Get-Team -DisplayName HelpDesk
+# user to add as a member must be licensed for Teams
+Add-TeamUser -GroupId $team.GroupId -User $bob.id
+```
+
+Removing Users
+```
+$team = Get-Team -DisplayName HelpDesk
+# user to add as a member must be licensed for Teams
+Remove-TeamUser -GroupId $team.GroupId -User $bob.id
+```
+
+### Conclusion
+* Adding and Removing Users

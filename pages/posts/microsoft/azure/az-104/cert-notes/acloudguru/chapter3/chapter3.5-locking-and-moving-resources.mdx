@@ -1,0 +1,26 @@
+# AZ-104 Certification Notes
+## Chapter 3.5 - Locking and Moving Resources
+
+### Describing Resource Locks
+* What Are Locks?
+	* Locks allow you to override permissions to resources
+	* You can lock subscriptions, resource groups, or resources
+	* Lock restrictions apply to all users and roles
+
+### Types of Resource Locks
+* Lock Types
+	* ReadOnly allows authorized users to read a resource, but they cannot delete or update the resources
+	* CanNotDelete allows authorized users to read and modify resources, but they cannot delete the resource
+	* Locks are inherited from the parent scope
+
+### Moving Resources
+Moving resources is the process of actually moving resources that are contained in a specific place in Azure, for example, inside of a subscription. More specific, these resources nested inside of a logical container like a resource group. You can move resources inside of Azure between resource groups. You can move resources to other resource groups within the same subscriptions, or across other subscriptions as well.
+
+### Key Takeaways
+* Resource Locks
+	* ReadOnly
+		* Only allows users to perform read operations if they have an authorization through enroll assignment for their user
+	* CanNotDelete
+		* Prevents users from deleting resources, but still allows read and update operations
+
+If we set a resource lock at a parent scope, it's going to be inherited by all the resources that are nested under that. For example, resource groups and resources that they contain. Resource locks can also play into moving resources. For example, if we have a ReadOnly lock, we're not going to be able to move resources, but if we had a DeleteOnly lock, we won't be able to delete the resources, but we can read them and perform update operations. This means we would be able to move resources between resource groups. When moving resources, we can move them between subscriptions in Azure for cross-subscription movement, and also move them between regions. There are some resources inside of Azure that support movement operations and some that don't.

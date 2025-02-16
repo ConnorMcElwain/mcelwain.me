@@ -1,0 +1,47 @@
+# AZ-104 Certification Notes
+## Chapter 7.5 - Network Security Groups
+
+### Defining NSGs
+* NSGs Control the Flow of Traffic
+	* A network security group (NSG) controls the traffic flowing through a virutal network. This is done so by:
+		* Creating rules that define what is allowed/denied
+		* Controlling security at the subnet or NIC network layers
+		* Specifying rule priority
+* Filter Traffic
+	* Determining what traffic will be allowed or denied inbound and outbound
+* Rules
+	* Evaluating default rules that cannot be deleted and user-defined rules that can be created
+* Priority
+	* Specifying priority to order the precedence of rules. The lower the number, the higher the priority
+* Association
+	* An NSG has no effect unless associated to either a subnet or network interface card (NIC)
+* Precedence
+	* "let the traffic guide you" into evaluating which rules are processed. Once a rule is matched, no other rule is read
+
+### Architecting NSGs
+For example:
+* VNet
+	* Subnet
+		* NSG1
+			* Web-VM
+			* DB-VM
+				* NSG2 (part of DB-VM's NIC)
+* NSG1
+	* Allow SSH Inbound
+	* Allow HTTP Inbound
+	* AllowInternetOutbound
+* NSG2
+	* DenyAllInbound
+	* AllowInternetOutbound
+Now, if we want to send some traffic like HTTP, into our subnet, what we'll notice is we have to traverse NSG1 first, because it's at the subnet level. This HTTP traffic is allowed inbound as we see by the security rules. So we can access our Web-VM without issue. The same can't be said for the DB-VM and that's because of the DenyAllInbound rule on our NSG2. This is going to be the same case with our SSH traffic. Say, we make an SSH connection into our network. This is going to be allowed to the Web-VM, but trying to connect via SSH to our DB-VM is not going to work due to the NSG2 rules set.
+
+### Key Takeaways
+* Network Security Groups Control Traffic
+* Traffic Filtering
+	* Allow or deny traffic using rules that are defined by properties such as priority, port, protocol, source, destination, and action
+* Association
+	* NSGs can be associated with subnets or NICs of virtual machines. When unassociated, they have no affect on traffic
+* Rules
+	* Default rules that cannot be deleted and user-defined rules that can be created
+* Follow the Traffic
+	* Evaluate rules by following the traffic. Inbound traffic checks the subnet, then the NIC for NSGs. Outbound traffic checks the NIC, then the subnet for NSGs. Intra-net traffic is affected

@@ -1,0 +1,35 @@
+# AZ-900 Certification Notes
+## Chapter 8.3 - Zero Trust Concepts
+
+### Classic Trusted vs. Untrusted Model
+Trusted Perimeter
+Trust boundary for secure access
+* Example: Corporate network
+* Restrict private access to secure networks
+If you're on the internal corporate network, you have a higher level of trust to the sensitive resources restricted within the secure networks. By comparison, users and devices outside of that corporate network are considered to be non-trusted devices. So users, computers, and databases insides of our corporate network or our trusted perimeter are implicitly trusted, and anyone outside of that network is not trusted.
+
+### Challenges with Trusted Perimeter Model
+Must be on corporate network to access resources
+* Remote work is a challenge
+	* VPN is extension of trusted perimeter
+* Mobile device access even more challenging
+	* May require more advanced work arounds
+Rogue user/malware inside trusted perimeter network can cause havoc
+* Broad scope of access
+
+### Enter Zero Trust
+What is Zero Trust?
+* All users assumed **untrustworthy** unless proven otherwise
+	* Trusted by **identity**
+	* Regardless of location (trusted/untrusted networks)
+	* Least privilege access -- just enough permissions to perform job
+	* Simplified, centralized management
+Zero Trust = Trusted **Identities**, Not Location
+
+### Zero Trust in Action
+Access Microsoft 365 email, documents, and resources for remote workforce
+* Access from anywhere
+* Authenticate with identity, not over VPN
+Centrally control access with Conditional Access policies
+Allow access only from approved managed devices
+* These devices can be used independent from any specific network location

@@ -1,0 +1,26 @@
+# AZ-104 Certification Notes
+## Chapter 6.8 - Securing Storage Accounts
+
+### Azure Storage Encryption
+* Secure Storage
+	* By default, all data stored (data at rest) in any Azure Storage service is secured using Storage Service Encryption (SSE)
+	* All data in transit can be secured using transport-level security (HTTPS)
+
+### Azure Storage Authentication
+* Management Layer
+	* This includes things like the high-level resource of our storage account
+* Data Layer
+	* This includes the data that's inside of our services, for example, our blobs or our files and folders instead of our shares
+
+* Access Keys
+	* Azure-generated keys that provide unlimited access to both the management and data layer of an Azure Storage solution
+* Shared Access Signature (SAS)
+	* An access signature, generated from access keys, that provides limited access at either the account level or the service level
+* Azure AD Authentication
+	* Uses Azure role-based access control (RBAC) and Azure Active Directory (AD) identities to provide authentication (instead of access keys)
+
+### Key Takeaways
+When we're talking about securing our storage accounts, we have the default encryption for our data at rest through the Storage Service Encryption. We also have encryption if we require a secure transfer for our data in transit so that we can only allow HTTP requests to our data that are secure over HTTPS. We also have to keep in mind that we have the management layer that we have to secure. That would be the storage account and service levels. Then we have our individual data layer, the data that's stored inside of these services, such as files, queues, blobs, and tables. We can secure these by using things like **access keys**. We can use these access keys to generate something known as **Shared Access Signature** tokens and URLs that we can use to limit and restrict the access, because we know that the access keys give unlimited access to the management/data layer. We can further use Azure AD Authentication so that we can secure our storage account services, such as blobs and queues, using these Azure RBAC roles that are built in such as we saw with the storage blob data contributor/data owner.
+* Access Keys
+* Shared Access Signature (SAS)
+* Azure AD Authentication

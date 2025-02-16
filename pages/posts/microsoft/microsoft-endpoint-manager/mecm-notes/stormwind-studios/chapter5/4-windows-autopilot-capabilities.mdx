@@ -1,0 +1,119 @@
+# Microsoft Endpoint Manager Notes
+## Chapter 5.4 - Windows Autopilot Capabilities
+
+### Windows Autopilot - Capabilities
+* Capabilities:
+	* Windows Autopilot is self-updating during OOBE
+	* Cortana Voiceover and Speech Recognition during OOBE
+	* BitLocker Encryption
+* Windows Autopilot User-Driven Mode
+	* User-driven mode for Azure Active Directory Join
+		* User can join devices to AAD
+		* Create profile with desired settings
+		* Create Device Group in AAD and assign the Autopilot profile to it
+	* Additionally for each device:
+		* Add the device to Windows Autopilot
+			* Automatically by an OEM when the device is purchased
+			* Manually harvesting
+		* Ensure profile has been applied to device
+			* Automatically through group assignments
+			* Manually add
+	* User-driven mode for Hybrid Azure Active Directory Join
+		* Create Autopilot profile with "Hybrid Azure AD joined" specified
+		* Create device group with that profile assigned to it
+		* Create domain join profile including on-prem AD domain join info
+		* Device must have internet access
+		* Intune Connector for Active Directory must be installed (this connector will do the join instead of the user needing to have rights to do so)
+		* WPAD Proxy settings option must be enabled and configured if using a proxy
+	* Additional requirements for on-prem scenario for user driven Hybrid Azure AD join
+		* Device must be Windows 10 version 1809 or later
+		* Device must have access to an Active Directory Domain Controller and be connected to the network
+	* User-driven mode for Hybrid Azure Active Directory Join with VPN Support
+		* In addition to the aforementioned requirements
+		* Supported version of Windows 10/11
+		* Enable the "Skip Domain Connectivity Check" toggle in the Hybrid Azure AD Join Autopilot profile
+		* A VPN configuration that:
+			* Can be deployed with Intune and lets the user manually establish a VPN connection from the Windows logon screen, or
+			* One that automatically establishes a VPN connection as needed
+		* Confirm a user-driven Hybrid Azure AD join is possible on your network
+		* Validate the VPN configuration can be deployed using Intune to an existing device that has already been hybrid Azure AD joined
+* Windows Autopilot Self-Deploying Mode
+	* Network connectivity
+		* Ethernet connection requires no user interaction
+		* Wi-Fi connection user must only
+			* Choose the language, locale and keyboard
+			* Make a network connection
+	* Self-deploying mode provides all the following:
+		* Joins the device to Azure AD
+		* Enrolls the device in Intune using Azure AD for automatic MDM enrollment
+		* Makes sure that all policies, applications, certificates and networking profiles are provisioned on the device
+		* Uses the Enrollment Status Page to prevent access until the device is fully protected
+	* Self-Deploying mode does not support AD Join or Hybrid Azure AD join - only Azure AD join
+* Windows Autopilot Self-Deploying Mode - Requirements
+	* TPM 2.0 hardware
+	* TPM Device attestation
+		* This require access to a set of HTTPS URL's that are unique for each TPM provider
+	* Create Autopilot profile for self-deploying mode with desired settings
+	* Create device group in Azure AD and assign the profile to that group
+	* Boot the device, connecting to Wi-Fi if necessary
+* Windows Autopilot Reset
+	* Reset Devices with Local Windows Autopilot Reset
+		* Quickly remove personal files, apps, and settings
+		* Reset Windows devices from the lock screen
+		* Apply original settings and management enrollment
+	* Enable Local Windows Autopilot Reset
+		* Configure the "DisableAutomaticReDeploymentCredentials" policy
+	* Remote Reset of Devices
+		* An MDM Service such as Intune can be used to remotely kick off the remote Windows Autopilot reset
+* Windows Autopilot for Pre-Provisioned Deployment
+	* Prerequisites
+		* Windows 10, version 1903 or later or Windows 11
+		* Windows Pro, Enterprise, or Education editions
+		* An Intune Subscription
+		* Physical devices that support TPM 2.0 and Device Attestation
+		* Virtual machines are NOT supported
+		* Physical devices with Ethernet connectivity
+		* Wi-Fi is NOT supported
+	* Preparation
+		* User-driven Azure AD join - Ensure ability to deploy devices using Windows Autopilot and join them to an Azure AD tenant
+		* User-driven with Hybrid Azure AD join - Ensure ability to deploy devices using Windows Autopilot and join them to an on-prem AD domain, register them with Azure AD to enable the Hybrid Azure AD join features
+* Windows Autopilot for Pre-Provisioned Deployment
+	* Scenarios
+		* User-driven deployments with Azure AD join
+		* User-driven deployments with Hybrid Azure AD join
+	* Each of these have two parts
+		* Technician Flow
+		* User Flow
+* Windows Autopilot for Pre-Provisioned Deployment
+	* Technician Flow
+		* Technician follows pre-provision process
+			* Boot the device
+			* From OOBE, press Windows key 5 times and choose the Windows Autopilot provisioning option
+			* Validate information shown on screen
+			* Make any necessary changes
+			* Select Provision to begin the provisioning process
+			* If green, select Reseal to finish and ship to user
+			* If red, check to see what failed
+	* User Flow
+		* End User completes process
+			* Power on
+			* Select language, locale, and keyboard layout
+			* Connect to network
+			* Enter user's Azure AD credentials
+			* If Hybrid Azure AD joined, after reboot, enter the user's Azure AD credentials again
+			* Additional policies and apps will be applied at this point
+* Windows Autopilot Deployment for Existing Devices
+	* Prerequisites
+		* Supported version of Microsoft Endpoint Configuration Manager current branch
+		* Windows ADK
+		* Assigned Microsoft Intune Licenses
+		* Azure AD Premium
+		* A supported version of Windows 10 or Windows 11 imported into MECM as an OS image
+
+### Topic Summary
+* Capabilities
+	* Windows Autopilot User-Driven Mode
+	* Windows Autopilot Self-Deploying Mode
+	* Windows Autopilot Reset
+	* Windows Autopilot for Pre-Provisioned Deployment
+	* Windows Autopilot Deployment for Existing Devices

@@ -1,0 +1,61 @@
+# AZ-104 Certification Notes
+## Chapter 9.6 - Automating Virtual Machine Deployments
+
+### Why Automate VM Deployments?
+* Patch/update Operating Systems (OS)
+* Pre-Install software (e.g. Apache2 web server)
+* Preconfigure settings
+
+### Azure Resource Manager (ARM) Templates
+* Infrastructure as Code (IaC)
+	* Text-based (declarative JSON) definition of Azure resources and resource configurations
+* Deployment Consistency
+	* Manage resource deployments using software deployments methodologies
+* Automation
+	* Automate resource deployments and provide modular approach to resource deployments
+```
+Resource: "Virtual Machine" {
+	Virtual Machine Properties: {
+		Name: "VM1",
+		Location: "East US",
+		Size: "Standard_B1s",
+		Storage: {
+			OSImage: "Linux",
+			DataDisk: "DataDisk1"
+		},
+		Network: {
+			NIC: "NIC1"
+		}
+	}
+}
+```
+* Resource Group
+	* VNet
+		* Subnet
+			* NSG
+			* VM
+				* Disk
+				* NIC
+					* Public IP
+
+### Virtual Hard Disk (VHD) Templates
+* Prep Virtual Machine
+	* Configure VM with required software, updates, and configurations
+* Generalize Virtual Machine
+	* Prepare VM for imaging using *sysprep* (Windows) or *VM Agent deprovision* (Linux)
+
+### Demonstration
+* Deploy VM Using ARM Template
+	* Using an ARM template, deploy a Linux VM and modify the NSG rule properties
+* Generalize VM
+	* Generalize the Linux VM to prep for imaging as a VHD template
+* Deploy VM from Custom Image
+	* Using the generalized image, deploy a Linux VM
+
+### Exam Tips
+* ARM Templates
+	* Deploy VMs quickly and manage infrastructure using change control using Infrastructure as Code (IaC)
+* VHD Template
+	* Create a golden image of VMs to easily deploy VMs with consistent software and configurations
+* Automate Management
+	* Manage VM deployments using custom data and manage VMs using extension scripts

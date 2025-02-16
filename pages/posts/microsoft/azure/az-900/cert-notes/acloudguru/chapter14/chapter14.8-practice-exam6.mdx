@@ -1,0 +1,365 @@
+# AZ-900 Certification Notes
+## Chapter 14.8 - Practice Exam - 6
+
+### Question 1
+* You are creating a new storage account for relatively non-critical business data that does not need high availability. You need to choose a redundancy option that will cost the least. Which redundancy option should you choose?
+	* **Locally redundant storage (LRS)**
+	* Geo-redundant storage (GRS)
+	* Geo-zone-redundant storage (GZRS)
+	* Zone-redundant storage (ZRS)
+
+Locally redundant storage (LRS) is the least expensive redundancy option in Azure Storage, creating three copies of your data in a single location or zone. It is the least fault tolerant option, which is balanced out by its lower price.
+
+### Question 2
+* What is the purpose of Conditional Access?
+	* Proactive notifications of errors in your Azure resources to enable quick resolution.
+	* **Centralized identity access that goes beyond username/password, and providing conditions that must be met for access.**
+	* Managed instance of classic Active Directory (AD DS) to authenticate legacy enterprise applications.
+	* A feature to allow external users access to your Azure environment using their existing account/identity provider.
+
+Conditional Access uses if-then statements along with a valid username/password to grant or block access.
+
+### Question 3
+* What is the purpose of private endpoints on Azure?
+	* Encrypted connection over the public internet connecting an on-premises location to an Azure virtual network
+	* Managed storage service, including blob and disk stores
+	* **Managed network interface in a virtual network that provides a private connection to Azure-managed (PaaS) services**
+	* Network service that evenly distributes incoming network traffic to multiple backend resources
+
+Private endpoints are managed network interfaces that provide private connectivity to Azure PaaS services that do not use the public internet. A virtual network can share a private endpoint connection with other connected networks, such as VPN networks, to also connect to managed services over a private connection.
+
+### Question 4
+* When choosing between Azure Storage redundancy options, which of the following is true for the geo-zone-redundant storage (GZRS) option?
+	* GZRS is the least expensive redundancy option.
+	* **GZRS creates six copies of replicated data in Azure Storage.**
+	* **GZRS protects against the failure of an entire zone in the primary region.**
+	* **GZRS provides protection if an entire region becomes unavailable.**
+
+All of the single region redundancy options create three copies of data in a single region. The multi-region redundancy options create six copies: three in the primary region and three in the secondary region. GZRS replicates data between two regions. For the primary region, it replicates data three times across three zones. If one of the primary region's affected zone were to be unavailable, GZRS-replicated data would still be immediately available from the primary region. GZRS replicates data between a primary and secondary region.
+
+### Question 5
+* You are creating a new storage account that will host business-critical data necessary for training a machine learning model. You need to choose a redundancy option that can withstand a region failure and data will still be available. You do not require zone redundancy in your primary region and wish to save costs where possible. Which redundancy option should you choose?
+	* Zone-redundant storage (ZRS)
+	* Geo-zone-redundant storage (GZRS)
+	* **Geo-redundant storage (GRS)**
+	* Locally redundant storage (LRS)
+
+Geo-redundant storage (GRS) replicates data to a secondary region, as well as replicates data to a single zone in the primary region. Of the two multi-region redundancy options, it is the least expensive.
+
+### Question 6
+* What is the name of the Azure feature that allows you to sign in to third-party applications using your Azure AD credentials?
+	* Azure AD Connect
+	* **Single Sign On (SSO)**
+	* Conditional Access policy
+	* Azure Policy
+
+Single Sign On allows you to use your Azure AD credentials as the authentication source for other applications.
+
+### Question 7
+* How does Azure Advisor help with various Azure tasks?
+	* Create detailed cost estimates of multiple Azure resource implementations
+	* **Recommend cost savings for existing resources, such as purchasing reserved instances for long-running VMs**
+	* **View operational excellence recommendations**
+	* **Identify steps to improve your security posture**
+
+Azure Advisor automatically calculates potential cost savings based on your current Azure resources. Advisor monitors if your Azure deployments follow deployment best practices and provides guidance for improvement where applicable. Azure Advisor provides a security score based on the security posture of your existing resources as well as provides recommendations for security improvements.
+
+### Question 8
+* Select the cloud concept that is defined by: - Preparing to recover from a catastrophic failure (e.g., cyber attack) - Set criteria on how long it will take to come back from a disaster - Setting which point in time data is recovered from
+	* Agility
+	* Scalability
+	* High availability
+	* **Reliability**
+
+There is overlap between high availability and reliability (the correct answer). High availability is more focused on replacing individual failed servers and maintaining clusters (or groups) of identical resources to ensure they are available. Reliability is more focused on plans to recover from more wide-scale disasters.
+
+### Question 9
+* Which of the following are viewed as benefits of Public Cloud computing?
+	* Capex pricing model
+	* **On demand capacity**
+	* Higher costs
+	* **Globally scalable**
+	* You no longer require an IT department
+
+(On demand capacity) - The ability to gain capacity on demand is a huge benefit to using Public Cloud computing, this has huge advantages over the limitations of on-premise infrastructure. (Globally scalable) - There are many benefits to utilizing the Cloud - such as having access to globally scalable on-demand capacity, and through the shared security model taking advantage of the knowledge and investment that Cloud providers have built into their product offerings.
+
+### Question 10
+* With any Azure Storage redundancy option, data is always replicated in the primary region. How many copies of the data are created by Azure?
+	* Zero
+	* One
+	* **Three**
+	* Two
+
+Azure creates three copies of data per region. All single-region options create three copies. All multi-region options create six copies, with three copies in each region. Reference: [Azure Storage Redundancy](https://learn.microsoft.com/en-us/azure/storage/common/storage-redundancy "null")
+
+### Question 11
+* Your company office is connected to an Azure virtual network named `hub-vnet` over a VPN connection. Your company maintains an Azure storage account that contains sensitive customer information. For security purposes, you need to disable public exposure of the storage account. You must also enable private access to the storage account from your company office. What should you do?
+	* Configure a network security group (NSG) to block public access to the storage account.
+	* **Implement a private endpoint in `hub-vnet` that connects to the storage account. Disable public access to the storage account.**
+	* Implement Azure Arc to establish a private connection to the storage account. Disable public access to the storage account.
+	* It is not possible to create private connections to PaaS services. By their very nature, PaaS services must always have a public endpoint.
+
+Private endpoints enable private access from virtual networks to a single instance of an Azure PaaS service. Private endpoints can also share their private connection to connected networks, including VPN connections.
+
+### Question 12
+* What Azure service can you use to automatically add or remove virtual machines to your environment in response to demand on your applications?
+	* **Azure Virtual Machine Scale Sets**
+	* Azure Virtual Network
+	* Fault Domains
+	* Azure Traffic Manager
+
+Azure Virtual Machine Scale Sets let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Azure Documentation: [What are Virtual Machine Scale Sets?](https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview "null")
+
+### Question 13
+* When choosing between Azure Storage redundancy options, which of the following is true for the geo-redundant storage (GRS) option?
+	* **GRS provides protection if an entire region becomes unavailable.**
+	* GRS protects against the failure of an entire zone in the primary region.
+	* GRS is the least expensive redundancy option.
+	* **GRS creates six copies of replicated data in Azure Storage.**
+
+GRS replicates data between a primary and secondary region. All of the single region redundancy options create three copies of data in a single region. The multi-region redundancy options create six copies: three in the primary region and three in the secondary region.
+
+### Question 14
+* You are creating a new storage account that will host business-critical data necessary for training a machine learning model. High availability of your data is the highest priority. You need to choose a redundancy option that can be highly available in case of both a region failure and a zone failure in your primary region. Which redundancy option should you choose?
+	* Locally redundant storage (LRS)
+	* **Geo-zone-redundant storage (GZRS)**
+	* Zone-redundant storage (ZRS)
+	* Geo-redundant storage (GRS)
+
+Geo-zone-redundant storage (GZRS) satisfies the requirements of replicating data to a secondary region _and_ replicating data across zones in the primary region.
+
+### Question 15
+* You need to implement a repeatable method of creating multiple Azure subscriptions that share the same policies, role assignments, and deployed resources across each subscription. The process of creating the above components must be automated. What Azure feature is able help with this task?
+	* **Azure Blueprints**
+	* Conditional Access policy
+	* Azure Resource Manager (ARM) templates
+	* Azure AD Connect
+
+Azure Blueprints is a declarative way to orchestrate the deployment of various resource templates and other artifacts such as: - Role assignments - Policy assignments - Azure Resource Manager templates (ARM templates) - Resource groups
+
+### Question 16
+* You are deploying a pair of Azure virtual machines. You want to ensure that the application will remain available in the event of a complete data center failure. What Azure concept will help most in this task?
+	* Availability Set
+	* Zone Redundant Storage
+	* **Availability Zones**
+	* Locally redundant storage
+
+Each Availability Zone is made up of one or more datacenters equipped with independent power, cooling, and networking within an Azure region. Configuring your Virtual Machines in distinct Availability Zones ensures that only a subset of the virtual machines in an availability zone will be affected in the event of hardware failure, OS update, or a complete data center outage. This configuration offers 99.99% SLA. [Azure AZs](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview "null").
+
+### Question 17
+* When choosing between Azure Storage redundancy options, which of the following is true for the zone-redundant storage (ZRS) option?
+	* ZRS is the least expensive redundancy option.
+	* **ZRS protects against the failure of an entire zone in a region.**
+	* ZRS provides protection if an entire region becomes unavailable.
+	* ZRS creates six copies of replicated data in Azure Storage.
+
+ZRS creates three copies of your data, one in each availability zone. If one zone is unavailable, data in the other two zones are still accessible.
+
+### Question 18
+* What is the purpose of Azure Monitor?
+	* Security information event management
+	* **Collect and analyze telemetry data from your Azure resource to make sure everything is running as it should be**
+	* Act as a centralized location for other services and applications to publish and receive event-based data between services
+	* Allow or deny access to Azure resources based on conditions surrounding an authentication attempt
+
+Azure Monitor is responsible for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments to ensure proper operation and alert you to problems when they occur.
+
+### Question 19
+* Your subscription contains multiple resource groups used for a variety of projects. You need to restrict the creation of storage accounts, regardless of end-user access in one of your resource groups. How can you do this?
+	* Resource lock
+	* Azure Sentinel
+	* ARM templates
+	* **Create an Azure Policy to restrict the creation of storage accounts in the affected resource group.**
+
+Azure Policies can restrict resource types at different scopes, including resource groups.
+
+### Question 20
+* What is the name of the Azure component that is responsible for all interactions with Azure, including the Azure portal, programmatic access, and command-line interaction?
+	* ARM templates
+	* Azure Central Interface
+	* **Azure Resource Manager**
+	* Cloud Shell
+
+The Azure Resource Manager manages and controls access to all interaction with Azure.
+
+### Question 21
+* You are creating a new storage account that will host Azure Files. You need to choose a redundancy option that is resilient to a zone becoming unavailable with no impact on service. You wish to save costs where possible. Which redundancy option should you choose?
+	* Geo-redundant storage (GRS)
+	* Geo-zone-redundant storage (GZRS)
+	* **Zone-redundant storage (ZRS)**
+	* Locally redundant storage (LRS)
+
+Zone-redundant storage (ZRS) copies data across three zones in a single region. Of the redundancy options that meet the requirements, it is the least expensive.
+
+### Question 22
+* What is the easiest way to quickly determine your security posture on Azure?
+	* Create a new virtual machine and observe the initial security concerns as noted by Microsoft Defender for Cloud.
+	* Set up an Azure Firewall and monitor how many malicious requests are stopped.
+	* Use the security coverage calculator in the Azure Portal to estimate the coverage of your security policies.
+	* **Read the secure score in Microsoft Defender for Cloud.**
+
+(Use Microsoft Defender for Cloud score) - Microsoft Defender for Cloud constantly reviews your active recommendations and calculates your secure score based on them.
+
+### Question 23
+* What is a preferred method of inviting an external user as a collaborator in your Azure AD environment?
+	* **Invite their existing account as an external guest user.**
+	* Azure AD does not allow for external users. All users must belong to the primary tenant organization.
+	* Enable scoped views of your tenant that are accessible to approved external users.
+	* Create a separate organization account for the external user.
+
+Azure AD allows you to invite guest users with their existing user account, assuming it can be authenticated with a variety of identity providers.
+
+### Question 24
+* Your company is beginning the process of migrating their existing applications to Azure. A newer, business-critical accounting application authenticates over OAuth 2.0. This application will be migrated to a virtual machine in Azure. You want to reduce administrative effort, costs, and unneeded resources to support this application. How can you authenticate this migrated application to your Azure environment using Azure-native resources?
+	* Continue using your on-premises AD server, and synchronize the server with Azure AD over Azure AD Connect. Configure the application to authenticate with your on-premises AD server.
+	* **Configure the application to authenticate using Azure AD credentials over single sign-on (SSO).**
+	* Configure the Azure Active Directory Domain Services (AADDS) service to act as a fully managed Active Directory environment. Give the AADDS instance a unique namespace and configure the application to authenticate with your AADDS instance.
+	* Configure an Azure VM with Windows Server, and operate as an Active Directory domain controller. Configure the application to authenticate with your VM-hosted AD server.
+
+Azure AD supports modern authentication protocols (e.g., OAuth 2.0) and is already present in your Azure environment.
+
+### Question 25
+* You have an Azure virtual machine named `vm-1` in a subnet named `hub-subnet`. This VM needs to send data to an Azure storage account. For security purposes, no traffic between the VM and storage account can travel over the public internet. Which Azure solutions are able to help fulfill this requirement?
+	* Application Insights
+	* **Private endpoints**
+	* Azure Arc
+	* **Service endpoints**
+
+Both private endpoints and service endpoints can privately connect an Azure subnet to a managed Azure service. Of the two, private endpoints provide more flexibility by allowing connected networks private access (including on-premises networks), but for Azure VMs, both solutions work. Both private endpoints and service endpoints can privately connect an Azure subnet to a managed Azure service. Service endpoints are a bit of a legacy solution compared to the greater capabilities of private endpoints, but both work with Azure VMs.
+
+### Question 26
+* You have been asked to migrate a Windows-based legacy on-premise application to Azure with the minimal effort possible, which compute service should you choose?
+	* **Virtual Machines**
+	* Containers
+	* Serverless
+	* Blob Storage
+
+(Virtual Machines) - The simplest migration approach would be to use Azure Migrate and target Virtual Machines - virtual machines have the closest similarity to the on-premises platform where the application resides.
+
+### Question 27
+* Select the concept that is defined as ensuring that servers are available if a single data center goes offline.
+	* Agility
+	* Scalability
+	* Elasticity
+	* **Reliability**
+
+Reliability, also known as 'Fault tolerance' is the property that enables a system to continue operating properly in the event of the failure of one or more of its components. In Azure, it refers to ensuring that a portion of the production systems are available online (via a failover cluster, available set, or available zone) if a subset of the system components (or an entire data center) goes offline. Scalability is the ability of a system or network to handle an increased load. Scalability refers to the ability to quickly expand or decrease computer processing, memory, and storage resources to meet changing demands without worrying about capacity planning and engineering for peak usage.
+
+### Question 28
+* What type of service model is the Azure Cosmos DB service?
+	* On-premises application
+	* SaaS (software as a service)
+	* IaaS (infrastructure as a service)
+	* **PaaS (platform as a service)**
+
+Platform as a service best describes Cosmos DB, as it is a managed database service in which the infrastructure and operating system is managed on your behalf, allowing you to focus on data structure and management.
+
+### Question 29
+* Which of the following recommendations is provided by Azure Advisor?
+	* **Azure App Service security**
+	* **Azure resource costs**
+	* Azure virtual machine IP configuration
+	* **Storage performance and reliability**
+
+(Azure App Service security) - Azure Advisor integrates with Azure Security Center to provide recommendations and detect vulnerabilities. Azure Advisor does not make technical recommendations that do not apply to performance, cost, or security. [Make resources more secure with Azure Advisor | Microsoft Azure](https://docs.microsoft.com/en-us/azure/advisor/advisor-security-recommendations "null"). (Azure resource costs) - A key recommendation of Azure Advisor is cost, which allows you to see how your resources are performing and provide recommendations on how to reduce the cost of underutilized systems. [Reduce service costs using Azure Advisor - Azure Advisor | Microsoft Docs](https://docs.microsoft.com/en-us/azure/advisor/advisor-cost-recommendations "null"). (Storage performance and reliability) - Advisor identifies virtual machines with standard disks that have a high volume of transactions on your storage account and recommends upgrading to premium disks. [Improve the performance and reliability of virtual machine disks by using Premium Storage | Microsoft Azure](https://docs.microsoft.com/en-us/azure/advisor/advisor-performance-recommendations#improve-the-performance-and-reliability-of-virtual-machine-disks-by-using-premium-storage "null").
+
+### Question 30
+* When choosing between Azure Storage redundancy options, which of the following is true for the locally redundant storage (LRS) option?
+	* **LRS protects against the failure of a single server rack.**
+	* LRS provides protection if an entire region becomes unavailable.
+	* LRS protects against the failure of an entire zone in a region.
+	* **LRS is the least expensive redundancy option.**
+
+LRS replicates data across different server racks and different drives in a single datacenter. If one drive or server rack suffers a critical failure, the other copies in the same location will still be available. LRS is the least expensive redundancy option, which comes at the cost of also being the least durable.
+
+### Question 31
+* You realize that there have been several attempts to compromise user credentials for your Azure account using brute force. What is an Azure service that can warn you about this?
+	* Azure Information Protection
+	* **Microsoft Defender for Identity (Previously Advanced Threat Protection)**
+	* Azure Key Vault
+	* Azure Monitor
+
+Defender for Identity monitors user logins, and if there is something out of the ordinary, you will get an alert. Reference: [Microsoft Defender for Identity](https://www.microsoft.com/en-us/security/business/SIEM-and-XDR/microsoft-defender-for-identity/ "null")
+
+### Question 32
+* What are some best practices for granting external guest access to Azure environments?
+	* Enroll the external guest account into Microsoft Defender for Cloud.
+	* **Apply only the necessary RBAC permissions to the external account according to the needed scope of access.**
+	* **Apply Conditional Access policies to secure the external account's access to Azure resources.**
+	* Grant administrative permissions to the external account.
+
+External guest accounts are subject to the same RBAC permissions as any internal account. Though not required, Conditional Access provides an additional layer of protection for any account to prevent unauthorized access.
+
+### Question 33
+* You need to periodically move small amounts of blob storage data into Azure Storage. You need to use a command-line utility for these transfers that can be incorporated into scripts. Which tool should you use?
+	* **AzCopy**
+	* Azure Data Box
+	* Azure Storage Explorer
+	* Azure File Sync
+
+AzCopy is a command-line utility that transfers blob storage and Azure Files data. It can be incorporated into scripts.
+
+### Question 34
+* What is the purpose of Azure Policy?
+	* **Define and enforce compliance standards in an Azure scope (subscription, resource group, etc.).**
+	* Security Information Event Management (SIEM) in Azure.
+	* Implement role-based access control (RBAC) to multiple grouped subscriptions from a single location.
+	* Allow or deny authentication to Azure AD and other Microsoft Cloud resources using if-then conditional statements.
+
+Azure Policy enforces organizational standards and compliance at scale. Examples include restricting a SKU or size of virtual machine or defining which types of Azure resources are allowed.
+
+### Question 35
+* What are security policies used for in Azure?
+	* **A set of rules that Azure can use to evaluate if your configuration of a service is secure and complies with your organization's security guidelines.**
+	* To connect to outside security services that aren't part of the Azure Trusted Providers program.
+	* A set of rules that Azure uses to validate user access and permissions to Azure resources.
+	* Rules used to restrict and validate access to files and documents hosted on Azure.
+
+(Rules to evaluate if your configuration complies with guidelines) - Security policies in Azure define the desired configuration of your services and workloads. They help ensure you're complying with your company's security requirements. User access and permissions are done through Azure Active Directory. Restricting access to files can be done with Azure Information Protection. [Working with security policies | Microsoft Docs](https://docs.microsoft.com/en-us/azure/security-center/tutorial-security-policy "null")
+
+### Question 36
+* Which of the below services can you use to deploy image service instances that provide on-demand and scalable computing resources with usage-based pricing?
+	* Redis Cache
+	* Azure Virtual Network
+	* **Azure Virtual Machines**
+	* Cloud Services
+
+Azure Virtual Machines are image service instances that provide on-demand and scalable computing resources with usage-based pricing. More broadly, a virtual machine behaves like a server: It’s a computer within a computer that provides the user the same experience that they would have on the host operating system itself. In general, virtual machines are sandboxed from the rest of the system, meaning that the software inside a virtual machine can’t escape or tamper with the underlying server itself. Each virtual machine provides its own virtual hardware including CPUs, memory, hard drives, network interfaces and other devices. [Frequently asked questions about Azure and Azure VMs](https://azure.microsoft.com/en-au/services/virtual-machines/#faqs "null").
+
+### Question 37
+* What is one simple way to ensure you meet certain governance rules and regulations when setting up a new Azure environment?
+	* Use Azure Compliance Monitor to compare your infrastructure against.
+	* Use the Azure Template Wizard when creating a new service.
+	* Virtual Network Gateway
+	* **Use Azure Blueprints.**
+	* Route table
+	* Use a support plan of Professional Direct or Premier level to get Architecture help for a new Azure environment.
+
+(Use Azure Blueprints) Azure Blueprints are templates for creating compliant Azure infrastructure projects. You can use them to comply with standards and regulations that apply to your company. You can get architecture help using a support plan too, but it is much more laborious. [Azure Blueprints Governed Cloud Environments | Microsoft Azure](https://azure.microsoft.com/en-au/services/blueprints/ "null")
+
+### Question 38
+* Your company is beginning the process of migrating their existing applications to Azure. A business-critical accounting application requires authentication with the NTLM protocol. This application will be migrated to a virtual machine in Azure. Any authentication solution must integrate into your existing on-premises Active Directory domain. What options are available for hosting this application in Azure while still authenticating with Active Directory?
+	* Configure the Azure Active Directory Domain Services (Azure AD DS) service to act as an extension of your existing on-premises Active Directory domain. Configure the application to authenticate with your Azure AD DS managed service.
+	* **Continue using your on-premises AD server, and synchronize the server with Azure AD over Azure AD Connect. Configure the application to authenticate with your on-premises AD server.**
+	* **Configure an Azure VM with Windows Server, and operate as an Active Directory domain controller. Configure the application to authenticate with your VM-hosted AD server.**
+	* Configure the application to authenticate using Azure AD credentials over single sign-on (SSO).
+
+One option is to simply continue hosting an on-premises AD server, if you are not removing all existing on-premises infrastructure. This is referred to as self-managed AD, where you are in charge of configuring and maintaining a Windows Server acting as a domain controller.
+
+### Question 39
+* Your company is migrating their existing applications to Azure and has decided to utilize virtual machines for this purpose. These applications require classic Active Directory features such as Group Policy and LDAP. Your company has also decided to retire all on-premises resources to have all services hosted in the cloud. The objective is to ensure authentication for your application while minimizing administrative effort. Which of the following solutions would best meet these requirements for configuring Active Directory Services for your application?
+	* Continue using your on-premises AD server, and synchronize the server with Azure AD over Azure AD Connect. Configure the application to authenticate with your on-premises AD server.
+	* Configure an Azure VM with Windows Server, and operate as an Active Directory domain controller. Configure the application to authenticate with your VM-hosted AD server.
+	* Configure the application to authenticate using Azure AD credentials over single sign-on (SSO).
+	* **Utilize Azure Active Directory Domain Services (Azure AD DS) to create a fully managed Active Directory environment. Assign a unique namespace to the Azure AD DS instance and configure the application to authenticate using Azure AD DS on the instance.**
+
+Azure AD DS provides a fully managed instance of classic Active Directory, supporting protocols and features like NTLM, LDAP, Kerberos, and Group Policy which are required by the applications as mentioned in the scenario. By using Azure AD DS, the administrative effort is reduced compared to self-managing a VM acting as a domain controller. The unique namespace ensures a distinct domain environment in Azure while facilitating the transition from on-premises resources to the cloud.
+
+### Question 40
+* Which of the following are characteristic of private clouds?
+	* **High scalability**
+	* Limited flexibility
+	* Lower costs
+	* **Improved security**
+
+Private clouds often offer more scalability compared to on-premises infrastructure. Azure Documentation: [What is a private cloud?](https://azure.microsoft.com/en-au/overview/what-are-private-public-hybrid-clouds/#private-cloud "null"). Because resources are not shared with others, private clouds provide higher levels of control, privacy and security.

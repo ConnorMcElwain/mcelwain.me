@@ -1,0 +1,35 @@
+# PowerShell for Microsoft 365 Notes
+## Chapter 2.1 - Creating User Accounts
+
+### Creating New Users
+* New-MGUser
+	* Required
+		* -DisplayName
+		* -PasswordProfile
+		* -AccountEnabled
+		* -MailNickName
+		* -UserPrincipalName
+* Script creates a user following a standardization
+
+```
+#Set your domain variable:
+
+$Domain = '@stormwindcourse.onmicrosoft.com'
+
+# Set the variables and Prompt the user for input
+$firstName = Read-Host "Enter user first name"
+$lastName = Read-Host "Enter user last name"
+$DisplayName = $firstName + "" + $lastName
+$mailNickname = $firstName + "." + $lastName
+$userPrincipalName = $firstName + "." + $lastName $Domain
+$PasswordProfile = @{
+	ForceChangePasswordNextSignIn = $true
+	Password = 'P@ssW0rd'
+}
+
+New-MGUser -DisplayName $DisplayName -PasswordProfile $PasswordProfile -AccountEnabled -MailNickName $mailNickname -UserPrincipalName $userPrincipalName -GivenName $firstName -Surname $lastName
+```
+
+### Conclusions
+* Creating new users
+* Creating users based on JSON template

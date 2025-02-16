@@ -1,0 +1,36 @@
+# PowerShell for Microsoft 365 Notes
+## Chapter 3.1 - Managing Licenses
+
+### Licenses
+* Get-MgUserLicenseDetail
+	* Get the license information of user
+`Get-MgUserLicenseDetail -UserId $user.Id`
+* Counts how many users have each license assigned
+```
+$user = Get-MgUser -All
+$userLic = New-Object System.Collections.ArrayList
+foreach($user in $users)
+{
+foreach ($lic in ((Get-MgUserLicenseDetail -UserId $user.Id).ServicePlans | Where-Object {$_.ProvisioningStatus -ne "Disabled"} | Select-Object -ExpandProperty ServicePlanName))
+{
+$userLic.add($lic) | Out-Null
+}
+}
+$userLic | Group-Object | Select-Object Count,Name | Sort-Object -Descending Count
+```
+* Get-MgSubscribedSku
+	* SubscribedSku represents the license plan
+* Set-MgUserLicense
+	* Assign and Remove Licenses
+		* -AddLicenses
+		* -RemoveLicenses
+```
+$user = Get-MgUser -Filter "DisplayName eq 'Rob Smith'"
+$OBE_Sku = Get-MgSubscribedSku -All | Where-Object
+SkuPartNumber -eq 'O365_BUSINESS_ESSENTIALS'
+Set-MgUserLicense -UserId $user.Id -AddLicenses @{SkuId = $OBE_Sku.SkuId} -RemoveLicenses @()
+```
+
+### Conclusion
+* Assigning and remove licenses
+* Retrieving license information

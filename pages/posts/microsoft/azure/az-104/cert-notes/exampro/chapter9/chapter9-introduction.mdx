@@ -1,0 +1,48 @@
+# AZ-104 Certification Notes
+## Chapter 9 - Introduction
+
+### Azure Virtual Machines
+Choose an OS, Compute, Memory, and Storage and launch a **server** in minutes.
+
+### Introduction to Azure VMs
+**Azure Virtual Machines (VMs)** are a highly configurable server. Virtualization lets you run a server **without having to buy and maintain the physical hardware** that runs it.
+* Virtual Machines still require maintenance such as:
+	* Applying OS system patches
+	* Installing and configuring packages
+
+Some thing you should know:
+* The **size** of the virtual machine is determined by the image
+	* The image defines the combination of vCPUs, Memory, and Storage Capacity
+* The current limit on a per subscription basis is **20 VMs per region**
+* Azure VMs are billed at an **hourly rate**
+* A single instance VMs has an availability of 99.9% (when all storage disks are premium)
+* Two instances deployed in Availability Set will give you 99.95% availability
+
+When you **launch** an Azure Virtual Machine other networking components will be either created or associated to your Virtual Machine.
+* **Network Security Group (NSG)** - attached to the NIC, virtual firewall with rules around ports and protocols
+* **Network Interface (NIC)** - a device that handles IP protocols and network communication
+* **Virtual Machine Instance** - The actual running server
+* **Public IP Address** - The address that you will use publicly access your VM
+* **Virtual Network (VNet)** - The network where your VM will reside
+
+### Practice Quiz
+* What is true about Azure VMs?
+	* **Azure VMs are billed at an hourly rate**
+	* A single instance VMs has an availability of 0.99%
+	* **The current limit on a per subscription basis is 25000 VMs per region**
+	* **The size of the virtual machine is determined by the Image**
+* What networking component is a device that handles IP protocols and network communication?
+	* Virtual Machine instance
+	* **Network Interface (NIC)**
+	* Public IP Address
+	* Network Security Group (NSG)
+* What networking component is attached to the NIC, virtual firewall with rules around ports and protocols?
+	* Public IP Address
+	* Virtual Network (VNet)
+	* **Network Security Group (NSG)**
+	* Network Interface (NIC)
+
+* What is a highly configurable server, in which virtualization lets you run a server without having to buy and maintain the physical hardware that runs it?
+	* **Azure Virtual Machines (VMs)**
+* What is Virtual Network (VNet)?
+	* **The network where your VM will reside.**

@@ -1,0 +1,64 @@
+# MS-102 Certification Notes
+## Day 7.5 - Hybrid Identities Authentication Options
+
+### Authentication for Synchronized Identities
+* Managed - Domain managed by Microsoft
+	* PHS - Password Hash Synchronized
+	* PTA - Pass Through Authentication
+* Federated - Log in Through Identity Provider
+	* ADFS (Active Directory Federation Services)
+		* ADFS is a Microsoft-developed SSO solution that provides a unified authentication experience to employees
+	* SAML (Security Assertion Markup Language)
+		* SAML is an open standard for exchanging authentication and authorization data between parties, in particular, between an identity provider and a service provider
+	* WS-Federation
+		* WS-Federation is a protocol that provides mechanisms for connecting users and resources across security boundaries, typically in disparate security realms, creating a federation of security realms
+	* Third party Identity Providers
+
+### PHS
+* Password Hash Synchronization aka PHS
+	* Hash of a hash of password sent to Entra ID (Azure AD)
+	* Authentication happens to Entra ID (Azure AD)
+	* Same Sign On
+	* Users only need to remember one password
+	* On-premises password policies enforced
+	* Can Enable Password Writeback
+	* Supports premium features of Identity Protection
+
+### PTA
+* Pass-Through Synchronization aka PTA
+	* AD DS performs Authentication
+	* Password validation done by on-premises software agents
+	* No password information stored in Entra ID (Azure AD)
+	* Supports smart Card Authentication
+	* Some other forms of MFA
+	* Can specify a custom port for the PTA Agent
+	* On premise Password Policies enforced
+	* Can Enable Password Writeback
+	* Immediate enforcement of on-prem account states
+	* Supports sign-in hours
+
+### Federated
+* Federated - Authentication handled by trusted Authentication System
+	* ADFS - Active Directory Federated Services (Microsoft Product)
+	* SAML - Security Assertion Markup Language
+	* WS-Federation - Web Services Federation
+	* Third Party Identity Providers
+
+### ADFS
+* ADFS
+	* True Single Sign On
+	* Fairly Complex architecture
+	* Infrastructure investments
+	* Ability to use on-premises AD for Authentication
+	* Supports On Premise MFA
+
+### SAML, WS-Federation
+* SAML - Security Assertion Markup Language
+	* Authentication assertion - identifies user
+	* Attribution assertion - SAML token contains data about the user
+	* Authorization decision assertion - information about allow or deny for bad credentials or permissions
+* WS-Federation - Web Services Federation
+	* Protocols that support a wide range of scenarios for trusted identity providers
+
+### Third Party Providers
+* Microsoft no longer provides certified non-Microsoft identity providers, however several are used successfully and integrated with Entra ID (Azure Active Directory)

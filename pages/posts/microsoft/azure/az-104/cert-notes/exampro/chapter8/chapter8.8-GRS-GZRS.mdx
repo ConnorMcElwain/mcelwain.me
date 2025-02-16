@@ -1,0 +1,27 @@
+# AZ-104 Certification Notes
+## Chapter 8.8 - GRS GZRS
+
+### Replication and Data Redundancy
+* Redundancy in the Secondary Region
+	* Replicate to a secondary region in case of primary regional disaster
+	* The secondary region is determined based on your primary's pair region
+	* Secondary region isn't available for read or write access (except in event of failover)
+
+* Geo Redundant Storage **(GRS)**
+	* Copies data synchronously in primary region
+	* Copies data asynchronously to another region
+	* 99.99% (16 nines) of durability
+* Geo-Zone-redundant storage **(GZRS)**
+	* Copies data synchronously **across 3 AZs** in a physical region
+	* Copies data asynchronously to another region
+	* 99.99 (16 nines) of durability
+
+### Practice Quiz
+* Which storage tier copies data **synchronously** across **3 AZs** in a physical region, copies data asynchronously to another region, and has 99.99999999999999% (16 9’s) of durability?
+	* Locally Redundant Storage (LRS)
+	* **Geo-Zone-redundant storage (GZRS)**
+	* Geo Redundant Storage (GRS)
+	* Zone-redundant storage (ZRS)
+
+* What is Geo-Zone-redundant storage (GZRS)?
+	* A storage tier that copies data synchronously across **3 AZs** in a physical region, copies data asynchronously to another region, and has 99.99999999999999% (16 9’s) of durability.

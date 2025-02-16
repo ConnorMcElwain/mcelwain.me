@@ -1,0 +1,57 @@
+# AZ-104 Stormwind Studio Certification Course Notes
+## Day 4.1 - Azure Policy
+
+### Topic: Azure Policies
+* Azure Policy
+* Policy Definitions
+* Creating Azure Policies
+* Applying Azure Policies
+* Remediation
+* Azure Policy Initiatives
+* Azure Policies and Compliance
+
+### Azure Policy
+* **Azure Policy** is a service within Microsoft Azure that allows organizations to create, assign, and manage policies. These policies define rules and effects over resources, identities, and groups, with the goal of ensuring compliance and upholding security
+* **Purpose**
+* **Components**
+* **Use Cases**
+* **Purpose of Azure Policy:**
+	* Enforcing Organizational Standards
+	* Assessing Compliance at Scale
+	* Bulk and Automatic Remediation
+	* Extending Governance
+* **Components of Azure Policy:**
+	* **Policy Definitions:** Business rules described in JSON format
+	* **Policy Initiatives (Policy Sets):** Several policy definitions grouped together to form a policy initiative
+	* **Assignments:** You assign policy definitions or initiatives to specific scopes (e.g., management group, subscriptions, resource groups, or individual resources)
+	* **Evaluation Logic:** Azure Policy evaluates resources by comparing their properties to policy definitions. The policy rule determines which resources get evaluated
+	* **Compliance Evaluation:** Resources are evaluated during their lifecycle, policy assignment lifecycle, and ongoing compliance checks
+* **Common Use Cases for Azure Policy:**
+	* **Resource Consistency:** Enforce deployment only in allowed regions
+	* **Taxonomic Tags:** Ensure consistent application of tags
+	* **Diagnostic Logs:** Require resources to send logs to a Log Analytics workspace
+
+### Policy Definitions
+1. **Business Rules:** Azure Policy evaluates resources and actions in Azure by comparing their properties to business rules. These rules are described in JSON format and are known as policy definitions
+2. **Condition:** A condition compares a resource property field or a value to a required value. For example, you can define a condition that checks whether a resource tag matches a specific value
+3. **Effect:** The effect specifies what action to take if the condition is met. Common effects include "audit" (log non-compliance) and "deny" (prevent non-compliant resources from being created or modified)
+
+### Azure Policy Precedence
+* Policy Precedence:
+	* Azure Policy evaluates resources based on the hierarchy of policy assignments. The order of evaluation is as follows:
+		* **Resource Group Level:** Policies assigned directly to a resource group
+		* **Subscription Level:** Policies assigned at the subscription level
+		* **Management Group Level:** Policies assigned at the management group level (if applicable)
+		* **Built-in Policies:** These are evaluated last
+	* The most restrictive policy assignment always takes precedence
+	* A **DENY** at any level, it overrides any **ALLOW** policy at a different level
+	* **Policy assignments get evaluated top-to-bottom**
+* In summary, Azure Policy follows a strict order of evaluation, and the most restrictive policy wins
+
+### Topic: Azure Policies
+* Policy Definitions
+* Creating Azure Policies
+* Applying Azure Policies
+* Azure Policy Initiatives
+* Remediation
+* Azure Policy Precedence

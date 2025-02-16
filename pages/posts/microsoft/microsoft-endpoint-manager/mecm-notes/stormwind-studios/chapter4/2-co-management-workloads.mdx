@@ -1,0 +1,105 @@
+# Microsoft Endpoint Manager Notes
+## Chapter 4.2 - Co-Management (Workloads)
+
+### Co-Management - Workloads
+* What is a Workload?
+	* Is the device allowed to be in our environment? (OS, BIOS Settings, BitLocker and Encryption Status, Hardware requirements, etc)
+		* Compliance Policies
+	* Is the device up to date on Windows Updates? When should this device get updates
+		* Windows Update Policies
+	* Does this device have configuration for things like VPN, Wi-Fi, email and certificate settings?
+		* Resource Access Policies
+	* Should Intune control Windows Defender suite of protection features?
+		* Endpoint Protection
+	* Where should this device get policy like GPOs from?
+		* Device Configuration
+	* Should Microsoft 365 Apps be managed from Intune on this device?
+		* Office Click-to-Run Apps
+	* Should other applications be managed from Intune on this device? (Available via Company Portal vs. Software Center)
+		* Client Apps
+
+### Co-Management - Compliance Policy Workload
+* Device Health
+	* BitLocker
+	* Secure Boot
+	* Health Attestation
+* Device Properties
+	* Minimum and Maximum OS Version
+* System Security
+	* Passwords
+	* Encryption
+	* Firewall
+	* TPM
+	* Antivirus
+* Microsoft Defender for Endpoint
+
+### Co-Management - Windows Update Workload
+* Policy types to manage updates
+	* Update Rings
+	* Feature Updates
+	* Expedite Update Policy
+* Windows Rollout Options
+	* Make update available as soon as possible
+	* Make update available on a specific date
+	* Make update available gradually
+* Reports for Updates
+
+### Co-Management - Device Configuration Workload
+* Creating Device Profiles through Device Configuration Items
+	* Administrative templates (Windows)
+	* Custom
+	* Delivery Optimization (Windows)
+	* Derived credential (Android Enterprise, iOS, iPadOS)
+	* Device features (macOS, iOS, iPadOS)
+	* Device firmware (Windows)
+	* Device restrictions
+	* Domain join (Windows)
+	* Edition upgrade and mode switch (Windows)
+	* Education (iOS, iPadOS)
+	* Email
+	* Endpoint protection (macOS, Windows)
+	* Extensions (macOS)
+	* Identity protection (Windows)
+	* Kiosk
+	* Microsoft Defender for Endpoint (Windows)
+	* Mobility Extensions (MX) profile (Android device administrator)
+	* Network boundary (Windows)
+	* OEMConfig (Android Enterprise)
+	* PKCS certificate
+	* PKCS imported certificate
+	* Preference file (macOS)
+	* SCEP certificate
+	* Secure assessment (Education) (Windows)
+	* Shared multi-user device (Windows)
+	* Telecom expenses (Android device administrator, iOS, iPadOS)
+	* Trusted certificate
+	* VPN
+	* Wi-Fi
+	* Windows health monitoring
+	* Wired networks (macOS)
+
+### Co-Management - Endpoint Protection Workload
+* Endpoint Protection covers:
+	* Windows Defender Antimalware
+	* Windows Defender Application Guard
+	* Windows Defender Firewall
+	* Windows Defender SmartScreen
+	* Windows Encryption
+	* Windows Defender Exploit Guard
+	* Windows Defender Application Control
+	* Windows Defender Security Center
+	* Windows Defender for Endpoint (now known as Microsoft Defender for Endpoint)
+
+### Co-Management - Resource Access Workload
+* Microsoft Endpoint Configuration Manager (Version 2103)
+	* CM 2103 management of Resource Access features will be deprecated and handled solely in Intune
+		* Microsoft Intune
+
+### Topic Summary
+* Compliance Policies
+* Windows Update Policies
+* Resource Access Policies
+* Endpoint Protection
+* Device Configuration
+* Office Click-to-Run Apps
+* Client Apps

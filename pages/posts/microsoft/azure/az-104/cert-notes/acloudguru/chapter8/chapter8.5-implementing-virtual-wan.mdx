@@ -1,0 +1,33 @@
+# AZ-104 Certification Notes
+## Chapter 8.5 - Implementing Virtual WAN
+
+### Describing Virtual WAN
+This is considered a networking service that allows us a single, operational interface to be able to manage a hub-and-spoke style network and fully mesh networks inside of the Azure cloud. With a virtual WAN, we can use virtual WAN hubs to create hub-and-spoke style networks, where we do things like have our VPN connections for our Site-to-Site and Point-to-Site for both our on-prem and remote users. We can also connect our ExpressRoute on-prem connections, as well as make connections to our virtual networks inside of these hubs. And with this WAN, we have a single operational interface to manage all of these connections, to create this hub-and-spoke network. We also have the ability to manage things like our firewalls and our routes, so that we can manage our entire networks topology and the capabilities those connections, the routing, and the security through the firewall, all through that single operational interface. What we're really creating inside of these WANs are hubs. We can create a single virtual hub that's a managed virtual network in each region. This allows us to create connectivity between regions that are also managing their own connections via VPNs for Point-to-Site, Site-to-Site, ExpressRoute, and virtual network connections, and create a full meshed network for everything that we have going on inside of our organization's network.
+
+### Virtual WAN SKUs
+* Basic
+	* Transitive peering not supported
+	* S2S VPN connections only
+	* Upgrade to Standard supported
+* Standard
+	* Transitive peering supported
+	* S2S VPN, P2S VPN, ExpressRoute, and VNet-to-VNet connections
+
+### Key Takeaways
+* Azure Virtual WAN
+	* Connect networks using hub-spoke architecture
+	* Basic and Standard SKUs
+		* Standard SKU:
+			* Transitive peering
+			* Point-to-Site connections
+			* Site-to-Site VPN connections
+			* ExpressRoute connections
+			* Virtual network connections
+		* Basic SKU:
+			* Doesn't have transitive peering support
+			* Only get Site-to-Site connections for our VPNs
+	* Connect S2S and P2S VPN gateways, global reach ExpressRoute, and VNets
+	* Secure with Azure Firewall and Firewall Manager
+	* Any-to-any connectivity
+	* Connections propagated to managed routes
+	* Managed Virtual Network

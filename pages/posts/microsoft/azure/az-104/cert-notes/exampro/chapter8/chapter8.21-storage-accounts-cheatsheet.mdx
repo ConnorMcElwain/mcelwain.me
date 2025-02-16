@@ -1,0 +1,154 @@
+# AZ-104 Certification Notes
+## Chapter 8.21 - Storage Accounts CheatSheet
+
+Azure has **5 core** storage services:
+* Azure Blob
+	* A massively scalable **object store** for text and binary data. Includes support for big data analytics via Data Lake Storage Gen2
+* Azure Files
+	* Managed **file shares** for cloud or on-premises deployments
+* Azure Queues
+	* A **NoSQL store** for schemeless storage of structured data
+* Azure Tables
+	* A **messaging store** for reliable messaging between application components
+* Azure Disks
+	* **Block-level storage** volumes for Azure VMs
+
+For Blob Storage there are **2 types** of performance tiers for storage accounts: **Standard** and **Premium**
+* **Standard Performance**
+	* Stored on Hard Disk Drives **(HDDs)**
+* **Premium Performance**
+	* Stored on Solid State Drives **(SSDs)**
+		* Varied performance based on access tier (Hot, Cool, Archive)
+
+Azure Storage supports **3 types** of blobs:
+* **Block blobs** store text and binary data, made up of blocks of data that can be managed individually, store up to about 4.75 TiB of data
+* **Append blobs** optimized for append operations, ideal for scenarios such as logging data from virtual machines
+* **Page blobs** store random access files up to 8 TB in size, store virtual hard drive (VHD) files and serve as disks for Azure virtual machines
+
+For Blob Storage there are **3 types** of access tiers for **Standard storage**: Cool, Hot, and Archive
+* **Hot** - Data that's accessed frequently. Highest storage cost, lowest access cost
+* **Cool** - Data that's infrequently accessed and stored for at least 30 days, lower storage cost, highest access cost
+* **Archive** - Data that's rarely accessed and stored for at least 180 days, lowest storage cost, highest access cost
+**Account Level Tiering** - Any blob that doesn't have an explicitly assigned tier infers the tier from the Storage Account access tier setting
+**Blob-Level Tiering** - You can upload a blob to the tier of your choice. Changing tiers happens instantly except when moving out of archive
+**Rehydrating a Blob** - When moving a blob out of archive into another tier it can take several hours. This is known as "rehydrating"
+**Blob Lifecycle Management** - You can create rule-based policies to transition data to different tiers e.g. after 30 days move to cool storage. When a blob is uploaded or moved to another tier, it's charged at the new tier's rate **immediately** upon tier change
+
+When moving from a **cooler tier**:
+* The operation is billed as a **write operation** to the destination tier
+* Where the write operation (per 10,000) and data write (per GB) charges of the destination tier apply
+
+When moving from a **hotter tier**:
+* The operation is billed as a read from the source tier
+* Where the **read operation** (per 10,000) and data retrieval (per GB) charges of the source tier apply
+* Early deletion charges from any blob moved out of the cool or archive tier may apply as well
+
+**Cool and archive early deletion**:
+* Any blob that is moved into the cool tier (GPv2 accounts only) is subject to a cool early deletion period of 30 days
+* Any blob that is moved into the archive tier is subject to an archive early deletion period of 180 days. This charge is prorated
+
+There are **multiple ways** to move data into Azure Blob Storage:
+* **AzCopy**
+	* Easy-to-use command-line tool for Windows and Linux
+* **Azure Storage Data Movement library**
+	* .NET library (uses AzCopy underneath)
+* **Azure Data Factory**
+	* An ETL service by Azure
+* **Blobfuse**
+	* Virtual file system driver. Access data through Linux file system
+* **Azure Data Box**
+	* A rugged device used to physically transport data to Azure
+* **Azure Import/Export service**
+	* A service where you ship your physical disks for data transfer onto Azure
+
+When you create a Storage Account you need to choose a **Replication Type**:
+* **Primary Region Redundancy** (Disaster Recovery and Failovers)
+	* Locally Redundant Storage (LRS)
+		* Copies data **synchronously** in primary region
+		* **Cheapest option**
+	* Zone-redundant storage (ZRS)
+		* Copies data **synchronously across 3 AZs** in primary region
+* **Secondary Region Redundancy** (Disaster Recovery and Failovers)
+	* Geo redundant storage (GRS)
+		* Copies data **synchronously** in primary region
+		* Copies data **asynchronously** to another region
+	* Geo-zone-redundant storage (GZRS)
+		* Copies data **synchronously across 3 AZs** in a physical region
+		* Copies data **asynchronously** to another region
+* Second Region **Redundancy with Read Access** (Read Replicas)
+	* Read-access geo-redundant storage (RA-GRS)
+		* Copies data **synchronously** in primary region
+		* Copies data **synchronously** to another region
+	* Read-access geo-redundant storage (RA-GZRS)
+		* Copies data **synchronously** in primary region
+		* Copies data **synchronously** to another region
+
+**Azure Files** is a fully managed **file share** in the cloud. A file share is a **centralized server for storage** that allows **multiple connections**. To connect to the file share a **network protocol** is used: Server Message Block (SMB), Network File System (NFS)
+
+When a connection is established the file share's filesystem will be accessible in the specific directory within your own directory tree.
+* This is known as **mounting**
+
+You can backup your file share with **shared snapshots**:
+* Read-only, Incremental, up to **200 snapshots** per file share, retain backups for **up to 10 years**
+* Backups are stored within your file share (if you delete your file share you will delete your backups)
+
+**Soft Delete** - Prevent accidently deletion by turning on Soft Delete (marked for deletion, retained for a period of time before final delete occurs)
+
+**Store Tiers**:
+* **Premium** - Store on to SSD with single-digit milliseconds for most IO operation
+* **Transaction optimized** - Store on HDD with transaction heavy workloads that don't need the latency offered by premium file shares (historically this tier has been called **standard**)
+* **Hot** - Optimized for general purpose file sharing scenarios such as **team shares** and **Azure File Sync**
+* **Cool** - Stored on HDD for cost-efficient storage optimized for online archive storage scenario
+
+**Types of Storage: General purpose version 2 (GPv2)** - Deployed on to HDD and **FileStorage** - Deployed on to SSD
+**Identity: On-Premise or Managed** via AD DS or **Store Account Key** username (storage account name) and password (account key)
+
+Azure Files are accessible inside or outside your AWS Account from anywhere via storage account **public endpoint**.
+* SMB connects to **port 445**, your organization may need to unblock this port so you can mount your file share
+
+**Encryption**
+* Azure Files is **encrypted-at-rest** using Azure Storage Service Encryption (SSE)
+* Azure Files is **encrypted-in-transit** with SMB 3.0+ with encryption or HTTPS
+**Azure File Sync** is a service that allows you to **cache** Azure file shares on an **on-premises Windows Server** or **cloud VM**.
+
+**Azure Import/Export Service** is used to securely import large amounts of data to Azure Blob Storage and Azure Files
+* You have 2 options for shipping drives on import:
+	* Use your own disk drives
+	* Use **Microsoft** provided drives
+* Microsoft ships up to 5 encrypted solid-state disk drives (SSDs) known as **Azure Data Box Disk** with a 40 TB total capacity per order, to your datacenter through a regional carrier
+
+To prepare your drive you'll need to use the command-line **WAImportExport tool** to:
+* Prepare your disk drives that are shipped for import
+* Copying your data to the drive
+* Encrypts the data on the drive with AES 256-bit BitLocker
+* Generate the drive journal files used during import creation
+* Helps identify numbers of drives needed for export jobs
+
+There are two versions of **WAImportExport**
+* Version 1 for import/export into Azure Blob storage
+* Version 2 for importing data into Azure files
+
+**WAImportEport** tool is only compatible with 64-bit Windows
+For **export jobs** you:
+* You can only export from Azure Blob
+* You can ship up to 10 empty drives to Azure per job
+* You create an export job and the data is loaded onto those drives and shipped back to you
+
+A shared access signature (SAS) is a URI that grants restricted access rights to **Azure Storage** resources. Share the URI to grant clients temporary access to specific set of permissions.
+
+Types of shared access signatures:
+* **Account-level SAS**
+	* Access to resources in **one or more** of the storage services
+* **Service-level SAS**
+	* Access to single the storage account by using the storage account key
+* **User delegation SAS**
+	* Access to storage account using Azure AD credentials
+	* Limited only to Blob and Containers
+	* Microsoft considers this method best practice for accessing via SAS
+A shared access signature comes into different formats:
+* **Ad hoc SAS**
+	* The start time, expiry time, and permissions are part of the URI
+	* Any type of SAS can be an ad hoc SAS
+* **Service SAS with stored access policy:**
+	* A stored access policy is defined on a resource container (limited to blob container, table, queue, or file share)
+	* The stored access policy can be associated to multiple SAS to manage constraints

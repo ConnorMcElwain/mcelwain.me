@@ -1,0 +1,16 @@
+# AZ-900 Certification Notes
+## Chapter 10.5 - Key Vault (Supplemental)
+
+### Current Status
+Attackers know where you keep your keys.
+
+### Scenario
+You have a database with some valuable business data in it. While you use the data successfully internally, you also want to share access to other trusted outside third parties. However you don't want to just give them the username and password to access the database. Instead, you place the password in Azure Key Vault and then provide access to individual applications. The application can identify itself, and then Azure Key Vault grants access to the database.
+
+### Azure Key Vault
+* Secure Hardware
+	* The Key Vault hardware is secure too. Not even Microsoft can access the keys in it
+* Application Isolating
+	* An application can't pass on secrets, nor access another application's secrets
+* Global Scaling
+	* Scale globally like any other managed Azure service

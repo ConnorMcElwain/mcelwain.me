@@ -1,0 +1,51 @@
+# PowerShell for Microsoft 365 Notes
+## Chapter 6.2 - Mail Scripting Demo
+
+### Get a list of Exchange Online Mailboxes
+* Get-EXOMailbox
+	* Retrieves mailbox for specific user
+* Get-EXOMailboxStatistics
+	* Size of mailbox
+	* Number of items
+```
+Get-EXOMailbox -UserPrincipalName StevenLandry@LandrypwshTraining.onmicrosoft.com
+
+Get-EXOMailbox -UserPrincipalName $steve.mail | Get-EXOMailboxStatistics
+```
+
+### Find Specific Email
+* Retrieves emails with the SPAM in the subject line
+`Get-MgUserMessage -UserId $user.id | Where-Object {$_.Subject -like "*SPAM*"}`
+
+### Mass Delete Email Messages
+```
+#$steveMailBox = Get-EXOMailbox -UserPrincipalName StevenLandry@LandrypwshTraining.onmicrosoft.com
+$users = (GetpMgUser -all | Where-Object {$_.Mail -ne $null})
+
+foreach($user in $users)
+{
+	$messages = Get-MgUserMessage -UserId $user.id | Where-Object {$_.Subject -like "*SPAM*"}
+	foreach($message in $messages)
+	{
+		Remove-MgUserMessage -MessageId $message.id -UserId $user.Id -Verbose
+	}
+}
+```
+
+### Assigning Users Exchange Mailbox
+```
+$user = Get-MgUser -all | Where-Object {$_.DisplayName -eq "Bob Smith"}
+$skus = Get-MgSubscribedSku -All
+$skus.ServicePlans | sort ServicePlanName
+$ExSku = $skus.ServicePlans | Where-Object {$_.ServicePlanName -like "*EXCHANGE*"}
+#user needs to already have an O365 license assigned
+# neither of these work
+Set-MgUserLicense -UserId $user.Id -AddLicenses @{SkuId = $ExSku.ServicePlanId} -RemoveLicenses @()
+Update-MgUserLicenseDetail -UserId $user.id -LicenseDetailsId $ExSku.ServicePlanId
+```
+
+### Conclusions
+* Exchange Mailboxes List
+* Find Specific Email
+* Mass Delete Email Messages
+* Assigning User Exchange Mailboxes

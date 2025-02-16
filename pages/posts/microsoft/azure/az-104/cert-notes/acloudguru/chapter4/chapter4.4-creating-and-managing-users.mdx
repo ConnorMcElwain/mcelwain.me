@@ -1,0 +1,42 @@
+# AZ-104 Certification Notes
+## Chapter 4.4 - Creating and Managing Users
+
+### Describing Users
+* Members have default permissions
+* These identities are JSON objects
+* Each user can have role assignments
+* Each user can have object ownership
+
+### Types of Users
+* Administrators
+	* Users with an administrator role assigned
+* Members
+	* Regular users that are native to Azure AD
+* Guests
+	* External users that are invited to the Azure AD tenant
+
+### Methods of Creating Users
+* Azure Portal
+	* Navigate to Azure AD services > Select **Users** > **New user**
+* Azure CLI
+	* ```az ad user create```
+* PowerShell
+	* ```New-AzureADUser```
+
+### Demo: Creating a User
+* Create/Add a User
+	* Create a member account inside of Azure AD
+* Update User Properties
+	* Update the properties to show this user is part of the HR department
+* Bulk Add Users
+	* Using a CSV file, bulk add users to Azure AD
+* Invite a Guest Account
+	* Invite an external guest to Azure AD
+
+### Key Takeaways
+* Type of User
+	* Administrator, member, and guest accounts
+* Role Assignment
+	* Determines permissions and access
+* Object Ownership
+	* Apps, devices, groups, and resources that are owned

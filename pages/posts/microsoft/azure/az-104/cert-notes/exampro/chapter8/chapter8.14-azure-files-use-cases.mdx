@@ -1,0 +1,44 @@
+# AZ-104 Certification Notes
+## Chapter 8.14 - Azure Files Use Cases
+
+### Azure Files - Use Cases
+* Use Cases
+	* Completely **replace or supplement** on-premises file servers Network Attach Storage (NAS) devices
+	* **Lift-and-Shift** your on-premise storage to the cloud via Classic Lift or Hybrid Lift
+		* "Lift-and-Shift" means when you move workloads without rearchitecting, e.g. importing local VMs to the cloud
+		* Classic Lift - Where both the application and its data are moved to Azure
+		* Hybrid Lift - Where the application is moved to Azure Files, and the application continues to run on-premises
+	* **Simplify cloud development**
+		* Shared application settings - Multiple VMs and developer workstations need to access the same config files
+		* Diagnostic share - All VMs log to the file share, developers can mount and debug all logs in a centralized place
+		* Dev/Test/Debug - Quickly share tools for developer needed for local environments
+	* **Containerization**
+		* You can use Azure Files to persist volumes for stateful containers
+
+Why use Azure files instead of setting up your own File Share server?
+* **Shared Access** - Already setup to work with standard networking protocols SMB and NFS
+* **Fully managed** - It's kept up to date with security patches, designed to scale
+* **Scripting and Tooling** - You can automate the management and creation of file shared with Azure API and PowerShell
+* **Resiliency** - Build to be durable and always working
+
+### Practice Quiz
+* Which Azure File Use Case is where both the application and its data are moved to Azure?
+	* Diagnostic share
+	* **Classic Lift**
+	* Fully managed
+	* Containerization
+* Which Azure File Use Case is when multiple VMs and developer workstations need to access the same config files?
+	* Containerization
+	* Classic Lift
+	* **Shared application settings**
+	* Dev/Test/Debug
+* Which advantage of Azure files over setting up your own File Share server is its already setup to work with standard networking protocols SMB and NFS?
+	* **Shared Access**
+	* Resiliency
+	* Scripting and Tooling
+	* Fully managed
+
+* What is Lift-and-Shift (Azure Files)?
+	* A Lift-and-Shift is when you move workloads without rearchitecting, eg. importing local VMs to the cloud.
+* In Azure Files, what is the process where the application data is moved to Azure Files, and the application continues to run on-premises?
+	* Hybrid Lift

@@ -1,0 +1,39 @@
+# AZ-104 Certification Notes
+## Chapter 7 - Conceptualizing Virtual Networks
+
+### Describing Networks
+* Purpose of a Network
+	* A network allows you to have an isolated network where resources can communicate with one another and with outside networks
+		* Users accessing file servers
+		* Print sharing
+		* Web servers
+		* App server accessing database servers and internet
+
+### Traditional vs. Virtual Networks
+When we have our network inside of the Azure cloud, we have first our virtual network. This is a representation of our on-premise network, but in the Azure cloud. It allows us to do a lot of the same things that we can do in our on-premise networks. We can take this network address space and we can subnet it down into different subnets, breaking it into subnet address spaces that allow us to then put resources like virtual machines inside of this address space. These virtual machines will have private IP addresses, and potentially public IP addresses, depending on the IP configurations of the network interface card that's associated with the virtual machine. We can also control traffic by allowing or denying specific traffic using network security groups that we can place on the subnet, or on the network interface of a resource. What we get by default with our virtual networks are routes that allow access both for public connectivity and private within our networks.
+
+### Describing Virtual Networks (VNets)
+* Isolated Network
+	* VNets are isolated networks on the Azure cloud
+* Private Network Access
+	* Provides private connectivity between resources like VMs or App Services
+* Network Integration
+	* Allows connectivity between VNets, on-prem networks, and remote user devices
+
+### Components of Virtual Networks
+* Address Space
+	* The private address space for the isolated network. Required to provide resources with private IPs
+* VNet
+	* The isolated network on Azure cloud where Azure resources like VMs are deployed
+* Subnet
+	* The segmentation of the isolated network into smaller sub-networks where resources will exist
+
+### Key Takeaways
+* Purpose of a Network
+	* A network allows you to have an isolated network where resources can communicate with one another and with outside networks
+* Isolated Network
+	* VNets are isolated networks on the Azure cloud
+* Private Network Access
+	* Provides private connectivity between resources like VMs or App Services
+* Network Integration
+	* Allows connectivity between VNets, on-prem networks, and remote user devices

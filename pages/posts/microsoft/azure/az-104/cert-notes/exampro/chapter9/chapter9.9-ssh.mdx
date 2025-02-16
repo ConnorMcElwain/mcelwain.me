@@ -1,0 +1,24 @@
+# AZ-104 Certification Notes
+## Chapter 9.9 - SSH
+
+### Secure Shell (SSH)
+It's very common to use **SSH key pairs** as a mean to authenticate to your VMs. **SSH Key Pairs** is when you generate out two keys:
+* A Private Key
+* A Public Key
+The private key should remain on your local system and not be shared with others. A public key is **stored on the VM**. **When you go to SSH**, you provide your private key and it's matched against the public key to authenticate you.
+* Example: `ssh -i ~/.ssh/id_rsa.pub azureuser@10.111.12.123`
+
+### Practice Quiz
+* Which key should remain on your local system and not be shared with others?
+	* **The Private Key**
+	* The Public Key
+	* The Secure Key
+	* The Primary Key
+* What are the keys you generate when using SSH Key Pairs?
+	* **A Public Key**
+	* A Secure Key
+	* **A Private Key**
+	* A Primary Key
+
+* How do SSH key pairs authenticate your VMs?
+	* **When you go to SSH you provide your private key and it's matched against the public key to authenticate you.**

@@ -1,0 +1,43 @@
+# AZ-900 Certification Notes
+## Chapter 6.9 - Summary
+
+* Blob
+	* General storage for anything you'd like
+	* Block, append, and page varieties
+	* Blob is inside a container, which is inside a storage account
+	* Hot, cool, or archive price tiers
+* Disk
+	* A disk is generally attached to a VM; a managed storage service
+	* Choose HDD, SSD, Premium SSD, or ultra disk
+* File
+	* Mitigating on-premises file storage solutions
+	* Highly available and resilient storage
+	* Easy to share
+* Archive
+	* A very cheap way to store massive amounts of data
+	* Also a Blob Storage type
+
+* Storage Redundancy
+	* Multiple copies of Azure Storage data
+		* No single disk acts as a single point of failure for your critical data
+	* Minimum three copies
+		* Three copies if you choose **single region** redundancy, six copies if you choose **paired region** redundancy
+	* Single/multiple copies
+	* Single/multiple regions
+* Moving Data
+	* AzCopy: Command-line utility
+		* For blobs, objects, and files
+	* Storage Explorer: GUI interface
+		* User friendly drag and drop interface
+	* Azure File Sync: Sync Azure Files with on-premises file server
+* Additional Migration Options
+	* Azure Data Box: Offline data transfer
+		* Rugged hard drive used to ship massive amounts of data offline
+	* Azure Migrate: Migrate on-premises resources
+		* Servers, databases, applications
+* Premium Performance Options
+	* SSD-backed storage options
+		* For block blobs, page blobs (for unmanaged VM disks), and file shares
+	* Limited redundancy options
+		* Premium page blobs now support **LRS** and **ZRS**
+	* Premium storage types

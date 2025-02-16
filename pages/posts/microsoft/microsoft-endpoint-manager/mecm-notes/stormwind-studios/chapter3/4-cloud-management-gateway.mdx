@@ -1,0 +1,96 @@
+# Microsoft Endpoint Manager Notes
+## Chapter 3.4 - Cloud Management Gateway
+
+### Configuration Manager - Cloud Management Gateway (CMG)
+* What is a Cloud Management Gateway
+	* Provides a simple way to manage Configuration Manager clients over the internet
+* Why use a Cloud Management Gateway
+	* Manage clients that roam on the internet or are in branch offices across the WAN without on-premises infrastructure
+	* On-premises environment is secured from internet-based devices
+
+### Configuration Manager - CMG Hierarchy Design
+* Planning Checklist:
+	* Components and requirements
+	* Client authentication
+	* Hierarchy design
+	* Performance and scale
+	* Cost
+
+### Configuration Manager - CMG Components
+* Deployment and operation of the CMG includes these components:
+	* CMG cloud service
+	* CMG connection point
+	* Service connection point
+	* Management point and software update point site system roles
+	* Certificate-based HTTPS
+	* Internet-based clients connecting using multiple options for client identity and authentication:
+		* Azure AD
+		* PKI certificates
+		* Configuration Manager site-issued tokens
+	* Azure storage account
+
+### Configuration Manager - Cloud Management Gateway (CMG) Requirements
+* An Azure subscription to host the CMG. This subscription can be in one of the following environments:
+	* Global Azure cloud
+	* Azure US Government cloud
+* Customers with a Cloud Service Provider (CSP) subscription need to use version 2010 or later with a virtual machine scale set deployment
+* Integrated with Azure AD
+* Optionally enable Azure AD user discovery
+* An Azure administrator needs to participate in the initial creation of certain components
+* On-premises Windows server to host the CMG connection point
+* Service connection point in online mode
+* Management point configured to allow traffic from the CMG
+	* It requires HTTPS, or configure the site for Enhanced HTTP
+* A server authentication certificate for the CMG
+* Other certificates may be required
+* IPv4 traffic from clients
+* Cloud service group client settings enabled for devices that will use the CMG:
+	* Enable clients to use a cloud management gateway
+	* Allow access to cloud distribution point
+
+### Configuration Manager - CMG Client Authentication
+* Key factors for each method of identity and authentication
+* ConfigMgr version
+	* Azure AD: All supported
+	* PKI certificate: All supported
+	* Site token: All supported
+* Windows client version
+	* Azure AD: Windows 10 or later
+	* PKI certificate: All supported
+	* Site token: All supported
+* Scenario support
+	* Azure AD: User and device
+	* PKI certificate: Device-only
+	* Site token: Device-only
+* Management point
+	* Azure AD: E-HTTP or HTTPS
+	* PKI certificate: E-HTTP or HTTPS
+	* Site token: E-HTTP or HTTPS
+
+### Configuration Manager - Cloud Based Distribution Points
+* Platform-as-a-Service (PaaS)
+* This service supports the following scenarios:
+	* Provide software content to internet-based clients without additional on-premises infrastructure
+	* Cloud-enable your content distribution system
+	* Reduce the need for traditional distribution points
+* Cloud Based Distribution Points
+	* Features
+	* Benefits
+	* Hierarchy Design
+	* Requirements
+	* Limitations
+
+### Configuration Manager - Monitoring and Modifying a CMG
+* Cloud Management
+* Dashboard
+
+### Topic Summary
+* CMG Hierarchy Design
+	* Planning
+	* Components
+	* Requirements
+* CMG Client Authentication
+* Configurations for CMG
+* Token Based Authentication for CMG
+* Cloud-Based Distribution Points
+* Monitoring and Modifying a CMG 

@@ -1,0 +1,71 @@
+# AZ-104 Certification Notes
+## Chapter 9.3 - Managing Virtual Machine Disks
+
+### What Are Virtual Hard Disks?
+* Virtual Hard Disks (VHDs)
+	* A file representation of what is found on a hard disk
+	* Virtual machines (VMs) use VHDs to store OS, apps, and data. VHDs utilize the underlying Microsoft storage infrastructure. They are stored as page blobs in the blob services
+
+### Purpose of VHDs
+* OS Disk
+	* Default with virtual machines
+	* Stores the operating system
+	* Registered as a SATA drive
+	* Labeled as the C: drive for Windows and mounted at "/" for Unix-like systems
+	* Max capacity of 4,095 GiB
+* Temporary Disk
+	* Default with virtual machines
+	* Stores non-persistent data like page and swap files
+	* Local disk for the underlying Microsoft Infrastructure
+* Data Disk
+	* Additional disks attached to a VM
+	* Used for storing persistent data like files or databases
+	* Registered as a SCSI drive
+	* Max capacity of 32,767 GiB
+
+### Unmanaged vs. Managed Disks
+* Unmanaged
+	* Not an Azure Resource Manager (ARM)-managed resources
+	* Manually managed storage accounts
+	* Availability not guaranteed
+* Managed
+	* An Azure Resource Manager (ARM)-managed resource
+	* Azure-managed storage accounts
+	* Availability Supported
+	* Role-Based Access Control (RBAC)
+	* Snapshot Support
+	* Backup Support
+
+### Major Disk Types
+* Disk Type:
+	* Ultra Disk (SSD)
+		* I/O-intensive workloads like top tier Online Transactional Processing (OLTP), any transaction-heavy workloads. (Only used as a data disk)
+	* Premium (SSD)
+		* Production and performance workloads
+	* Standard (SSD)
+		* Web servers, light enterprise applications, and dev/test workloads
+	* Standard (HDD)
+		* Backup, non-critical workloads
+
+### Disk Encryption at Rest for Defense in Depth
+* Storage Service Encryption (SSE)
+	* Encryption of physical disks in the data center
+	* Built into Azure platform
+* Azure Disk Encryption (ADE)
+	* Optional encryption of the VHDs
+	* Ensures a disk is only accessible by the VM that owns the disk
+	* OS tools like BitLocker and DM-Crypt
+
+### Demonstration
+* Add a Data Disk to a VM
+	* Use Azure Portal in Cloud Playground to add a data disk
+* Enable Azure Disk Encryption
+	* Create a key vault, create a key, and select encryption settings
+* Validate Encryption
+	* Use PowerShell to validate encryption
+
+### Exam Tips
+* Azure Disks = VHD
+	* OS Disk
+	* Temporary Disk
+	* Data Disk

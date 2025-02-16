@@ -1,0 +1,35 @@
+# AZ-104 Certification Notes
+## Chapter 12.5 - Configuring Application Insights
+
+### Describing Application Insights
+* Application Insights
+	* A full-stack application monitoring solution that developers can use to monitor applications
+		* Supports any application instrumented with Application Insights
+		* Repository for events and metrics data
+		* Telemetry data is streamed into an Application Insight resource
+
+### Application Insights Features
+* Metrics
+	* Live Metrics Stream for near-real-time metrics data and Metrics Explorer for viewing how metrics vary over time
+* Alerts
+	* Alerts on metrics or event data to notify application administrators of issues
+* Profiler
+	* Determine how requests are delivered, such as page elements and their performance
+* Application Map
+	* A topological view of applications and dependencies, used to identify dependency issues such as bottlenecks
+* Usage Analytics
+	* Analyze user metrics from client-side events like user interaction
+
+### Architectural Components
+* Client-Side
+	* Gather Application Insight data from the client-side
+* Application
+* Dependencies
+
+### Key Takeaways
+* Runtime Instrumentation
+	* Code-less approach with Application Insights, no package implementation
+* Built-Time Instrumentation
+	* Code approach with Application Insights, package implemented via SDK
+* Instrumentation Key
+	* Key for implementing instrumentation in applications. Stored in Application Insights resource

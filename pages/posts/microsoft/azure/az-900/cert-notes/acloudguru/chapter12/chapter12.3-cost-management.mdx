@@ -1,0 +1,34 @@
+# AZ-900 Certification Notes
+## Chapter 12.3 - Cost Management
+
+### Buying Azure Services
+You can't use Azure without buying services and products. But there are many to buying services.
+
+### Free Accounts
+* Yes, it's free
+* Benefits
+	* Many free services, as Microsoft wants you to get a taste of what Azure has to offer. Virtual Machines, databases, storage, and more
+* Always Free
+	* Some services are always free for everyone. Some totally free, some partially free up to a threshold
+
+### Free Accounts
+If you get a first version or prototype of your product done within those confines, then your Azure usage can start out being completely free.
+* Need a valid credit card to sign up for a free account
+* Only one free account per Microsoft Account
+
+### Azure Cost Management
+* Azure Portal
+	* Access the Azure Cost Management tool from within the Azure Portal. get a detailed view of current and projected costs. Azure Cost Management is free and included with all Azure subscriptions
+* Reports & Recommendations
+	* Get detailed spending reports and recommendations on how to save on costs and analyze them
+* Optimization
+	* Optimize your current resources to save money and monitor any **AWS charges** too
+
+### Spot VM
+Deep discounts are where you can save a lot of money using Spot instances of VMs. While Azure has a ton of computing capacity, it's rare that it's all used all the time. When compute isn't being used, you can use it for much cheaper with Spot VMs. You save up to 90% off the price by choosing to use a Spot VM. The downside is you aren't guaranteed they will run forever. Azure can evict you at any time they need the compute capacity back. Don't put any critical production processes on a Spot VM.
+### Spot VM Recap
+* Save money by using unused computing capacity
+* The VM can be evicted at any time by Microsoft if they need the compute power back
+* Use for interruptible non-critical workloads
+* Use with Azure scale sets
+* Set a max price for the Spot VM
