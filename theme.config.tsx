@@ -16,7 +16,7 @@ const config: DocsThemeConfig = {
       </a>
     )
   },
-  logo: <span>beta.mcelwain.me</span>,
+  logo: <span>mcelwain.me</span>,
   project: {
     link: 'https://github.com/ConnorMcElwain',
   },
@@ -25,16 +25,16 @@ const config: DocsThemeConfig = {
   
     if (asPath === '/') {
       return {
-        title: 'mcelwain.me – beta',
+        title: 'mcelwain.me',
         titleTemplate: null
       };
     }
   
     return {
-      titleTemplate: '%s | mcelwain.me – beta'
+      titleTemplate: '%s | mcelwain.me'
     };
   },   
-  docsRepositoryBase: 'https://github.com/ConnorMcElwain/beta.mcelwain.me',
+  docsRepositoryBase: 'https://github.com/ConnorMcElwain/mcelwain.me',
   editLink: {
     component: null
   },
@@ -45,11 +45,11 @@ const config: DocsThemeConfig = {
     text: (
       <span>
         MIT {new Date().getFullYear()} ©{' '}
-        <a href="https://beta.mcelwain.me/" target="_blank">
+        <a href="https://mcelwain.me/" target="_blank">
           McElwain.me
         </a>{' '}
         |{' '}
-        <a href="https://github.com/ConnorMcElwain/beta.mcelwain.me/commits/main/" target="_blank">
+        <a href="https://github.com/ConnorMcElwain/mcelwain.me/commits/main/" target="_blank">
           Change Logs
         </a>
         {' '}
