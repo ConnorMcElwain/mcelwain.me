@@ -40,8 +40,7 @@ export default function ContactModal() {
       {/* Contact Me Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
-      >
+        className="block w-full rounded border border-blue-600 bg-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto">
         Contact Me
       </button>
 
