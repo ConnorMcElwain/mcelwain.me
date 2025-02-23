@@ -5,4 +5,4 @@
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Template**: [Nextra](https://nextra.site/)
-- **Deployment**: [Coolify](https://coolify.io/)
+- **Deployment**: [Coolify](https://coolify.io/) Locally Hosted
