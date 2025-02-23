@@ -1,8 +1,6 @@
 import Link from '../components/Link';
 import ContactModal from "../components/ContactModal";
 
-export default function Home() {
-  return (
 <section class="text-white">
   <div class="mx-auto max-w-screen-xl px-4 py-4 lg:flex lg:h-fit lg:items-center">
     <div class="mx-auto max-w-3xl text-center">
@@ -33,13 +31,16 @@ export default function Home() {
           Experience Page
         </a>
 
-        <ContactModal />
+        <a
+          class="block w-full rounded border border-blue-600 bg-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
+          href="mailto:connor@mcelwain.me"
+        >
+          Contact Me
+        </a>
       </div>
     </div>
   </div>
 </section>
-  );
-}
 
 <span class="flex items-center">
   <span class="h-px flex-1 bg-white"></span>
