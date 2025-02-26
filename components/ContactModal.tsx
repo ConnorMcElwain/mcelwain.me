@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function ContactModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({ field1: "", field2: "", field3: "" });
-  const apiKey = "5bf1bab3-007c-480f-9351-46368266bec2";
 
   // Handle input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -17,7 +16,7 @@ export default function ContactModal() {
     e.preventDefault();
 
     try {
-      const response = await fetch(`https://api.formbee.dev/formbee/${apiKey}`, {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
