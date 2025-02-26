@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ContactModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({ field1: "", field2: "", field3: "" });
-  const apiKey = "891e9f79-5752-478e-9551-14d1c24d1e56"; // Replace with your actual FormBee API key
+  const apiKey = "5bf1bab3-007c-480f-9351-46368266bec2";
 
   // Handle input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -40,62 +41,76 @@ export default function ContactModal() {
       {/* Contact Me Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="block w-full rounded border border-blue-600 bg-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto">
+        className="block w-full rounded-lg border border-blue-500 bg-blue-500 px-6 py-3 text-lg font-semibold text-white shadow-md transition duration-300 hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 active:bg-blue-700 sm:w-auto">
         Contact Me
       </button>
 
-      {/* Modal */}
-      {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-96 relative">
-            {/* Close Button */}
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+      {/* Modal with Animation */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
+            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            animate={{ opacity: 1, backdropFilter: "blur(10px)" }}
+            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            transition={{ duration: 0.3 }}
+          >
+            <motion.div
+              className="bg-black text-white p-6 rounded-lg shadow-lg w-96 relative"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
             >
-              ✕
-            </button>
-
-            {/* Form */}
-            <h2 className="text-xl font-bold mb-4">Contact Me</h2>
-            <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
-              <input
-                type="text"
-                name="field1"
-                placeholder="Your Name"
-                value={formData.field1}
-                onChange={handleChange}
-                className="border p-2 rounded-md focus:ring focus:ring-blue-300"
-                required
-              />
-              <input
-                type="email"
-                name="field2"
-                placeholder="Your Email"
-                value={formData.field2}
-                onChange={handleChange}
-                className="border p-2 rounded-md focus:ring focus:ring-blue-300"
-                required
-              />
-              <textarea
-                name="field3"
-                placeholder="Your Message"
-                value={formData.field3}
-                onChange={handleChange}
-                className="border p-2 rounded-md focus:ring focus:ring-blue-300"
-                rows={4}
-                required
-              ></textarea>
+              {/* Close Button */}
               <button
-                type="submit"
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+                onClick={() => setIsOpen(false)}
+                className="absolute top-2 right-2 text-gray-400 hover:text-gray-200"
               >
-                Send Message
+                ✕
               </button>
-            </form>
-          </div>
-        </div>
-      )}
+
+              {/* Form */}
+              <h2 className="text-xl font-bold mb-4">Contact Me</h2>
+              <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+                <input
+                  type="text"
+                  name="field1"
+                  placeholder="Your Name"
+                  value={formData.field1}
+                  onChange={handleChange}
+                  className="border p-2 rounded-md focus:ring focus:ring-blue-300 bg-black text-white border-gray-600"
+                  required
+                />
+                <input
+                  type="email"
+                  name="field2"
+                  placeholder="Your Email"
+                  value={formData.field2}
+                  onChange={handleChange}
+                  className="border p-2 rounded-md focus:ring focus:ring-blue-300 bg-black text-white border-gray-600"
+                  required
+                />
+                <textarea
+                  name="field3"
+                  placeholder="Your Message"
+                  value={formData.field3}
+                  onChange={handleChange}
+                  className="border p-2 rounded-md focus:ring focus:ring-blue-300 bg-black text-white border-gray-600"
+                  rows={4}
+                  required
+                ></textarea>
+                <button
+                  type="submit"
+                  className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+                >
+                  Send Message
+                </button>
+              </form>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
