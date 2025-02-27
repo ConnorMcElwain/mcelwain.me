@@ -5,10 +5,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ message: "Method Not Allowed" });
   }
 
+  // Debugging: Log request body and API key status
+  console.log("Received request body:", req.body);
+  console.log("Using API Key:", process.env.FORMBEE_API_KEY ? "Exists" : "MISSING");
+
   try {
     const { field1, field2, field3 } = req.body;
 
     if (!field1 || !field2 || !field3) {
+      console.error("Missing form fields:", { field1, field2, field3 });
       return res.status(400).json({ message: "All fields are required" });
     }
 
