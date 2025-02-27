@@ -25,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     console.log("Sending request to FormBee...");
 
-    const response = await fetch(`https://api.formbee.io/v1/forms/${apiKey}/submit`, {
+    const response = await fetch(`https://api.formbee.dev/formbee/${apiKey}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
