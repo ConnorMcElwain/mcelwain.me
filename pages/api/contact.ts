@@ -34,15 +34,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       body: JSON.stringify({ name, phone, email, message }),
     });
 
+    // Parse response
     const responseData = await response.json();
 
+    // Log FormBee response details
+    console.error("FormBee Response:", {
+      status: response.status,
+      statusText: response.statusText,
+      headers: Object.fromEntries(response.headers.entries()),
+      body: responseData,
+    });
+
     if (response.status !== 200) {
-      console.error("FormBee Error:", responseData);
       return res.status(response.status).json({ message: responseData.message || "Form submission failed" });
     }
 
     console.log("Form submitted successfully:", responseData);
     return res.status(200).json({ message: "Form submitted successfully" });
+
   } catch (error) {
     console.error("Error submitting form:", error);
     return res.status(500).json({ message: "Internal Server Error" });
