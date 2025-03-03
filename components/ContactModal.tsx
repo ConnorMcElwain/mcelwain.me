@@ -75,7 +75,7 @@ export default function ContactModal() {
                 <input
                   type="text"
                   name="name"
-                  placeholder="Your Name"
+                  placeholder="Name"
                   value={formData.name}
                   onChange={handleChange}
                   className="border p-2 rounded-md focus:ring focus:ring-blue-300 bg-black text-white border-gray-600"
@@ -84,7 +84,7 @@ export default function ContactModal() {
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="Your Phone (Optional)"
+                  placeholder="Phone Number (Optional)"
                   value={formData.phone}
                   onChange={handleChange}
                   className="border p-2 rounded-md focus:ring focus:ring-blue-300 bg-black text-white border-gray-600"
@@ -92,7 +92,7 @@ export default function ContactModal() {
                 <input
                   type="email"
                   name="email"
-                  placeholder="Your Email"
+                  placeholder="Email Address"
                   value={formData.email}
                   onChange={handleChange}
                   className="border p-2 rounded-md focus:ring focus:ring-blue-300 bg-black text-white border-gray-600"
@@ -100,7 +100,7 @@ export default function ContactModal() {
                 />
                 <textarea
                   name="message"
-                  placeholder="Your Message"
+                  placeholder="Message"
                   value={formData.message}
                   onChange={handleChange}
                   className="border p-2 rounded-md focus:ring focus:ring-blue-300 bg-black text-white border-gray-600"
