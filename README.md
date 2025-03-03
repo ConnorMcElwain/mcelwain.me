@@ -4,5 +4,6 @@
 ## Details
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Web Form**: [FormBee](https://formbee.dev/)
 - **Template**: [Nextra](https://nextra.site/)
 - **Deployment**: [Coolify](https://coolify.io/) Locally Hosted
