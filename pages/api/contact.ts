@@ -10,10 +10,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   console.log("Using API Key:", process.env.FORMBEE_API_KEY ? "Exists" : "MISSING");
 
   try {
-    const { field1, field2, field3 } = req.body;
+    const { name, email, message } = req.body;
 
-    if (!field1 || !field2 || !field3) {
-      console.error("Missing form fields:", { field1, field2, field3 });
+    if (!name || !email || !message) {
+      console.error("Missing form fields:", { name, email, message });
       return res.status(400).json({ message: "All fields are required" });
     }
 
@@ -31,7 +31,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         "Content-Type": "application/json",
         "Accept": "application/json",
       },
-      body: JSON.stringify({ field1, field2, field3 }),
+      body: JSON.stringify({ name, email, message }),
     });
 
     const responseData = await response.json();
