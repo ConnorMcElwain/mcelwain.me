@@ -9,6 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   console.log("Received request body:", req.body);
   console.log("Using API Key:", process.env.FORMBEE_API_KEY ? "Exists" : "MISSING");
   console.log("Using API Key:", `"${process.env.FORMBEE_API_KEY}"`);
+  console.log("Form Data Parsed:", { name, phone, email, message });
 
   try {
     const { name, phone, email, message } = req.body;
@@ -32,7 +33,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         "Content-Type": "application/json",
         "Accept": "application/json",
       },
-      body: JSON.stringify({ name, phone, email, message }),
+      body: JSON.stringify(
+        Object.fromEntries(
+          Object.entries({ name, email, message, phone }).filter(([_, value]) => value)
+        )
+      ),      
     });
 
     // Parse response

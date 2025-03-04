@@ -7,7 +7,4 @@ module.exports = withNextra({
   env: {
     FORMBEE_API_KEY: process.env.FORMBEE_API_KEY,
   },
-  publicRuntimeConfig: {
-    FORMBEE_API_KEY: process.env.FORMBEE_API_KEY,
-  },
 });
