@@ -5,11 +5,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ message: "Method Not Allowed" });
   }
 
-  // Debugging: Log request body and API key status
-  console.log("Received request body:", req.body);
-  console.log("Using API Key:", process.env.FORMBEE_API_KEY ? "Exists" : "MISSING");
-  console.log("Using API Key:", `"${process.env.FORMBEE_API_KEY}"`);
-
   try {
     const { name, phone, email, message } = req.body;
 
@@ -26,14 +21,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     console.log("Sending request to FormBee...");
 
-    const response = await fetch('https://formbee.io/api/submit', {
-      method: 'POST',
+    const response = await fetch(`https://api.formbee.dev/formbee/${apiKey}`, {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.FORMBEE_API_KEY}`
+        "Content-Type": "application/json",
+        "Accept": "application/json",
       },
-      body: JSON.stringify(formData),
-    });    
+      body: JSON.stringify({ name, email, message }),
+    });
 
     // Parse response
     const responseData = await response.json();
