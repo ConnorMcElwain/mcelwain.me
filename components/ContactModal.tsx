@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function ContactModal() {
   const [isOpen, setIsOpen] = useState(false);
-  const [formData, setFormData] = useState({ name: "", phone: "", email: "", message: "" });
+  const [formData, setFormData] = useState({ field1: "", field2: "", field3: "" });
 
   // Handle input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -24,8 +24,8 @@ export default function ContactModal() {
 
       if (response.ok) {
         alert("Form submitted successfully!");
-        setIsOpen(false); // Closes the modal after submission
-        setFormData({ name: "", phone: "", email: "", message: "" }); // Reset form fields
+        setIsOpen(false); // Close the modal after submission
+        setFormData({ field1: "", field2: "", field3: "" }); // Reset form fields
       } else {
         alert("Form submission failed.");
       }
@@ -74,34 +74,26 @@ export default function ContactModal() {
               <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
                 <input
                   type="text"
-                  name="name"
-                  placeholder="Name"
-                  value={formData.name}
+                  name="field1"
+                  placeholder="Your Name"
+                  value={formData.field1}
                   onChange={handleChange}
                   className="border p-2 rounded-md focus:ring focus:ring-blue-300 bg-black text-white border-gray-600"
                   required
                 />
                 <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone Number (Optional)"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="border p-2 rounded-md focus:ring focus:ring-blue-300 bg-black text-white border-gray-600"
-                />
-                <input
                   type="email"
-                  name="email"
-                  placeholder="Email Address"
-                  value={formData.email}
+                  name="field2"
+                  placeholder="Your Email"
+                  value={formData.field2}
                   onChange={handleChange}
                   className="border p-2 rounded-md focus:ring focus:ring-blue-300 bg-black text-white border-gray-600"
                   required
                 />
                 <textarea
-                  name="message"
-                  placeholder="Message"
-                  value={formData.message}
+                  name="field3"
+                  placeholder="Your Message"
+                  value={formData.field3}
                   onChange={handleChange}
                   className="border p-2 rounded-md focus:ring focus:ring-blue-300 bg-black text-white border-gray-600"
                   rows={4}

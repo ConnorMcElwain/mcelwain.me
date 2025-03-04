@@ -5,11 +5,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ message: "Method Not Allowed" });
   }
 
-  try {
-    const { name, phone, email, message } = req.body;
+  // Debugging: Log request body and API key status
+  console.log("Received request body:", req.body);
+  console.log("Using API Key:", process.env.FORMBEE_API_KEY ? "Exists" : "MISSING");
 
-    if (!name || !email || !message) {
-      console.error("Missing form fields:", { name, email, message });
+  try {
+    const { field1, field2, field3 } = req.body;
+
+    if (!field1 || !field2 || !field3) {
+      console.error("Missing form fields:", { field1, field2, field3 });
       return res.status(400).json({ message: "All fields are required" });
     }
 
@@ -27,27 +31,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         "Content-Type": "application/json",
         "Accept": "application/json",
       },
-      body: JSON.stringify({ name, email, message }),
+      body: JSON.stringify({ field1, field2, field3 }),
     });
 
-    // Parse response
     const responseData = await response.json();
 
-    // Log FormBee response details
-    console.error("FormBee Response:", {
-      status: response.status,
-      statusText: response.statusText,
-      headers: Object.fromEntries(response.headers.entries()),
-      body: responseData,
-    });
-
     if (response.status !== 200) {
+      console.error("FormBee Error:", responseData);
       return res.status(response.status).json({ message: responseData.message || "Form submission failed" });
     }
 
     console.log("Form submitted successfully:", responseData);
     return res.status(200).json({ message: "Form submitted successfully" });
-
   } catch (error) {
     console.error("Error submitting form:", error);
     return res.status(500).json({ message: "Internal Server Error" });
