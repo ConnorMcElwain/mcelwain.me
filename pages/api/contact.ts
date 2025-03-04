@@ -26,18 +26,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     console.log("Sending request to FormBee...");
 
-    const response = await fetch(`https://api.formbee.dev/formbee/${apiKey}`, {
-      method: "POST",
+    const response = await fetch('https://formbee.io/api/submit', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.FORMBEE_API_KEY}`
       },
-      body: JSON.stringify(
-        Object.fromEntries(
-          Object.entries({ name, email, message, phone }).filter(([_, value]) => value)
-        )
-      ),      
-    });
+      body: JSON.stringify(formData),
+    });    
 
     // Parse response
     const responseData = await response.json();
