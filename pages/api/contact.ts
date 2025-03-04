@@ -9,7 +9,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   console.log("Received request body:", req.body);
   console.log("Using API Key:", process.env.FORMBEE_API_KEY ? "Exists" : "MISSING");
   console.log("Using API Key:", `"${process.env.FORMBEE_API_KEY}"`);
-  console.log("Form Data Parsed:", { name, phone, email, message });
 
   try {
     const { name, phone, email, message } = req.body;
