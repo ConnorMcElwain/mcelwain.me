@@ -30,6 +30,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json",
+        "Authorization": `Bearer ${process.env.FORMBEE_API_KEY}`,
       },
       body: JSON.stringify({ field1, field2, field3 }),
     });
