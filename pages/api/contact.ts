@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (!name || !email || !message) {
       console.error("Missing required fields:", { name, email, message });
-      return res.status(400).json({ message: "Name, Email, and Message are required" });
+      return res.status(400).json({ message: "Your name, email, and a message are required" });
     }
 
     const apiKey = process.env.FORMBEE_API_KEY;
@@ -32,7 +32,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         "Accept": "application/json",
         "Authorization": `Bearer ${process.env.FORMBEE_API_KEY}`,
       },
-      body: JSON.stringify({ name, email, message }),
+      body: JSON.stringify({ name, phone, email, message }),
     });
 
     const responseData = await response.json();
