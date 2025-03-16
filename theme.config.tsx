@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 const config: DocsThemeConfig = {
   head: (
     <>
-      <link rel="icon" href="/components/assets/favicon/logo.svg" />
+      <link rel="icon" href="/public/favicon.png" />
     </>
   ),
   banner: {
