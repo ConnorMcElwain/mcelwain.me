@@ -1,6 +1,8 @@
 import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 import { useRouter } from 'next/router'
+import Image from 'next/image';
+import Link from 'next/link';
 
 const config: DocsThemeConfig = {
   head: (
@@ -16,7 +18,18 @@ const config: DocsThemeConfig = {
       </a>
     )
   },
-  logo: <span>mcelwain.me</span>,
+  logo: (
+    <Link href="/" className="flex items-center space-x-2">
+      <Image 
+        src="/logo.png" 
+        alt="Site Logo" 
+        width={75} 
+        height={50} 
+        priority 
+        className="h-auto w-auto object-contain"
+      />
+    </Link>
+  ),
   project: {
     link: 'https://github.com/ConnorMcElwain',
   },
