@@ -1,0 +1,9 @@
+export default {
+  "chapter12-introduction": "Chapter 12 - Introduction",
+  "chapter12.2-subscriptions": "Chapter 12.2 - Subscriptions",
+  "chapter12.3-cost-management": "Chapter 12.3 - Cost Management",
+  "chapter12.4-pricing-factor": "Chapter 12.4 - Pricing Factor",
+  "chapter12.5-best-practices": "Chapter 12.5 - Best Practices",
+  "chapter12.6-summary": "Chapter 12.6 - Summary",
+  "chapter12.7-pricing-quiz": "Chapter 12.7 - Pricing Quiz"
+}

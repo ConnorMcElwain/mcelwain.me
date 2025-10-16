@@ -1,0 +1,4 @@
+export default {
+    "1-mail-module-options": "Chapter 6.1 - Mail Module Options",
+    "2-mail-scripting-demo": "Chapter 6.2 - Mail Scripting Demo"
+}

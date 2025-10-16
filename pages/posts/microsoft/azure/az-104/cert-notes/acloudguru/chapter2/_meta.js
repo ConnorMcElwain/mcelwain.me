@@ -1,0 +1,6 @@
+export default {
+  "chapter2-understanding-azure-resource-manager": "Chapter 2 - Understanding Azure Resource Manager",
+  "chapter2.2-azure-portal-and-cloud-shell": "Chapter 2.2 - Using Azure Portal and Cloud Shell",
+  "chapter2.3-azure-cli-and-powershell": "Chapter 2.3 - Using Azure CLI and PowerShell",
+  "chapter2.4-using-arm-template": "Chapter 2.4 - Using ARM Templates"
+}

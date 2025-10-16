@@ -1,0 +1,8 @@
+export default {
+    "chapter1": "Chapter 1 - Course Introduction",
+    "chapter2": "Chapter 2 - Intune, Mobile Devices, and Compliance",
+    "chapter3": "Chapter 3 - Configuration and Device Management",
+    "chapter4": "Chapter 4 - Co-Management",
+    "chapter5": "Chapter 5 - Windows Autopilot",
+    "chapter6": "Chapter 6 - Azure and Devices"
+}

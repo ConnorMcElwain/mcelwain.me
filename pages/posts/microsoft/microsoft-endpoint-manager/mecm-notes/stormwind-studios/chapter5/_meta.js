@@ -1,0 +1,7 @@
+export default {
+    "1-introduction-to-windows-autopilot": "Chapter 5.1 - Introduction to Windows Autopilot",
+    "2-windows-autopilot-process": "Chapter 5.2 - Windows Autopilot Process",
+    "3-windows-autopilot-scenarios": "Chapter 5.3 - Windows Autopilot Scenarios",
+    "4-windows-autopilot-capabilities": "Chapter 5.4 - Windows Autopilot Capabilities",
+    "5-autopilot-faq": "Chapter 5.5 - Autopilot FAQ's and Troubleshooting Tips"
+}

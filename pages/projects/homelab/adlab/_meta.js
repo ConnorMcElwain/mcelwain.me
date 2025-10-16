@@ -1,0 +1,4 @@
+export default {
+    "ad-intro": "AD Home Lab Introduction",
+    "ad-specs": "AD Home Lab Specs"
+}

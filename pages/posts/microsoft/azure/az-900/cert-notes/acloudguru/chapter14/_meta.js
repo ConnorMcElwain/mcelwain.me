@@ -1,0 +1,11 @@
+export default {
+  "chapter14-exam-overview": "Chapter 14 - Exam Overview",
+  "chapter14.2-exam-strategy": "Chapter 14.2 - Exam Strategy",
+  "chapter14.3-practice-exam1": "Chapter 14.3 - Practice Exam 1",
+  "chapter14.4-practice-exam2": "Chapter 14.4 - Practice Exam 2",
+  "chapter14.5-practice-exam3": "Chapter 14.5 - Practice Exam 3",
+  "chapter14.6-practice-exam4": "Chapter 14.6 - Practice Exam 4",
+  "chapter14.7-practice-exam5": "Chapter 14.7 - Practice Exam 5",
+  "chapter14.8-practice-exam6": "Chapter 14.8 - Practice Exam 6",
+  "chapter14.9-microsoft-official-practice-exam": "Chapter 14.9 - Microsoft Official Practice Exam"
+}

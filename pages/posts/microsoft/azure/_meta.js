@@ -1,0 +1,4 @@
+export default {
+  "az-900": "AZ-900",
+  "az-104": "AZ-104"
+}

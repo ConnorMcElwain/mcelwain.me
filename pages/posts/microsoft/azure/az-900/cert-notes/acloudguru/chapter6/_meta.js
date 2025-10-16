@@ -1,0 +1,13 @@
+export default {
+  "chapter6-introduction": "Chapter 6 - Introduction",
+  "chapter6.1-blob": "Chapter 6.1 - Blob",
+  "chapter6.2-disk": "Chapter 6.2 - Disk",
+  "chapter6.3-file": "Chapter 6.3 - File",
+  "chapter6.4-archive": "Chapter 6.4 - Archive",
+  "chapter6.5-storage-redundancy": "Chapter 6.5 - Storage Redundancy",
+  "chapter6.6-moving-data": "Chapter 6.6 - Moving Data",
+  "chapter6.7-additional-migration-options": "Chapter 6.7 - Additional Migration Options",
+  "chapter6.8-premium-performance-options": "Chapter 6.8 - Premium Performance Options",
+  "chapter6.9-summary": "Chapter 6.9 - Summary",
+  "chapter6.10-storage-quiz": "Chapter 6.10 - Storage Quiz"
+}

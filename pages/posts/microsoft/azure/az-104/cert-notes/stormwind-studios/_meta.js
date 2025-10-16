@@ -1,0 +1,6 @@
+export default {
+    "day1": "Day 1",
+    "day2": "Day 2",
+    "day3": "Day 3",
+    "day4": "Day 4"
+}

@@ -1,0 +1,9 @@
+export default {
+    "chapter10-introduction": "Chapter 10 - Introduction",
+    "chapter10.2-encryption": "Chapter 10.2 - Encryption",
+    "chapter10.3-disk-roles": "Chapter 10.3 - Disk Roles",
+    "chapter10.4-managed-disk-snapshots-managed-custom-image": "Chapter 10.4 - Managed Disk Snapshots Managed Custom Image",
+    "chapter10.5-disk-types": "Chapter 10.5 - Disk Types",
+    "chapter10.6-bursting": "Chapter 10.6 - Bursting",
+    "chapter10.7-azure-disks-cheatsheet": "Chapter 10.7 - Azure Disks CheatSheet"
+}

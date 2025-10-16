@@ -1,0 +1,3 @@
+export default {
+    "az-900-certified": "AZ-900 Certified!"
+  }
