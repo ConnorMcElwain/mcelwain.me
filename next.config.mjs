@@ -1,6 +1,8 @@
-import withNextra from 'nextra'
+import nextra from 'nextra'
 
-export default withNextra({
+const withNextra = nextra({
   theme: 'nextra-theme-docs',
   themeConfig: './theme.config.tsx',
 })
+
+export default withNextra()
