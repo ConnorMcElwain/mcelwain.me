@@ -1,3 +1,5 @@
 import nextra from 'nextra'
 
-export default nextra()
+export default nextra({
+  contentDirBasePath: '/'
+})
