@@ -1,5 +1,9 @@
-import nextra from 'nextra'
+import { withNextra } from 'nextra'
 
-export default nextra({
-  contentDirBasePath: '/'
+const withDocs = withNextra({
+  theme: 'nextra-theme-docs',
+  themeConfig: './theme.config.tsx',
+  contentDirBasePath: '/',
 })
+
+export default withDocs()
