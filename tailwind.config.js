@@ -1,20 +1,17 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-    content: [
-      './pages/**/*.{js,jsx,ts,tsx,md,mdx}',
-      './components/**/*.{js,jsx,ts,tsx,md,mdx}',
-      './styles/**/*.{js,jsx,ts,tsx,md,mdx}',
-      './app/**/*.{js,ts,jsx,tsx,mdx}',
-      './theme.config.tsx',
-   
-      // Or if using `src` directory:
-      './src/**/*.{js,jsx,ts,tsx,md,mdx}'
-    ],
-    theme: {
-      extend: {
-      }
-    },
-    plugins: [
-      require('daisyui'),
-    ],
-}
+export default {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./content/**/*.{md,mdx}",
+    "./theme.config.tsx",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("daisyui"),
+  ],
+};

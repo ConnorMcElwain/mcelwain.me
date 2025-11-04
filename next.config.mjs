@@ -1,15 +1,19 @@
-import { nextra } from 'nextra'
+import nextra from 'nextra'
+import path from 'path'
 
-const withNextra = nextra({
-  theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.tsx',
-  defaultShowCopyCode: true,
-  flexsearch: {
-    codeblocks: false
-  },
-  contentDirBasePath: '/'
-})
+// Pass an object into nextra() — even if empty — so Nextra initializes properly
+const withNextra = nextra({})
 
 export default withNextra({
-  reactStrictMode: true
+  experimental: {
+    mdxRs: true,
+  },
+  webpack: (config) => {
+    // Add alias to fix “next-mdx-import-source-file” resolution
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      'next-mdx-import-source-file': path.resolve('./mdx-components.js'),
+    }
+    return config
+  },
 })

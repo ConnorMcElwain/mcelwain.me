@@ -1,12 +1,21 @@
+"use client";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function ContactModal() {
   const [isOpen, setIsOpen] = useState(false);
-  const [formData, setFormData] = useState({ name: "", phone: "", email: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
 
   // Handle input changes
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -40,7 +49,8 @@ export default function ContactModal() {
       {/* Contact Me Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="block w-full rounded-lg border border-blue-500 bg-blue-500 px-6 py-3 text-lg font-semibold text-white shadow-md transition duration-300 hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 active:bg-blue-700 sm:w-auto">
+        className="block w-full rounded-lg border border-blue-500 bg-blue-500 px-6 py-3 text-lg font-semibold text-white shadow-md transition duration-300 hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 active:bg-blue-700 sm:w-auto"
+      >
         Contact Me
       </button>
 
