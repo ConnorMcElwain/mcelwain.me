@@ -1,3 +1,6 @@
 export default {
-    "homelab": "Home Lab"
+  "homelab": {
+    "title": "Home Lab",
+    "type": "page"
+  }
 }

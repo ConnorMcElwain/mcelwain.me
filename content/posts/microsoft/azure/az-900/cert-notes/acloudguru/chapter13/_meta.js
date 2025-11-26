@@ -1,10 +1,34 @@
 export default {
-  "chapter13-plans": "Chapter 13 - Plans",
-  "chapter13.2-tickets": "Chapter 13.2 - Tickets",
-  "chapter13.3-channels": "Chapter 13.3 - Channels",
-  "chapter13.4-azure-on-qanda": "Chapter 13.4 - Azure on Q&A",
-  "chapter13.5-service-level-agreements": "Chapter 13.5 - Service Level Agreements",
-  "chapter13.6-service-lifecycle": "Chapter 13.6 - Service Lifecycle",
-  "chapter13.7-summary": "Chapter 13.7 - Summary",
-  "chapter13.8-support-quiz": "Chapter 13.8 - Support Quiz"
+  "chapter13-plans": {
+    "title": "Chapter 13 - Plans",
+    "type": "page"
+  },
+  "chapter13.2-tickets": {
+    "title": "Chapter 13.2 - Tickets",
+    "type": "page"
+  },
+  "chapter13.3-channels": {
+    "title": "Chapter 13.3 - Channels",
+    "type": "page"
+  },
+  "chapter13.4-azure-on-qanda": {
+    "title": "Chapter 13.4 - Azure on Q&A",
+    "type": "page"
+  },
+  "chapter13.5-service-level-agreements": {
+    "title": "Chapter 13.5 - Service Level Agreements",
+    "type": "page"
+  },
+  "chapter13.6-service-lifecycle": {
+    "title": "Chapter 13.6 - Service Lifecycle",
+    "type": "page"
+  },
+  "chapter13.7-summary": {
+    "title": "Chapter 13.7 - Summary",
+    "type": "page"
+  },
+  "chapter13.8-support-quiz": {
+    "title": "Chapter 13.8 - Support Quiz",
+    "type": "page"
+  }
 }

@@ -1,3 +1,6 @@
 export default {
-    "mecm-setup": "Microsoft Endpoint Configuration Manager Setup"
+  "mecm-setup": {
+    "title": "Microsoft Endpoint Configuration Manager Setup",
+    "type": "page"
+  }
 }

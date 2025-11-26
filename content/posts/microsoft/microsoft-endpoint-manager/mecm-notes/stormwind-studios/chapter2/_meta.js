@@ -1,7 +1,22 @@
 export default {
-    "1-introduction-to-intune": "Chapter 2.1 - Introduction to Intune",
-    "2-mobile-device-management": "Chapter 2.2 - Mobile Device Management (MDM)",
-    "3-mobile-application-management": "Chapter 2.3 - Mobile Application Management",
-    "4-compliance-policies": "Chapter 2.4 - Compliance Policies",
-    "5-conditional-access": "Chapter 2.5 - Conditional Access"
+  "1-introduction-to-intune": {
+    "title": "Chapter 2.1 - Introduction to Intune",
+    "type": "page"
+  },
+  "2-mobile-device-management": {
+    "title": "Chapter 2.2 - Mobile Device Management (MDM)",
+    "type": "page"
+  },
+  "3-mobile-application-management": {
+    "title": "Chapter 2.3 - Mobile Application Management",
+    "type": "page"
+  },
+  "4-compliance-policies": {
+    "title": "Chapter 2.4 - Compliance Policies",
+    "type": "page"
+  },
+  "5-conditional-access": {
+    "title": "Chapter 2.5 - Conditional Access",
+    "type": "page"
+  }
 }

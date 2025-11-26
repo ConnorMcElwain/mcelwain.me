@@ -1,20 +1,74 @@
 export default {
-    "1-synchronized-identities": "7.1 - Synchronized Identities",
-    "2-prepare-for-synchronization": "7.2 - Prepare for Synchronization",
-    "3-idfix": "7.3 - IdFix",
-    "4-configuring-synchronization": "7.4 - Configuring Synchronization",
-    "5-hybrid-identities-authentication-options": "7.5 - Hybrid Identities Authentication Options",
-    "6-contacts": "7.6 - Contacts",
-    "7-service-health": "7.7 - Service Health",
-    "8-message-center": "7.8 - Message Center",
-    "9-adoption-score": "7.9 - Adoption Score",
-    "10-troubleshooting-tools": "7.10 - Troubleshooting Tools",
-    "11-auditing": "7.11 - Auditing",
-    "12-information-security": "7.12 - Information Security",
-    "13-microsoft-purview": "7.13 - Microsoft Purview",
-    "14-data-classification": "7.14 - Data Classification",
-    "15-data-connectors": "7.15 - Data Connectors",
-    "16-alert-policies-roles-and-scopes": "7.16 - Alert Policies Roles and Scopes",
-    "17-compliance-solutions": "7.17 - Compliance Solutions",
-    "18-data-loss-prevention": "7.18 - Data Loss Prevention"
+  "1-synchronized-identities": {
+    "title": "7.1 - Synchronized Identities",
+    "type": "page"
+  },
+  "10-troubleshooting-tools": {
+    "title": "7.10 - Troubleshooting Tools",
+    "type": "page"
+  },
+  "11-auditing": {
+    "title": "7.11 - Auditing",
+    "type": "page"
+  },
+  "12-information-security": {
+    "title": "7.12 - Information Security",
+    "type": "page"
+  },
+  "13-microsoft-purview": {
+    "title": "7.13 - Microsoft Purview",
+    "type": "page"
+  },
+  "14-data-classification": {
+    "title": "7.14 - Data Classification",
+    "type": "page"
+  },
+  "15-data-connectors": {
+    "title": "7.15 - Data Connectors",
+    "type": "page"
+  },
+  "16-alert-policies-roles-and-scopes": {
+    "title": "7.16 - Alert Policies Roles and Scopes",
+    "type": "page"
+  },
+  "17-compliance-solutions": {
+    "title": "7.17 - Compliance Solutions",
+    "type": "page"
+  },
+  "18-data-loss-prevention": {
+    "title": "7.18 - Data Loss Prevention",
+    "type": "page"
+  },
+  "2-prepare-for-synchronization": {
+    "title": "7.2 - Prepare for Synchronization",
+    "type": "page"
+  },
+  "3-idfix": {
+    "title": "7.3 - IdFix",
+    "type": "page"
+  },
+  "4-configuring-synchronization": {
+    "title": "7.4 - Configuring Synchronization",
+    "type": "page"
+  },
+  "5-hybrid-identities-authentication-options": {
+    "title": "7.5 - Hybrid Identities Authentication Options",
+    "type": "page"
+  },
+  "6-contacts": {
+    "title": "7.6 - Contacts",
+    "type": "page"
+  },
+  "7-service-health": {
+    "title": "7.7 - Service Health",
+    "type": "page"
+  },
+  "8-message-center": {
+    "title": "7.8 - Message Center",
+    "type": "page"
+  },
+  "9-adoption-score": {
+    "title": "7.9 - Adoption Score",
+    "type": "page"
+  }
 }

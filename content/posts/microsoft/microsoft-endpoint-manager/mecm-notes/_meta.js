@@ -1,3 +1,6 @@
 export default {
-    "stormwind-studios": "MECM Stormwind Studios Course Notes"
+  "stormwind-studios": {
+    "title": "MECM Stormwind Studios Course Notes",
+    "type": "page"
+  }
 }

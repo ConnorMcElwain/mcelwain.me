@@ -1,3 +1,6 @@
 export default {
-  "microsoft": "Microsoft"
+  "microsoft": {
+    "title": "Microsoft",
+    "type": "page"
+  }
 }

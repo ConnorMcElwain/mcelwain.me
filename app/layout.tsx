@@ -1,54 +1,121 @@
+import type { ReactNode } from 'react'
+import type { Metadata } from 'next'
 import { Footer, Layout, Navbar } from 'nextra-theme-docs'
 import { Banner, Head } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
-// Required for theme styles, previously was imported under the hood
 import 'nextra-theme-docs/style.css'
- 
-export const metadata = {
-  // ... your metadata API
-  // https://nextjs.org/docs/app/building-your-application/optimizing/metadata
+import './globals.css'
+import Link from 'next/link'
+import Image from 'next/image'
+
+export const metadata: Metadata = {
+  title: {
+    default: 'mcelwain.me',
+    template: '%s | mcelwain.me'
+  },
+  description:
+    'Personal website of Connor McElwain – notes, documentation, and IT projects.'
 }
- 
-const banner = <Banner storageKey="some-key">Nextra 4.0 is released 🎉</Banner>
-const navbar = <Navbar logo={<b>Nextra</b>} projectLink="https://github.com/shuding/nextra" />
+
+const banner = (
+    <Banner storageKey="beta-release">
+      🔥 Check out my documented journey on how to set up{' '}
+      <Link href="/posts/microsoft/configuration-manager/mecm-setup">
+        <b>
+          <u>Configuration Manager (MECM)</u>
+        </b>
+      </Link>{' '}
+      and my updated notes on the{' '}
+      <Link href="/posts/microsoft/azure/az-104/cert-notes">
+        <b>
+          <u>Azure AZ-104 Exam</u>
+        </b>
+      </Link>
+      ! 🔥
+    </Banner>
+  )
+
+const navbar = (
+  <Navbar
+    logo={
+      <div className="flex items-center space-x-2">
+        <Image
+          src="/logo.png"
+          alt="Website Logo"
+          width={75}
+          height={50}
+        />
+      </div>
+    }
+  />
+)
+
 const footer = (
-  <Footer className="flex-col items-center md:items-start">
-    MIT {new Date().getFullYear()} © Nextra.
+  <Footer className="flex flex-wrap items-center justify-start gap-2 md:justify-start">
+    <span>
+      MIT {new Date().getFullYear()} ©{' '}
+      <a
+        href="https://mcelwain.me"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:underline"
+      >
+        McElwain.me
+      </a>
+      {' '}|{' '}
+      <a
+        href="https://github.com/ConnorMcElwain/mcelwain.me/commits/main/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:underline"
+      >
+        Change Logs
+      </a>
+      {' '}|{' '}
+      <a
+        href="https://stats.mcelwain.me"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:underline"
+      >
+        Status
+      </a>
+      {' '}|{' '}
+      <a
+        href="/known-issues"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:underline"
+      >
+        Known Issues
+      </a>
+    </span>
   </Footer>
 )
- 
-export default async function RootLayout({ children }) {
+
+
+export default async function RootLayout({
+  children,
+}: {
+  children: ReactNode
+}) {
   return (
     <html
-      // Not required, but good for SEO
       lang="en"
-      // Required to be set
       dir="ltr"
-      // Suggested by `next-themes` package https://github.com/pacocoursey/next-themes#with-app
       suppressHydrationWarning
     >
-      <Head
-        backgroundColor={{
-          dark: 'rgb(15, 23, 42)',
-          light: 'rgb(254, 252, 232)'
-        }}
-        color={{
-          hue: { dark: 120, light: 0 },
-          saturation: { dark: 100, light: 100 }
-        }}
-      >
-        {/* Your additional tags should be passed as `children` of `<Head>` element */}
+      <Head>
+
       </Head>
       <body>
         <Layout
           banner={banner}
           navbar={navbar}
-          pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/shuding/nextra/tree/main/docs"
-          editLink="Edit this page on GitHub"
-          sidebar={{ defaultMenuCollapseLevel: 1 }}
           footer={footer}
-          // ...Your additional theme config options
+          editLink={null}
+          pageMap={await getPageMap()}
+          feedback={{ content: null }}
         >
           {children}
         </Layout>

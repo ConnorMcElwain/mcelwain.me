@@ -1,5 +1,14 @@
 export default {
-  "chapter3-regions-and-availability-zones": "Chapter 3 - Regions & Availability Zones",
-  "chapter3.2-resource-groups-and-resource-manager": "Chapter 3.2 - Resource Groups & Azure Manager",
-  "chapter3.3-azure-architecture-quiz": "Chapter 3.3 - Azure Architecture Quiz"
+  "chapter3-regions-and-availability-zones": {
+    "title": "Chapter 3 - Regions & Availability Zones",
+    "type": "page"
+  },
+  "chapter3.2-resource-groups-and-resource-manager": {
+    "title": "Chapter 3.2 - Resource Groups & Azure Manager",
+    "type": "page"
+  },
+  "chapter3.3-azure-architecture-quiz": {
+    "title": "Chapter 3.3 - Azure Architecture Quiz",
+    "type": "page"
+  }
 }

@@ -1,4 +1,10 @@
 export default {
-  "az-900": "AZ-900",
-  "az-104": "AZ-104"
+  "az-104": {
+    "title": "AZ-104",
+    "type": "page"
+  },
+  "az-900": {
+    "title": "AZ-900",
+    "type": "page"
+  }
 }

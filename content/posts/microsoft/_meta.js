@@ -1,7 +1,22 @@
 export default {
-    "azure": "Azure",
-    "ms-102": "MS-102",
-    "configuration-manager": "Configuration Manager",
-    "microsoft-endpoint-manager": "Microsoft Endpoint Manager",
-    "powershell-for-microsoft365": "PowerShell for Microsoft 365"
+  "azure": {
+    "title": "Azure",
+    "type": "page"
+  },
+  "configuration-manager": {
+    "title": "Configuration Manager",
+    "type": "page"
+  },
+  "microsoft-endpoint-manager": {
+    "title": "Microsoft Endpoint Manager",
+    "type": "page"
+  },
+  "ms-102": {
+    "title": "MS-102",
+    "type": "page"
+  },
+  "powershell-for-microsoft365": {
+    "title": "PowerShell for Microsoft 365",
+    "type": "page"
+  }
 }

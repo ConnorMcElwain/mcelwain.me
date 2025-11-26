@@ -1,3 +1,6 @@
 export default {
-  "cert-notes": "AZ-104 Certification Notes"
+  "cert-notes": {
+    "title": "AZ-104 Certification Notes",
+    "type": "page"
+  }
 }

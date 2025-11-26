@@ -1,9 +1,30 @@
 export default {
-    "chapter1": "Chapter 1 - Introduction to PowerShell for Microsoft 365",
-    "chapter2": "Chapter 2 - User Accounts",
-    "chapter3": "Chapter 3 - 365 Tenant",
-    "chapter4": "Chapter 4 - OneDrive",
-    "chapter5": "Chapter 5 - SharePoint",
-    "chapter6": "Chapter 6 - Exchange Online",
-    "chapter7": "Chapter 7 - Teams"
+  "chapter1": {
+    "title": "Chapter 1 - Introduction to PowerShell for Microsoft 365",
+    "type": "page"
+  },
+  "chapter2": {
+    "title": "Chapter 2 - User Accounts",
+    "type": "page"
+  },
+  "chapter3": {
+    "title": "Chapter 3 - 365 Tenant",
+    "type": "page"
+  },
+  "chapter4": {
+    "title": "Chapter 4 - OneDrive",
+    "type": "page"
+  },
+  "chapter5": {
+    "title": "Chapter 5 - SharePoint",
+    "type": "page"
+  },
+  "chapter6": {
+    "title": "Chapter 6 - Exchange Online",
+    "type": "page"
+  },
+  "chapter7": {
+    "title": "Chapter 7 - Teams",
+    "type": "page"
+  }
 }

@@ -1,4 +1,10 @@
 export default {
-    "1-introduction": "Day 1.1 - Introduction",
-    "2-exam-prep-tools": "Day 1.2 - Exam Preparation Tools"
+  "1-introduction": {
+    "title": "Day 1.1 - Introduction",
+    "type": "page"
+  },
+  "2-exam-prep-tools": {
+    "title": "Day 1.2 - Exam Preparation Tools",
+    "type": "page"
+  }
 }

@@ -1,3 +1,6 @@
 export default {
-    "stormwind-studios": "PowerShell for Microsoft 365 Stormwind Studios Course Notes"
+  "stormwind-studios": {
+    "title": "PowerShell for Microsoft 365 Stormwind Studios Course Notes",
+    "type": "page"
+  }
 }

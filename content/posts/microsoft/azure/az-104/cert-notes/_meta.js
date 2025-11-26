@@ -1,5 +1,14 @@
 export default {
-  "acloudguru": "ACloudGuru Course Notes",
-  "exampro": "ExamPro Course Notes",
-  "stormwind-studios": "Stormwind Studios Course Notes"
+  "acloudguru": {
+    "title": "ACloudGuru Course Notes",
+    "type": "page"
+  },
+  "exampro": {
+    "title": "ExamPro Course Notes",
+    "type": "page"
+  },
+  "stormwind-studios": {
+    "title": "Stormwind Studios Course Notes",
+    "type": "page"
+  }
 }

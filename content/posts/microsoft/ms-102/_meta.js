@@ -1,3 +1,6 @@
 export default {
-    "cert-notes": "MS-102 Certification Notes"
+  "cert-notes": {
+    "title": "MS-102 Certification Notes",
+    "type": "page"
+  }
 }

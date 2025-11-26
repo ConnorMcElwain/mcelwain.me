@@ -1,3 +1,6 @@
 export default {
-    "mecm-notes": "Microsoft Endpoint Manager Course Notes"
+  "mecm-notes": {
+    "title": "Microsoft Endpoint Manager Course Notes",
+    "type": "page"
+  }
 }

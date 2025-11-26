@@ -1,3 +1,6 @@
 export default {
-    "stormwind-studios": "MS-102 Stormwind Studios Course Notes"
+  "stormwind-studios": {
+    "title": "MS-102 Stormwind Studios Course Notes",
+    "type": "page"
+  }
 }

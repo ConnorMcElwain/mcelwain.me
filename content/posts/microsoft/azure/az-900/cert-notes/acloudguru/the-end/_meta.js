@@ -1,3 +1,6 @@
 export default {
-    "az-900-certified": "AZ-900 Certified!"
+  "az-900-certified": {
+    "title": "AZ-900 Certified!",
+    "type": "page"
   }
+}

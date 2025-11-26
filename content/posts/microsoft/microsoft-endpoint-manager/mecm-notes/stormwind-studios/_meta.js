@@ -1,8 +1,26 @@
 export default {
-    "chapter1": "Chapter 1 - Course Introduction",
-    "chapter2": "Chapter 2 - Intune, Mobile Devices, and Compliance",
-    "chapter3": "Chapter 3 - Configuration and Device Management",
-    "chapter4": "Chapter 4 - Co-Management",
-    "chapter5": "Chapter 5 - Windows Autopilot",
-    "chapter6": "Chapter 6 - Azure and Devices"
+  "chapter1": {
+    "title": "Chapter 1 - Course Introduction",
+    "type": "page"
+  },
+  "chapter2": {
+    "title": "Chapter 2 - Intune, Mobile Devices, and Compliance",
+    "type": "page"
+  },
+  "chapter3": {
+    "title": "Chapter 3 - Configuration and Device Management",
+    "type": "page"
+  },
+  "chapter4": {
+    "title": "Chapter 4 - Co-Management",
+    "type": "page"
+  },
+  "chapter5": {
+    "title": "Chapter 5 - Windows Autopilot",
+    "type": "page"
+  },
+  "chapter6": {
+    "title": "Chapter 6 - Azure and Devices",
+    "type": "page"
+  }
 }
