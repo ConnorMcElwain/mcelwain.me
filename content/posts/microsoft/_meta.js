@@ -1,4 +1,9 @@
 export default {
+  index: {
+    "title": "Microsoft",
+    "type": "doc",
+    "href": "/microsoft",
+  },
   "azure": {
     "title": "Azure",
     "type": "page"

@@ -1,6 +1,7 @@
 export default {
-  "microsoft": {
-    "title": "Microsoft",
-    "type": "page"
-  }
+  index: {
+    "title": "Posts",
+    "type": "page",
+    "href": "/posts",
+  },
 }
