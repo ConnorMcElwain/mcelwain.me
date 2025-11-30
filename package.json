@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Nextra docs template",
   "engines": {
-    "node": "25.2.1"
+    "node": "22"
   },
   "scripts": {
     "dev": "next dev",
