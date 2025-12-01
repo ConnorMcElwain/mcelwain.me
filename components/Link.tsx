@@ -1,4 +1,3 @@
-// components/Link.js
 import React from 'react';
 
 const Link = ({ href, children }) => {

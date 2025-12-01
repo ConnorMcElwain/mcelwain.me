@@ -18,20 +18,8 @@ export const metadata: Metadata = {
 }
 
 const banner = (
-    <Banner storageKey="beta-release">
-      🔥 Check out my documented journey on how to set up{' '}
-      <Link href="/posts/microsoft/configuration-manager/mecm-setup">
-        <b>
-          <u>Configuration Manager (MECM)</u>
-        </b>
-      </Link>{' '}
-      and my updated notes on the{' '}
-      <Link href="/posts/microsoft/azure/az-104/cert-notes">
-        <b>
-          <u>Azure AZ-104 Exam</u>
-        </b>
-      </Link>
-      ! 🔥
+    <Banner storageKey="under-construction">
+      ⚠️Site is undergoing a <Link href="https://the-guild.dev/blog/nextra-4"><b><u>platform migration</u></b></Link>, there will be broken links and missing content. Please report any issues you find on <Link href="https://github.com/ConnorMcElwain/mcelwain.me/issues"><b><u>GitHub</u></b></Link>⚠️
     </Banner>
   )
 
